@@ -1,0 +1,25 @@
+1: "wget" or "git clone https://github.com/xianglei/phpHiveAdmin.git"
+
+2:. untar it.
+
+3: add this follow to your nginx.conf in your "location ~ .php$ {};" area
+
+fastcgi_connect_timeout 36000; fastcgi_send_timeout 36000; fastcgi_read_timeout 36000;
+
+4: in php 5.3.9 open $PHP_HOME/etc/php-fpm.conf modify to this:
+
+process_control_timeout = 36000s
+
+and to this:
+
+request_terminate_timeout = 36000s
+
+open $PHP_HOME/lib/php.ini modify to this:
+
+max_input_time = 36000
+
+and to this:
+
+default_socket_timeout = 36000
+
+5: restart nginx && php-fpm
