@@ -9,10 +9,11 @@ $client->execute('show databases');
 $db_array = $client->fetchAll();
 
 $i = 0;
+echo "<<< Back<br /><br />";
 while('' != @$db_array[$i]) {
 	echo '<a href=sql_query.php?database='.$db_array[$i].' target="right">'.$db_array[$i].'</a><br />';
 	$i++;
 }
-
+echo "<<< Back<br />"
 $transport->close();
 ?>
