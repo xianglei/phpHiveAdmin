@@ -6,6 +6,8 @@ require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'transport/TSocket.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'protocol/TBinaryProtocol.php';
 // Set up the transport/protocol/client
+require_once 'langs/lang_en.php';
+//langs path an file
 
 define('HOST','192.168.1.49');
 define('PORT','10000');
