@@ -2,17 +2,9 @@
 ignore_user_abort(true);
 set_time_limit(0);
 
-/*function query($sql)
-{
-	global $client;
-	$client->execute($sql);
-	$array = $client->fetchAll();
-	return $array;
-}*/
-
 if(!$_GET['database'] || '' == $_GET['database'])
 {
-	die('must choose a database');
+	die($lang['dieTableChoose']);
 }
 else
 {
@@ -23,34 +15,15 @@ else
 
 	$transport->open();
 
-	$client->execute('add jar /opt/modules/hive/hive-0.7.1/lib/hive-contrib-0.7.1.jar');
+	$client->execute('add jar '.$env['hive_jar']);
+	
 	$sql = 'use '.$_GET['database'];
 	echo $sql.'<br /><br />';
-	$client->execute('use '.$_GET['database']);
+	$client->execute($sql);
 	$client->fetchOne();
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
-		$sql = "show tables";
-                $client->execute($sql);
-                $array = $client->fetchAll();
-                $i = 0;
-                while('' != @$array[$i])
-                {
-                        echo $array[$i]."&nbsp;|&nbsp;";
-                        $i++;
-                }
-		echo "<br>";
-		$sql = "desc ".$array[0];
-		$client->execute($sql);
-		$array = $client->fetchAll();
-		$i = 0;
-		while('' != @$array[$i])
-		{
-			echo $array[$i]."&nbsp;|&nbsp;";
-			$i++;
-		}
-
 		include_once 'templates/sql_query.html';
 	}
 	else
