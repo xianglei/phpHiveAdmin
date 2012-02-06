@@ -77,13 +77,9 @@ else
 			{
 				$color = "bgcolor=\"#FFFF99\"";
 			}
-			elseif(1 == $i)
-			{
-				$color = "bgcolor=\"#99FFFF\"";
-			}
 			else
 			{
-				$color = "bgcolor=\"#FFFFFF\"";
+				$color = "bgcolor=\"#99FFFF\"";
 			}
 			echo "<tr ".$color.">\n";
 			foreach($value as $v)
