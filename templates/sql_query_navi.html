@@ -1,13 +1,13 @@
 <table border=1>
 <tr><td>
-<a href=sqlQuery.php>
+<a href=sqlQuery.php?database="<?php echo $_GET['database'];?>&table=<?php echo $_GET['table']?>">
 <?php
 echo $lang['sqlQuery'];
 ?>
 </a>
 </td>
 <td>
-<a href=export.php>
+<a href="export.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table']?>">
 <?php
 echo $lang['export'];
 ?>
