@@ -39,12 +39,20 @@ else
 	{
 		echo '<table border=1>';
 		$i = 0;
-		while ('' != @$array_desc_table[$i])
+		echo '<tr>';
+		while ('' != @$array_desc_name[$i])
 		{
-			echo '<tr><td>'.$array_desc_name[$i].'</td></tr>';
-			echo '<tr><td>'.$array_desc_type[$i].'</td></tr>';
+			echo '<td>'.$array_desc_name[$i].'</td>';
 			$i++;
 		}
+		echo '</tr>';
+		echo '<tr>';
+		while ('' != @$array_desc_type[$i])
+		{
+			echo '<td>'.$array_desc_type[$i].'</td>';
+			$i++;
+		}
+		echo '</tr>';
 		echo '</table>';
 		include_once 'templates/sql_query.html';
 	}
@@ -63,13 +71,22 @@ else
 		}
 		echo '<table border=1>';
 		$i = 0;
-		while ('' != @$array_desc_table[$i])
+		echo '<tr>';
+		while ('' != @$array_desc_name[$i])
 		{
-			echo '<tr><td>'.$array_desc_name[$i].'</td></tr>';
-			echo '<tr><td>'.$array_desc_type[$i].'</td></tr>';
+			echo '<td>'.$array_desc_name[$i].'</td>';
 			$i++;
 		}
+		echo '</tr>';
+		echo '<tr>';
+		while ('' != @$array_desc_type[$i])
+		{
+			echo '<td>'.$array_desc_type[$i].'</td>';
+			$i++;
+		}
+		echo '</tr>';
 		echo '</table>';
+
 		echo $sql.'<br /><br />';
 		$client->execute($sql);
 		$array = $client->fetchAll();
