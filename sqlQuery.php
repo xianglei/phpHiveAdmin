@@ -57,10 +57,11 @@ else
 	{
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
 
-		$sql = $_POST['sql'];echo preg_match('/limit/i',$sql);
+		$sql = $_POST['sql'];
+		//add limit to standard sql
 		if(preg_match('/limit/i',$sql) == '0')
 		{
-			$sql .= ' limit 10';
+			$sql .= ' limit 100';
 		}
 		
 		echo $sql.'<br /><br />';
