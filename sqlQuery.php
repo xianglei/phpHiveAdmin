@@ -39,10 +39,20 @@ else
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
+		echo "<body bgcolor=\"#EFEFEF\">";
 		echo '<table border=1>';
 		foreach ($array_desc_desc as $value)
 		{
-			echo '<tr bgcolor="#FFFF99">';
+			$i = 0;
+			if(0 == $i)
+			{
+				$color = "bgcolor=\"#FFFF99\"";
+			}
+			else
+			{
+				$color = "bgcolor=\"#99FFFF\"";
+			}
+			echo '<tr '.$color.'>';
 			foreach($value as $v)
 			{
 				echo '<td>'.$v.'</td>';
@@ -56,7 +66,7 @@ else
 	else
 	{
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
-		echo "<body bgcolor=\"#EFEFEF\"";
+		echo "<body bgcolor=\"#EFEFEF\">";
 		$sql = $_POST['sql'];
 		//add limit to standard sql
 		if(preg_match('/limit/i',$sql) == '0')
