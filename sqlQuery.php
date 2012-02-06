@@ -25,6 +25,15 @@ else
 	$sql = 'desc '.$_GET['table'];
 	$client->execute($sql);
 	$array_desc_table = $client->fetchAll();
+	$i = 0;
+	while ('' != @$array_desc_table[$i])
+	{
+		$array_desc = explode('	',$array_desc_table[$i]);
+		$array_desc_name[$i] = $array_desc[0];
+		$array_desc_type[$i] = $array_desc[1];
+		$i++;
+	}
+	
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
@@ -32,9 +41,8 @@ else
 		$i = 0;
 		while ('' != @$array_desc_table[$i])
 		{
-			$array_desc = explode('	',$array_desc_table[$i]);
-			echo '<tr><td>'.$array_desc[0].'</td></tr>';
-			echo '<tr><td>'.$array_desc[1].'</td></tr>';
+			echo '<tr><td>'.$array_desc_name[$i].'</td></tr>';
+			echo '<tr><td>'.$array_desc_type[$i].'</td></tr>';
 			$i++;
 		}
 		echo '</table>';
@@ -57,9 +65,8 @@ else
 		$i = 0;
 		while ('' != @$array_desc_table[$i])
 		{
-			$array_desc = explode('	',$array_desc_table[$i]);
-			echo '<tr><td>'.$array_desc[0].'</td></tr>';
-			echo '<tr><td>'.$array_desc[1].'</td></tr>';
+			echo '<tr><td>'.$array_desc_name[$i].'</td></tr>';
+			echo '<tr><td>'.$array_desc_type[$i].'</td></tr>';
 			$i++;
 		}
 		echo '</table>';
