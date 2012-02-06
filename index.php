@@ -1,14 +1,3 @@
-<style type="text/css">
-<!--
-td {
-	font-size: 12px;
-}
-body {
-	font-size: 12px;
-}
--->
-</style>
-
 <?php
 
 include_once 'config.inc.php';
