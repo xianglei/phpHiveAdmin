@@ -1,4 +1,10 @@
 <?php
+$fa = file('access_list');
+if(FALSE == in_array($_SERVER['REMOTE_ADDR'],$fa))
+{
+	die('Can not access');
+}
+
 
 $GLOBALS['THRIFT_ROOT'] = './libs/';
 // load the required files for connecting to Hive
