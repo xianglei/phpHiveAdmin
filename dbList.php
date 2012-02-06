@@ -1,6 +1,6 @@
 <?php
 include_once 'config.inc.php';
-include_once 'style.css';
+include_once 'templates/style.css';
 
 $transport->open();
 

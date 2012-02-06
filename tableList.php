@@ -1,5 +1,5 @@
 ﻿<?php
-include_once 'style.css';
+include_once 'templates/style.css';
 
 if(!@$_GET['database'])
 {
