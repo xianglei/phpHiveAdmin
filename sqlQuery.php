@@ -76,7 +76,7 @@ else
 	}
 	else
 	{
-		$start_time = time();
+		$timer->start();
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
 		echo "<body bgcolor=\"#EFEFEF\">";
 		$sql = $_POST['sql'];
@@ -138,9 +138,9 @@ else
 		}
 		echo "</table>\n";
 		include_once 'templates/sql_query.html';
-		$end_time = time();
-		$exec_time = $end_time - $start_time;
-		echo '<br /> Execution Time: '.$exec_time.'s<br />';
+		$time->stop();
+		echo 'Excution time: '.$timer->spent().'s';
+		unset($timer);
 	}
 
 	$transport->close();
