@@ -14,7 +14,8 @@ else
 	
 	include_once 'config.inc.php';
 	include_once 'templates/sql_query_navi.html';
-
+	echo "<br /><br />";
+	
 	$transport->open();
 
 	$client->execute('add jar '.$env['hive_jar']);
