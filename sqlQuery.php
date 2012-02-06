@@ -42,7 +42,7 @@ else
 		echo '<table border=1>';
 		foreach ($array_desc_desc as $value)
 		{
-			echo '<tr>';
+			echo '<tr bgcolor="#FFFF99">';
 			foreach($value as $v)
 			{
 				echo '<td>'.$v.'</td>';
@@ -72,7 +72,7 @@ else
 		echo "<table border=1>\n";
 		foreach ($array_desc_desc as $value)
 		{
-			echo "<tr>\n";
+			echo "<tr bgcolor=\"#FFFF99\">\n";
 			foreach($value as $v)
 			{
 				echo "<td>".$v."</td>\n";
