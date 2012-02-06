@@ -19,12 +19,12 @@ else
 
 	$i = 0;
 	echo "<body bgcolor=\"#EFEFEF\">";
-	echo '<a href="dbList.php" target=left><<< Back</a><br /><br />';
+	echo '<a href="dbList.php" target=left><<< '.$lang['back'].'</a><br /><br />';
 	while('' != @$db_array[$i]) {
 		echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right">'.$db_array[$i].'</a><br />';
 		$i++;
 	}
-	echo '<br /><a href="dbList.php" target=left><<< Back</a><br /><br />';
+	echo '<br /><a href="dbList.php" target=left><<< '.$lang['back'].'</a><br /><br />';
 	$transport->close();
 }
 ?>

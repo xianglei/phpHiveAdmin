@@ -8,4 +8,6 @@ $lang['dieDatabaseChoose'] = 'Must Choose a database';
 $lang['dieTableChoose'] = 'Must Choose a table';
 $lang['sqlQuery'] = 'SQL Query';
 $lang['export'] = 'Export';
+$lang['back'] = 'Back';
+$lang['download'] = 'Download';
 ?>

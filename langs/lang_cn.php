@@ -8,4 +8,6 @@ $lang['dieDatabaseChoose'] = '请选择一个数据库';
 $lang['dieTableChoose'] = '请选择一个数据表';
 $lang['sqlQuery'] = 'SQL查询';
 $lang['export'] = '导出';
+$lang['back'] = '返回';
+$lang['download'] = '下载';
 ?>
