@@ -13,7 +13,7 @@ else
 	echo $_GET['database'].' --  <a href=index.php?frame=right target="right">Back</a><br /><br />';
 	
 	include_once 'config.inc.php';
-	include_once 'sql_query_navi.html';
+	include_once 'templates/sql_query_navi.html';
 
 	$transport->open();
 
