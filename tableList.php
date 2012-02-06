@@ -1,15 +1,5 @@
-﻿<style type="text/css">
-<!--
-td {
-	font-size: 12px;
-}
-body {
-	font-size: 12px;
-}
--->
-</style>
-
-<?php
+﻿<?php
+include_once 'style.css';
 
 if(!@$_GET['database'])
 {
