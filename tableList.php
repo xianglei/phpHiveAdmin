@@ -19,10 +19,10 @@ else
 	$i = 0;
 	echo '<a href="dbList.php" target=left><<< Back</a><br /><br />';
 	while('' != @$db_array[$i]) {
-		echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right">'.$db_array[$i].'</a><br /><br />';
+		echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right">'.$db_array[$i].'</a><br />';
 		$i++;
 	}
-	echo '<a href="dbList.php" target=left><<< Back</a><br /><br />';
+	echo '<br /><a href="dbList.php" target=left><<< Back</a><br /><br />';
 	$transport->close();
 }
 ?>
