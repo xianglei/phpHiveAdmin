@@ -138,7 +138,7 @@ else
 		}
 		echo "</table>\n";
 		include_once 'templates/sql_query.html';
-		$time->stop();
+		$timer->stop();
 		echo 'Excution time: '.$timer->spent().'s';
 		unset($timer);
 	}
