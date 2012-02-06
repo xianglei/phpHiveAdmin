@@ -1,6 +1,6 @@
 ﻿<?php
 
-if(!@_GET['database'])
+if(!@$_GET['database'])
 {
 	die($lang['dieDatabaseChoose']);
 }
