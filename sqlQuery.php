@@ -32,7 +32,7 @@ else
 		$i = 0;
 		while ('' != @$array_desc_table[$i])
 		{
-			$array_desc = explode('\t',$array_desc_table[$i]);
+			$array_desc = explode('	',$array_desc_table[$i]);
 			echo '<tr><td>'.$array_desc[0].'</td></tr>';
 			echo '<tr><td>'.$array_desc[1].'</td></tr>';
 			$i++;
@@ -57,7 +57,7 @@ else
 		$i = 0;
 		while ('' != @$array_desc_table[$i])
 		{
-			$array_desc = explode('\t',$array_desc_table[$i]);
+			$array_desc = explode('	',$array_desc_table[$i]);
 			echo '<tr><td>'.$array_desc[0].'</td></tr>';
 			echo '<tr><td>'.$array_desc[1].'</td></tr>';
 			$i++;
