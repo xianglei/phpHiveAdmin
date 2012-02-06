@@ -13,7 +13,7 @@ if(file_exists($_GET['filename']))
 	header("Content-Disposition: attachment; filename=".$filename[1]);
 	readfile($_GET['filename']);
 
-	unlink($_GET['filename'])
+	unlink($_GET['filename']);
 }
 else
 {
