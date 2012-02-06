@@ -56,7 +56,7 @@ else
 	else
 	{
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
-
+		echo "<body bgcolor=\"#EFEFEF\"";
 		$sql = $_POST['sql'];
 		//add limit to standard sql
 		if(preg_match('/limit/i',$sql) == '0')
@@ -67,8 +67,8 @@ else
 		echo $sql.'<br /><br />';
 		$client->execute($sql);
 		$array = $client->fetchAll();
-		//$array = call_user_func('query',$sql);
 
+		//construct table desc table
 		echo "<table border=1>\n";
 		$i = 0;
 		foreach ($array_desc_desc as $value)
@@ -90,11 +90,19 @@ else
 			echo "</tr>\n";
 			$i++;
 		}
-		
+		//construct result table
 		$i = 0;		
 		while ('' != @$array[$i])
 		{
-			echo "<tr>\n";
+			if(($i % 2) == 0)
+			{
+				$color = "bgcolor=\"#AFAFAF\"";
+			}
+			else
+			{
+				$color = "bgcolor=\"#DFDFDF\"";
+			}
+			echo "<tr ".$color.">\n";
 			$arr = explode('	',$array[$i]);
 			foreach ($arr as $key => $value)
 			{
