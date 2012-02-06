@@ -29,8 +29,8 @@ else
 	while ('' != @$array_desc_table[$i])
 	{
 		$array_desc = explode('	',$array_desc_table[$i]);
-		$array_desc_name[$i] = $array_desc[0];
-		$array_desc_type[$i] = $array_desc[1];
+		$array_desc['name'][$i] = $array_desc[0];
+		$array_desc['type'][$i] = $array_desc[1];
 		$i++;
 	}
 	
@@ -38,21 +38,16 @@ else
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
 		echo '<table border=1>';
-		$i = 0;
-		echo '<tr>';
-		while ('' != @$array_desc_name[$i])
+		foreach ($array_desc as $key => $value)
 		{
-			echo '<td>'.$array_desc_name[$i].'</td>';
-			$i++;
+			echo '<tr>';
+			foreach($array_desc[$key] as $k => $v)
+			{
+				echo '<td>'.$v.'</td>';
+				$i++;
+			}
+			echo '</tr>';
 		}
-		echo '</tr>';
-		echo '<tr>';
-		while ('' != @$array_desc_type[$i])
-		{
-			echo '<td>'.$array_desc_type[$i].'</td>';
-			$i++;
-		}
-		echo '</tr>';
 		echo '</table>';
 		include_once 'templates/sql_query.html';
 	}
@@ -70,21 +65,16 @@ else
 			$sql = $sql;
 		}
 		echo '<table border=1>';
-		$i = 0;
-		echo '<tr>';
-		while ('' != @$array_desc_name[$i])
+		foreach ($array_desc as $key => $value)
 		{
-			echo '<td>'.$array_desc_name[$i].'</td>';
-			$i++;
+			echo '<tr>';
+			foreach($array_desc[$key] as $k => $v)
+			{
+				echo '<td>'.$v.'</td>';
+				$i++;
+			}
+			echo '</tr>';
 		}
-		echo '</tr>';
-		echo '<tr>';
-		while ('' != @$array_desc_type[$i])
-		{
-			echo '<td>'.$array_desc_type[$i].'</td>';
-			$i++;
-		}
-		echo '</tr>';
 		echo '</table>';
 
 		echo $sql.'<br /><br />';
@@ -95,7 +85,13 @@ else
 		echo '<table border=1>';
 		while ('' != @$array[$i])
 		{
-			echo '<tr><td>'.$array[$i]."</td></tr>";
+			echo '<tr>';
+			$type = explode('	',$array[$i]);
+			foreach ($type as $key => $value)
+			{
+				echo '<td>'.$value."</td>";
+			}
+			echo '</tr>';
 			$i++;
 		}
 		echo '</table>';
