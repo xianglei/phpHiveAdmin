@@ -6,9 +6,11 @@ if(!@$_GET['filename'])
 	die('invalid url');
 }
 
-	$filename = explode('/',$_GET['filename']);
+	/*$filename = explode('/',$_GET['filename']);
 	header("Content-Type: application/force-download");
 	header("Content-Disposition: attachment; filename=".$filename[1]);
-	readfile($_GET['filename']);
+	readfile($_GET['filename']);*/
+	header('location:'.$_GET['filename']);
+	
 
 ?>
