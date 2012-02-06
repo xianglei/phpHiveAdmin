@@ -41,9 +41,9 @@ else
 	{
 		echo "<body bgcolor=\"#EFEFEF\">";
 		echo '<table border=1>';
+		$i = 0;
 		foreach ($array_desc_desc as $value)
 		{
-			$i = 0;
 			if(0 == $i)
 			{
 				$color = "bgcolor=\"#FFFF99\"";
