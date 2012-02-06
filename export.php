@@ -118,8 +118,9 @@ else
 			$i++;
 		}
 		fclose($fp);
-		echo "<a href=download.php?filename=".$filename.">".$lang['download']."</a>";
 		echo "</table>\n";
+		echo "<br /><br />";
+		echo "<a href=download.php?filename=".$filename.">".$lang['download']."</a><br /><br />";
 		include_once 'templates/sql_query.html';
 		$timer->stop();
 		echo 'Excution time: '.$timer->spent().'s';
