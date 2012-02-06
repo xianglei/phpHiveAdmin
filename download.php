@@ -6,7 +6,7 @@ if(!@$_GET['filename'])
 	die('invalid url');
 }
 
-if(file_exists($_GET['filename']))
+if(file_exists(@$_GET['filename']))
 {
 	$filename = explode('/',$_GET['filename']);
 	header("Content-Type: application/force-download");
