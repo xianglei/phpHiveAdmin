@@ -28,14 +28,16 @@ else
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
-		echo '<table><tr>';
+		echo '<table border=1>';
 		$i = 0;
 		while ('' != @$array_desc_table[$i])
 		{
-			echo '<td>'.$array_desc_table[$i].'</td>';
+			$array_desc = explode('\t',$array_desc_table[$i]);
+			echo '<tr><td>'.$array_desc[0].'</td></tr>';
+			echo '<tr><td>'.$array_desc[1].'</td></tr>';
 			$i++;
 		}
-		echo '</tr></table>';
+		echo '</table>';
 		include_once 'templates/sql_query.html';
 	}
 	else
@@ -51,12 +53,22 @@ else
 		{
 			$sql = $sql;
 		}
+		echo '<table border=1>';
+		$i = 0;
+		while ('' != @$array_desc_table[$i])
+		{
+			$array_desc = explode('\t',$array_desc_table[$i]);
+			echo '<tr><td>'.$array_desc[0].'</td></tr>';
+			echo '<tr><td>'.$array_desc[1].'</td></tr>';
+			$i++;
+		}
+		echo '</table>';
 		echo $sql.'<br /><br />';
 		$client->execute($sql);
 		$array = $client->fetchAll();
 		//$array = call_user_func('query',$sql);
 		$i = 0;
-		echo '<table>';
+		echo '<table border=1>';
 		while ('' != @$array[$i])
 		{
 			echo '<tr><td>'.$array[$i]."</td></tr>";
