@@ -105,7 +105,7 @@ else
 			$i++;
 		}
 		//construct result file
-		$time = date('Y-m-d_H/i/s',time());
+		$time = date('Y-m-d_H-i-s',time());
 		$timehash = sha1($time);
 		$filename = 'tmp/'.$_GET['table'].'_'.$time.'_'.$timehash.'.csv';
 		
