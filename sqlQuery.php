@@ -71,7 +71,7 @@ else
 		//add limit to standard sql
 		if(preg_match('/limit/i',$sql) == '0')
 		{
-			$sql .= ' limit 100';
+			$sql .= ' limit 30';
 		}
 		
 		echo $sql.'<br /><br />';
