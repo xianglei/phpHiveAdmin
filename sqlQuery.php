@@ -25,23 +25,25 @@ else
 	$sql = 'desc '.$_GET['table'];
 	$client->execute($sql);
 	$array_desc_table = $client->fetchAll();
+	//get table description and explode the desc into a multi-dimensional array
+	//获取表说明，并放入二维数组$array_desc_desc
 	$i = 0;
 	while ('' != @$array_desc_table[$i])
 	{
 		$array_desc = explode('	',$array_desc_table[$i]);
-		$array_desc['name'][$i] = $array_desc[0];
-		$array_desc['type'][$i] = $array_desc[1];
+		$array_desc_desc['name'][$i] = $array_desc[0];
+		$array_desc_desc['type'][$i] = $array_desc[1];
 		$i++;
 	}
-	
+	//var_dump($array_desc_desc);
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
 		echo '<table border=1>';
-		foreach ($array_desc as $key => $value)
+		foreach ($array_desc_desc as $value)
 		{
 			echo '<tr>';
-			foreach($array_desc[$key] as $k => $v)
+			foreach($value as $v)
 			{
 				echo '<td>'.$v.'</td>';
 				$i++;
@@ -55,46 +57,45 @@ else
 	{
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
 
-		$sql = $_POST['sql'];
-		if(stristr($sql,'limit') === FALSE)
+		$sql = $_POST['sql'];echo preg_match('/limit/i',$sql);
+		if(preg_match('/limit/i',$sql) == '0')
 		{
-			$sql .= ' limit 100';
+			$sql .= ' limit 10';
 		}
-		else
-		{
-			$sql = $sql;
-		}
-		echo '<table border=1>';
-		foreach ($array_desc as $key => $value)
-		{
-			echo '<tr>';
-			foreach($array_desc[$key] as $k => $v)
-			{
-				echo '<td>'.$v.'</td>';
-				$i++;
-			}
-			echo '</tr>';
-		}
-		echo '</table>';
-
+		
 		echo $sql.'<br /><br />';
 		$client->execute($sql);
 		$array = $client->fetchAll();
 		//$array = call_user_func('query',$sql);
-		$i = 0;
-		echo '<table border=1>';
+
+		echo "<table border=1>\n";
+		foreach ($array_desc_desc as $value)
+		{
+			echo "<tr>\n";
+			foreach($value as $v)
+			{
+				echo "<td>".$v."</td>\n";
+				$i++;
+			}
+			echo "</tr>\n";
+		}
+		
+		$i = 0;		
 		while ('' != @$array[$i])
 		{
-			echo '<tr>';
-			$type = explode('	',$array[$i]);
-			foreach ($type as $key => $value)
+			echo "<tr>\n";
+			$arr = explode('	',$array[$i]);
+			foreach ($arr as $key => $value)
 			{
-				echo '<td>'.$value."</td>";
+					$value = str_replace('<','&lt;',$value);
+					$value = str_replace('>','&gt;',$value);
+					echo "<td>".$value."</td>\n";
 			}
-			echo '</tr>';
+			//echo '<td>'.$array[$i].'</td>';
+			echo "</tr>\n";
 			$i++;
 		}
-		echo '</table>';
+		echo "</table>\n";
 		include_once 'templates/sql_query.html';
 	}
 
