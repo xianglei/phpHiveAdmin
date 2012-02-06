@@ -70,15 +70,29 @@ else
 		//$array = call_user_func('query',$sql);
 
 		echo "<table border=1>\n";
+		$i = 0;
 		foreach ($array_desc_desc as $value)
 		{
-			echo "<tr bgcolor=\"#FFFF99\">\n";
+			if(0 == $i)
+			{
+				$color = "bgcolor=\"#FFFF99\"";
+			}
+			elseif(1 == $i)
+			{
+				$color = "bgcolor=\"#99FFFF\"";
+			}
+			else
+			{
+				$color = "bgcolor=\"#FFFFFF\"";
+			}
+			echo "<tr ".$color.">\n";
 			foreach($value as $v)
 			{
 				echo "<td>".$v."</td>\n";
 				$i++;
 			}
 			echo "</tr>\n";
+			$i++;
 		}
 		
 		$i = 0;		
