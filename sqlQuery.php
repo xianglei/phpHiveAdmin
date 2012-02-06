@@ -33,6 +33,7 @@ else
 		while ('' != @$array_desc_table[$i])
 		{
 			echo '<td>'.$array_desc_table[$i].'</td>';
+			$i++;
 		}
 		echo '</tr></table>';
 		include_once 'templates/sql_query.html';
