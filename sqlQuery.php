@@ -140,7 +140,7 @@ else
 		include_once 'templates/sql_query.html';
 		$end_time = time();
 		$exec_time = $end_time - $start_time;
-		echo '<br /> Execution Time: '.$exec_time.'<br />';
+		echo '<br /> Execution Time: '.$exec_time.'s<br />';
 	}
 
 	$transport->close();
