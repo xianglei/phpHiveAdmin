@@ -11,4 +11,3 @@ $lang['export'] = '导出';
 $lang['back'] = '返回';
 $lang['download'] = '下载';
 $lang['exportSQL'] = '请在下框输入需要导出数据的SQL语句';
-?>
