@@ -43,27 +43,7 @@ else
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
 		echo "<body bgcolor=\"#EFEFEF\">";
-		echo '<table border=1>';
-		$i = 0;
-		foreach ($array_desc_desc as $value)
-		{
-			if(0 == $i)
-			{
-				$color = "bgcolor=\"#FFFF99\"";
-			}
-			else
-			{
-				$color = "bgcolor=\"#99FFFF\"";
-			}
-			echo '<tr '.$color.'>';
-			foreach($value as $v)
-			{
-				echo '<td>'.$v.'</td>';
-				$i++;
-			}
-			echo '</tr>';
-		}
-		echo '</table>';
+		echo $lang['exportSQL'];
 		include_once 'templates/sql_query.html';
 	}
 	else
@@ -83,27 +63,6 @@ else
 		$array = $client->fetchAll();
 
 		//construct table desc table
-		echo "<table border=1>\n";
-		$i = 0;
-		foreach ($array_desc_desc as $value)
-		{
-			if(0 == $i)
-			{
-				$color = "bgcolor=\"#FFFF99\"";
-			}
-			else
-			{
-				$color = "bgcolor=\"#99FFFF\"";
-			}
-			echo "<tr ".$color.">\n";
-			foreach($value as $v)
-			{
-				echo "<td>".$v."</td>\n";
-				$i++;
-			}
-			echo "</tr>\n";
-			$i++;
-		}
 		//construct result file
 		$time = date('Y-m-d_H-i-s',time());
 		$timehash = sha1($time);
@@ -118,7 +77,6 @@ else
 			$i++;
 		}
 		fclose($fp);
-		echo "</table>\n";
 		echo "<br /><br />";
 		echo "<a href=download.php?filename=".$filename.">".$lang['download']."</a><br /><br />";
 		include_once 'templates/sql_query.html';

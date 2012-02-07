@@ -10,4 +10,5 @@ $lang['sqlQuery'] = 'SQL Query';
 $lang['export'] = 'Export';
 $lang['back'] = 'Back';
 $lang['download'] = 'Download';
+$lang['exportSQL'] = 'Please input SQL which to export the data that wanted below';
 ?>
