@@ -11,3 +11,7 @@ $lang['export'] = 'Export';
 $lang['back'] = 'Back';
 $lang['download'] = 'Download';
 $lang['exportSQL'] = 'Please input SQL which to export the data that wanted below';
+$lang['addDatabase'] = 'Add a database';
+$lang['submit'] = 'Submit';
+$lang['createDbSuccess'] = 'Create Database Success';
+?>
