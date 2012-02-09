@@ -18,7 +18,7 @@ else
 	$db_array = $client->fetchAll();
 
 	$i = 0;
-	echo "<body bgcolor=\"#EFEFEF\">";
+	echo "<body bgcolor=\"".$env['bodyColor']."\">";
 	echo '<a href="dbList.php" target=left><<< '.$lang['back'].'</a><br /><br />';
 	while('' != @$db_array[$i]) {
 		echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right">'.$db_array[$i].'</a><br />';

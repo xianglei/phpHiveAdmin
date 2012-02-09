@@ -22,6 +22,9 @@ define('PORT','10000');
 
 $env['hive_jar'] = '/opt/modules/hive/hive-0.7.1/lib/hive-contrib-0.7.1.jar';
 $env['showTables'] = 'show tables';
+$env['bodyColor'] = '#EFEFEF';
+$env['trColor1'] = '#AFAFAF';
+$env['trColor2'] = '#DFDFDF';
 
 $transport = new TSocket(HOST, PORT);
 $protocol = new TBinaryProtocol($transport);

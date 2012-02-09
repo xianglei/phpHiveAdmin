@@ -42,7 +42,7 @@ else
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
-		echo "<body bgcolor=\"#EFEFEF\">";
+		echo "<body bgcolor=\"".$env['bodyColor']."\">";
 		echo '<table border=1>';
 		$i = 0;
 		foreach ($array_desc_desc as $value)
@@ -110,11 +110,11 @@ else
 		{
 			if(($i % 2) == 0)
 			{
-				$color = "bgcolor=\"#AFAFAF\"";
+				$color = "bgcolor=\"".$env['trColor1']."\"";
 			}
 			else
 			{
-				$color = "bgcolor=\"#DFDFDF\"";
+				$color = "bgcolor=\"".$env['trColor2']."\"";
 			}
 			echo "<tr ".$color.">\n";
 			$arr = explode('	',$array[$i]);

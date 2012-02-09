@@ -13,7 +13,7 @@ else
 	$client->execute('create database '.$_POST['newdbname']);
 
 	//$db_array = $client->fetchOne();
-	echo "<body bgcolor=\"#EFEFEF\">";
+	echo "<body bgcolor=\"".$env['bodyColor']."\">";
 	echo $lang['createDbSuccess'].' - <a href=index.php?frame=right>'.$lang['back'].'</a>';
 
 	$transport->close();
