@@ -31,7 +31,7 @@ else
 			}
 			else
 			{
-				$color = $env['trColor2']";
+				$color = $env['trColor2'];
 			}
 			echo "<tr bgcolor=".$color.">\n";
 
