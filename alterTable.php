@@ -60,7 +60,7 @@ else
 					if($key == 'type')
 					{
 						//echo $v."<br>";
-						echo "<select name=field_name[]>";
+						echo "<select name=field_type[]>";
 						foreach($type as $kk => $vv)
 						{
 							if ($v == $kk)
