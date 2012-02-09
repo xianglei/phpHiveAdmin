@@ -72,10 +72,12 @@ else
 		echo "<body bgcolor=\"#EFEFEF\">";
 		$sql = $_POST['sql'];
 		//add limit to standard sql
+		/*
 		if(preg_match('/limit/i',$sql) == '0')
 		{
 			$sql .= ' limit 30';
 		}
+		*/
 		
 		echo $sql.'<br /><br />';
 		$client->execute($sql);
