@@ -23,7 +23,7 @@ else
 	$sql = 'use '.$_GET['database'];
 	//echo $sql.'<br /><br />';
 	$client->execute($sql);
-	$client->fetchOne();
+	//$client->fetchOne();
 	
 	$sql = 'desc '.$_GET['table'];
 	$client->execute($sql);
