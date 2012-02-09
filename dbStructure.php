@@ -39,12 +39,12 @@ else
 			echo "<input type=checkbox name=table_name[] value=".$db_array[$i].">";
 			echo "</td>\n";
 		
-			echo "<td>\n"
+			echo "<td>\n";
 			echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right">'.$db_array[$i].'</a>';
 			echo "</td>\n";
 		
 			echo "<td>\n";
-			echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i].">É¾³ý</a>";
+			echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i].">ÐÞ¸Ä</a>";
 			echo "</td>\n";
 		
 			echo "<td>\n";
