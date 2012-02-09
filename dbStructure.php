@@ -48,9 +48,9 @@ else
 			echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i].">".$lang['alterTable']."</a>";
 			echo "</td>\n";
 		
-			echo "<td>\n";
-			echo "<a href=dropTable.php?database=".$_GET['database']."&table=".$db_array[$i].">".$lang['dropTable']."</a>";
-			echo "</td>\n";
+			//echo "<td>\n";
+			//echo "<a href=dropTable.php?database=".$_GET['database']."&table=".$db_array[$i].">".$lang['dropTable']."</a>";
+			//echo "</td>\n";
 		
 			echo "</tr>\n";
 			$i++;
