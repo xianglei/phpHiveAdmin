@@ -22,7 +22,7 @@ else
 		$i = 0;
 		echo "<body bgcolor=\"".$env['bodyColor']."\">";
 		echo "<form method=post action=dbStructure.php>";
-		echo "<table border=1>\n";
+		echo "<table border=1 align=center>\n";
 		while ('' != @$db_array[$i])
 		{
 			if(($i % 2) == 0)
@@ -44,18 +44,18 @@ else
 			echo "</td>\n";
 		
 			echo "<td>\n";
-			echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i].">修改</a>";
+			echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i].">".$lang['alterTable']."</a>";
 			echo "</td>\n";
 		
 			echo "<td>\n";
-			echo "<a href=dropTable.php?database=".$_GET['database']."&table=".$db_array[$i].">删除</a>";
+			echo "<a href=dropTable.php?database=".$_GET['database']."&table=".$db_array[$i].">".$lang['dropTable']."</a>";
 			echo "</td>\n";
 		
 			echo "</tr>\n";
 			$i++;
 		}
 		echo "</table>\n";
-		echo "全选";
+		echo "<a href=\"javascript:checkAll('table_name')\">全选</a> / <a href=\"javascript:uncheckAll('table_name')\">取消全选</a>\n";
 		echo "</form>";
 		echo "";
 	}

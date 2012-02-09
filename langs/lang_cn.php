@@ -14,4 +14,6 @@ $lang['exportSQL'] = '请在下框输入需要导出数据的SQL语句';
 $lang['addDatabase'] = '添加一个新的数据库';
 $lang['submit'] = '提交';
 $lang['createDbSuccess'] = '创建数据库成功';
+$lang['alterTable'] = '修改';
+$lang['dropTable'] = '删除';
 ?>

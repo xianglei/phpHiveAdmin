@@ -14,4 +14,6 @@ $lang['exportSQL'] = 'Please input SQL which to export the data that wanted belo
 $lang['addDatabase'] = 'Add a database';
 $lang['submit'] = 'Submit';
 $lang['createDbSuccess'] = 'Create Database Success';
+$lang['alterTable'] = 'Alter';
+$lang['dropTable'] = 'Drop';
 ?>

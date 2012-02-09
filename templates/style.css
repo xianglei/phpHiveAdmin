@@ -11,8 +11,32 @@ body {
 <script>
 function showsd(link1,link2)
 {
-var frame = parent.document.getElementsByName("right")[0];
-frame.src =link1;
-window.location =link2;
+	var frame = parent.document.getElementsByName("right")[0];
+	frame.src =link1;
+	window.location =link2;
+}
+function checkAll(name)
+{
+	var el = document.getElementsByTagName('input');
+	var len = el.length;
+	for(var i=0; i<len; i++)
+	{
+		if((el[i].type=="checkbox") && (el[i].name==name))
+		{
+			el[i].checked = true;
+		}
+	}
+}
+function uncheckAll(name)
+{
+	var el = document.getElementsByTagName('input');
+	var len = el.length;
+	for(var i=0; i<len; i++)
+	{
+		if((el[i].type=="checkbox") && (el[i].name==name))
+		{
+			el[i].checked = false;
+		}
+	}
 }
 </script>
