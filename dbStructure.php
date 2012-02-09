@@ -23,15 +23,15 @@ else
 		echo "<body bgcolor=\"".$env['bodyColor']."\">";
 		echo "<form method=post action=dbStructure.php>";
 		echo "<table border=1>\n";
-		while ('' != $db_array[$i])
+		while ('' != @$db_array[$i])
 		{
 			if(($i % 2) == 0)
 			{
-				$color = "bgcolor=\"".$env['trColor1']."\"";
+				$color = $env['trColor1'];
 			}
 			else
 			{
-				$color = "bgcolor=\"".$env['trColor2']."\"";
+				$color = $env['trColor2']";
 			}
 			echo "<tr bgcolor=".$color.">\n";
 
@@ -55,6 +55,7 @@ else
 			$i++;
 		}
 		echo "</table>\n";
+		echo "ȫѡ";
 		echo "</form>";
 		echo "";
 	}

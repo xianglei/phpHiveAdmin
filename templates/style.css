@@ -8,3 +8,11 @@ body {
 }
 -->
 </style>
+<script>
+function showsd(link1,link2)
+{
+var frame = parent.document.getElementsByName("right")[0];
+frame.src =link1;
+window.location =link2;
+}
+</script>

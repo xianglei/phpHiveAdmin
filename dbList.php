@@ -13,7 +13,7 @@ $i = 0;
 echo "<body bgcolor=\"#EFEFEF\">";
 echo '<br />';
 while('' != @$db_array[$i]) {
-	echo '<a href="#" target="left" onclick="left.location.href=\'tableList.php?database='.$db_array[$i].'\';right.location.href=\'dbStructure.php?database='.$db_array[$i].'\';">'.$db_array[$i].'</a><br />';
+	echo '<a href="javascript:showsd(\'tableList.php?database='.$db_array[$i].'\', \'dbStructure.php?database='.$db_array[$i].'\')" target="left">'.$db_array[$i].'</a><br />';
 	$i++;
 }
 $transport->close();
