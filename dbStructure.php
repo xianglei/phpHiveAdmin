@@ -52,6 +52,7 @@ else
 			echo "</td>\n";
 		
 			echo "</tr>\n";
+			$i++;
 		}
 		echo "</table>\n";
 		echo "</form>";
