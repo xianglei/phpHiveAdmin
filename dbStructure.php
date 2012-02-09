@@ -56,8 +56,9 @@ else
 			$i++;
 		}
 		echo "</table>\n";
-		echo '<input name="allSelect" type="checkbox" id="allSelect" value="" onClick="IsSelect(tablenames)" />';
-		echo $lang['select']." / ".$lang['deselect']."\n";
+		echo '<input name="allSelect" type="checkbox" id="allSelect" value="" onClick="isSelect(\'tablenames\')" />';
+		echo $lang['select']." / ".$lang['deselect']."<bR><br>\n";
+		echo "<input type=submit name=submit value=".$lang['submit'].">";
 		echo "</form>";
 		echo "";
 	}
