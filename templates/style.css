@@ -19,27 +19,14 @@ function showsd(link1,link2)
 	frame.src =link1;
 	window.location =link2;
 }
-function checkAll(name)
+function isSelect(form)
 {
-	var el = document.getElementsByTagName('input');
-	var len = el.length;
-	for(var i=0; i<len; i++)
+	for (var i=0;i<form.elements.length;i++)
 	{
-		if((el[i].type=="checkbox") && (el[i].name==name))
+		var e = form.elements[i];
+		if (e.Name != 'allSelect'&&e.disabled==false)
 		{
-			el[i].checked = true;
-		}
-	}
-}
-function uncheckAll(name)
-{
-	var el = document.getElementsByTagName('input');
-	var len = el.length;
-	for(var i=0; i<len; i++)
-	{
-		if((el[i].type=="checkbox") && (el[i].name==name))
-		{
-			el[i].checked = false;
+			e.checked = form.allSelect.checked;
 		}
 	}
 }

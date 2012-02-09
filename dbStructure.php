@@ -21,8 +21,8 @@ else
 	{
 		$i = 0;
 		echo "<body bgcolor=\"".$env['bodyColor']."\">";
-		echo "<form method=post action=dbStructure.php>";
-		echo "<table border=1 align=center>\n";
+		echo "<form method=post action=dbStructure.php name=tablenames>";
+		echo "<table border=1>\n";
 		while ('' != @$db_array[$i])
 		{
 			if(($i % 2) == 0)
@@ -55,7 +55,7 @@ else
 			$i++;
 		}
 		echo "</table>\n";
-		echo "<a href=\"javascript:checkAll('table_name')\">".$lang['select']."</a> / <a href=\"javascript:uncheckAll('table_name')\">".$lang['deselect']."</a>\n";
+		echo "<a href=\"javascript:isSelect('tablenames');\">".$lang['select']."</a> / <a href=\"javascript:isSelect('tablenames')\">".$lang['deselect']."</a>\n";
 		echo "</form>";
 		echo "";
 	}
