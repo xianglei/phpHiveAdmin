@@ -41,6 +41,7 @@ else
 			<option value=arrays>Arrays</option>
 			</select>
 			";
+			
 			$i = 0;
 			while ('' != @$array_desc_table[$i])
 			{
@@ -51,9 +52,10 @@ else
 				$i++;
 			}
 			echo "<body bgcolor=\"".$env['bodyColor']."\">";
+			echo "<form method=post>";
 			echo '<table border=1>';
 			$i = 0;
-			foreach ($array_desc_desc as $value)
+			foreach ($array_desc_desc as $key => $value)
 			{
 				if(0 == $i)
 				{
@@ -64,15 +66,30 @@ else
 					$color = "bgcolor=\"#99FFFF\"";
 				}
 				echo '<tr '.$color.'>';
-				foreach($value as $v)
+				foreach($value as $k => $v)
 				{
-					echo '<td>'.$v.'</td>';
+					echo '<td>';
+					echo $v;
+					if($key == 'name')
+					{
+						echo "<input type=hidden name=field_name[] value=".$v." />\n";
+					}
+					if($key == "select")
+					{
+						echo $select;
+					}
+					echo '</td>';
 					$i++;
 				}
 				echo '<tr>';
 			}
 			$i = 0;
 			echo '</table>';
+			echo "</form>";
+		}
+		else
+		{
+			var_dump($_POST['field_name']);var_dump($_POST['field_type']);
 		}
 	}
 }
