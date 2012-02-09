@@ -69,7 +69,10 @@ else
 				foreach($value as $k => $v)
 				{
 					echo '<td>';
-					echo $v;
+					if($key == 'type')
+					{
+						echo $v;
+					}
 					if($key == 'name')
 					{
 						echo "<input type=hidden name=field_name[] value=".$v." />\n";
