@@ -69,7 +69,6 @@ else
 	else
 	{
 		$timer->start();
-		echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
 		echo "<body bgcolor=\"#EFEFEF\">";
 		$sql = $_POST['sql'];
 		//add limit to standard sql

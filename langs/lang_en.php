@@ -16,4 +16,6 @@ $lang['submit'] = 'Submit';
 $lang['createDbSuccess'] = 'Create Database Success';
 $lang['alterTable'] = 'Alter';
 $lang['dropTable'] = 'Drop';
+$lang['select'] = 'Select All';
+$lang['deselect'] = 'DeSelect All';
 ?>

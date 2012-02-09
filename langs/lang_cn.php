@@ -16,4 +16,6 @@ $lang['submit'] = '提交';
 $lang['createDbSuccess'] = '创建数据库成功';
 $lang['alterTable'] = '修改';
 $lang['dropTable'] = '删除';
+$lang['select'] = '全选';
+$lang['deselect'] = '取消全选';
 ?>

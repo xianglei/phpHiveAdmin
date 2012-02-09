@@ -32,4 +32,5 @@ $client = new ThriftHiveClient($protocol);
 $timer = new Timer;
 //Create ThriftHive object
 
+
 ?>

@@ -55,7 +55,7 @@ else
 			$i++;
 		}
 		echo "</table>\n";
-		echo "<a href=\"javascript:checkAll('table_name')\">全选</a> / <a href=\"javascript:uncheckAll('table_name')\">取消全选</a>\n";
+		echo "<a href=\"javascript:checkAll('table_name')\">".$lang['select']."</a> / <a href=\"javascript:uncheckAll('table_name')\">".$lang['deselect']."</a>\n";
 		echo "</form>";
 		echo "";
 	}
