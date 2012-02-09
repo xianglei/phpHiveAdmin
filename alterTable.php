@@ -88,7 +88,8 @@ else
 				echo '<tr>';
 			}
 			$i = 0;
-			echo '</table>';
+			echo '</table><br>';
+			echo '<input type=submit name=submit value='.$lang['submit'].'>';
 			echo "</form>";
 		}
 		else
