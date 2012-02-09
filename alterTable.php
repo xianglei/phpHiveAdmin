@@ -94,8 +94,9 @@ else
 		}
 		else
 		{
-			var_dump($_POST['field_name']);var_dump($_POST['field_type']);
+			//var_dump($_POST['field_name']);var_dump($_POST['field_type']);
 			$i = 0;
+			echo "<body bgcolor=\"".$env['bodyColor']."\">";
 			while ($i < count($_POST['field_type']))
 			{
 				$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i]."<br>";
@@ -104,5 +105,7 @@ else
 			}
 		}
 	}
+	
+	$transport->close();
 }
 ?>
