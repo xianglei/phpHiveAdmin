@@ -23,6 +23,7 @@ else
 		echo "<body bgcolor=\"".$env['bodyColor']."\">";
 		echo "<form method=post action=dbStructure.php name=tablenames>";
 		echo "<table border=1>\n";
+		echo "<tr bgcolor=#FFFF99><td>Table Name</td><td>Action</td></tr>";
 		while ('' != @$db_array[$i])
 		{
 			if(($i % 2) == 0)
@@ -55,7 +56,8 @@ else
 			$i++;
 		}
 		echo "</table>\n";
-		echo "<a href=\"javascript:isSelect('tablenames');\">".$lang['select']."</a> / <a href=\"javascript:isSelect('tablenames')\">".$lang['deselect']."</a>\n";
+		echo '<input name="allSelect" type="checkbox" id="allSelect" value="" onClick="IsSelect(tablenames)" />';
+		echo $lang['select']." / ".$lang['deselect']."\n";
 		echo "</form>";
 		echo "";
 	}
