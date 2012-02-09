@@ -37,7 +37,6 @@ else
 				$array_desc = explode('	',$array_desc_table[$i]);
 				$array_desc_desc['name'][$i] = $array_desc[0];
 				$array_desc_desc['type'][$i] = $array_desc[1];
-				$array_desc_desc['select'][$i] = $select;
 				$i++;
 			}
 			echo "<body bgcolor=\"".$env['bodyColor']."\">";
@@ -60,7 +59,7 @@ else
 					echo '<td>';
 					if($key == 'type')
 					{
-						echo $v."<br>";
+						//echo $v."<br>";
 						echo "<select name=field_name[]>";
 						foreach($type as $kk => $vv)
 						{
