@@ -30,7 +30,7 @@ else
 			
 			$selected = " ";
 			$type = array('string'=>'String','tinyint'=>'Tiny int(3)','smallint'=>'Small int(5)','int'=>'Int(10)','bigint'=>'Big int(19)','double'=>'Double',
-						'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays');
+						'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays','float'=>'Float','boolean'=>'Boolean');
 			$i = 0;
 			while ('' != @$array_desc_table[$i])
 			{
@@ -40,6 +40,7 @@ else
 				$i++;
 			}
 			echo "<body bgcolor=\"".$env['bodyColor']."\">";
+			echo $lang['alterTableWarning'];
 			echo "<form method=post>";
 			echo '<table border=1>';
 			$i = 0;
@@ -87,12 +88,20 @@ else
 			}
 			$i = 0;
 			echo '</table><br>';
+			echo '<input type=hidden name=database value='.$_GET['database'].'><input type=hidden name=table value='.$_GET['table'].'>';
 			echo '<input type=submit name=submit value='.$lang['submit'].'>';
 			echo "</form>";
 		}
 		else
 		{
 			var_dump($_POST['field_name']);var_dump($_POST['field_type']);
+			$i = 0;
+			while ($i < count($_POST['field_type']))
+			{
+				$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i]."<br>";
+				echo $sql;
+				$i++;
+			}
 		}
 	}
 }

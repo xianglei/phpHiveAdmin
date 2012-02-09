@@ -18,4 +18,5 @@ $lang['alterTable'] = 'Alter';
 $lang['dropTable'] = 'Drop';
 $lang['select'] = 'Select All';
 $lang['deselect'] = 'DeSelect All';
+$lang['alterTableWarning'] = 'Alter Table fields, Please be careful';
 ?>
