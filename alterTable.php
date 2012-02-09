@@ -75,6 +75,7 @@ else
 					}
 					if($key == 'name')
 					{
+						echo $v;
 						echo "<input type=hidden name=field_name[] value=".$v." />\n";
 					}
 					if($key == "select")
