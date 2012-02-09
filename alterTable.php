@@ -28,20 +28,9 @@ else
 			//get table description and explode the desc into a multi-dimensional array
 			//获取表说明，并放入二维数组$array_desc_desc
 			
-			$select = "<select name=field_type[]>
-			<option value=string>String</option>
-			<option value=tinyint>Tiny int(3)</option>
-			<option value=smallint>Small int(5)</option>
-			<option value=int>Int(10)</option>
-			<option value=bigint>Big int(19)</option>
-			<option value=double>Double</option>
-			<option value=sep>------</option>
-			<option value=map>Map</option>
-			<option value=structs>Structs</option>
-			<option value=arrays>Arrays</option>
-			</select>
-			";
-			
+			$selected = " ";
+			$type = array('string'=>'String','tinyint'=>'Tiny int(3)','smallint'=>'Small int(5)','int'=>'Int(10)','bigint'=>'Big int(19)','double'=>'Double',
+						'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays');
 			$i = 0;
 			while ('' != @$array_desc_table[$i])
 			{
@@ -71,16 +60,26 @@ else
 					echo '<td>';
 					if($key == 'type')
 					{
-						echo $v;
+						echo $v."<br>";
+						echo "<select name=field_name[]>";
+						foreach($type as $kk => $vv)
+						{
+							if ($v == $kk)
+							{
+								$selected = "selected";
+							}
+							else
+							{
+								$selected ="";
+							}
+							echo "<option value=".$kk." ".$selected.">".$vv."</option>";
+						}
+						echo "</select>";
 					}
 					if($key == 'name')
 					{
 						echo $v;
 						echo "<input type=hidden name=field_name[] value=".$v." />\n";
-					}
-					if($key == "select")
-					{
-						echo $select;
 					}
 					echo '</td>';
 					$i++;
