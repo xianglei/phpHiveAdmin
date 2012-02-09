@@ -14,6 +14,7 @@ else
 	
 	include_once 'config.inc.php';
 	include_once 'templates/sql_query_navi.html';
+	include_once 'templates/style.css';
 	echo "<br /><br />";
 	
 	$transport->open();

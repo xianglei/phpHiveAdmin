@@ -12,5 +12,11 @@ echo $lang['sqlQuery'];
 echo $lang['export'];
 ?>
 </td>
+<td>
+<a href="alterTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table']?>">
+<?php
+echo $lang['alterTable'];
+?>
+</td>
 </tr>
 </table>
