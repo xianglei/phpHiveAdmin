@@ -69,7 +69,7 @@ else
 					echo '<td>'.$v.'</td>';
 					$i++;
 				}
-				echo '<tr>'
+				echo '<tr>';
 			}
 			$i = 0;
 			echo '</table>';
