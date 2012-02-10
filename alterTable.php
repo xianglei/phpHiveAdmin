@@ -107,9 +107,9 @@ else
 					echo "<input type=hidden name=sql[] value=\"".$sql."\">";
 					$i++;
 				}
-
+				echo "<input type=hidden name=confirm value=1>";
 				echo "<input type=submit name=submit value=".$lang['submit'].">";
-				echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"this.location=index.php?frame=right\">";
+				echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:this.location=index.php?frame=right\">";
 				echo "</form>";
 			}
 			else
