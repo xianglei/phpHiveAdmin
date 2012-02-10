@@ -20,7 +20,9 @@ else
 	}
 	else
 	{
-		$dbDir = $env['hdfsToHiveDir']."/".$_GET['database']."/".$_GET['table'];
+		$date = explode("_",$_GET['table']);
+		$date = $date[1];
+		$dbDir = $env['hdfsToHiveDir']."/".$_GET['database']."/".$date;
 		echo $sql = "dfs -ls ".$dbDir;
 		$client->execute($sql);
 		$flist = $client->fetchAll();
