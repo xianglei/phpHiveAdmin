@@ -16,6 +16,7 @@ $lang['submit'] = '提交';
 $lang['cancel'] = '取消';
 $lang['createDbSuccess'] = '创建数据库成功';
 $lang['alterTable'] = '修改';
+$lang['getFilelist'] = '文件列表';
 $lang['dropTable'] = '删除';
 $lang['select'] = '全选';
 $lang['deselect'] = '取消全选';

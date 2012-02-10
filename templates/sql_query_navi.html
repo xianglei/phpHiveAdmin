@@ -7,6 +7,12 @@ echo $lang['sqlQuery'];
 </a>
 </td>
 <td>
+<a href="getFilelist.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table']?>">
+<?php
+echo $lang['getFilelist'];
+?>
+</td>
+<td>
 <a href="alterTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table']?>">
 <?php
 echo $lang['alterTable'];

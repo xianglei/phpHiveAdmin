@@ -25,6 +25,7 @@ $env['showTables'] = 'show tables';
 $env['bodyColor'] = '#EFEFEF';
 $env['trColor1'] = '#AFAFAF';
 $env['trColor2'] = '#DFDFDF';
+$env['hdfsToHiveDir'] = '/data/dw';
 
 $transport = new TSocket(HOST, PORT);
 $protocol = new TBinaryProtocol($transport);

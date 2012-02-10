@@ -16,6 +16,7 @@ $lang['submit'] = 'Submit';
 $lang['cancel'] = 'Cancel';
 $lang['createDbSuccess'] = 'Create Database Success';
 $lang['alterTable'] = 'Alter';
+$lang['getFilelist'] = 'Filelist';
 $lang['dropTable'] = 'Drop';
 $lang['select'] = 'Select All';
 $lang['deselect'] = 'DeSelect All';
