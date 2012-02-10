@@ -94,14 +94,31 @@ else
 		}
 		else
 		{
-			//var_dump($_POST['field_name']);var_dump($_POST['field_type']);
-			$i = 0;
-			echo "<body bgcolor=\"".$env['bodyColor']."\">";
-			while ($i < count($_POST['field_type']))
+			if(!@$_POST['confirm'])
 			{
-				$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i]."<br>";
-				echo $sql;
-				$i++;
+				//var_dump($_POST['field_name']);var_dump($_POST['field_type']);
+				$i = 0;
+				echo "<body bgcolor=\"".$env['bodyColor']."\">";
+				echo "<form name=confirm method=post>";
+				while ($i < count($_POST['field_type']))
+				{
+					$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i]."<br>";
+					echo $sql;
+					echo "<input type=hidden name=sql[] value=\"".$sql."\">";
+					$i++;
+				}
+
+				echo "<input type=submit name=submit value=".$lang['submit'].">";
+				echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"this.location=index.php?frame=right\">";
+				echo "</form>";
+			}
+			else
+			{
+				foreach ($_POST['sql'] as $k => $v)
+				{
+					echo $client->execute($v);
+					echo "<script>alert('success');this.location=index.php?frame=right;</script>";
+				}
 			}
 		}
 	}
