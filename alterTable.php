@@ -102,7 +102,8 @@ else
 				echo "<form name=confirm method=post>";
 				while ($i < count($_POST['field_type']))
 				{
-					$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i]."<br>";
+					$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i];
+					echo "<br>";
 					echo $sql;
 					echo "<input type=hidden name=sql[] value=\"".$sql."\">";
 					$i++;
@@ -114,6 +115,7 @@ else
 			}
 			else
 			{
+				var_dump($_POST['sql']);
 				foreach ($_POST['sql'] as $k => $v)
 				{
 					echo $client->execute($v);
