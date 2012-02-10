@@ -26,6 +26,7 @@ else
 		echo $sql = "dfs -ls ".$dbDir;
 		$client->execute($sql);
 		$flist = $client->fetchAll();
+		var_dump($flist);
 		foreach($flist as $k => $v)
 		{
 			echo $v."<br>";
