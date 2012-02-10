@@ -108,18 +108,18 @@ else
 					echo "<input type=hidden name=sql[] value=\"".$sql."\">";
 					$i++;
 				}
-				echo "<input type=hidden name=confirm value=1>";
+				echo "<input type=hidden name=confirm value=1><br>";
+				echo "Sure???<br>";
 				echo "<input type=submit name=submit value=".$lang['submit'].">";
 				echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:this.location=index.php?frame=right\">";
 				echo "</form>";
 			}
 			else
 			{
-				var_dump($_POST['sql']);
 				foreach ($_POST['sql'] as $k => $v)
 				{
 					echo $client->execute($v);
-					echo "<script>alert('success');this.location=index.php?frame=right;</script>";
+					echo "<script>window.alert('success');this.location=index.php?frame=right;</script>";
 				}
 			}
 		}
