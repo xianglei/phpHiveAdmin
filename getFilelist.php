@@ -21,7 +21,7 @@ else
 	else
 	{
 		$dbDir = $env['hdfsToHiveDir']."/".$_GET['database']."/".$_GET['table'];
-		$sql = "dfs -ls ".$dbDir;
+		echo $sql = "dfs -ls ".$dbDir;
 		$client->execute($sql);
 		$flist = $client->fetchAll();
 		foreach($flist as $k => $v)
