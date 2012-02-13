@@ -26,7 +26,7 @@ $env['bodyColor'] = '#EFEFEF';
 $env['trColor1'] = '#AFAFAF';
 $env['trColor2'] = '#DFDFDF';
 // Important: varius below is being used only if you mount hdfs to a local filesystem!!!Unless it will cause fatal error
-$env['hdfsToHiveDir'] = '/hdfs/data/dw';
+$env['hdfsToHiveDir'] = '/hdfs/data/dw/';
 //'/hdfs' is a libhdfs mount point to localize directory 
 
 $transport = new TSocket(HOST, PORT);
