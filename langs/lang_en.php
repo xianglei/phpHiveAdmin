@@ -21,4 +21,6 @@ $lang['dropTable'] = 'Drop';
 $lang['select'] = 'Select All';
 $lang['deselect'] = 'DeSelect All';
 $lang['alterTableWarning'] = 'Alter Table fields, Please be careful';
+$lang['fileBrowser'] = "File Browser";
+$lang['needHDFS'] = "Need libhdfs";
 ?>

@@ -21,4 +21,6 @@ $lang['dropTable'] = '删除';
 $lang['select'] = '全选';
 $lang['deselect'] = '取消全选';
 $lang['alterTableWarning'] = '变更表的字段属性，请小心操作';
+$lang['fileBrowser'] = "文件浏览";
+$lang['needHDFS'] = "需libhdfs支持";
 ?>

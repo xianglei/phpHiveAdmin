@@ -2,6 +2,8 @@
 ignore_user_abort(true);
 set_time_limit(0);
 
+include_once 'config.inc.php';
+include_once 'templates/sql_query_navi.html';
 
 if(!$_GET['database'] || '' == $_GET['database'])
 {
@@ -11,9 +13,7 @@ else
 {
 
 	echo $_GET['database'].' --  <a href=index.php?frame=right target="right">Back</a><br /><br />';
-	
-	include_once 'config.inc.php';
-	include_once 'templates/sql_query_navi.html';
+
 	echo "<br /><br />";
 	
 	$transport->open();
