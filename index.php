@@ -1,7 +1,7 @@
 <?php
 
 //include_once 'config.inc.php';
-include_once 'lang_en.php';
+include_once 'langs/lang_en.php';
 
 if(@$_GET['frame'])
 {
