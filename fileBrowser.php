@@ -23,7 +23,14 @@ else
 			}
 			else
 			{
-				echo "<td>filename: <a href=fileBrowser.php?dir=".$dir.$file."/>$file </td>\n";
+				if(is_dir($dir.$file))
+				{
+					echo "<td>filename: <a href=fileBrowser.php?dir=".$dir.$file."/>$file </td>\n";
+				}
+				else
+				{
+					echo "<td>filename: <a href=fileBrowser.php?dir=".$dir.$file.">$file </td>\n";
+				}
 				echo "<td>filetype: ".filetype($dir.$file)."</td>\n";
 				echo "<td>filesize: ".filesize($dir.$file)."</td>\n";
 			}
