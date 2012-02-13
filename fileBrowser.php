@@ -31,7 +31,7 @@ else
 			}
 			echo "<tr bgcolor=\"".$color."\">";
 			
-			if(($file == '.') || ($file == '..'))
+			if($file == '.')
 			{
 				continue;
 			}
@@ -53,6 +53,7 @@ else
         }
         closedir($dh);
 		echo "</table>";
+		echo "Files: ".$i;
     }
 //}
 
