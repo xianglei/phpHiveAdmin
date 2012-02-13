@@ -23,4 +23,7 @@ $lang['deselect'] = 'DeSelect All';
 $lang['alterTableWarning'] = 'Alter Table fields, Please be careful';
 $lang['fileBrowser'] = "File Browser";
 $lang['needHDFS'] = "Need libhdfs";
+$lang['filename'] = "Filename";
+$lang['filetype'] = "Filetype";
+$lang['filesize'] = "Filesize";
 ?>
