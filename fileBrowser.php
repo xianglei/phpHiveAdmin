@@ -8,7 +8,7 @@ if(!@$_GET['dir'])
 }
 else
 {
-	echo addslashes($_GET['dir']);
+	echo str_replace("/","\/",$_GET['dir']);
 	if(preg_match('/'.addslashes($_GET['dir']).'/i',$env['hdfsToHiveDir']) == '0')
 	{
 		$dir = $env['hdfsToHiveDir'];
