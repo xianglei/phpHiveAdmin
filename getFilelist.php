@@ -4,7 +4,6 @@ include_once 'config.inc.php';
 include_once 'templates/style.css';
 
 $transport->open();
-echo "<body bgcolor=\"".$env['bodyColor']."\">";
 
 if(!@$_GET['database'])
 {

@@ -43,7 +43,6 @@ else
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
-		echo "<body bgcolor=\"".$env['bodyColor']."\">";
 		echo '<table border=1>';
 		$i = 0;
 		foreach ($array_desc_desc as $value)
@@ -70,7 +69,6 @@ else
 	else
 	{
 		$timer->start();
-		echo "<body bgcolor=\"#EFEFEF\">";
 		$sql = $_POST['sql'];
 		//add limit to standard sql
 		/*

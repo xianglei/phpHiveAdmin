@@ -20,7 +20,6 @@ else
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{
 		$i = 0;
-		echo "<body bgcolor=\"".$env['bodyColor']."\">";
 		echo "<form method=post action=dbStructure.php name=tablenames>";
 		echo "<table border=1>\n";
 		echo "<tr bgcolor=#FFFF99><td><input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"javascript:isSelect(\'tablenames\');\" /></td><td>Table Name</td><td>Action</td></tr>";

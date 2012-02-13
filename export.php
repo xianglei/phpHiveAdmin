@@ -42,7 +42,6 @@ else
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
-		echo "<body bgcolor=\"".$env['bodyColor']."\">";
 		echo $lang['exportSQL'];
 		include_once 'templates/sql_query.html';
 	}
@@ -50,7 +49,6 @@ else
 	{
 		$timer->start();
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />';
-		echo "<body bgcolor=\"".$env['bodyColor']."\">";
 		$sql = $_POST['sql'];
 		//add limit to standard sql
 		

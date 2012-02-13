@@ -39,7 +39,6 @@ else
 				$array_desc_desc['type'][$i] = $array_desc[1];
 				$i++;
 			}
-			echo "<body bgcolor=\"".$env['bodyColor']."\">";
 			echo $lang['alterTableWarning'];
 			echo "<form method=post>";
 			echo '<table border=1>';
@@ -78,8 +77,8 @@ else
 					}
 					if($key == 'name')
 					{
-						echo $v;
-						echo "<input type=hidden name=field_name[] value=".$v." />\n";
+						echo "<input type=text name=field_name[] value=".$v.">\n";
+						//echo "<input type=hidden name=field_name[] value=".$v." />\n";
 					}
 					echo '</td>';
 					$i++;
@@ -98,7 +97,6 @@ else
 			{
 				//var_dump($_POST['field_name']);var_dump($_POST['field_type']);
 				$i = 0;
-				echo "<body bgcolor=\"".$env['bodyColor']."\">";
 				echo "<form name=confirm method=post>";
 				while ($i < count($_POST['field_type']))
 				{

@@ -33,5 +33,5 @@ $client = new ThriftHiveClient($protocol);
 $timer = new Timer;
 //Create ThriftHive object
 
-
+echo "<body bgcolor=\"".$env['bodyColor']."\">";
 ?>
