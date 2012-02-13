@@ -8,7 +8,14 @@ if(!@$_GET['dir'])
 }
 else
 {
-	$dir = $_GET['dir'];
+	if(preg_match('/'.$_GET['dir'].'/i',$env['hdfsToHiveDir']) == '0')
+	{
+		$dir = $env['hdfsToHiveDir'];
+	}
+	else
+	{
+		$dir = $_GET['dir'];
+	}
 }
 
 //if (is_dir($dir)) {
