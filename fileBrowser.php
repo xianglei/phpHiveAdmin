@@ -11,7 +11,7 @@ else
 	$dir = $_GET['dir'];
 }
 
-if (is_dir($dir)) {
+//if (is_dir($dir)) {
     if ($dh = opendir($dir)) {
 		echo "<table border=1>";
         while (($file = readdir($dh)) !== false)
@@ -32,6 +32,6 @@ if (is_dir($dir)) {
         closedir($dh);
 		echo "</table>";
     }
-}
+//}
 
 ?>
