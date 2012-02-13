@@ -14,12 +14,12 @@ else
 //if (is_dir($dir)) {
     if ($dh = opendir($dir)) {
 		echo "<table border=1>";
+		echo "<tr bgcolor=\"#FFFF99\">";
+		echo "<td>".$lang['filename']."</td><td>".$lang['filetype']."</td><td>".$lang['filesize']."</td>";
+		echo "</tr>";
 		$i = 0;
         while (($file = readdir($dh)) !== false)
 		{
-			echo "<tr bgcolor=\"#FFFF99\">";
-			echo "<td>".$lang['filename']."</td><td>".$lang['filetype']."</td><td>".$lang['filesize']."</td>";
-			echo "</tr>";
 			
 			if(($i % 2) == 0)
 			{
@@ -27,7 +27,7 @@ else
 			}
 			else
 			{
-				$color = $env['trColor1'];
+				$color = $env['trColor2'];
 			}
 			echo "<tr bgcolor=\"".$color."\">";
 			
