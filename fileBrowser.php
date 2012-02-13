@@ -39,14 +39,14 @@ else
 			{
 				if(is_dir($dir.$file))
 				{
-					echo "<td>".$lang['filename'].": <a href=fileBrowser.php?dir=".$dir.$file."/>$file </td>\n";
+					echo "<td><a href=fileBrowser.php?dir=".$dir.$file."/>$file </td>\n";
 				}
 				else
 				{
-					echo "<td>".$lang['filename'].": <a href=fileBrowser.php?dir=".$dir.$file.">$file </td>\n";
+					echo "<td><a href=fileBrowser.php?dir=".$dir.$file.">$file </td>\n";
 				}
-				echo "<td>".$lang['filetype'].": ".filetype($dir.$file)."</td>\n";
-				echo "<td>".$lang['filesize'].": ".filesize($dir.$file)."</td>\n";
+				echo "<td>".filetype($dir.$file)."</td>\n";
+				echo "<td>".filesize($dir.$file)."</td>\n";
 			}
 			echo "</tr>";
 			$i++;
