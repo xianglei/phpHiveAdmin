@@ -13,6 +13,7 @@ else
 
 //if (is_dir($dir)) {
     if ($dh = opendir($dir)) {
+		echo "<a href=fileBrowser.php?dir=".$env['hdfsToHiveDir'].">Back to Root</a><br><br>";
 		echo "<table border=1>";
 		echo "<tr bgcolor=\"#FFFF99\">";
 		echo "<td>".$lang['filename']."</td><td>".$lang['filetype']."</td><td>".$lang['filesize']."</td>";
@@ -31,7 +32,7 @@ else
 			}
 			echo "<tr bgcolor=\"".$color."\">";
 			
-			if($file == '.')
+			if(($file == '.') || ($file == '..'))
 			{
 				continue;
 			}
