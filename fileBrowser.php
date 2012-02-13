@@ -23,7 +23,7 @@ if (is_dir($dir)) {
 			}
 			else
 			{
-				echo "<td>filename: <a href=fileBrowser.php?dir=".$env['hdfsToHiveDir'].$file.">$file </td>\n";
+				echo "<td>filename: <a href=fileBrowser.php?dir=".$env['hdfsToHiveDir']."/".$file.">$file </td>\n";
 				echo "<td>filetype: ".filetype($dir.$file)."</td>\n";
 				echo "<td>filesize: ".filesize($dir.$file)."</td>\n";
 			}
