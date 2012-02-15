@@ -42,6 +42,7 @@ else
 			}
 			echo $lang['alterTableWarning'];
 			echo "<form method=post>";
+			echo "<input type=text name=new_table_name value=".$_GET['table']."><br>";
 			echo '<table border=1>';
 			$i = 0;
 			foreach ($array_desc_desc as $key => $value)
@@ -106,6 +107,9 @@ else
 				//var_dump($_POST['field_name']);var_dump($_POST['field_type']);
 				$i = 0;
 				echo "<form name=confirm method=post>";
+				echo $sql = "ALTER TABLE ".$_POST['table']." RENAME TO ".$_POST['new_table_name'];
+				echo "<input type=hidden name=sql[] value=".$sql.">";
+				echo "<br>";
 				while ($i < count($_POST['field_type']))
 				{
 					$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['old_field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i];
