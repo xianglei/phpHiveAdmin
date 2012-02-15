@@ -54,12 +54,14 @@ else
 				{
 					$color = "bgcolor=\"#99FFFF\"";
 				}
+				//echo '<tr '.$color.'>';
 				foreach($value as $k => $v)
 				{
 					echo '<tr '.$color.'>';
-					echo '<td>';
+					//echo '<td>';
 					if($key == 'type')
 					{
+						echo "<td>";
 						//echo $v."<br>";
 						echo "<select name=field_type[]>";
 						foreach($type as $kk => $vv)
@@ -75,16 +77,20 @@ else
 							echo "<option value=".$kk." ".$selected.">".$vv."</option>";
 						}
 						echo "</select>";
+						echo "</td>";
 					}
 					if($key == 'name')
 					{
+						echo "<td>";
 						echo "<input type=text name=field_name[] value=".$v.">\n";
 						//echo "<input type=hidden name=field_name[] value=".$v." />\n";
+						echo "</td>";
 					}
-					echo '</td>';
+					//echo '</td>';
 					$i++;
 					echo '<tr>';
 				}
+				//echo '<tr>';
 			}
 			$i = 0;
 			echo '</table><br>';
