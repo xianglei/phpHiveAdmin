@@ -29,7 +29,8 @@ else
 					  <td>".$lang['fieldType']."</td>
 				  </tr>";
 			$type = array('string'=>'String','tinyint'=>'Tiny int(3)','smallint'=>'Small int(5)','int'=>'Int(10)','bigint'=>'Big int(19)','double'=>'Double',
-						'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays','float'=>'Float','boolean'=>'Boolean');
+						//'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays',
+						'float'=>'Float','boolean'=>'Boolean');
 			for ($i = 0; $i < $_POST['fieldnums']; $i++)
 			{
 				if(($i % 2) == 0)
@@ -77,7 +78,8 @@ else
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
 			$client->execute($sql);
-			echo "<script>alert('".$lang['createTableSuccess']."');showsd('dbStructure.php?database=".$_POST['database']."', 'tableList.php?database=".$_POST['database']."');</script>";
+			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 		}
-	 }
+	}
+	$transport->close();
 }

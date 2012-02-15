@@ -30,7 +30,8 @@ else
 			
 			$selected = " ";
 			$type = array('string'=>'String','tinyint'=>'Tiny int(3)','smallint'=>'Small int(5)','int'=>'Int(10)','bigint'=>'Big int(19)','double'=>'Double',
-						'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays','float'=>'Float','boolean'=>'Boolean');
+						//'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays',
+						'float'=>'Float','boolean'=>'Boolean');
 			$i = 0;
 			while ('' != @$array_desc_table[$i])
 			{

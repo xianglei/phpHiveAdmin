@@ -19,6 +19,7 @@ function showsd(link1,link2)
 	frame.src =link1;
 	window.location =link2;
 }
+
 function isSelect(form)
 {
 	for (var i=0;i<form.elements.length;i++)
@@ -28,6 +29,14 @@ function isSelect(form)
 		{
 			e.checked = form.allSelect.checked;
 		}
+	}
+}
+
+function realconfirm(text1,url)
+{
+	if(window.confirm(text1))
+	{
+		window.location=url;
 	}
 }
 </script>

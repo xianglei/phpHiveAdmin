@@ -29,7 +29,12 @@ else
 		$i = 0;
 		echo "<form method=post action=dbStructure.php name=tablenames>";
 		echo "<table border=1>\n";
-		echo "<tr bgcolor=#FFFF99><td><input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"javascript:isSelect(\'tablenames\');\" /></td><td>Table Name</td><td>Action</td></tr>";
+		echo "<tr bgcolor=#FFFF99>
+		<td><input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"javascript:isSelect(\'tablenames\');\" /></td>
+		<td>".$lang['tableName']."</td>
+		<td>".$lang['alterTable']."</td>
+		<td>".$lang['dropTable']."</td>
+		</tr>";
 		while ('' != @$db_array[$i])
 		{
 			if(($i % 2) == 0)
@@ -51,12 +56,12 @@ else
 			echo "</td>\n";
 		
 			echo "<td>\n";
-			echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i].">".$lang['alterTable']."</a>";
+			echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_props.png>".$lang['alterTable']."</a>";
 			echo "</td>\n";
 		
-			//echo "<td>\n";
-			//echo "<a href=dropTable.php?database=".$_GET['database']."&table=".$db_array[$i].">".$lang['dropTable']."</a>";
-			//echo "</td>\n";
+			echo "<td>\n";
+			echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
+			echo "</td>\n";
 		
 			echo "</tr>\n";
 			$i++;
