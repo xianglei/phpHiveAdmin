@@ -18,7 +18,7 @@ else
 	$db_array = $client->fetchAll();
 
 	$i = 0;
-	echo '<a href="javascript:showsd(\'index.php?frame=right\',\'dbList.php\')" target=left><<< '.$lang['back'].'</a><br /><br />';
+	echo '<img src=images/b_sbrowse.png><a href="javascript:showsd(\'index.php?frame=right\',\'dbList.php\')" target=left><<< '.$lang['back'].'</a><br /><br />';
 	while('' != @$db_array[$i]) {
 		echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right">'.$db_array[$i].'</a><br />';
 		$i++;
