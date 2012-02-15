@@ -32,4 +32,5 @@ $lang['addTable'] = "添加一个数据表";
 $lang['addTableAlert'] = "请同时输入表名与字段数!";
 $lang['fieldName'] = "字段名: ";
 $lang['fieldType'] = "字段类型: ";
+$lang['createTableSuccess'] = "成功创建表!";
 ?>

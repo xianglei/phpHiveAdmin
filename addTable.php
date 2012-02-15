@@ -68,14 +68,16 @@ else
 		{
 			$sql = "CREATE TABLE ".$_POST['newtablename']." (";
 			$i = 0;
-			while ("" != $_POST['field_name'][$i])
+			$str = "";
+			while ("" != @$_POST['field_name'][$i])
 			{
 				$str .= $_POST['field_name'][$i]." ".$_POST['field_type'][$i].",";
 				$i++;
 			}
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
-			echo $sql;
+			$client->execute($sql);
+			echo "<script>alert(\'".$lang['createTableSuccess']."\');window.location='dbStructure.php?database=".$_POST['database']."'</script>";
 		}
 	 }
 }

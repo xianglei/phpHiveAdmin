@@ -32,4 +32,5 @@ $lang['addTable'] = "Add a Table";
 $lang['addTableAlert'] = "Please enter Table name and field numbers both!";
 $lang['fieldName'] = "Field Name: ";
 $lang['fieldType'] = "Field Type: ";
+$lang['createTableSuccess'] = "Create table Success!";
 ?>
