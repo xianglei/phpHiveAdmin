@@ -54,10 +54,10 @@ else
 				{
 					$color = "bgcolor=\"#99FFFF\"";
 				}
-				//echo '<tr '.$color.'>';
+				echo '<tr '.$color.'>';
 				foreach($value as $k => $v)
 				{
-					echo '<tr '.$color.'>';
+					//echo '<tr '.$color.'>';
 					//echo '<td>';
 					if($k == 'type')
 					{
@@ -89,9 +89,9 @@ else
 					}
 					//echo '</td>';
 					$i++;
-					echo '</tr>';
+					//echo '</tr>';
 				}
-				//echo '</tr>';
+				echo '</tr>';
 			}
 			$i = 0;
 			echo '</table><br>';
