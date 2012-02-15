@@ -46,7 +46,7 @@ else
 			$i = 0;
 			foreach ($array_desc_desc as $key => $value)
 			{
-				if(0 == $i)
+				if(($i % 2) == 0)
 				{
 					$color = "bgcolor=\"#FFFF99\"";
 				}
