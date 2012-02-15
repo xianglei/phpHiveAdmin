@@ -54,10 +54,10 @@ else
 				{
 					$color = "bgcolor=\"#99FFFF\"";
 				}
-				echo '<tr '.$color.'>';
+				//echo '<tr '.$color.'>';
 				foreach($value as $k => $v)
 				{
-					//echo '<tr '.$color.'>';
+					echo '<tr '.$color.'>';
 					//echo '<td>';
 					if($key == 'type')
 					{
