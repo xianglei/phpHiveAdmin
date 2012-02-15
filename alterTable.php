@@ -36,8 +36,8 @@ else
 			while ('' != @$array_desc_table[$i])
 			{
 				$array_desc = explode('	',$array_desc_table[$i]);
-				$array_desc_desc['name'][$i] = $array_desc[0];
-				$array_desc_desc['type'][$i] = $array_desc[1];
+				$array_desc_desc[$i]['name'] = $array_desc[0];
+				$array_desc_desc[$i]['type'] = $array_desc[1];
 				$i++;
 			}
 			echo $lang['alterTableWarning'];
