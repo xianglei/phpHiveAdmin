@@ -10,7 +10,7 @@ if(!$_GET['database'] || '' == $_GET['database'])
 else
 {
 
-	echo $_GET['database'].' --  <a href=index.php?frame=right target="right">Back</a><br /><br />';
+	echo $_GET['database'].' --  <a href=dbStructure.php?database='.$_GET['database'].' target="right">Back</a><br /><br />';
 	
 	include_once 'config.inc.php';
 	include_once 'templates/sql_query_navi.html';
