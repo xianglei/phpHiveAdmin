@@ -77,7 +77,7 @@ else
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
 			$client->execute($sql);
-			echo "<script>alert('".$lang['createTableSuccess']."');showsd('dbStructure.php?database=".$_POST['database'].",'tableList.php?database=".$_POST['database']."');'</script>";
+			echo "<script>alert('".$lang['createTableSuccess']."');showsd('dbStructure.php?database=".$_POST['database']."', 'tableList.php?database=".$_POST['database']."');'</script>";
 		}
 	 }
 }
