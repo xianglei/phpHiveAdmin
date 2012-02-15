@@ -22,7 +22,7 @@ else
 //if (is_dir($dir)) {
     if ($dh = opendir($dir)) {
 		echo "<a href=fileBrowser.php?dir=".$env['hdfsToHiveDir'].">Back to Root</a><br><br>";
-		echo "<table border=1 cellspacing=1 cellpadding=5>";
+		echo "<table border=1 cellspacing=1 cellpadding=3>";
 		echo "<tr bgcolor=\"#FFFF99\">";
 		echo "<td>".$lang['filename']."</td><td>".$lang['filetype']."</td><td>".$lang['filesize']."</td>";
 		echo "</tr>";
