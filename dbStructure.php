@@ -19,13 +19,6 @@ else
 
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{
-		echo $lang['addTable']."<br>";
-		echo "<form method=post action=addTable.php>";
-		echo $lang['tableName']."<input type=text name=newtablename>&nbsp;&nbsp;&nbsp;&nbsp;";
-		echo $lang['fieldNums']."<input type=text name=fieldnums><br>";
-		echo "<input type=submit name=submit value=".$lang['submit'].">";
-		echo "<input type=hidden name=database value=".$_GET['database'].">";
-		echo "</form><br><br>";
 		$i = 0;
 		echo "<form method=post action=dbStructure.php name=tablenames>";
 		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
@@ -70,8 +63,8 @@ else
 		echo '<input name="allSelect" type="checkbox" id="allSelect" value="" onClick="isSelect(\'tablenames\')" />';
 		echo $lang['select']." / ".$lang['deselect']."<bR><br>\n";
 		echo "<input type=submit name=submit value=".$lang['submit'].">";
-		echo "</form>";
-		echo "";
+		echo "</form><br><br>";
+		include_once "templates/addTable.html";
 	}
 	else
 	{
