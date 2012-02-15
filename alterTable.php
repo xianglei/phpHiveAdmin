@@ -42,7 +42,7 @@ else
 			}
 			echo $lang['alterTableWarning'];
 			echo "<form method=post>";
-			echo $lang['renameTable']."(Only root user can do this)<input type=text name=new_table_name value=".$_GET['table']." disabled><br>";
+			echo $lang['renameTable']."(Only rooted-php can do this)<input type=text name=new_table_name value=".$_GET['table']."><br>";
 			echo '<table border=1>';
 			$i = 0;
 			foreach ($array_desc_desc as $key => $value)
