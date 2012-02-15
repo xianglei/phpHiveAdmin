@@ -23,7 +23,7 @@ else
 		echo "<form method=post action=dbStructure.php name=tablenames>";
 		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 		echo "<tr bgcolor=#FFFF99>
-		<td><input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"javascript:isSelect(\'tablenames\');\" /></td>
+		<td><input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"javascript:isSelect('tablenames');\" /></td>
 		<td>".$lang['tableName']."</td>
 		<td>".$lang['alterTable']."</td>
 		<td>".$lang['dropTable']."</td>
