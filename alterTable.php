@@ -88,7 +88,7 @@ else
 					}
 					//echo '</td>';
 					$i++;
-					echo '<tr>';
+					echo '</tr>';
 				}
 				//echo '<tr>';
 			}
