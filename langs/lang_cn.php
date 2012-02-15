@@ -34,4 +34,5 @@ $lang['fieldName'] = "字段名: ";
 $lang['fieldType'] = "字段类型: ";
 $lang['createTableSuccess'] = "成功创建表！";
 $lang['dropTableConfirm'] = "确定删除该表？";
+$lang['renameTable'] = "表改名: ";
 ?>
