@@ -127,7 +127,7 @@ else
 				echo "</form>";
 			}
 			else
-			{
+			{var_dump($_POST['sql']);
 				foreach ($_POST['sql'] as $k => $v)
 				{
 					echo $client->execute($v);
