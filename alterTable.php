@@ -83,6 +83,7 @@ else
 					{
 						echo "<td>";
 						echo "<input type=text name=field_name[] value=".$v.">\n";
+						echo "<input type=hidden name=old_field_name[] value=".$v.">\n";
 						//echo "<input type=hidden name=field_name[] value=".$v." />\n";
 						echo "</td>";
 					}
@@ -107,7 +108,7 @@ else
 				echo "<form name=confirm method=post>";
 				while ($i < count($_POST['field_type']))
 				{
-					$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i];
+					$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['old_field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i];
 					echo "<br>";
 					echo $sql;
 					echo "<input type=hidden name=sql[] value=\"".$sql."\">";
