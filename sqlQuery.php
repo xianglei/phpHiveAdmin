@@ -83,7 +83,7 @@ else
 		$array = $client->fetchAll();
 
 		//construct table desc table
-		echo "<table border=1>\n";
+		echo "<table border=1 cellspacing=1 cellpadding=5>\n";
 		$i = 0;
 		foreach ($array_desc_desc as $value)
 		{

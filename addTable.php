@@ -23,7 +23,7 @@ else
 		if(!@$_POST['field_name'] || !@$_POST['field_type'])
 		{
 			echo "<form name=newTable method=post>";
-			echo "<table border=1>";
+			echo "<table border=1 cellspacing=1 cellpadding=5>";
 			echo "<tr bgcolor=\"#FFFF99\">
 					  <td>".$lang['fieldName']."</td>
 					  <td>".$lang['fieldType']."</td>
