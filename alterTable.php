@@ -98,6 +98,7 @@ else
 			echo '</table><br>';
 			echo '<input type=hidden name=database value='.$_GET['database'].'><input type=hidden name=table value='.$_GET['table'].'>';
 			echo '<input type=submit name=submit value='.$lang['submit'].'>';
+			echo "&nbsp;&nbsp;";
 			echo "<input type=button value=".$lang['cancel']." onclick=\"javascript:history.back();\">";
 			echo "</form>";
 		}
