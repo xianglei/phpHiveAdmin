@@ -20,7 +20,7 @@ else
 	 }
 	 else
 	 {
-		if(!@$_POST['submit'])
+		if(!@$_POST['field_name'] || !@$_POST['field_type'])
 		{
 			echo "<form name=newTable method=post>";
 			echo "<table border=1>";

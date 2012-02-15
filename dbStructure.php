@@ -21,7 +21,8 @@ else
 	{
 		echo $lang['addTable']."<br>";
 		echo "<form method=post action=addTable.php>";
-		echo $lang['tableName']."<input type=text name=newtablename> -- ".$lang['fieldNums']."<input type=text name=fieldnums>";
+		echo $lang['tableName']."<input type=text name=newtablename>&nbsp;&nbsp;&nbsp;&nbsp;";
+		echo $lang['fieldNums']."<input type=text name=fieldnums><br>";
 		echo "<input type=submit name=submit value=".$lang['submit'].">";
 		echo "<input type=hidden name=database value=".$_GET['database'].">";
 		echo "</form><br><br>";
