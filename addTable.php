@@ -70,7 +70,7 @@ else
 			$i = 0;
 			while ("" != $_POST['field_name'][$i])
 			{
-				$str .= $_POST['field_name'][$i]." ".$_POST['field_type'][$i].","
+				$str .= $_POST['field_name'][$i]." ".$_POST['field_type'][$i].",";
 				$i++;
 			}
 			$str = substr($str,0,-1);
