@@ -115,6 +115,8 @@ else
 					$i++;
 				}
 				echo "<input type=hidden name=confirm value=1><br>";
+				echo "<input type=hidden name=table value=".$_POST['table'].">";
+				echo "<input type=hidden name=database value=".$_POST[;database;].">";
 				echo "Sure???<br>";
 				echo "<input type=submit name=submit value=".$lang['submit'].">";
 				echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"window.location='index.php?frame=right'\">";
@@ -126,7 +128,7 @@ else
 				{
 					echo $client->execute($v);
 				}
-				echo "<script>alert('success');window.location='index.php?frame=right';</script>";
+				echo "<script>alert('success');window.location='sqlQuery.php?database=".$_POST['database']."&table=".$_POST['table']."';</script>";
 			}
 		}
 	}
