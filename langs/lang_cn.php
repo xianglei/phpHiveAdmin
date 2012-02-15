@@ -22,8 +22,14 @@ $lang['select'] = '全选';
 $lang['deselect'] = '取消全选';
 $lang['alterTableWarning'] = '变更表的字段属性，请小心操作';
 $lang['fileBrowser'] = "文件浏览";
-$lang['needHDFS'] = "需libhdfs支持";
+$lang['needHDFS'] = "需Fuse-dfs支持";
 $lang['filename'] = "文件名";
 $lang['filetype'] = "文件类型";
 $lang['filesize'] = "文件大小";
+$lang['tableName'] = "表名";
+$lang['fieldNums'] = "字段数";
+$lang['addTable'] = "添加一个数据表";
+$lang['addTableAlert'] = "请同时输入表名与字段数!";
+$lang['fieldName'] = "字段名: ";
+$lang['fieldType'] = "字段类型: ";
 ?>

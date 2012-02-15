@@ -22,8 +22,14 @@ $lang['select'] = 'Select All';
 $lang['deselect'] = 'DeSelect All';
 $lang['alterTableWarning'] = 'Alter Table fields, Please be careful';
 $lang['fileBrowser'] = "File Browser";
-$lang['needHDFS'] = "Need libhdfs";
+$lang['needHDFS'] = "Need Fuse-dfs";
 $lang['filename'] = "Filename";
 $lang['filetype'] = "Filetype";
 $lang['filesize'] = "Filesize";
+$lang['tableName'] = "Table name: ";
+$lang['fieldNums'] = "Field numbers: ";
+$lang['addTable'] = "Add a Table";
+$lang['addTableAlert'] = "Please enter Table name and field numbers both!";
+$lang['fieldName'] = "Field Name: ";
+$lang['fieldType'] = "Field Type: ";
 ?>

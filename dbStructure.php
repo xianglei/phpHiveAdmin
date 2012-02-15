@@ -19,6 +19,12 @@ else
 
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{
+		echo $lang['addTable']."<br>";
+		echo "<form method=post action=addTable.php>";
+		echo $lang['tableName']."<input type=text name=newtablename> -- ".$lang['fieldNums']."<input type=text name=fieldnums>";
+		echo "<input type=submit name=submit value=".$lang['submit'].">";
+		echo "<input type=hidden name=database value=".$_GET['database'].">";
+		echo "</form><br><br>";
 		$i = 0;
 		echo "<form method=post action=dbStructure.php name=tablenames>";
 		echo "<table border=1>\n";
