@@ -59,7 +59,7 @@ else
 				{
 					echo '<tr '.$color.'>';
 					//echo '<td>';
-					if($key == 'type')
+					if($k == 'type')
 					{
 						echo "<td>";
 						//echo $v."<br>";
@@ -79,7 +79,7 @@ else
 						echo "</select>";
 						echo "</td>";
 					}
-					if($key == 'name')
+					if($k == 'name')
 					{
 						echo "<td>";
 						echo "<input type=text name=field_name[] value=".$v.">\n";
