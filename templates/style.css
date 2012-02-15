@@ -20,14 +20,14 @@ function showsd(link1,link2)
 	window.location =link2;
 }
 
-function isSelect(form)
+function isSelect(formname)
 {
-	for (var i=0;i<form.elements.length;i++)
+	for (var i=0;i<formname.elements.length;i++)
 	{
-		var e = form.elements[i];
+		var e = formname.elements[i];
 		if (e.Name != 'allSelect'&&e.disabled==false)
 		{
-			e.checked = form.allSelect.checked;
+			e.checked = formname.allSelect.checked;
 		}
 	}
 }
