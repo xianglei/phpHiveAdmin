@@ -43,7 +43,7 @@ else
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
-		echo '<table border=1>';
+		echo '<table border=1 cellspacing=1 cellpadding=1>';
 		$i = 0;
 		foreach ($array_desc_desc as $value)
 		{

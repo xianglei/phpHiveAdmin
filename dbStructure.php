@@ -28,7 +28,7 @@ else
 		echo "</form><br><br>";
 		$i = 0;
 		echo "<form method=post action=dbStructure.php name=tablenames>";
-		echo "<table border=1>\n";
+		echo "<table border=1 cellspacing=1 cellpadding=1>\n";
 		echo "<tr bgcolor=#FFFF99>
 		<td><input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"javascript:isSelect(\'tablenames\');\" /></td>
 		<td>".$lang['tableName']."</td>
