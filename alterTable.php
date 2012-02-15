@@ -127,10 +127,10 @@ else
 				echo "</form>";
 			}
 			else
-			{var_dump($_POST['sql']);
+			{
 				foreach ($_POST['sql'] as $k => $v)
 				{
-					echo $client->execute($v);
+					echo @$client->execute($v);
 				}
 				echo "<script>alert('success');window.location='sqlQuery.php?database=".$_POST['database']."&table=".$_POST['table']."';</script>";
 			}
