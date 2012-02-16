@@ -85,12 +85,12 @@ else
 			}
 			else
 			{
-				$sql = "ALTER TABLE ADD COLUMNS ".$_POST['table']." (";
+				$sql = "ALTER TABLE ".$_POST['table']." ADD COLUMNS (";
 				$i = 0;
 				$str = "";
 				while ("" != @$_POST['field_name'][$i])
 				{
-					$str .= $_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['content']."',";
+					$str .= $_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."',";
 					$i++;
 				}
 				$str = substr($str,0,-1);
