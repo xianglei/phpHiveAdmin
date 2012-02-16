@@ -39,4 +39,5 @@ $lang['renameTable'] = "表改名: (php必须以root权限运行) ";
 $lang['addFields'] = "添加字段";
 $lang['comment'] = "注释";
 $lang['dropDatabase'] = "删除数据库";
+$lang['dropDbSuccess'] = "删除成功!";
 ?>
