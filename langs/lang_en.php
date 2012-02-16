@@ -33,6 +33,7 @@ $lang['addTableAlert'] = "Please enter Table name and field numbers both!";
 $lang['fieldName'] = "Field Name: ";
 $lang['fieldType'] = "Field Type: ";
 $lang['createTableSuccess'] = "Create table Success!";
+$lang['alterTableSuccess'] = "Alter table Success!";
 $lang['dropTableConfirm'] = "Are you sure you want to drop this Table?";
 $lang['renameTable'] = "Table rename: (Only rooted-php can do this) ";
 //$lang['alterTable'] = "Alter Table";

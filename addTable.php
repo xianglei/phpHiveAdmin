@@ -27,6 +27,7 @@ else
 			echo "<tr bgcolor=\"#FFFF99\">
 					  <td>".$lang['fieldName']."</td>
 					  <td>".$lang['fieldType']."</td>
+					  <td>".$lang['comment']."</td>
 				  </tr>";
 			$type = array('string'=>'String','tinyint'=>'Tiny int(3)','smallint'=>'Small int(5)','int'=>'Int(10)','bigint'=>'Big int(19)','double'=>'Double',
 						//'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays',
@@ -56,6 +57,10 @@ else
 				echo "</select>";
 				echo "</td>\n";
 				//-------------
+				echo "<td>\n";
+				echo "<input type=text name=comment[]>\n";
+				echo "</td>\n";
+				//-------------
 				echo "</tr>\n";
 			}
 			echo "<input type=hidden name=database value=".$_POST['database'].">";
@@ -72,7 +77,7 @@ else
 			$str = "";
 			while ("" != @$_POST['field_name'][$i])
 			{
-				$str .= $_POST['field_name'][$i]." ".$_POST['field_type'][$i].",";
+				$str .= $_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment']."',";
 				$i++;
 			}
 			$str = substr($str,0,-1);
