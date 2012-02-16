@@ -96,8 +96,8 @@ else
 				$str = substr($str,0,-1);
 				$sql = $sql.$str.")";
 				echo $sql."<br>";
-				$client->execute($sql);
-				echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
+				echo $client->execute($sql);
+				//echo "<script>alert('".$lang['alterTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 			}	
 		}
 	}
