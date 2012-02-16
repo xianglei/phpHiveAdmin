@@ -13,7 +13,7 @@ else
 	$client->execute('create database '.$_POST['newdbname']);
 
 	//$db_array = $client->fetchOne();
-	echo $lang['createDbSuccess'].' - <a href="javascript:showsd(\'index.php?frame=right\', \'dbList.php\')" target=left>'.$lang['back'].'</a>';
+	echo '<script>alert(\''.$lang['createDbSuccess'].'\');window.location=\'index.php?frame=right\';</script>';
 
 	$transport->close();
 }
