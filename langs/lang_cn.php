@@ -36,4 +36,5 @@ $lang['createTableSuccess'] = "成功创建表！";
 $lang['alterTableSuccess'] = "修改成功!";
 $lang['dropTableConfirm'] = "确定删除该表？";
 $lang['renameTable'] = "表改名: (php必须以root权限运行) ";
+$lang['addFields'] = "添加字段";
 ?>
