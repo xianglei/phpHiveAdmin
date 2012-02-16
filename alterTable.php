@@ -104,7 +104,7 @@ else
 			echo "&nbsp;&nbsp;";
 			echo "<input type=button value=".$lang['cancel']." onclick=\"javascript:history.back();\">";
 			echo "&nbsp;&nbsp;";
-			echo "<input type=button value=\"".$lang['addFields']."\" onclick=\"javascript:window.location=addFields.php?database=".$_GET['database']."&table=".$_GET['table']."\">";
+			echo "<input type=button value=\"".$lang['addFields']."\" onclick=\"javascript:window.location='addFields.php?database=".$_GET['database']."&table=".$_GET['table']."'\">";
 			echo "</form>";
 		}
 		else
