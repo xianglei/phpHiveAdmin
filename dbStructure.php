@@ -19,14 +19,14 @@ else
 
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{
-		echo "<table border=1 cellspacing=1 cellpadding=3><tr><td>";
+		echo "<table border=1 cellspacing=1 cellpadding=3><tr bgcolor=#FFFF99><td>";
 		if(count($db_array) != 0)
 		{
 			echo "<img src=images/b_deltbl.png>Drop Database";
 		}
 		else
 		{
-			echo "<a href=dropDatabase.php?database=><img src=images/b_deltbl.png>Drop Database</a>";
+			echo "<a href=dropDatabase.php?database=".$_GET['database']."><img src=images/b_deltbl.png>Drop Database</a>";
 		}
 		echo "</td></tr></table><br><br>";
 		
