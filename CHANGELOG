@@ -1,4 +1,11 @@
-﻿02-15-2012
+﻿02-16-2012
+0.03
+1. add drop database
+2. alter table can modify comment
+3. an exist table can add columns
+4. a lot of link errors
+
+02-15-2012
 0.02 beta1
 
 1. Add create table.
