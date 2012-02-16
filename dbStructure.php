@@ -19,6 +19,17 @@ else
 
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{
+		echo "<table border=1 cellspacing=1 cellpadding=3><tr><td>";
+		if(count($db_array) != 0)
+		{
+			echo "<img src=images/b_deltbl.png>Drop Database";
+		}
+		else
+		{
+			echo "<a href=dropDatabase.php?database=><img src=images/b_deltbl.png>Drop Database</a>";
+		}
+		echo "</td></tr></table><br><br>";
+		
 		$i = 0;
 		echo "<form method=post action=dbStructure.php name=tablenames>";
 		echo "<table border=1 cellspacing=1 cellpadding=3>\n";

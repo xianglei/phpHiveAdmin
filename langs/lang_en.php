@@ -38,4 +38,6 @@ $lang['dropTableConfirm'] = "Are you sure you want to drop this Table?";
 $lang['renameTable'] = "Table rename: (Only rooted-php can do this) ";
 $lang['addFields'] = "Add Columns";
 $lang['comment'] = "Comment";
+$lang['dropDatabase'] = "Drop Database";
+$lang['dropDbSuccess'] = "Drop database success!";
 ?>
