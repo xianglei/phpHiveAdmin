@@ -42,7 +42,11 @@ else
 			}
 			echo $lang['alterTableWarning'];
 			echo "<form method=post>";
-			echo $lang['renameTable']."<input type=text name=new_table_name value=".$_GET['table']."><br>";
+			echo "<table border=1 cellspacing=1 cellpadding=3>";
+			echo "<tr bgcolor=#FF0000>";
+			echo "<td>".$lang['renameTable']."</td><td><input type=text name=new_table_name value=".$_GET['table']."></td>";
+			echo "</tr>";
+			echo "</table><br><br>";
 			echo '<table border=1 cellspacing=1 cellpadding=3>';
 			$i = 0;
 			foreach ($array_desc_desc as $key => $value)
@@ -89,12 +93,11 @@ else
 						echo "</td>";
 					}
 					//echo '</td>';
-					$i++;
 					//echo '</tr>';
 				}
 				echo '</tr>';
+				$i++;
 			}
-			$i = 0;
 			echo '</table><br>';
 			echo '<input type=hidden name=database value='.$_GET['database'].'><input type=hidden name=table value='.$_GET['table'].'>';
 			echo '<input type=submit name=submit value='.$lang['submit'].'>';

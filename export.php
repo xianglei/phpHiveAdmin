@@ -67,8 +67,8 @@ else
 		$i = 0;
 		while ('' != @$array[$i])
 		{
-			$str = str_replace('	',',',$array[$i])."\n";
-			fwrite($fp,$str);
+			$strx = str_replace('	',',',$array[$i])."\n";
+			fwrite($fp,$strx);
 			$i++;
 		}
 		fclose($fp);
