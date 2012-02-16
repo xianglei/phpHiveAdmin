@@ -77,7 +77,7 @@ else
 			$str = "";
 			while ("" != @$_POST['field_name'][$i])
 			{
-				$str .= $_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment']."',";
+				$str .= $_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."',";
 				$i++;
 			}
 			$str = substr($str,0,-1);
