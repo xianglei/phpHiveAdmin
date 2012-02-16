@@ -68,11 +68,12 @@ else
 			echo "<input type=hidden name=fieldnums value=".$_POST['fieldnums'].">";
 			echo "</table><br>";
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
+			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
 			echo "</form>";
 		}
 		else
 		{
-			$sql = "CREATE TABLE ".$_POST['newtablename']." (";
+			$sql = "CREATE TABLE IF NOT EXISTS ".$_POST['newtablename']." (";
 			$i = 0;
 			$str = "";
 			while ("" != @$_POST['field_name'][$i])

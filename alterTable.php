@@ -38,6 +38,7 @@ else
 				$array_desc = explode('	',$array_desc_table[$i]);
 				$array_desc_desc[$i]['name'] = $array_desc[0];
 				$array_desc_desc[$i]['type'] = $array_desc[1];
+				$array_desc_desc[$i]['comment'] = $array_desc[2];
 				$i++;
 			}
 			echo $lang['alterTableWarning'];
@@ -48,6 +49,11 @@ else
 			echo "</tr>";
 			echo "</table><br><br>";
 			echo '<table border=1 cellspacing=1 cellpadding=3>';
+			echo "<tr bgcolor=#FFFF99>
+					<td>".$lang['fieldName']."</td>
+					<td>".$lang['fieldType']."</td>
+					<td>".$lang['comment']."</td>
+				  </tr>";
 			$i = 0;
 			foreach ($array_desc_desc as $key => $value)
 			{
@@ -92,6 +98,13 @@ else
 						//echo "<input type=hidden name=field_name[] value=".$v." />\n";
 						echo "</td>";
 					}
+					if($k == 'comment')
+					{
+						echo "<td>";
+						echo "<input type=text name=comment[] value=".$v.">\n";
+						//echo "<input type=text name=old_comment[] value=".$v.">\n";
+						echo "</td>";
+					}
 					//echo '</td>';
 					//echo '</tr>';
 				}
@@ -119,7 +132,7 @@ else
 				echo "<br><br>";
 				while ($i < count($_POST['field_type']))
 				{
-					$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['old_field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i];
+					$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['old_field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."'";
 					echo "<br>";
 					echo $sql;
 					echo "<input type=hidden name=sql[] value=\"".$sql."\">";
