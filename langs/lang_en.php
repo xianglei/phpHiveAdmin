@@ -42,4 +42,9 @@ $lang['comment'] = "Comment";
 $lang['dropDatabase'] = "Drop Database";
 $lang['dropDbSuccess'] = "Drop database success!";
 $lang['loadData'] = "Load";
+$lang['local'] = "Local";
+$lang['hdfs'] = "HDFS";
+$lang['chooseFS'] = "Choose filesystem";
+$lang['pathToLoad'] = "Path to load";
+$lang['ifPartition'] = "Partition?";
 ?>

@@ -42,4 +42,9 @@ $lang['comment'] = "注释";
 $lang['dropDatabase'] = "删除数据库";
 $lang['dropDbSuccess'] = "删除成功!";
 $lang['loadData'] = "加载数据";
+$lang['local'] = "本地";
+$lang['hdfs'] = "HDFS";
+$lang['chooseFS'] = "选择文件系统";
+$lang['pathToLoad'] = "加载数据路径";
+$lang['ifPartition'] = "分区?";
 ?>
