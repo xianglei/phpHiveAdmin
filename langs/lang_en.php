@@ -51,4 +51,7 @@ $lang['ifExternal'] = "If an extenal table?";
 $lang['externalPath'] = "Extenal path ex:(hdfs:///data/datawash/www): ";
 $lang['delimiter'] = 'Delimiter support regular exp(, \t \n |) : ';
 $lang['lzoped'] = "LZO compressed ? ";
+$lang['overwrite'] = "Overwrite?";
+$lang['mustEnterPath'] = "Must enter a fullpath and filename to load";
+$lang['loadDataSuccess'] = "Loading success";
 ?>

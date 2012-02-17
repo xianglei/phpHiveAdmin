@@ -1,9 +1,9 @@
 ﻿02-17-2012
 0.04
-1. now can create extenal table and specify an HDFS path to load text or lzo compressed data into the new table with addTable.php
+1. now can create extenal table and specify an HDFS path to load pure text or lzo compressed data into the new table with addTable.php
 format : hdfs:///data/datawash/log/
-2. add load data from local file and from hdfs
-3. ETL to mysql by setting an ini_file
+2. can load data from local file and hdfs by using 'Load data' label
+3. ETL to mysql by setting an ini_file(still plannning)
 
 02-16-2012
 0.03

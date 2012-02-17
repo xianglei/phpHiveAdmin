@@ -29,12 +29,14 @@ else
 			echo "<td>".$lang['chooseFS']."</td>\n";
 			echo "<td>".$lang['pathToLoad']."</td>\n";
 			echo "<td>".$lang['ifPartition']."</td>";
+			echo "<td>".$lang['overwrite']."</td>";
 			echo "<tr>\n";
 			
 			echo "<tr bgcolor=#99FFFF>\n";
 			echo "<td><select name=local><option value=local>".$lang['local']."</option><option value=hdfs>".$lang['hdfs']."</option></select></td>\n";
 			echo "<td><input type=text name=path></td>\n";
-			echo "<td><input type=text name=partition></td>";
+			echo "<td><input type=text name=partition></td>\n";
+			echo "<td><input type=checkbox name=overwrite value=1></td>\n";
 			echo "<tr>\n";
 			
 			echo "</table><br>\n";
@@ -45,7 +47,43 @@ else
 		}
 		else
 		{
-			var_dump($_POST);
+			if($_POST['path'] == '')
+			{
+				echo "<script>alert('must enter path');history.back();</script>";
+			}
+			else
+			{
+				if($_POST['partition'] == '')
+				{
+					$par = "";
+				}
+				else
+				{
+					$par = " PARTITION ".$_POST['partition'];
+				}
+				
+				if($_POST['local'] == "local")
+				{
+					$local = " LOCAL ";
+				}
+				else
+				{
+					$local = "";
+				}
+				
+				if(@$_POST['overwrite'] == 1)
+				{
+					$over = " OVERWRITE ";
+				}
+				else
+				{
+					$over = "";
+				}
+				$sql = "LOAD DATA ".$local." INPATH '".$_POST['path']."' ".$over." INTO TABLE ".$_POST['table'].$par ;
+				echo $sql;
+				$client->execute($sql);
+				echo "<script>alert('".$lang['loadDataSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
+			}
 		}
 	}
 	$transport->close();

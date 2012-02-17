@@ -51,4 +51,7 @@ $lang['ifExternal'] = "是否为外部表?";
 $lang['externalPath'] = "外部路径 ex:(hdfs:///data/datawash/www): ";
 $lang['delimiter'] = '数据分隔符 支持正则(, \t \n |)：';
 $lang['lzoped'] = "LZO压缩格式? ";
+$lang['overwrite'] = "覆盖原数据?";
+$lang['mustEnterPath'] = "必须为数据加载输入完整的路径和文件名";
+$lang['loadDataSuccess'] = "加载成功";
 ?>
