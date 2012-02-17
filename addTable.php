@@ -70,9 +70,12 @@ else
 			echo "</table><br>";
 			if(@$_POST['external'] == 1)
 			{
-				echo $lang['externalPath']."<input type=text name=external value=\"hdfs://\"><br>".$lang['delimiter']."<input type=text name=delimiter><br>";
-			}
-			echo "LZO compress? <input type=checkbox name=lzo value=1><br><br>";
+				echo "<table border=1 cellspacing=1 cellpadding=3>";
+				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>"
+				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter></td></tr>";
+				echo "</table>";
+				echo "LZO compress? <input type=checkbox name=lzo value=1><br><br>";
+			}			
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
 			echo "</form>";
