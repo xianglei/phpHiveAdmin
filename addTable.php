@@ -67,8 +67,8 @@ else
 			echo "<input type=hidden name=newtablename value=".$_POST['newtablename'].">";
 			echo "<input type=hidden name=fieldnums value=".$_POST['fieldnums'].">";
 			//echo "<input type=hidden name=extenal value=".$_POST['extenal'].">";
-			echo "</table><br>";
-			if(@$_POST['extenal'] == 1)
+			echo "</table><br>";echo var_dump($_POST);
+			if($_POST['extenal'] == 1)
 			{
 				echo $lang['extenalPath']."<input type=text name=extenal><br>".$lang['delimiter']."<input type=text name=delimiter>";
 			}
