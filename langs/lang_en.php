@@ -47,7 +47,7 @@ $lang['hdfs'] = "HDFS";
 $lang['chooseFS'] = "Choose filesystem";
 $lang['pathToLoad'] = "Path to load(full unix path to data)";
 $lang['ifPartition'] = "Partition? ex:(ds='2008-08-08')";
-$lang['ifExtenal'] = "If an extenal table?";
-$lang['extenalPath'] = "Extenal path ex:(hdfs:///data/datawash/www): ";
+$lang['ifExternal'] = "If an extenal table?";
+$lang['externalPath'] = "Extenal path ex:(hdfs:///data/datawash/www): ";
 $lang['delimiter'] = "Delimiter";
 ?>

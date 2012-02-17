@@ -68,9 +68,9 @@ else
 			echo "<input type=hidden name=fieldnums value=".$_POST['fieldnums'].">";
 			//echo "<input type=hidden name=extenal value=".$_POST['extenal'].">";
 			echo "</table><br>";echo var_dump($_POST);
-			if($_POST['extenal'] == 1)
+			if($_POST['external'] == 1)
 			{
-				echo $lang['extenalPath']."<input type=text name=extenal><br>".$lang['delimiter']."<input type=text name=delimiter>";
+				echo $lang['externalPath']."<input type=text name=external><br>".$lang['delimiter']."<input type=text name=delimiter>";
 			}
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
