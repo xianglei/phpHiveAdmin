@@ -102,7 +102,7 @@ else
 			$sql = $sql.$str.")";
 			$sql = $sql . $limit . $path;
 			echo $sql."<br>";
-			//$client->execute($sql);
+			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 		}
 	}
