@@ -37,8 +37,8 @@ else
 		<td><input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"javascript:isSelect('tablenames');\" /></td>
 		<td>".$lang['tableName']."</td>
 		<td>".$lang['alterTable']."</td>
-		<td>".$lang['dropTable']."</td>
 		<td>".$lang['loadData']."</td>
+		<td>".$lang['dropTable']."</td>
 		</tr>";
 		while ('' != @$db_array[$i])
 		{
