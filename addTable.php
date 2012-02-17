@@ -90,7 +90,7 @@ else
 				{
 					$stored = " STORED AS INPUTFORMAT \"com.hadoop.mapred.DeprecatedLzoTextInputFormat\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
 				}
-				$limit = " DELIMITED FIELDS TERMINATED BY '".$_POST['delimiter']."' ";
+				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY '".$_POST['delimiter']."' ";
 				$path = " LOCATION '".$_POST['external']."' ";
 			}
 			else
@@ -110,7 +110,7 @@ else
 			}
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
-			$sql = $sql . $stored . $limit . $path;
+			$sql = $sql . $limit . $stored . $path;
 			echo $sql."<br>";
 			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
