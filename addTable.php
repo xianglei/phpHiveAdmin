@@ -71,7 +71,7 @@ else
 			if(@$_POST['external'] == 1)
 			{
 				echo "<table border=1 cellspacing=1 cellpadding=3>";
-				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>"
+				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
 				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter></td></tr>";
 				echo "</table>";
 				echo "LZO compress? <input type=checkbox name=lzo value=1><br><br>";
@@ -103,7 +103,7 @@ else
 				$stored = " ";
 				$path = '';
 			}
-			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS ".$_POST['newtablename']." (";
+			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS ".$_POST['database'].".".$_POST['newtablename']." (";
 			$i = 0;
 			$str = "";
 			while ("" != @$_POST['field_name'][$i])
