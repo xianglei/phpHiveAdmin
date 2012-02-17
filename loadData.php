@@ -43,6 +43,10 @@ else
 			echo "<input type=submit value=".$lang['submit'].">\n";
 			echo "</form>\n";
 		}
+		else
+		{
+			var_dump($_POST);
+		}
 	}
 	$transport->close();
 }

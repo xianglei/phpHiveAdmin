@@ -2,6 +2,7 @@
 0.04
 1. add load data from local file and from hdfs
 2. ETL to mysql by setting an ini_file
+3. can create extenal table with addTable.php
 
 02-16-2012
 0.03

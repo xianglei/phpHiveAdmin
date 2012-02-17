@@ -4,7 +4,9 @@
 <?php echo $lang['tableName'];?>
 <input type=text name=newtablename>&nbsp;&nbsp;&nbsp;&nbsp;
 <?php echo $lang['fieldNums'];?>
-<input type=text name=fieldnums><br>
+<input type=text name=fieldnums>
+<?php echo $lang['ifExtenal'];?>
+<input type=checkbox name=external value=1><br>
 <input type=submit name=submit value=<?php echo $lang['submit'];?>>
 <input type=hidden name=database value=<?php echo $_GET['database'];?>>
 </form><br><br>
