@@ -1,4 +1,9 @@
-﻿02-16-2012
+﻿02-17-2012
+0.04
+1. add load data from local file and from hdfs
+2. ETL to mysql by setting an ini_file
+
+02-16-2012
 0.03
 1. add drop database
 2. alter table can modify comment

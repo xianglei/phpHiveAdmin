@@ -22,7 +22,7 @@ else
 	{
 		$sql = "drop table ".$_GET['table'];
 		$client->execute($sql);
-		echo "<script>window.location='dbStructure.php?database=".$_GET['database']."'</script>";
+		echo "<script>alert('".$lang['dropTableSuccess']."');window.location='dbStructure.php?database=".$_GET['database']."'</script>";
 	}
 	$transport->close();
 }
