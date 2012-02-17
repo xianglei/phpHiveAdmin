@@ -84,7 +84,7 @@ else
 				$ext = " EXTERNAL ";
 				if(@$_POST['lzo'] != 1)
 				{
-					$stored = " STORED AS TEXTFILE ROW FORMAT ";
+					$stored = " STORED BY TEXTFILE ROW FORMAT ";
 				}
 				else
 				{
@@ -97,7 +97,7 @@ else
 			{
 				$ext = '';
 				$limit = '';
-				$stored = " STORED AS TEXTFILE ROW FORMAT ";
+				$stored = " STORED BY TEXTFILE ROW FORMAT ";
 				$path = '';
 			}
 			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS ".$_POST['newtablename']." (";
