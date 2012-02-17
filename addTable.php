@@ -70,7 +70,7 @@ else
 			echo "</table><br>";
 			if(@$_POST['external'] == 1)
 			{
-				echo $lang['externalPath']."<input type=text name=external><br>".$lang['delimiter']."<input type=text name=delimiter><br>";
+				echo $lang['externalPath']."<input type=text name=external value=\"hdfs://\"><br>".$lang['delimiter']."<input type=text name=delimiter><br>";
 			}
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
@@ -78,7 +78,19 @@ else
 		}
 		else
 		{
-			$sql = "CREATE TABLE IF NOT EXISTS ".$_POST['newtablename']." (";
+			if(@$_POST['external'] != '' && @$_POST['delimiter'] != '')
+			{
+				$ext = " EXTERNAL ";
+				$limit = " SORTED BY TEXTFILE ROW FORMAT DELIMITED '".$_POST['delimiter']."' ";
+				$path = " LOCATION '".$_POST['external']."' ";
+			}
+			else
+			{
+				$ext = '';
+				$limit = '';
+				$path = '';
+			}
+			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS ".$_POST['newtablename']." (";
 			$i = 0;
 			$str = "";
 			while ("" != @$_POST['field_name'][$i])
@@ -88,8 +100,9 @@ else
 			}
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
+			$sql = $sql . $limit . $path;
 			echo $sql."<br>";
-			$client->execute($sql);
+			//$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 		}
 	}
