@@ -40,4 +40,5 @@ $lang['addFields'] = "添加字段";
 $lang['comment'] = "注释";
 $lang['dropDatabase'] = "删除数据库";
 $lang['dropDbSuccess'] = "删除成功!";
+$lang['loadData'] = "加载数据";
 ?>

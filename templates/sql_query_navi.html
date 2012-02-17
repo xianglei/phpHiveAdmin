@@ -31,6 +31,14 @@ echo $lang['export'];
 </a>
 </td>
 <td>
+<a href="loadData.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
+<img src=images/b_import.png>
+<?php
+echo $lang['loadData'];
+?>
+</a>
+</td>
+<td>
 <a href="#" onclick="javascript:realconfirm('<?php echo $lang['dropTableConfirm'];?>','dropTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>');return false;">
 <img src=images/b_drop.png>
 <?php

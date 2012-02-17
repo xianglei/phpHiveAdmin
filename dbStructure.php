@@ -38,6 +38,7 @@ else
 		<td>".$lang['tableName']."</td>
 		<td>".$lang['alterTable']."</td>
 		<td>".$lang['dropTable']."</td>
+		<td>".$lang['loadData']."</td>
 		</tr>";
 		while ('' != @$db_array[$i])
 		{
@@ -65,6 +66,10 @@ else
 		
 			echo "<td>\n";
 			echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
+			echo "</td>\n";
+			
+			echo "<td>\n";
+			echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_import.png>".$lang['loadData']."</a>";
 			echo "</td>\n";
 		
 			echo "</tr>\n";

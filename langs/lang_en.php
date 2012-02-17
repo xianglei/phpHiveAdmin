@@ -40,4 +40,5 @@ $lang['addFields'] = "Add Columns";
 $lang['comment'] = "Comment";
 $lang['dropDatabase'] = "Drop Database";
 $lang['dropDbSuccess'] = "Drop database success!";
+$lang['loadData'] = "Load";
 ?>
