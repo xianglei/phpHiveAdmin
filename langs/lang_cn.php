@@ -50,4 +50,5 @@ $lang['ifPartition'] = "分区? ex: (ds='2008-08-08')";
 $lang['ifExternal'] = "是否为外部表?";
 $lang['externalPath'] = "外部路径 ex:(hdfs:///data/datawash/www): ";
 $lang['delimiter'] = "数据分隔符：";
+$lang['lzoped'] = "LZO压缩格式? ";
 ?>

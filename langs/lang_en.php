@@ -50,4 +50,5 @@ $lang['ifPartition'] = "Partition? ex:(ds='2008-08-08')";
 $lang['ifExternal'] = "If an extenal table?";
 $lang['externalPath'] = "Extenal path ex:(hdfs:///data/datawash/www): ";
 $lang['delimiter'] = "Delimiter: ";
+$lang['lzoped'] = "LZO compressed ? ";
 ?>
