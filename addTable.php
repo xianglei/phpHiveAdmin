@@ -74,7 +74,7 @@ else
 				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
 				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter></td></tr>";
 				echo "</table>";
-				echo "LZO compress? <input type=checkbox name=lzo value=1><br><br>";
+				echo $lang['lzoped']." <input type=checkbox name=lzo value=1><br><br>";
 			}			
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
