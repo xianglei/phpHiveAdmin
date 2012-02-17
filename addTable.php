@@ -72,6 +72,7 @@ else
 			{
 				echo $lang['externalPath']."<input type=text name=external value=\"hdfs://\"><br>".$lang['delimiter']."<input type=text name=delimiter><br>";
 			}
+			echo "LZO compress? <input type=checkbox name=lzo value=1><br><br>";
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
 			echo "</form>";
@@ -81,13 +82,22 @@ else
 			if(@$_POST['external'] != '' && @$_POST['delimiter'] != '')
 			{
 				$ext = " EXTERNAL ";
-				$limit = " SORTED BY TEXTFILE ROW FORMAT DELIMITED '".$_POST['delimiter']."' ";
+				if(@$_POST['lzo'] != 1)
+				{
+					$stored = " STORED AS TEXTFILE ROW FORMAT ";
+				}
+				else
+				{
+					$stored = " STORED AS INPUTFORMAT \"com.hadoop.mapred.DeprecatedLzoTextInputFormat\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
+				}
+				$limit = " DELIMITED FIELDS TERMINATED BY '".$_POST['delimiter']."' ";
 				$path = " LOCATION '".$_POST['external']."' ";
 			}
 			else
 			{
 				$ext = '';
 				$limit = '';
+				$stored = " STORED AS TEXTFILE ROW FORMAT ";
 				$path = '';
 			}
 			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS ".$_POST['newtablename']." (";
@@ -100,7 +110,7 @@ else
 			}
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
-			$sql = $sql . $limit . $path;
+			$sql = $sql . $stored . $limit . $path;
 			echo $sql."<br>";
 			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
