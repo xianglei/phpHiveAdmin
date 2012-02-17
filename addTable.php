@@ -84,20 +84,20 @@ else
 				$ext = " EXTERNAL ";
 				if(@$_POST['lzo'] != 1)
 				{
-					$stored = " STORED BY TEXTFILE ROW FORMAT ";
+					$stored = " ";
 				}
 				else
 				{
 					$stored = " STORED AS INPUTFORMAT \"com.hadoop.mapred.DeprecatedLzoTextInputFormat\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
 				}
-				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY '".$_POST['delimiter']."' ";
+				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$_POST['delimiter']."\" ";
 				$path = " LOCATION '".$_POST['external']."' ";
 			}
 			else
 			{
 				$ext = '';
 				$limit = '';
-				$stored = " STORED BY TEXTFILE ROW FORMAT ";
+				$stored = " ";
 				$path = '';
 			}
 			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS ".$_POST['newtablename']." (";
