@@ -4,7 +4,7 @@ include_once 'config.inc.php';
 
 if(!@$_POST['filename'])
 {
-	$dir = dir("./etl");
+	$dir = dir($env['etl']);
 	
 	$i = 0;
 	while (false !== ($entry = $dir->read())) 
@@ -48,5 +48,11 @@ if(!@$_POST['filename'])
 }
 else
 {
-	var_dump($_POST);
+	foreach($_POST['filename'] as $k => $v)
+	{
+		foreach($v as $kk => $vv)
+		{
+			echo $env['etl'].$vv;
+		}
+	}
 }

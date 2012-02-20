@@ -21,6 +21,7 @@ define('HOST','192.168.1.49');
 define('PORT','10000');
 
 $env['hive_jar'] = '/opt/modules/hive/hive-0.7.1/lib/hive-contrib-0.7.1.jar';
+$env['etl'] = './etl';
 $env['showTables'] = 'show tables';
 $env['bodyColor'] = '#EFEFEF';
 $env['trColor1'] = '#AFAFAF';
