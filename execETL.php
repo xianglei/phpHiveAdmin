@@ -28,16 +28,16 @@ if(!@$_POST['filename'])
 	{
 		echo "<tr>
 		<td>
-		<input type=checkbox name=filename[] value=".$filename[$i].">
+		<input type=checkbox name=filename[] value=".$v.">
 		</td>
 		<td>
-		".$filename[$i]."
+		".$v."
 		</td>
 		<td>
-		<a href=editEtl.php?filename=".$filename[$i].">".$lang['edit']."</a>
+		<a href=editEtl.php?filename=".$v.">".$lang['edit']."</a>
 		</td>
 		<td>
-		<a href=# onclick=\"javascript:realconfirm('".$lang['dropEtlConfirm']."','dropEtl.php?filename=".$filename[$i]."');\">".$lang['delete']."</a>
+		<a href=# onclick=\"javascript:realconfirm('".$lang['dropEtlConfirm']."','dropEtl.php?filename=".$v."');\">".$lang['delete']."</a>
 		</td>
 		</tr>";
 		$i++;
