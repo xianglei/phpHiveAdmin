@@ -56,4 +56,7 @@ $lang['mustEnterPath'] = "必须为数据加载输入完整的路径和文件名
 $lang['loadDataSuccess'] = "加载成功";
 $lang['edit'] = "编辑";
 $lang['delete'] = "删除";
+$lang['dropEtlConfirm'] = "删除ETL配置文件?";
+$lang['execEtl'] = "运行！";
+$lang['ETL'] = "ETL";;
 ?>

@@ -58,4 +58,5 @@ $lang['edit'] = "Edit";
 $lang['delete'] = "Delete";
 $lang['dropEtlConfirm'] = "Delete ETL config ini?";
 $lang['execEtl'] = "Execute";
+$lang['ETL'];
 ?>
