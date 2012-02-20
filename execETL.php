@@ -34,7 +34,7 @@ if(!@$_POST['filename'])
 		<a href=editEtl.php?filename=".$filename[$i].">".$lang['edit']."</a>
 		</td>
 		<td>
-		<a href=# onclick=\"javascript:realconfirm('".$lang['dropEtlConfirm']."','dropEtl.php?filename=".$filename[$i]."');\">
+		<a href=# onclick=\"javascript:realconfirm('".$lang['dropEtlConfirm']."','dropEtl.php?filename=".$filename[$i]."');\">".$lang['delete']."</a>
 		</td>
 		</tr>";
 		$i++;
