@@ -50,6 +50,7 @@ else
 {
 	foreach($_POST['filename'] as $k => $v)
 	{
-		echo $env['etl'].$v;
+		$ini = parse_ini_file($env['etl'].$v);
+		echo $ini['mysql']['hostname'];
 	}
 }
