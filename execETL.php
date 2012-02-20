@@ -50,9 +50,6 @@ else
 {
 	foreach($_POST['filename'] as $k => $v)
 	{
-		foreach($v as $kk => $vv)
-		{
-			echo $env['etl'].$vv;
-		}
+		echo $env['etl'].$v;
 	}
 }
