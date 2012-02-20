@@ -51,6 +51,6 @@ else
 	foreach($_POST['filename'] as $k => $v)
 	{
 		$ini = parse_ini_file($env['etl'].$v);
-		var_dump($ini);
+		var_dump($ini,true);
 	}
 }
