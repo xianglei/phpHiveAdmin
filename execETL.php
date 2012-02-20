@@ -51,6 +51,6 @@ else
 	foreach($_POST['filename'] as $k => $v)
 	{
 		$ini = parse_ini_file($env['etl'].$v);
-		echo $ini['mysql']['hostname'];
+		var_dump($ini);
 	}
 }
