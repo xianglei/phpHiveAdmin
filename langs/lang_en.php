@@ -54,4 +54,8 @@ $lang['lzoped'] = "LZO compressed ? ";
 $lang['overwrite'] = "Overwrite?";
 $lang['mustEnterPath'] = "Must enter a fullpath and filename to load";
 $lang['loadDataSuccess'] = "Loading success";
+$lang['edit'] = "Edit";
+$lang['delete'] = "Delete";
+$lang['dropEtlConfirm'] = "Delete ETL config ini?";
+$lang['execEtl'] = "Execute";
 ?>
