@@ -9,7 +9,7 @@ if(!@$_POST['filename'])
 	$i = 0;
 	while (false !== ($entry = $dir->read())) 
 	{
-		if($entry != '.' && $entry != '..')
+		if($entry != '.' || $entry != '..')
 		{
 			$filename[$i] = $entry;
 		}
