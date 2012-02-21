@@ -48,9 +48,78 @@ if(!@$_POST['filename'])
 }
 else
 {
-	foreach($_POST['filename'] as $k => $v)
+	if($_POST['filename'][0] != "")
 	{
-		$ini = parse_ini_file($env['etl'].$v,true);
-		var_dump($ini);
+		foreach($_POST['filename'] as $k => $v)
+		{
+			$ini = parse_ini_file($env['etl'].$v,true);
+			var_dump($ini);
+			/*
+			; Comments start with ';'
+			[mysql]
+			hostname = "192.168.1.50"
+			port = "3306"
+			username = "root"
+			password = "password"
+			database = "exampledb";
+			table = "exampletable"
+			; type can be set to 'load' and 'sql', but suggest use load
+			type = "load"
+	
+			[hive]
+			sql = "select count(*) from exampledb.exampletable where a=1"
+			hostname = "192.168.1.49"
+			port = "10000"
+			username = ""
+			password = ""
+			database = "example_hive_database"
+			table = "example_hive_table"
+			; type can be set to csv and sql, but suggest to use csv
+			type = "csv"
+			udf = "/opt/modules/hive/hive-0.7.1/lib/hive-contrib-0.7.1.jar"
+			terminator = ","
+			*/
+			$db = mysql_connect($ini['mysql']['hostname'].":".$ini['mysql']['port'] , $ini['mysql']['username'] , $ini['mysql']['password']);
+			
+			$transport = new TSocket($ini['hive']['hostname'], $ini['hive']['port']);
+			$protocol = new TBinaryProtocol($transport);
+			$client = new ThriftHiveClient($protocol);
+			
+			$filename = "/tmp/".sha1(time()).".csv";
+			$hql = "INSERT OVERWRITE LOCAL DIRECTORY '/tmp/tmp0' ".$ini['hive']['sql'];
+			
+			$array = file("/tmp/tmp0/000000_0");
+			$fp = fopen($filename,"wb");
+			foreach(@$array as $k => $v)
+			{
+				$str = str_replace("\x01", $ini['mysql']['terminator'], $v)."\n";
+				fwrite($fp,$str);
+			}
+			fclose($fp);
+			unset($array);
+			
+			$transport->open();
+			$client->execute('add jar '.$ini['hive']['udf']);
+			$client->execute($hql);
+			
+			if($ini['mysql']['type'] == "load")
+			{
+				if($ini['mysql']['load'] == "overwrite")
+				{
+					$replace = " REPLACE ";
+				}
+				else
+				{
+					$replace = " ";
+				}
+				$sql = "LOAD DATA LOCAL INFILE '/tmp/".$filename."' ".$replace." INTO TABLE ".$ini['mysql']['database'].".".$ini['mysql']['table']." FIELDS TERMINATED BY '\\".$ini['mysql']['terminator']."'";
+			}
+			mysql_query($sql);
+		
+			$transport->close();
+			unlink("/tmp/tmp0/000000_0");
+			unlink($filename);
+			mysql_close($db);
+		}
 	}
 }
