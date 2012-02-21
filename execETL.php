@@ -53,7 +53,7 @@ else
 		foreach($_POST['filename'] as $k => $v)
 		{
 			$ini = parse_ini_file($env['etl'].$v,true);
-			var_dump($ini);
+			//var_dump($ini);
 			/*
 			; Comments start with ';'
 			[mysql]
@@ -86,7 +86,11 @@ else
 			$client = new ThriftHiveClient($protocol);
 			
 			$filename = "/tmp/".sha1(time()).".csv";
-			$hql = "INSERT OVERWRITE LOCAL DIRECTORY '/tmp/tmp0' ".$ini['hive']['sql'];
+			echo $hql = "INSERT OVERWRITE LOCAL DIRECTORY '/tmp/tmp0' ".$ini['hive']['sql'];
+			
+			$transport->open();
+			$client->execute('add jar '.$ini['hive']['udf']);
+			$client->execute($hql);
 			
 			$array = file("/tmp/tmp0/000000_0");
 			$fp = fopen($filename,"wb");
@@ -97,10 +101,6 @@ else
 			}
 			fclose($fp);
 			unset($array);
-			
-			$transport->open();
-			$client->execute('add jar '.$ini['hive']['udf']);
-			$client->execute($hql);
 			
 			if($ini['mysql']['type'] == "load")
 			{
@@ -113,7 +113,7 @@ else
 					$replace = " ";
 				}
 				$sql = "LOAD DATA LOCAL INFILE '/tmp/".$filename."' ".$replace." INTO TABLE ".$ini['mysql']['database'].".".$ini['mysql']['table']." FIELDS TERMINATED BY '\\".$ini['mysql']['terminator']."'";
-			}
+			}echo $sql;
 			mysql_query($sql);
 		
 			$transport->close();
