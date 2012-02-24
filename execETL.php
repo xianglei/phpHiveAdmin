@@ -122,4 +122,8 @@ else
 			mysql_close($db);
 		}
 	}
+	else
+	{
+		die ('<script>alert(\'not choose anyone\';history.back();</script>');
+	}
 }

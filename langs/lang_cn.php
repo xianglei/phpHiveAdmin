@@ -58,5 +58,6 @@ $lang['edit'] = "编辑";
 $lang['delete'] = "删除";
 $lang['dropEtlConfirm'] = "删除ETL配置文件?";
 $lang['execEtl'] = "运行！";
-$lang['ETL'] = "ETL";;
+$lang['ETL'] = "ETL";
+$lang['noFileChoose'] = '没有选择任何文件';
 ?>

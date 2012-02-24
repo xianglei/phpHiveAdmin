@@ -23,6 +23,7 @@ else
 		if(!@$_POST['path'])
 		{
 			echo "<form method=post>\n";
+			echo "For local use, input path as /data/data1/. For HDFS use, input path as /data/data1/ where path in HDFS<br>";
 			echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 			
 			echo "<tr bgcolor=#FFFF99>\n";
