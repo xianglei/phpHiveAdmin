@@ -22,11 +22,11 @@ else
 		echo "<table border=1 cellspacing=1 cellpadding=3><tr bgcolor=#FFFF99><td>";
 		if(count($db_array) != 0)
 		{
-			echo "<img src=images/b_deltbl.png>Drop Database";
+			echo "<img src=images/b_deltbl.png>".$lang['dropDatabase'];
 		}
 		else
 		{
-			echo "<a href=dropDatabase.php?database=".$_GET['database']."><img src=images/b_deltbl.png>Drop Database</a>";
+			echo "<a href=dropDatabase.php?database=".$_GET['database']."><img src=images/b_deltbl.png>".$lang['dropDatabase']."</a>";
 		}
 		echo "</td></tr></table><br><br>";
 		
@@ -37,6 +37,7 @@ else
 		<td><input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"javascript:isSelect('tablenames');\" /></td>
 		<td>".$lang['tableName']."</td>
 		<td>".$lang['alterTable']."</td>
+		<td>".$lang['loadData']."</td>
 		<td>".$lang['dropTable']."</td>
 		</tr>";
 		while ('' != @$db_array[$i])
@@ -62,11 +63,15 @@ else
 			echo "<td>\n";
 			echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_props.png>".$lang['alterTable']."</a>";
 			echo "</td>\n";
+			
+			echo "<td>\n";
+			echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_import.png>".$lang['loadData']."</a>";
+			echo "</td>\n";
 		
 			echo "<td>\n";
 			echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
 			echo "</td>\n";
-		
+			
 			echo "</tr>\n";
 			$i++;
 		}

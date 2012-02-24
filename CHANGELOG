@@ -1,4 +1,12 @@
-﻿02-16-2012
+﻿02-17-2012
+0.04 beta1
+1. now can create extenal table and specify an HDFS path to load pure text or lzo compressed data into the new table with addTable.php
+format : hdfs:///data/datawash/log/
+2. can load data from local file and hdfs by using 'Load' label on sqlQuery page
+3. add drop database to dbStructure
+4. ETL to mysql by setting an ini_file -- still plannning :(  
+
+02-16-2012
 0.03
 1. add drop database
 2. alter table can modify comment

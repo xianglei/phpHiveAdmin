@@ -66,14 +66,44 @@ else
 			echo "<input type=hidden name=database value=".$_POST['database'].">";
 			echo "<input type=hidden name=newtablename value=".$_POST['newtablename'].">";
 			echo "<input type=hidden name=fieldnums value=".$_POST['fieldnums'].">";
+			//echo "<input type=hidden name=extenal value=".$_POST['extenal'].">";
 			echo "</table><br>";
+			if(@$_POST['external'] == 1)
+			{
+				echo "<table border=1 cellspacing=1 cellpadding=3>";
+				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
+				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter></td></tr>";
+				echo "</table>";
+				echo $lang['lzoped']." <input type=checkbox name=lzo value=1><br><br>";
+			}			
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
 			echo "</form>";
 		}
 		else
 		{
-			$sql = "CREATE TABLE IF NOT EXISTS ".$_POST['newtablename']." (";
+			if(@$_POST['external'] != '' && @$_POST['delimiter'] != '')
+			{
+				$ext = " EXTERNAL ";
+				if(@$_POST['lzo'] != 1)
+				{
+					$stored = " ";
+				}
+				else
+				{
+					$stored = " STORED AS INPUTFORMAT \"com.hadoop.mapred.DeprecatedLzoTextInputFormat\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
+				}
+				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$_POST['delimiter']."\" ";
+				$path = " LOCATION '".$_POST['external']."' ";
+			}
+			else
+			{
+				$ext = '';
+				$limit = '';
+				$stored = " ";
+				$path = '';
+			}
+			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS ".$_POST['database'].".".$_POST['newtablename']." (";
 			$i = 0;
 			$str = "";
 			while ("" != @$_POST['field_name'][$i])
@@ -83,6 +113,7 @@ else
 			}
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
+			$sql = $sql . $limit . $stored . $path;
 			echo $sql."<br>";
 			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
