@@ -14,7 +14,7 @@ else
 	}
 	else
 	{
-		die "Unknown error";
+		die ("Unknown error");
 	}
 }
 ?>
