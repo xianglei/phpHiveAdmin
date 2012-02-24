@@ -9,7 +9,7 @@ else
 	{
 		if(!@$_POST['submit'])
 		{
-			$fp = fopen("./etl/".$_GET['filename']);
+			$fp = fopen("./etl/".$_GET['filename'],"r");
 			while (!feof($fp))
 			{
 				$str .= fread($fp,128);
