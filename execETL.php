@@ -21,6 +21,7 @@ if(!@$_POST['filename'])
 	$dir->close();
 
 	echo "<<< <a href=\"javascript:history.back();\">".$lang['back']."</a><br><br>";
+	echo "Put ini file into './etl/'<br><br>";
 	echo "<form method=post>";
 	echo "<table border=1 cellspacing=1 cellpadding=3>";
 	$i = 0;
