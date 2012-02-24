@@ -1,5 +1,6 @@
 ﻿<?php
 include_once "templates/style.css";
+include_once "config.inc.php";
 
 if(!@$_GET['filename'])
 {
@@ -18,9 +19,9 @@ else
 			}
 			fclose($fp);
 			echo "<form method=post>";
-			echo "<textarea name=content>".$str."</textarea><br>";
+			echo "<textarea name=content  cols=\"50\" rows=\"30\">".$str."</textarea><br>";
 			echo "<input type=hidden name=filename value=".$_GET['filename'].">";
-			echo "<input type=submit value=".$lang['submit'].">&nbsp;&nbsp;<input type=button value=".$lang['cancel']." onclick=\"javascript:history.back()\">";
+			echo "<input type=submit value=".$lang['submit'].">&nbsp;&nbsp;<input type=button value=\"".$lang['cancel']."\" onclick=\"javascript:history.back()\">";
 			echo "</form>";
 		}
 		else
