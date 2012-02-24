@@ -60,4 +60,5 @@ $lang['dropEtlConfirm'] = "删除ETL配置文件?";
 $lang['execEtl'] = "运行！";
 $lang['ETL'] = "ETL";
 $lang['noFileChoose'] = '没有选择任何文件';
+$lang['noSuchFile'] = '文件不存在???';
 ?>
