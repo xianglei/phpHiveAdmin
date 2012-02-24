@@ -61,4 +61,6 @@ $lang['execEtl'] = "运行！";
 $lang['ETL'] = "ETL";
 $lang['noFileChoose'] = '没有选择任何文件';
 $lang['noSuchFile'] = '文件不存在???';
+$lang['save'] = '保存';
+$lang['success'] = '成功!';
 ?>

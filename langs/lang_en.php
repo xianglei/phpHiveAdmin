@@ -61,4 +61,6 @@ $lang['execEtl'] = "Execute";
 $lang['ETL'] = 'ETL';
 $lang['noFileChoose'] = 'Not choose any File';
 $lang['noSuchFile'] = 'File not exists???';
+$lang['save'] = 'Save';
+$lang['success'] = 'Success!';
 ?>
