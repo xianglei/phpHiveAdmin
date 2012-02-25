@@ -1,8 +1,10 @@
 ﻿02-17-2012
 0.04 beta1
-1. now can create extenal table and specify an HDFS path to load pure text or lzo compressed data into the new table with addTable.php
-format : hdfs:///data/datawash/log/
-2. can load data from local file and hdfs by using 'Load' label on sqlQuery page
+1. now can create extenal table and specify an HDFS path to load pure 
+ text or lzo compressed data into the new table with addTable.php 
+format : hdfs:///data/datawash/log/ 
+2. can load data from local file and hdfs by using 'Load' label on 
+ sqlQuery page
 3. add drop database to dbStructure
 4. ETL to mysql by setting an ini_file -- still plannning :(  
 
@@ -17,22 +19,32 @@ format : hdfs:///data/datawash/log/
 0.02 beta1
 
 1. Add create table.
-2. Add alter table name (must be rooted php, or it will throw a fatal error, but table name can be still changed).
-3. Add drop table link to drop an exist table 4. Reconstruct alter table page, it looks better now. 5. add some icons from phpMyAdmin which made UI better.
+2. Add alter table name (must be rooted php, or it will throw a fatal
+ error, but table name can be still changed).
+3. Add drop table link to drop an exist table 
+4. Reconstruct alter table page, it looks better now. 5. add some icons
+ from phpMyAdmin which made UI better.
 
 02-13-2012
 0.01 beta3
 
-add File Browser which can browse hdfs filesystem , important notice: Need libhdfs,fuse-dfs and you should mount hdfs to local filesystem.
+add File Browser which can browse hdfs filesystem , important notice: 
+Need libhdfs,fuse-dfs and you should mount hdfs to local filesystem.
 
 02-13-2012
 0.01 beta2
 
-30 results limit may cause query bug, so remove it, added alter table properties to phpHiveAdmin can change field name and field property(string int ...) Download
+30 results limit may cause query bug, so remove it, added alter table
+ properties to phpHiveAdmin can change field name and field
+ property(string int ...) Download
 
 02-07-2012
 0.01 beta1
 
-To prevent big result data making a browser crash, I strongly suggest you wrote a 'limit' in your sql query string, if you didn't, it will add 30 results limit by default.
+To prevent big result data making a browser crash, I strongly suggest
+ you wrote a 'limit' in your sql query string, if you didn't, it will
+ add 30 results limit by default.
 
-modify some bug and now can be doing sql query. Add export csv data link to phphiveadmin, but I suggest you'd better do a sql query first before you did an export action. 
+modify some bug and now can be doing sql query. Add export csv data
+ link to phphiveadmin, but I suggest you'd better do a sql query first
+ before you did an export action. 
