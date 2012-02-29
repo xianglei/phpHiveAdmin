@@ -4,7 +4,7 @@ $env['hive'] = "/opt/modules/hive/hive-0.7.1";
 $env['hadoop'] = "/opt/modules/hadoop/hadoop-0.20.203.0";
 $env['java'] = "/usr/java/jdk1.6.0_21";
 $sql = "select * from asf.asf_20120224 limit 10";
-
+var_dump($env);
 $exec = $env['hive']." \"".$sql."\"";
 echo $exec;
 echo exec("export HADOOP_HOME=".$env['hadoop']);
