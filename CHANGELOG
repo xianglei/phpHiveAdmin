@@ -1,4 +1,9 @@
-﻿02-17-2012
+﻿02-24-2012
+0.05 beta1
+1. a simple ETL function had been added, setting up an ini file can
+ do HIVE --> mysql ETL job. It's experimental!!!
+
+02-17-2012
 0.04 beta1
 1. now can create extenal table and specify an HDFS path to load pure 
  text or lzo compressed data into the new table with addTable.php 
