@@ -6,8 +6,6 @@ include_once 'templates/style.css';
 
 $transport->open();
 
-$client->execute('add jar '.$env['hive_jar']);
-
 $status = $client->getClusterStatus();
 //var_dump($status);
 

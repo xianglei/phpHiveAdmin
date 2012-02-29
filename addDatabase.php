@@ -9,7 +9,6 @@ else
 {
 	$transport->open();
 
-	$client->execute('add jar '.$env['hive_jar']);
 	$client->execute('create database '.$_POST['newdbname']);
 
 	//$db_array = $client->fetchOne();

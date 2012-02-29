@@ -19,7 +19,7 @@ else
 	
 	$transport->open();
 
-	$client->execute('add jar '.$env['hive_jar']);
+	//$client->execute('add jar /opt/modules/hive/hive-0.7.1/lib/hive-exec-0.7.1.jar');
 	
 	$sql = 'use '.$_GET['database'];
 	//echo $sql.'<br /><br />';
