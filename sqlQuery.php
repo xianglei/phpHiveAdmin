@@ -71,7 +71,8 @@ else
 		$date = date("Y-m-d",$mtime[1]);
 		$mtime = (float)$mtime[1] + (float)$mtime[0];
 		$sha1 = $date."_".sha1($mtime);
-			
+		
+		$sql = "use ".@$_POST['database'].";".@$_POST['sql'];
 		$path = $env['http_url']."?time=".$sha1."&query=".base64_encode(@$_POST['sql']);
 		$cookie = sha1($mtime);
 

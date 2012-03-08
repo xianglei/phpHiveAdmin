@@ -2,4 +2,5 @@
 <textarea cols="50" rows="10" name="sql">select * from <?php echo $_GET['table'];?> limit 30</textarea>
 <br>
 <input type=submit name=submit>
+<input type=hidden name=database value=<?php echo $_GET['database'];?>>
 </form>
