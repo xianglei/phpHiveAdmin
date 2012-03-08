@@ -1,4 +1,5 @@
 <?php
+echo $_SERVER['REMOTE_ADDR'];
 $fa = file('access_list');
 if(FALSE == in_array($_SERVER['REMOTE_ADDR'],$fa))
 {
