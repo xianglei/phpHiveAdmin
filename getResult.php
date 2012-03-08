@@ -10,7 +10,7 @@ else
 	{
 		$fp = fopen("/tmp/hive_res.".$str.".out","r");
 		$i = 0;
-		while($i != 10)
+		while($i != 30)
 		{
 			$string .= fgets($fp,4096);
 			$i++;
