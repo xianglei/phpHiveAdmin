@@ -98,7 +98,7 @@ else
 			{
 				echo $str = fread($fp,1024);
 			}*/
-			fclose($fp);
+			//fclose($fp);
 		//}
 		
 		echo "<iframe width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe>";
