@@ -86,7 +86,7 @@ else
 			$header .= "Content-Length: " . strlen($query_string) . "\r\n\r\n";
 			echo $header;
 			
-			$fp = fopen("http://".$env['http_ip'].$env['http_url'],"r");
+			$fp = fopen("http://".$env['http_ip'].$env['http_url']."?".$query_string,"r");
 			//fwrite($fp,$header);
 			fclose($fp);
 		//}
