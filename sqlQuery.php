@@ -90,7 +90,8 @@ else
 			}
 			$out = "GET ".$path." HTTP/1.0\r\n";
 			$out .= "Host: ".$env['http_ip']."\r\n";
-			$out .= "Connection: Close\r\n";
+			$out .= "Content-Length: " . strlen($path) . "\r\n\r\n";
+			//$out .= "Connection: Close\r\n\r\n";
 			//$out .= "Cookie: ".$cookie."\r\n\r\n";
 			//echo $out;
 			fputs($fp, $out);
