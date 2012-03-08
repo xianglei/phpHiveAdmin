@@ -104,11 +104,9 @@ else
 			}
 			fclose($fp);
 		//}
+		echo "<input type=button onclick=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode(@$_POST['sql'])."' , getReult)\">";
+		echo "<iframe id=stderr width=600 height=400 align=left src=nonexist.html></iframe><br><br>";
 		
-		echo "<iframe width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
-		
-		echo "<iframe width=100 height=100 align=left src=$path></iframe>";
-
 		/*
 		$timer->start();
 		$sql = $_POST['sql'];

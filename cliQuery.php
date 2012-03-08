@@ -36,7 +36,7 @@ function runNonBlocking($cmd,$timestamp,$sql,&$code)
 	{
 		$read= array(); 
 		#if( !feof($pipes[1]) ) $read[]= $pipes[1];
-		if( !feof($pipes[2]) )	$read[]= $pipes[2];
+		if( !feof($pipes[2]) )	$read[]= $pipes[2];// get system stderr on real time
 			
 		if (!$read)
 		{
@@ -62,7 +62,7 @@ function runNonBlocking($cmd,$timestamp,$sql,&$code)
 	while( true )
 	{
 		$read= array();
-		if( !feof($pipes[1]) )	$read[]= $pipes[1];
+		if( !feof($pipes[1]) )	$read[]= $pipes[1];// get system stdout on real time
 		#if( !feof($pipes[2]) ) $read[]= $pipes[2];
 
 		if (!$read)

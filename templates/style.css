@@ -39,6 +39,44 @@ function realconfirm(text1,url)
 		window.location=url;
 	}
 }
+
+function getAjax(){
+	var ajax;
+	try{
+		ajax=new ActiveXObject('Msxml2.XMLHTTP');
+	}catch(e){
+		try{
+			ajax=new ActiveXObject('Microsoft.XMLHTTP');
+		}catch(e){
+			ajax=new XMLHttpRequest();
+		}
+	}
+	return ajax;
+}
+
+function $(id){return document.getElementById(id);}
+function trim(s) {return s.replace(/(^[ |　]*)|([ |　]*$)/g, "");}
+function $a(s) {return document.getElementsByName(s);}
+
+/**
+ * ajax调用函数
+ */
+function ajaxRequest(url, callback){
+	var x=getAjax();
+	x.onreadystatechange=function(){
+		if(x.readyState != 4)
+			return;
+		var s=x.responseText;
+		callback(s);
+	}
+	x.open("get",url+"&timestamp="+new Date(), true);
+	x.send(null);
+}
+
+function getReult()
+{
+	document.getElementById('stderr').src='refresh.php?str=<?php echo $sha1;?>'
+}
 </script>
 
 <body bgcolor=#EFEFEF>
