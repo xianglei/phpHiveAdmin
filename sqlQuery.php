@@ -83,7 +83,7 @@ else
 			$cookie = sha1($mtime);
 			
 			echo $fp = stream_socket_client("tcp://".$env['http_ip'].":".$env['http_port'], $errno, $errstr, 30);
-			stream_set_blocking($fp,0);
+			stream_set_blocking($fp,1);
 			echo $out = "GET ".$path." \r\n\r\n";
 			//$out .= "Host: ".$env['http_ip']."\r\n";
 			//$out .= "Content-Length: " . strlen($path) . "\r\n\r\n";
