@@ -96,8 +96,8 @@ function runNonBlocking($cmd,$timestamp,$sql,&$code)
 }
 
 
-$query = @$_POST['query'];
-$time = @$_POST['time'];
+$query = @$_GET['query'];
+$time = @$_GET['time'];
 if("" == $query_string || "" == $time)
 {
 	die('Invalid entry');
