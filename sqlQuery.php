@@ -89,7 +89,7 @@ else
 			curl_exec($ch);
 			curl_close($ch);*/
 			
-			echo $fp = stream_socket_client("tcp://".$env['http_ip'].":".$env['http_port'], $errno, $errstr, 30);
+			/*echo $fp = stream_socket_client("tcp://".$env['http_ip'].":".$env['http_port'], $errno, $errstr, 30);
 			stream_set_blocking($fp,1);
 			echo $out = "GET ".$path." \r\n\r\n";
 			//$out .= "Host: ".$env['http_ip']."\r\n";
@@ -102,9 +102,18 @@ else
 			{
 				echo $str = fread($fp,1024);
 			}
-			fclose($fp);
+			fclose($fp);*/
 		//}
-		echo "<input type=button onclick=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode(@$_POST['sql'])."' , getReult)\">";
+		echo "
+		<script>
+		function getReult()
+		{
+			document.getElementById('stderr').src='refresh.php?str=".$sha1."';
+		}
+		</script>
+		";
+		
+		echo "<input type=button value=getResult onclick=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode(@$_POST['sql'])."' , getReult)\">";
 		echo "<iframe id=stderr width=600 height=400 align=left src=nonexist.html></iframe><br><br>";
 		
 		/*
