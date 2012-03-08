@@ -10,9 +10,9 @@ else
 	{
 		$fp = fopen("/tmp/hive_res.".$str.".out","r");
 		$i = 0;
-		while(!feof($fp) && $i != 10)
+		while($i != 10)
 		{
-			$string .= fread($fp,10240);
+			$string .= fread($fp,4096);
 			$i++;
 		}
 		$array = explode("\n",$string);
