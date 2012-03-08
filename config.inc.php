@@ -1,6 +1,5 @@
 <?php
-echo $_SERVER['REMOTE_ADDR'];
-$fa = file('access_list');
+$fa = file('access_list');var_dump($fa);
 if(!in_array($_SERVER['REMOTE_ADDR'],$fa))
 {
 	die('Can not access');
