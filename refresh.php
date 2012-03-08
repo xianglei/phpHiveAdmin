@@ -21,7 +21,7 @@ else
 	}
 	else
 	{
-		echo "running...plz wait a second";
+		echo "Map/Reduce is Running...plz wait a second";
 	}
 }
 ?>

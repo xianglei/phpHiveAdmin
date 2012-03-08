@@ -67,43 +67,7 @@ else
 	}
 	else
 	{
-		/*$fp = fsockopen($env['http_ip'], $env['http_port'], $errno, $errstr, 30);
-		if (!$fp)
-		{
-			echo "$errstr ($errno)<br />\n";
-		}
-		else
-		{*/
-			$mtime = explode(" ",microtime());
-			$date = date("Y-m-d",$mtime[1]);
-			$mtime = (float)$mtime[1] + (float)$mtime[0];
-			$sha1 = $date."_".sha1($mtime);
-			
-			$path = $env['http_url']."?time=".$sha1."&query=".base64_encode(@$_POST['sql']);
-			$cookie = sha1($mtime);
-			
-			/*$ch = curl_init();
-			echo $url = 'http://'.$env['http_ip'].":".$env['http_port'].$path;
-			$curl_opt = array(CURLOPT_URL, 'http://'.$env['http_ip'].":".$env['http_port'].$path, CURLOPT_RETURNTRANSFER, 1, CURLOPT_TIMEOUT, 1,);
-			curl_setopt_array($ch, $curl_opt);
-			curl_exec($ch);
-			curl_close($ch);*/
-			
-			/*echo $fp = stream_socket_client("tcp://".$env['http_ip'].":".$env['http_port'], $errno, $errstr, 30);
-			stream_set_blocking($fp,1);
-			echo $out = "GET ".$path." \r\n\r\n";
-			//$out .= "Host: ".$env['http_ip']."\r\n";
-			//$out .= "Content-Length: " . strlen($path) . "\r\n\r\n";
-			//$out .= "Connection: Close\r\n\r\n";
-			//$out .= "Cookie: ".$cookie."\r\n\r\n";
-			//echo $out;
-			fputs($fp, $out);
-			while(!feof($fp))
-			{
-				echo $str = fread($fp,1024);
-			}
-			fclose($fp);*/
-		//}
+
 		echo "
 		<script>
 		function getReult()
@@ -112,9 +76,7 @@ else
 		}
 		</script>
 		";
-		//echo "<input type=button value=getResult onclick=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode(@$_POST['sql'])."' , getReult)\">";
 		echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode(@$_POST['sql'])."' , getReult)\">";
-		sleep(2);
 		echo "<iframe id=stderr width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
 		
 		/*
