@@ -94,10 +94,10 @@ else
 			$out .= "Cookie: ".$cookie."\r\n\r\n";
 			//echo $out;
 			fwrite($fp, $out);
-			while(!feof($fp))
+			/*while(!feof($fp))
 			{
 				echo $str = fread($fp,1024);
-			}
+			}*/
 			fclose($fp);
 		//}
 		
