@@ -82,7 +82,13 @@ else
 			$path = $env['http_url']."?time=".$sha1."&query=".base64_encode(@$_POST['sql']);
 			$cookie = sha1($mtime);
 			
-			echo $fp = stream_socket_client("tcp://".$env['http_ip'].":".$env['http_port'], $errno, $errstr, 30);
+			$ch = curl_init();
+			$curl_opt = array(CURLOPT_URL, 'http://'$env['http_ip'].":".$env['http_port'].$path, CURLOPT_RETURNTRANSFER, 1, CURLOPT_TIMEOUT, 1,);
+			curl_setopt_array($ch, $curl_opt);
+			curl_exec($ch);
+			curl_close($ch);
+			
+			/*echo $fp = stream_socket_client("tcp://".$env['http_ip'].":".$env['http_port'], $errno, $errstr, 30);
 			stream_set_blocking($fp,1);
 			echo $out = "GET ".$path." \r\n\r\n";
 			//$out .= "Host: ".$env['http_ip']."\r\n";
@@ -95,7 +101,7 @@ else
 			//{
 				//echo $str = fread($fp,1024);
 			//}
-			fclose($fp);
+			fclose($fp);*/
 		//}
 		
 		echo "<iframe width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe>";
