@@ -83,7 +83,7 @@ else
 			$cookie = sha1($mtime);
 			
 			echo $fp = fsockopen($env['http_ip'],$env['http_port'], $errno, $errstr, 30);
-			echo $out = "GET ".$path." HTTP/1.0\r\n\r\n";
+			echo $out = "GET ".$path." \r\n\r\n";
 			//$out .= "Host: ".$env['http_ip']."\r\n";
 			//$out .= "Content-Length: " . strlen($path) . "\r\n\r\n";
 			//$out .= "Connection: Close\r\n\r\n";
