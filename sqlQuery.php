@@ -92,7 +92,7 @@ else
 			$out .= "Host: ".$env['http_ip']."\r\n";
 			$out .= "Connection: Close\r\n";
 			$out .= "Cookie: ".$cookie."\r\n\r\n";
-			//echo $header;
+			echo $out;
 			fwrite($fp, $out);
 			fclose($fp);
 		//}
