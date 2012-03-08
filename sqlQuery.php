@@ -90,7 +90,7 @@ else
 			}
 			$out = "GET ".$path." HTTP/1.1\r\n";
 			$out .= "Host: ".$env['http_ip']."\r\n";
-			$out .= "Connection: Close\r\n";
+			$out .= "Connection: Close\r\n\r\n";
 			$out .= "Cookie: ".$cookie."\r\n\r\n";
 			echo $out;
 			fwrite($fp, $out);
