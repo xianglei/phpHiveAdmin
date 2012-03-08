@@ -25,6 +25,5 @@ else
 	{
 		echo "Map/Reduce is Running...plz wait a second";
 	}
-	echo "<a href=getResult.php?str=".$str." target=_blank>Get Result</a>";
 }
 ?>
