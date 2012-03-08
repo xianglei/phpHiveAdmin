@@ -84,9 +84,9 @@ else
 			$header .= "Host: ". $env['http_ip'] . "\r\n ";
 			$header .= "Content-Type: application/x-www-form-urlencoded\r\n";
 			$header .= "Content-Length: " . strlen($query_string) . "\r\n\r\n";
-			echo $header;
-			
-			$fp = fopen("http://".$env['http_ip'].$env['http_url']."?".$query_string,"r");
+			//echo $header;
+			echo $str = "http://".$env['http_ip'].$env['http_url']."?".$query_string;
+			$fp = fopen($str,"r");
 			//fwrite($fp,$header);
 			fclose($fp);
 		//}
