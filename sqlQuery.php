@@ -73,7 +73,7 @@ else
 		$sha1 = $date."_".sha1($mtime);
 		
 		$sql = "use ".@$_POST['database'].";".@$_POST['sql'];
-		$path = $env['http_url']."?time=".$sha1."&query=".base64_encode(@$_POST['sql']);
+		$path = $env['http_url']."?time=".$sha1."&query=".base64_encode($sql);
 		$cookie = sha1($mtime);
 
 		echo "
@@ -84,7 +84,7 @@ else
 		}
 		</script>
 		";
-		echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode(@$_POST['sql'])."' , getReult)\">";
+		echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode($sql)."' , getReult)\">";
 		echo "<iframe id=stderr width=600 height=500 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
 		
 		/*
