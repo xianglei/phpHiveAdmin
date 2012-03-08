@@ -12,7 +12,7 @@ else
 		$i = 0;
 		while($i != 10)
 		{
-			$string .= fread($fp,4096);
+			$string .= fgets($fp,4096);
 			$i++;
 		}
 		$array = explode("\n",$string);
