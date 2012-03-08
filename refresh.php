@@ -1,4 +1,4 @@
-﻿<!--<meta http-equiv="refresh" content="2">-->
+﻿<meta http-equiv="refresh" content="2">
 <?php
 include "templates/style.css";
 
