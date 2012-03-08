@@ -89,8 +89,7 @@ else
 		}
 		
 		echo "<iframe width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe>";
-		
-		
+
 		/*
 		$timer->start();
 		$sql = $_POST['sql'];
@@ -153,7 +152,7 @@ else
 		unset($timer);
 	}
 	*/
-
+	}
 	$transport->close();
 }
 ?>
