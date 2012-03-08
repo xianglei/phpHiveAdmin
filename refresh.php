@@ -20,6 +20,7 @@ else
 		@fclose($fp);
 		
 		echo "<br><br>";
+		echo "<a href=#>Get Result</a>";
 	}
 	else
 	{
