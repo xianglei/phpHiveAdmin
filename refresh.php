@@ -18,6 +18,8 @@ else
 		}
 		echo nl2br($str);
 		@fclose($fp);
+		
+		echo "<br><br>";
 	}
 	else
 	{

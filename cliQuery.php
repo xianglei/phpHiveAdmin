@@ -31,7 +31,7 @@ function runNonBlocking($cmd,$timestamp,$sql,&$code)
 	
 	$fp = fopen("/tmp/hive_run.".$timestamp.".out","w");
 	$fd = fopen("/tmp/hive_res.".$timestamp.".out","w");
-	fwrite($fp,$timestamp);
+	fwrite($fp,$timestamp."\n\n");
 	while( true )
 	{
 		$read= array(); 
