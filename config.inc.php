@@ -25,12 +25,21 @@ define('ESHOST','192.168.1.49');
 define('ESPORT','2012');
 
 $env['hive_jar'] = '/opt/modules/hive/hive-0.7.1/lib/hive-contrib-0.7.1.jar';
+#------------------server env
+$env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';
+$env['hive_home'] = '/opt/module/hive/hive-0.7.1';
+$env['java_home'] = '/usr/java/jdk1.6.0_21';
+#------------------http env
+$env['http_ip'] = "localhost";
+$env['http_url'] = '/phpHiveAdmin/cliQuery.php';
+$env['http_port'] = '80';
+#------------------
 $env['etl'] = './etl/';
 $env['showTables'] = 'show tables';
 $env['bodyColor'] = '#EFEFEF';
 $env['trColor1'] = '#AFAFAF';
 $env['trColor2'] = '#DFDFDF';
-// Important: varius below is being used only if you mount hdfs to a local filesystem!!!Unless it will cause fatal error
+// Important: varius below is being used only if you mount hdfs to a local filesystem with fusefs tool!!!Unless it will cause fatal error
 $env['hdfsToHiveDir'] = '/hdfs/data/dw/';
 //'/hdfs' is a libhdfs mount point to localize directory 
 

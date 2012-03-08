@@ -19,8 +19,6 @@ else
 	
 	$transport->open();
 
-	//$client->execute('add jar /opt/modules/hive/hive-0.7.1/lib/hive-exec-0.7.1.jar');
-	
 	$sql = 'use '.$_GET['database'];
 	//echo $sql.'<br /><br />';
 	$client->execute($sql);
@@ -69,15 +67,34 @@ else
 	}
 	else
 	{
+		$fp = fsockopen($env['http_server'], $env['http_port'], $errno, $errstr, 30);
+		if (!$fp)
+		{
+			echo "$errstr ($errno)<br />\n";
+		}
+		else
+		{
+			$mtime = explode(" ",microtime());
+			$date = date("Y-m-d",$mtime[1]);
+			$mtime = (float)$mtime[1] + (float)$mtime[0];
+			$sha1 = sha1($mtime);
+			
+			$query_string = "query=".base64_encode(@$_POST['sql'])."&time=".$sha1;
+			$header .= "POST ".$env['http_url']." HTTP/1.0\r\n";
+			$header .= "Content-Type: application/x-www-form-urlencoded\r\n";
+			$header .= "Content-Length: " . strlen($query_string) . "\r\n\r\n";
+			
+			fwrite($fp,$header.$query_string);
+			fclose($fp);
+		}
+		
+		echo "<iframe width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe>";
+		
+		
+		/*
 		$timer->start();
 		$sql = $_POST['sql'];
 		//add limit to standard sql
-		/*
-		if(preg_match('/limit/i',$sql) == '0')
-		{
-			$sql .= ' limit 30';
-		}
-		*/
 		
 		echo $sql.'<br /><br />';
 		$client->execute($sql);
@@ -135,6 +152,7 @@ else
 		echo 'Excution time: '.$timer->spent().'s';
 		unset($timer);
 	}
+	*/
 
 	$transport->close();
 }
