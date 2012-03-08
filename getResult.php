@@ -6,14 +6,14 @@ if(!@$_GET['str'])
 else
 {
 	$str = @$_GET['str'];
-	if(file_exists("/tmp/hive_run.".$str.".out"))
+	if(file_exists("/tmp/hive_res.".$str.".out"))
 	{
-		$fp = fopen("/tmp/hive_run.".$str.".out","r");
+		$fp = fopen("/tmp/hive_res.".$str.".out","r");
 		$i = 0;
 		while(!feof($fp))
 		{
 			$string .= fread($fp,128);
-			if(strstr($tsring,"\n"))
+			if(strstr($string,"\n"))
 			{
 				$i++;
 			}
@@ -27,6 +27,10 @@ else
 		{
 			echo $v."<br>";
 		}
+	}
+	else
+	{
+		echo "Not yet";
 	}
 }
 ?>
