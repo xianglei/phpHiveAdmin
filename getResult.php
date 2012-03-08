@@ -10,17 +10,10 @@ else
 	{
 		$fp = fopen("/tmp/hive_res.".$str.".out","r");
 		$i = 0;
-		while(!feof($fp))
+		while(!feof($fp) && $i != 10)
 		{
-			$string .= fread($fp,128);
-			if(strstr($string,"^"))
-			{
-				$i++;
-			}
-			if($i == 10)
-			{
-				break;
-			}
+			$string .= fread($fp,10240);
+			$i++;
 		}
 		$array = explode("\n",$string);
 		foreach($array as $k=>$v)
