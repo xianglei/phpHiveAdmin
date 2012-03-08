@@ -94,7 +94,7 @@ else
 			$out .= "Cookie: ".$cookie."\r\n\r\n";
 			//echo $header;
 			fwrite($fp, $out);
-			fclose($fp)
+			fclose($fp);
 		//}
 		
 		echo "<iframe width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe>";
