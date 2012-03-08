@@ -1,6 +1,10 @@
 <?php
-$fa = file('access_list');var_dump($fa);
-if(!in_array($_SERVER['REMOTE_ADDR'],$fa))
+$fa = file('access_list');
+foreach($fa as $k => $v)
+{
+	$fb[$k] = trim($v);
+}
+if(!in_array(trim($_SERVER['REMOTE_ADDR']),$fb))
 {
 	die('Can not access');
 }
