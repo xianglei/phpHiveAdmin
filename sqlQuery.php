@@ -89,7 +89,7 @@ else
 			curl_exec($ch);
 			curl_close($ch);*/
 			
-			/*echo $fp = stream_socket_client("tcp://".$env['http_ip'].":".$env['http_port'], $errno, $errstr, 30);
+			echo $fp = stream_socket_client("tcp://".$env['http_ip'].":".$env['http_port'], $errno, $errstr, 30);
 			stream_set_blocking($fp,1);
 			echo $out = "GET ".$path." \r\n\r\n";
 			//$out .= "Host: ".$env['http_ip']."\r\n";
@@ -98,11 +98,11 @@ else
 			//$out .= "Cookie: ".$cookie."\r\n\r\n";
 			//echo $out;
 			fputs($fp, $out);
-			//while(!feof($fp))
-			//{
-				//echo $str = fread($fp,1024);
-			//}
-			fclose($fp);*/
+			while(!feof($fp))
+			{
+				echo $str = fread($fp,1024);
+			}
+			fclose($fp);
 		//}
 		
 		echo "<iframe width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
