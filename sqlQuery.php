@@ -67,13 +67,13 @@ else
 	}
 	else
 	{
-		$fp = fsockopen($env['http_ip'], $env['http_port'], $errno, $errstr, 30);
+		/*$fp = fsockopen($env['http_ip'], $env['http_port'], $errno, $errstr, 30);
 		if (!$fp)
 		{
 			echo "$errstr ($errno)<br />\n";
 		}
 		else
-		{
+		{*/
 			$mtime = explode(" ",microtime());
 			$date = date("Y-m-d",$mtime[1]);
 			$mtime = (float)$mtime[1] + (float)$mtime[0];
@@ -85,9 +85,11 @@ else
 			$header .= "Content-Type: application/x-www-form-urlencoded\r\n";
 			$header .= "Content-Length: " . strlen($query_string) . "\r\n\r\n";
 			echo $header;
-			fwrite($fp,$header);
+			
+			$fp = fopen("http://".$env['http_ip'].$env['http_url'],"r");
+			//fwrite($fp,$header);
 			fclose($fp);
-		}
+		//}
 		
 		echo "<iframe width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe>";
 
