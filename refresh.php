@@ -20,7 +20,7 @@ else
 		@fclose($fp);
 		
 		echo "<br><br>";
-		echo "<a href=#>Get Result</a>";
+		echo "<a href=getResult.php?str=".$str." target=_blank>Get Result</a>";
 	}
 	else
 	{
