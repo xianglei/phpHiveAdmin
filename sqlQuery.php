@@ -114,7 +114,7 @@ else
 		";
 		//echo "<input type=button value=getResult onclick=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode(@$_POST['sql'])."' , getReult)\">";
 		echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode(@$_POST['sql'])."' , getReult)\">";
-		echo "<iframe id=stderr width=600 height=400 align=left src=nonexist.html></iframe><br><br>";
+		echo "<iframe id=stderr width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
 		
 		/*
 		$timer->start();
