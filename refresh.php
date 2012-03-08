@@ -10,7 +10,7 @@ else
 {
 	$str = $_GET['str'];
 	$fp = fopen("/tmp/hive_run.".$str.".out","r");
-	while(!feof($fp))
+	while(!@feof($fp))
 	{
 		$str .= fread($fp,128);
 	}

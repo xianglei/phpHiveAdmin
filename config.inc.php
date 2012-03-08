@@ -27,7 +27,7 @@ define('ESPORT','2012');
 $env['hive_jar'] = '/opt/modules/hive/hive-0.7.1/lib/hive-contrib-0.7.1.jar';
 #------------------server env
 $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';
-$env['hive_home'] = '/opt/module/hive/hive-0.7.1';
+$env['hive_home'] = '/opt/modules/hive/hive-0.7.1';
 $env['java_home'] = '/usr/java/jdk1.6.0_21';
 #------------------http env
 $env['http_ip'] = "localhost";
