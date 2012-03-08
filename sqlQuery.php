@@ -92,8 +92,12 @@ else
 			$out .= "Host: ".$env['http_ip']."\r\n";
 			$out .= "Connection: Close\r\n\r\n";
 			$out .= "Cookie: ".$cookie."\r\n\r\n";
-			echo $out;
+			//echo $out;
 			fwrite($fp, $out);
+			while(!feof($fp))
+			{
+				echo $str = fread($fp,1024);
+			}
 			fclose($fp);
 		//}
 		
