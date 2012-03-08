@@ -79,17 +79,22 @@ else
 			$mtime = (float)$mtime[1] + (float)$mtime[0];
 			$sha1 = $date."_".sha1($mtime);
 			
-			$query_string = "time=".$sha1."&query=".base64_encode(@$_POST['sql']);
-			$header = "GET ".$env['http_url']."?".$query_string." HTTP/1.1\r\n";
-			$header .= "Host: ". $env['http_ip'] . "\r\n ";
-			$header .= "Content-Type: application/x-www-form-urlencoded\r\n";
-			$header .= "Content-Length: " . strlen($query_string) . "\r\n\r\n";
+			$path = $env['http_url']."?time=".$sha1."&query=".base64_encode(@$_POST['sql']);
+			$cookie = sha1($mtime);
+			
+			$fp = fsockopen($env['http_ip'],$env['http_port'], $errno, $errstr, 30);
+			if (!$fp)
+			{
+				print "$errstr ($errno)<br />\n";
+				exit;
+			}
+			$out = "GET ".$path." HTTP/1.1\r\n";
+			$out .= "Host: ".$env['http_ip']."\r\n";
+			$out .= "Connection: Close\r\n";
+			$out .= "Cookie: ".$cookie."\r\n\r\n";
 			//echo $header;
-			echo $str = "http://".$env['http_ip'].$env['http_url']."?".$query_string;
-			$fp = fopen($str,"r");
-			fread($fp,1);
-			//fwrite($fp,$header);
-			fclose($fp);
+			fwrite($fp, $out);
+			fclose($fp)
 		//}
 		
 		echo "<iframe width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe>";
