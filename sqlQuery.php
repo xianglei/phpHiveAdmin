@@ -79,12 +79,12 @@ else
 			$mtime = (float)$mtime[1] + (float)$mtime[0];
 			$sha1 = $date."_".sha1($mtime);
 			
-			echo $query_string = "time=".$sha1."&query=".base64_encode(@$_POST['sql']);
+			$query_string = "time=".$sha1."&query=".base64_encode(@$_POST['sql']);
 			$header = "GET ".$env['http_url']."?".$query_string." HTTP/1.1\r\n";
 			$header .= "Host: ". $env['http_ip'] . "\r\n ";
 			$header .= "Content-Type: application/x-www-form-urlencoded\r\n";
 			$header .= "Content-Length: " . strlen($query_string) . "\r\n\r\n";
-			
+			echo $header;
 			fwrite($fp,$header);
 			fclose($fp);
 		}
