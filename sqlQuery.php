@@ -77,9 +77,9 @@ else
 			$mtime = explode(" ",microtime());
 			$date = date("Y-m-d",$mtime[1]);
 			$mtime = (float)$mtime[1] + (float)$mtime[0];
-			$sha1 = sha1($mtime);
+			$sha1 = $date."_".sha1($mtime);
 			
-			$query_string = "query=".base64_encode(@$_POST['sql'])."&time=".$sha1;
+			echo $query_string = "query=".base64_encode(@$_POST['sql'])."&time=".$sha1;
 			$header .= "POST ".$env['http_url']." HTTP/1.0\r\n";
 			$header .= "Content-Type: application/x-www-form-urlencoded\r\n";
 			$header .= "Content-Length: " . strlen($query_string) . "\r\n\r\n";
