@@ -83,7 +83,7 @@ else
 			$cookie = sha1($mtime);
 			
 			$ch = curl_init();
-			$curl_opt = array(CURLOPT_URL, 'http://'$env['http_ip'].":".$env['http_port'].$path, CURLOPT_RETURNTRANSFER, 1, CURLOPT_TIMEOUT, 1,);
+			$curl_opt = array(CURLOPT_URL, 'http://'.$env['http_ip'].":".$env['http_port'].$path, CURLOPT_RETURNTRANSFER, 1, CURLOPT_TIMEOUT, 1,);
 			curl_setopt_array($ch, $curl_opt);
 			curl_exec($ch);
 			curl_close($ch);
