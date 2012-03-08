@@ -88,17 +88,17 @@ else
 				print "$errstr ($errno)<br />\n";
 				exit;
 			}
-			$out = "GET ".$path." HTTP/1.1\r\n";
+			$out = "GET ".$path." HTTP/1.0\r\n";
 			$out .= "Host: ".$env['http_ip']."\r\n";
-			$out .= "Connection: Close\r\n\r\n";
-			$out .= "Cookie: ".$cookie."\r\n\r\n";
+			$out .= "Connection: Close\r\n";
+			//$out .= "Cookie: ".$cookie."\r\n\r\n";
 			//echo $out;
-			fwrite($fp, $out);
+			fputs($fp, $out);
 			/*while(!feof($fp))
 			{
 				echo $str = fread($fp,1024);
 			}*/
-			//fclose($fp);
+			fclose($fp);
 		//}
 		
 		echo "<iframe width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe>";
