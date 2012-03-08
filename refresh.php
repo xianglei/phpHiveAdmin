@@ -9,7 +9,7 @@ if(!@$_GET['str'])
 else
 {
 	$str = $_GET['str'];
-	$fp = fopen("/tmp/hive_run.".$str.".out","r");
+	$fp = @fopen("/tmp/hive_run.".$str.".out","r");
 	while(!@feof($fp))
 	{
 		$str .= fread($fp,128);
