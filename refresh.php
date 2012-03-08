@@ -9,12 +9,19 @@ if(!@$_GET['str'])
 else
 {
 	$str = $_GET['str'];
-	$fp = @fopen("/tmp/hive_run.".$str.".out","r");
-	while(!@feof($fp))
+	if(file_exists("/tmp/hive_run.".$str.".out"))
 	{
-		$str .= fread($fp,128);
+		$fp = @fopen("/tmp/hive_run.".$str.".out","r");
+		while(!@feof($fp))
+		{
+			$str .= fread($fp,128);
+		}
+		echo nl2br($str);
+		@fclose($fp);
 	}
-	echo nl2br($str);
-	@fclose($fp);
+	else
+	{
+		echo "running...plz wait a second";
+	}
 }
 ?>
