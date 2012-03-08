@@ -108,6 +108,7 @@ else
 	$sql = base64_decode($query);
 	$sql = '"'.str_replace("\"","'",$sql).'"';
 	$exec = 'export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql;
-	runNonBlocking($exec,$time,$sql,$code);
+	passthru($exec);
+	//runNonBlocking($exec,$time,$sql,$code);
 }
 ?>
