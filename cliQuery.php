@@ -104,9 +104,9 @@ if("" == $query_string || "" == $time)
 }
 else
 {
-	$sql = base64_decode($query_string);
+	$sql = urldecode($query_string);
 	$sql = '"'.str_replace("\"","'",$sql).'"';
-	$exec = 'export HADDOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql;
+	echo $exec = 'export HADDOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql;
 	runNonBlocking($exec,$time,$sql,$code);
 }
 ?>
