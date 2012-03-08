@@ -3,7 +3,7 @@ ignore_user_abort(true);
 set_time_limit(0);
 include_once "config.inc.php";
 
-function runNonBlocking($cmd,$timestamp,$sql,&$code)
+function runNonBlocking($cmd,&$code)
 {
 	$descriptorspec = array(
 		0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
@@ -108,6 +108,6 @@ else
 	$sql = base64_decode($query);
 	$sql = '"'.str_replace("\"","'",$sql).'"';
 	echo $exec = 'export HADDOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql;
-	runNonBlocking($exec,$time,$sql,$code);
+	runNonBlocking($exec,$code);
 }
 ?>
