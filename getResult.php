@@ -13,7 +13,7 @@ else
 		while(!feof($fp))
 		{
 			$string .= fread($fp,128);
-			if(strstr($string,"\n"))
+			if(strstr($string,"^"))
 			{
 				$i++;
 			}
