@@ -87,6 +87,7 @@ else
 			//echo $header;
 			echo $str = "http://".$env['http_ip'].$env['http_url']."?".$query_string;
 			$fp = fopen($str,"r");
+			fread($fp,1);
 			//fwrite($fp,$header);
 			fclose($fp);
 		//}
