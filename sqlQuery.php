@@ -67,7 +67,7 @@ else
 	}
 	else
 	{
-		$fp = fsockopen($env['http_server'], $env['http_port'], $errno, $errstr, 30);
+		$fp = fsockopen($env['http_ip'], $env['http_port'], $errno, $errstr, 30);
 		if (!$fp)
 		{
 			echo "$errstr ($errno)<br />\n";
