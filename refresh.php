@@ -12,7 +12,7 @@ else
 	$fp = @fopen("/tmp/hive_run.".$str.".out","r");
 	while(!@feof($fp))
 	{
-		$str .= @fread($fp,128);
+		$str .= fread($fp,128);
 	}
 	echo nl2br($str);
 	@fclose($fp);
