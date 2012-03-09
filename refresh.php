@@ -9,7 +9,7 @@ if(!@$_GET['str'])
 else
 {
 	$str = $_GET['str'];
-	if(file_exists("/tmp/hive_run.".$str.".out"))
+	if(file_exists($env['output_path']."/hive_run.".$str.".out"))
 	{
 		/*$fp = @fopen("/tmp/hive_run.".$str.".out","r");
 		while(!@feof($fp))
@@ -19,7 +19,7 @@ else
 		echo nl2br($str);
 		@fclose($fp);*/
 		
-		$array = @file("/tmp/hive_run.".$str.".out");
+		$array = @file($env['output_path']."/hive_run.".$str.".out");
 		$array = array_reverse($array);
 		foreach($array as $k=>$v)
 		{

@@ -39,6 +39,9 @@ $env['http_url'] = '/phpHiveAdmin/cliQuery.php';
 $env['http_port'] = '80';
 #------------------
 $env['etl'] = './etl/';
+#------------------
+$env['output_path'] = '/tmp/phpHiveAdmin';
+
 $env['showTables'] = 'show tables';
 $env['bodyColor'] = '#EFEFEF';
 $env['trColor1'] = '#AFAFAF';
