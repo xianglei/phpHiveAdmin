@@ -11,7 +11,7 @@ else
 	if(file_exists($filename))
 	{
 		$fp = fopen($filename,"r");
-		$fd = fopen("./tmp/hive_res.".$_GET['str'].".out"."w");
+		$fd = fopen("./tmp/hive_res.".$_GET['str'].".out","w");
 		while(!feof($fp))
 		{
 			$str = fgets($fp,1024);
@@ -33,7 +33,7 @@ else
 		readfile($filename);
 		*/
 
-		unlink($filename);
+		//unlink($filename);
 	}
 	else
 	{
