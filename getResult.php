@@ -9,7 +9,7 @@ if(!@$_GET['str'])
 else
 {
 	$str = @$_GET['str'];
-	if(file_exists($env['output_path']."/hive_res.".$str.".out") && filesize("/tmp/hive_res.".$str.".out") != 0)
+	if(file_exists($env['output_path']."/hive_res.".$str.".out") && filesize($env['output_path']."/hive_res.".$str.".out") != 0)
 	{
 		$fp = fopen($env['output_path']."/hive_res.".$str.".out","r");
 		$i = 0;
