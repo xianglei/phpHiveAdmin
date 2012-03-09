@@ -18,7 +18,7 @@ else
 			$string .= fgets($fp,4096);
 			$i++;
 		}
-		$array = explode("\n",$string);
+		$array = explode("\n",substr($string,0,-1));
 		$i = 0;
 		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 		foreach($array as $k=>$v)
@@ -31,9 +31,8 @@ else
 			{
 				$color = "bgcolor=\"".$env['trColor2']."\"";
 			}
+			$arr = explode('	',$v);
 			echo "<tr ".$color.">\n";
-			$arr = explode("        ",$v);
-			
 			foreach($arr as $kk=>$vv)
 			{
 				$vv = str_replace('<','&lt;',$vv);
