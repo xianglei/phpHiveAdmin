@@ -5,6 +5,7 @@ include_once "config.inc.php";
 
 function runNonBlocking($cmd,$timestamp,$sql,&$code)
 {
+	global $env;
 	$descriptorspec = array(
 		0 => array("pipe", "r"),  // stdin is a pipe that the child will read from
 		1 => array("pipe", "w"),  // stdout is a pipe that the child will write to
@@ -29,7 +30,7 @@ function runNonBlocking($cmd,$timestamp,$sql,&$code)
 		
 	$todo= array($pipes[1],$pipes[2]);
 	
-	$fp = fopen("/tmp/hive_run.".$timestamp.".out","w");
+	$fp = fopen($env['output_path']."/hive_run.".$timestamp.".out","w");
 	fwrite($fp,$timestamp."\n\n");
 	while( true )
 	{
