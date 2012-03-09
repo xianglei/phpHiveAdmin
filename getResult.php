@@ -32,7 +32,7 @@ else
 				$color = "bgcolor=\"".$env['trColor2']."\"";
 			}
 			echo "<tr ".$color.">\n";
-			$arr = explode('	',$v);
+			$arr = explode("\t",$v);
 			
 			foreach($arr as $kk=>$vv)
 			{
