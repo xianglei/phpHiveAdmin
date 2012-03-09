@@ -30,7 +30,7 @@ function runNonBlocking($cmd,$timestamp,$sql,&$code)
 	$todo= array($pipes[1],$pipes[2]);
 	
 	$fp = fopen("/tmp/hive_run.".$timestamp.".out","w");
-	$fd = fopen("/tmp/hive_res.".$timestamp.".out","w");
+	//$fd = fopen("/tmp/hive_res.".$timestamp.".out","w");
 	fwrite($fp,$timestamp."\n\n");
 	while( true )
 	{
@@ -59,7 +59,7 @@ function runNonBlocking($cmd,$timestamp,$sql,&$code)
 	
 	}
 
-	while( true )
+	/*while( true )
 	{
 		$read= array();
 		if( !feof($pipes[1]) )	$read[]= $pipes[1];// get system stdout on real time
@@ -84,7 +84,7 @@ function runNonBlocking($cmd,$timestamp,$sql,&$code)
 			fwrite($fd,$s);
 		}
 	}
-	fclose($fd);
+	fclose($fd);*/
 	fclose($fp);
 
 	fclose($pipes[1]);
@@ -107,7 +107,7 @@ else
 {
 	$sql = base64_decode($query);
 	$sql = '"'.str_replace("\"","'",$sql).'"';
-	$exec = 'export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql;
+	$exec = 'export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql.' > /tmp/hive_res.'.$timestamp.'.out';
 	//passthru($exec);
 	runNonBlocking($exec,$time,$sql,$code);
 }
