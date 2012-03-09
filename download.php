@@ -20,7 +20,7 @@ else
 		fclose($fp);
 		fclose($fd);
 		
-		echo "<script>this.location='hive_res.".$_GET['str'].".out'</script>";
+		echo "<script>this.location='tmp/hive_res.".$_GET['str'].".out'</script>";
 		//unlink("./hive_res.".$_GET['str'].".out");
 		
 		/*
