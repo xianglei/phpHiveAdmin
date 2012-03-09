@@ -33,7 +33,7 @@ else
 		readfile($filename);
 		*/
 
-		//unlink($filename);
+		unlink($filename);
 	}
 	else
 	{
