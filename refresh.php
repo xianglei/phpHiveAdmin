@@ -1,7 +1,7 @@
 ﻿<meta http-equiv="refresh" content="2">
 <?php
 include "templates/style.css";
-include_once "config.inc.php"
+include_once "config.inc.php";
 
 if(!@$_GET['str'])
 {
