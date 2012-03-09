@@ -1,3 +1,12 @@
+03-09-2012
+0.05 beta2
+Milestone!!!
+1. Re-write all sql Query page, complicated query can watch map/reduce progress from a realtime refresh frame now!!!
+(It's very hard to using non-blocking mode to get stderr output and async refresh in php :( )
+2. Change the result getting method, big result now can download from server, to prevent a php out of memory crash.
+3. Simple query with 'limit' is still using thrift interface to get data.
+4. To use download result function, please make sure phpHiveAdmin/tmp is under the correct permissions.
+
 ﻿02-24-2012
 0.05 beta1
 1. a simple ETL function had been added, setting up an ini file can
