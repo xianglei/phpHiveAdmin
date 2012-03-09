@@ -34,7 +34,7 @@ $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';
 $env['hive_home'] = '/opt/modules/hive/hive-0.7.1';
 $env['java_home'] = '/usr/java/jdk1.6.0_21';
 #------------------http env
-$env['http_ip'] = "125.39.185.209";
+$env['http_ip'] = "192.168.1.43";
 $env['http_url'] = '/phpHiveAdmin/cliQuery.php';
 $env['http_port'] = '80';
 #------------------
