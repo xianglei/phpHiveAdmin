@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 if(!@$_GET['str'])
 {
 	die('invalid url');
