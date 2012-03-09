@@ -67,26 +67,114 @@ else
 	}
 	else
 	{
-		$mtime = explode(" ",microtime());
-		$date = date("Y-m-d",$mtime[1]);
-		$mtime = (float)$mtime[1] + (float)$mtime[0];
-		$sha1 = $date."_".sha1($mtime);
-		
-		$sql = "use ".@$_POST['database'].";".@$_POST['sql'];
-		$path = $env['http_url']."?time=".$sha1."&query=".base64_encode($sql);
-		$cookie = sha1($mtime);
-
-		echo "
-		<script>
-		function getReult()
+		if(!preg_match("/limit/i", @$_POST['sql']))
 		{
-			document.getElementById('stderr').src='refresh.php?str=".$sha1."';
+			$mtime = explode(" ",microtime());
+			$date = date("Y-m-d",$mtime[1]);
+			$mtime = (float)$mtime[1] + (float)$mtime[0];
+			$sha1 = $date."_".sha1($mtime);
+		
+			$sql = "use ".@$_POST['database'].";".@$_POST['sql'];
+			$path = $env['http_url']."?time=".$sha1."&query=".base64_encode($sql);
+			$cookie = sha1($mtime);
+
+			echo "
+			<script>
+			function getReult()
+			{
+				document.getElementById('stderr').src='refresh.php?str=".$sha1."';
+			}
+			</script>
+			";
+			echo "<input type=button value=\"Get Result\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
+			echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode($sql)."' , getReult)\">";
+			echo "<iframe id=stderr width=500 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
 		}
-		</script>
-		";
-		echo "<input type=button value=\"Get Result\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
-		echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode($sql)."' , getReult)\">";
-		echo "<iframe id=stderr width=500 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
+		else
+		{
+			$timer->start();
+			$sql = $_POST['sql'];
+			echo $sql.'<br /><br />';
+			//add limit to standard sql
+			
+			echo '<table border=1 cellspacing=1 cellpadding=3>';
+			$i = 0;
+			foreach ($array_desc_desc as $value)
+			{
+				if(0 == $i)
+				{
+					$color = "bgcolor=\"#FFFF99\"";
+				}
+				else
+				{
+					$color = "bgcolor=\"#99FFFF\"";
+				}
+				echo '<tr '.$color.'>';
+				foreach($value as $v)
+				{
+					echo '<td>'.$v.'</td>';
+					$i++;
+				}
+				echo '</tr>';
+			}
+			echo '</table>';
+			include_once 'templates/sql_query.html';
+		
+			$client->execute($sql);
+			$array = $client->fetchAll();
+
+			//construct table desc table
+			echo "<table border=1 cellspacing=1 cellpadding=3>\n";
+			$i = 0;
+			foreach ($array_desc_desc as $value)
+			{
+				if(0 == $i)
+				{
+					$color = "bgcolor=\"#FFFF99\"";
+				}
+				else
+				{
+					$color = "bgcolor=\"#99FFFF\"";
+				}
+				echo "<tr ".$color.">\n";
+				foreach($value as $v)
+				{
+					echo "<td>".$v."</td>\n";
+					$i++;
+				}
+				echo "</tr>\n";
+				$i++;
+			}
+			//construct result table
+			$i = 0;		
+			while ('' != @$array[$i])
+			{
+				if(($i % 2) == 0)
+				{
+					$color = "bgcolor=\"".$env['trColor1']."\"";
+				}
+				else
+				{
+					$color = "bgcolor=\"".$env['trColor2']."\"";
+				}
+				echo "<tr ".$color.">\n";
+				$arr = explode('	',$array[$i]);
+				foreach ($arr as $key => $value)
+				{
+						$value = str_replace('<','&lt;',$value);
+						$value = str_replace('>','&gt;',$value);
+						echo "<td>".$value."</td>\n";
+				}
+				//echo '<td>'.$array[$i].'</td>';
+				echo "</tr>\n";
+				$i++;
+			}
+			echo "</table>\n";
+			include_once 'templates/sql_query.html';
+			$timer->stop();
+			echo 'Excution time: '.$timer->spent().'s';
+			unset($timer);
+		}
 		
 		/*
 		$timer->start();
