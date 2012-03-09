@@ -10,6 +10,16 @@ else
 	$filename = $env['output_path']."/hive_res.".$_GET['str'].".out";
 	if(file_exists($filename))
 	{
+		/*$fp = fopen($filename,"r");
+		$fd = fopen(./"hive_res.".$_GET['str'].".out"."w");
+		while(!feof($fp))
+		{
+			$str = fgets($fp,1024);
+			fputs($fd,$str);
+		}
+		fclose($fp);
+		fclose($fd);
+		*/
 		header("Pragma: public");
 		header("Expires: 0");
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
