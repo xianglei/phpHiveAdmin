@@ -11,7 +11,7 @@ else
 	if(file_exists($filename))
 	{
 		$fp = fopen($filename,"r");
-		$fd = fopen("./hive_res.".$_GET['str'].".out"."w");
+		$fd = fopen("./tmp/hive_res.".$_GET['str'].".out"."w");
 		while(!feof($fp))
 		{
 			$str = fgets($fp,1024);
@@ -21,7 +21,7 @@ else
 		fclose($fd);
 		
 		echo "<script>this.location='hive_res.".$_GET['str'].".out'</script>";
-		unlink("./hive_res.".$_GET['str'].".out");
+		//unlink("./hive_res.".$_GET['str'].".out");
 		
 		/*
 		header("Pragma: public");
