@@ -36,9 +36,9 @@ else
 			
 			foreach($arr as $kk=>$vv)
 			{
-				$value = str_replace('<','&lt;',$value);
-				$value = str_replace('>','&gt;',$value);
-				echo "<td>".$v."</td>\n";
+				$vv = str_replace('<','&lt;',$vv);
+				$vv = str_replace('>','&gt;',$vv);
+				echo "<td>".$vv."</td>\n";
 			}
 			echo "</tr>\n";
 			$i++;
