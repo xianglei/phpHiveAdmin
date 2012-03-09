@@ -86,9 +86,9 @@ else
 			}
 			</script>
 			";
-			echo "<input type=button value=\"Get Result\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
 			echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode($sql)."' , getReult)\">";
-			echo "Map/Reduce Job Unique Finger Print: ".$sha1;
+			echo "<input type=button value=\"Get Result\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
+			echo "<br><br>Map/Reduce Job Unique Finger Print: ".$sha1;
 			echo "<br><br>";
 			echo "<iframe id=stderr width=500 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
 		}
