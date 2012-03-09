@@ -9,7 +9,7 @@ if(!@$_GET['str'])
 else
 {
 	$str = @$_GET['str'];
-	if(file_exists("/tmp/hive_res.".$str.".out") || filesize("/tmp/hive_res.".$str.".out") != 0)
+	if(file_exists("/tmp/hive_res.".$str.".out") && filesize("/tmp/hive_res.".$str.".out") != 0)
 	{
 		$fp = fopen("/tmp/hive_res.".$str.".out","r");
 		$i = 0;
@@ -18,7 +18,7 @@ else
 			$string .= fgets($fp,4096);
 			$i++;
 		}
-		$array = explode("\n",substr($string,0,-1));
+		$array = explode("\n",substr($string,0,-1));//stop at last return
 		$i = 0;
 		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 		foreach($array as $k=>$v)
