@@ -10,8 +10,8 @@ else
 	$filename = $env['output_path']."/hive_res.".$_GET['str'].".out";
 	if(file_exists($filename))
 	{
-		/*$fp = fopen($filename,"r");
-		$fd = fopen(./"hive_res.".$_GET['str'].".out"."w");
+		$fp = fopen($filename,"r");
+		$fd = fopen("./hive_res.".$_GET['str'].".out"."w");
 		while(!feof($fp))
 		{
 			$str = fgets($fp,1024);
@@ -19,7 +19,11 @@ else
 		}
 		fclose($fp);
 		fclose($fd);
-		*/
+		
+		echo "<script>this.location='hive_res.".$_GET['str'].".out'</script>";
+		unlink("./hive_res.".$_GET['str'].".out");
+		
+		/*
 		header("Pragma: public");
 		header("Expires: 0");
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -27,6 +31,7 @@ else
 		header('Content-Length: ' . filesize($filename));
 		header("Content-Disposition: attachment; filename=".$filename);
 		readfile($filename);
+		*/
 
 		unlink($filename);
 	}
