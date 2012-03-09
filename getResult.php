@@ -9,9 +9,9 @@ if(!@$_GET['str'])
 else
 {
 	$str = @$_GET['str'];
-	if(file_exists("/tmp/hive_res.".$str.".out") && filesize("/tmp/hive_res.".$str.".out") != 0)
+	if(file_exists($env['output_path']."/hive_res.".$str.".out") && filesize("/tmp/hive_res.".$str.".out") != 0)
 	{
-		$fp = fopen("/tmp/hive_res.".$str.".out","r");
+		$fp = fopen($env['output_path']."/hive_res.".$str.".out","r");
 		$i = 0;
 		while($i != 30)
 		{
