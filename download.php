@@ -15,6 +15,7 @@ else
 		while(!feof($fp))
 		{
 			$str = fgets($fp,1024);
+			$str = str_replace("	","\t",$str);
 			fputs($fd,$str);
 		}
 		fclose($fp);
