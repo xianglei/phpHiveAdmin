@@ -5,7 +5,8 @@ if(!@$_GET['str'])
 }
 else
 {
-	include_once "config.inc.php";
+	//include_once "config.inc.php";
+	$env['output_path'] = '/tmp/phpHiveAdmin';
 	$filename = $env['output_path']."/hive_res.".$_GET['str'].".out";
 	if(file_exists($filename))
 	{
