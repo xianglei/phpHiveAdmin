@@ -96,29 +96,6 @@ else
 			$sql = $_POST['sql'];
 			echo $sql.'<br /><br />';
 			//add limit to standard sql
-			
-			echo '<table border=1 cellspacing=1 cellpadding=3>';
-			$i = 0;
-			foreach ($array_desc_desc as $value)
-			{
-				if(0 == $i)
-				{
-					$color = "bgcolor=\"#FFFF99\"";
-				}
-				else
-				{
-					$color = "bgcolor=\"#99FFFF\"";
-				}
-				echo '<tr '.$color.'>';
-				foreach($value as $v)
-				{
-					echo '<td>'.$v.'</td>';
-					$i++;
-				}
-				echo '</tr>';
-			}
-			echo '</table>';
-			include_once 'templates/sql_query.html';
 		
 			$client->execute($sql);
 			$array = $client->fetchAll();
