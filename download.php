@@ -1,22 +1,26 @@
 ﻿<?php
-include_once 'config.inc.php';
-//include_once 'templates/style.css';
-if(!@$_GET['filename'])
+if(!@$_GET['str'])
 {
 	die('invalid url');
 }
-
-if(file_exists(@$_GET['filename']))
-{
-	$filename = explode('/',$_GET['filename']);
-	header("Content-Type: application/force-download");
-	header("Content-Disposition: attachment; filename=".$filename[1]);
-	readfile($_GET['filename']);
-
-	//unlink($_GET['filename']);
-}
 else
 {
-	die('Invalid Filename');
+	include_once "config.inc.php";
+	$filename = $env['output_path']."/hive_res.".$_GET['str'].".out";
+	if(file_exists($filename))
+	{
+		header("Pragma: public");
+		header("Expires: 0");
+		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+		header("Content-Type: application/force-download");
+		header("Content-Disposition: attachment; filename=".$filename);
+		readfile($filename);
+
+		unlink($filename);
+	}
+	else
+	{
+		die('Invalid Filename');
+	}
 }
 ?>

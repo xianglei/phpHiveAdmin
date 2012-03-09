@@ -11,6 +11,7 @@ else
 	$str = @$_GET['str'];
 	if(file_exists($env['output_path']."/hive_res.".$str.".out") && filesize($env['output_path']."/hive_res.".$str.".out") != 0)
 	{
+		echo "<input type=button name=download value=\"Download Result File\" onclick=window.open('download.php?str=".$str."')><br><br>";
 		$fp = fopen($env['output_path']."/hive_res.".$str.".out","r");
 		$i = 0;
 		while($i != 30)
