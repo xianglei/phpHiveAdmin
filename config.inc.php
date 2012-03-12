@@ -10,16 +10,11 @@ if(!in_array(trim($_SERVER['REMOTE_ADDR']),$fb))
 }*/
 
 $fa = parse_ini_file("access_list.ini",true);
-foreach($fa as $k => $v)
+if(!in_array(trim($_SERVER['REMOTE_ADDR']),$vv))
 {
-	foreach ($v as $kk => $vv)
-	{
-		if(!in_array(trim($_SERVER['REMOTE_ADDR']),$vv))
-		{
-			die('Can not access');
-		}
-	}
+	die('Can not access');
 }
+
 
 
 $GLOBALS['THRIFT_ROOT'] = './libs/';
