@@ -1,5 +1,5 @@
 <?php
-$fa = file('access_list');
+/*$fa = file('access_list');
 foreach($fa as $k => $v)
 {
 	$fb[$k] = trim($v);
@@ -7,6 +7,18 @@ foreach($fa as $k => $v)
 if(!in_array(trim($_SERVER['REMOTE_ADDR']),$fb))
 {
 	die('Can not access');
+}*/
+
+$fa = parse_ini_file("access_list.ini",true);
+foreach($fa as $k => $v)
+{
+	foreach ($v as $kk => $vv)
+	{
+		if(!in_array(trim($_SERVER['REMOTE_ADDR']),$vv))
+		{
+			die('Can not access');
+		}
+	}
 }
 
 
