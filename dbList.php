@@ -10,7 +10,8 @@ $db_array = $client->fetchAll();
 
 $i = 0;
 echo '<br />';
-echo array_search($_SERVER['REMOTE_ADDR'],$fb);
+$a = array("mobile" => array("ip" => "1","only" => "2"));
+echo array_search(2,$fb);
 while('' != @$db_array[$i]) {
 	echo '<a href="javascript:showsd(\'dbStructure.php?database='.$db_array[$i].'\', \'tableList.php?database='.$db_array[$i].'\')" target="left"><img src=images/database.png>'.$db_array[$i].'</a><br />'."\n";
 	$i++;
