@@ -10,7 +10,7 @@ if(!in_array(trim($_SERVER['REMOTE_ADDR']),$fb))
 }*/
 
 $fa = parse_ini_file("access_list.ini",true);
-if(!in_array(trim($_SERVER['REMOTE_ADDR']),$vv))
+if(!in_array(trim($_SERVER['REMOTE_ADDR']),$fa))
 {
 	die('Can not access');
 }
