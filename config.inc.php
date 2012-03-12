@@ -1,17 +1,10 @@
 <?php
-/*$fa = file('access_list');
+$fa = file('access_list.ini');
 foreach($fa as $k => $v)
 {
 	$fb[$k] = trim($v);
 }
 if(!in_array(trim($_SERVER['REMOTE_ADDR']),$fb))
-{
-	die('Can not access');
-}*/
-
-$fa = parse_ini_file("access_list.ini",true);
-echo $_SERVER['REMOTE_ADDR'].$fa['data']['ip'];
-if(!in_array(trim($_SERVER['REMOTE_ADDR']),$fa))
 {
 	die('Can not access');
 }
