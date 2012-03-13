@@ -11,11 +11,12 @@ else
 
 	$transport->open();
 
-	$client->execute('add jar '.$env['hive_jar']);
+	//$client->execute('add jar '.$env['hive_jar']);
 	$client->execute('use '.$_GET['database']);
 
 	$client->execute($env['showTables']);
 	$db_array = $client->fetchAll();
+	$db_array = array_reverse($db_array);
 
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{

@@ -15,6 +15,7 @@ else
 
 	$client->execute($env['showTables']);
 	$db_array = $client->fetchAll();
+	$db_array = array_reverse($db_array);
 
 	$i = 0;
 	echo '<a href="javascript:showsd(\'index.php?frame=right\',\'dbList.php\')" target=left><<< '.$lang['back'].'</a><br /><br />';
