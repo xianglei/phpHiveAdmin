@@ -64,17 +64,22 @@ class Authorize
 	{
 		if(file_exists($pAuthFilename))
 		{
-			$str = $this->OpenAuthFile($pAuthFilename);
-			$auth = explode("\n",$str);
-			foreach($auth as $k => $v)
+			$array = file($pAuthFilename)
+			foreach($array as $k => $v)
 			{
-				$line = explode(":",$v);
-				if(($pUsername == $line[0]) && ($pPassword == $line[1]))
+				$line = trim($v);
+				$auth = $pUsername.":".$pPassword;
+				if(preg_match("/".$auth."/",$line))
 				{
-					$onlydb = $line[2];
-					return $onlydb;
+					$arr = explode(":",$line);
+					return $arr[2];
+				}
+				else
+				{
+					continue;
 				}
 			}
+			
 		}
 		else
 		{
