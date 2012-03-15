@@ -2,7 +2,7 @@
 0.06 beta1
 1. Fix php header error caused by UTF-8 BOM on all pages. I hate this byte.
 2. Add username,password and onlydb authorize function, can show only db for only user now. But I did't make this as a standard authrication, but you can change it as you wish by setup config.inc.php , simply add a new line on accesslist(not encrypt yet, but soon it will be).
-3.
+3.Start arrange codes into OOP mode.
 
 03-09-2012
 0.05 beta2
