@@ -91,6 +91,7 @@ else
 			echo "<br><br>Map/Reduce Job Unique Finger Print: ".$sha1;
 			echo "<br><br>";
 			echo "SQL: ".$sql;
+			echo "<br><br>";
 			echo "<iframe id=stderr width=500 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
 		}
 		else
