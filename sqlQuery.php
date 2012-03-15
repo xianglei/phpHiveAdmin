@@ -69,9 +69,9 @@ else
 	{
 		if(preg_match("/(.*from)/i",@$_POST['sql']) && !preg_match("/limit/i", @$_POST['sql']))
 		{
-			echo "Don't select * from, you should add limit!!!";
+			die("Don't select * from, you should add limit!!!");
 		}
-		if(!preg_match("/limit/i", @$_POST['sql']))
+		elseif(!preg_match("/limit/i", @$_POST['sql']))
 		{
 			$mtime = explode(" ",microtime());
 			$date = date("Y-m-d",$mtime[1]);
