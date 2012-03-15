@@ -23,7 +23,7 @@ else
 		echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right"><img src=images/b_sbrowse.png>'.$db_array[$i].'</a><br />';
 		$i++;
 	}
-	echo '<br /><a href="dbList.php" target=left><<< '.$lang['back'].'</a><br /><br />';
+	echo '<a href="javascript:showsd(\'index.php?frame=right\',\'dbList.php\')" target=left><<< '.$lang['back'].'</a><br /><br />';
 	$transport->close();
 }
 ?>

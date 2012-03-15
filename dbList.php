@@ -3,7 +3,7 @@ include_once 'config.inc.php';
 include_once 'templates/style.css';
 
 $ip = $_SERVER['REMOTE_ADDR'];
-$offset = array_search($ip,$fb) + 1;
+
 
 $transport->open();
 
@@ -22,7 +22,7 @@ if($fb[$offset] == "all")
 }
 else
 {
-	$onlydb = explode(",",$fb[$offset]);
+	$onlydb = explode(",",$onlydb);
 	while('' != @$db_array[$i]) {
 		if(in_array($db_array[$i],$onlydb))
 		{
