@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 $lang['SQL'] = 'SQL查询';
 $lang['ClusterStatus'] = '集群状态';
 $lang['Schema'] = 'Schema';

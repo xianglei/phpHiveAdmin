@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 include_once "templates/style.css";
 include_once "config.inc.php";
 

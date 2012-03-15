@@ -1,7 +1,6 @@
-﻿<?php
+<?php
 include_once "config.inc.php";
 include "templates/style.css";
-
 
 if(!@$_GET['str'])
 {
