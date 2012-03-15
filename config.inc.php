@@ -73,7 +73,7 @@ $_SESSION['username'] = $username;
 $_SESSION['password'] = $password;
 
 $_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
-echo $_SESSION['onlydb'];
+//echo $_SESSION['onlydb'];
 if($_SESSION['onlydb'] == "")
 {       
         die("Cannot access");
