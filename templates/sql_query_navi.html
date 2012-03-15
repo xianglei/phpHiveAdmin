@@ -14,6 +14,10 @@ echo $lang['getFilelist'];
 ?>
 </a>
 </td>-->
+<?php
+if($_SESSION['onlydb'] == "all")
+{
+?>
 <td>
 <a href="alterTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
 <img src=images/b_props.png>
@@ -38,5 +42,8 @@ echo $lang['dropTable'];
 ?>
 </a>
 </td>
+<?php
+}
+?>
 </tr>
 </table>
