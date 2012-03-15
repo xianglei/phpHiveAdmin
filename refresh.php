@@ -1,8 +1,7 @@
 <meta http-equiv="refresh" content="2">
 <?php
 $env['output_path'] = '/data2/tmp/phpHiveAdmin';
-//include_once "config.inc.php";
-//echo "<meta http-equiv=\"refresh\" content=\"2\">";
+
 include "templates/style.css";
 if(!@$_GET['str'])
 {
