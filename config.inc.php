@@ -46,13 +46,19 @@ $transport = new TSocket(HOST, PORT);
 $protocol = new TBinaryProtocol($transport);
 $client = new ThriftHiveClient($protocol);
 
-$estrans = new TSocket(ESHOST,ESPORT);
-$esprot = new TBinaryProtocol($estrans);
-$escl = new ExecutorServiceClient($esprot);
-
 $timer = new Timer;
 
 $auth = new Authorize;
+
+if($_GET['username'] == "")
+{
+	$_GET['username'] = "data";
+}
+if($_GET['password'] == "")
+{
+	$_GET['password'] = "3e4r5t6y";
+}
+
 $_SESSION['username'] = @$_GET['username'];
 $_SESSION['password'] = @$_GET['password'];
 
