@@ -6,8 +6,11 @@ require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.auth.php';
 $auth = new Authorize;
 
 # for my company use only below, you can change it to standard authrize as you wish
-$username = @$_GET['username'];
-$password = @$_GET['password'];
+if($_GET['username'] != "" && $_GET['password'] != "")
+{
+	$_SESSION['username'] = $_GET['username'];
+	$_SESSION['password'] = $_GET['password'];
+}
 #
 
 $_SESSION['username'] = $username;
