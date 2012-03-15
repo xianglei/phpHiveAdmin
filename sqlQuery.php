@@ -67,7 +67,7 @@ else
 	}
 	else
 	{
-		if(preg_match("/(.*from)/i",@$_POST['sql']) && !preg_match("/limit/i", @$_POST['sql']))
+		if(preg_match("/(select +\* +from)/i",@$_POST['sql']) && !preg_match("/limit/i", @$_POST['sql']))
 		{
 			die("Don't select * from, you should add limit!!!");
 		}
