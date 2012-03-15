@@ -49,16 +49,27 @@ $escl = new ExecutorServiceClient($esprot);
 
 $timer = new Timer;
 
-$auth = new Authorize;
-$username = @$_GET['username'];
-$password = @$_GET['password'];
+session_start();
+$session_id = session_id();
+$session_name = session_name();
+session_register("username");
+session_register("password");
+session_register("onlydb");
 
-if($auth->AuthUser("accesslist",$username,$password) != "")
-{
-	$onlydb = $auth->AuthUser("accesslist",$username,$password);
+$auth = new Authorize;
+$_SESSION['username'] = @$_GET['username'];
+$_SESSION['password'] = @$_GET['password'];
+
+
+$_SESSION['onlydb'] = $auth->AuthUser("accesslist",$username,$password);
+
+echo $_SESSION['onlydb']; 
+if($onlydb != "")
+{       
+        echo $onlydb = $auth->AuthUser("accesslist",$username,$password);
 }
 else
-{
-	die("Cannot access");
+{       
+        die("Cannot access");
 }
 //Create ThriftHive object
