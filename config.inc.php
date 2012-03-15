@@ -1,7 +1,22 @@
 <?php
+session_id();
 session_start();
-$session_id = session_id();
-$session_name = session_name();
+$auth = new Authorize;
+
+# for my company use only below, you can change it to standard authrize as you wish
+$username = @$_GET['username'];
+$password = @$_GET['password'];
+#
+
+$_SESSION['username'] = $username;
+$_SESSION['password'] = $password;
+
+$_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
+//echo $_SESSION['onlydb'];
+#if($_SESSION['onlydb'] == "")
+#{       
+#        die("Cannot access");
+#}
 $GLOBALS['THRIFT_ROOT'] = './libs/';
 # load the required files for connecting to Hive
 require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
@@ -48,20 +63,5 @@ $client = new ThriftHiveClient($protocol);
 
 $timer = new Timer;
 
-$auth = new Authorize;
 
-# for my company use only below, you can change it to standard authrize as you wish
-$username = @$_GET['username'];
-$password = @$_GET['password'];
-#
-
-$_SESSION['username'] = $username;
-$_SESSION['password'] = $password;
-
-$_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
-//echo $_SESSION['onlydb'];
-if($_SESSION['onlydb'] == "")
-{       
-        die("Cannot access");
-}
 //Create ThriftHive object
