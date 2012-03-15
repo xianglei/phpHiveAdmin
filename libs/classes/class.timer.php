@@ -15,12 +15,13 @@ class Timer
 		$this->StopTime = microtime();
 	}
 
-	function spent() 
+	function spent()
 	{
-		if ($this->TimeSpent) 
+		if ($this->TimeSpent)
 		{
 			return $this->TimeSpent;
-		} else 
+		}
+		else
 		{
 			$StartMicro = substr($this->StartTime,0,10);
 			$StartSecond = substr($this->StartTime,11,10);
@@ -32,17 +33,5 @@ class Timer
 			return round($this->TimeSpent,8);
 		}
 	}
-} //end class timer;
-/*
-$foo='abcd';
-
-$timer = new timer; 
-$timer->start();
-
-if (!isset($foo{5})) { echo 'Foo is too short';}
-
-$timer->stop();
-echo '运行时间为 ',$timer->spent()
-unset($timer);
-*/
+}
 ?>

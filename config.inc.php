@@ -24,7 +24,6 @@ require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'transport/TSocket.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'protocol/TBinaryProtocol.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.timer.php';
-require_once $GLOBALS['THRIFT_ROOT'] . 'packages/ExecutorService/ExecutorService.php';
 # Set up the transport/protocol/client
 require_once 'langs/lang_en.php';
 # langs path en file to use chinese, modify to 'langs/lang_cn.php'
