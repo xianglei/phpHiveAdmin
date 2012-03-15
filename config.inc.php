@@ -2,6 +2,7 @@
 session_id();
 session_start();
 $GLOBALS['THRIFT_ROOT'] = './libs/';
+
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.auth.php';
 $auth = new Authorize;
 
@@ -16,14 +17,10 @@ else
 	$_SESSION['username'] = $_SESSION['username'];
 	$_SESSION['password'] = $_SESSION['password'];
 }
-#
+#--------------------------
 
 $_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
-//echo $_SESSION['onlydb'];
-#if($_SESSION['onlydb'] == "")
-#{       
-#        die("Cannot access");
-#}
+
 # load the required files for connecting to Hive
 require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'transport/TSocket.php';
@@ -43,9 +40,9 @@ $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';# hadoop root path
 $env['hive_home'] = '/opt/modules/hive/hive-0.7.1';# hive root path
 $env['java_home'] = '/usr/java/jdk1.6.0_21';# jdk root path
 #------------------http env
-$env['http_ip'] = "192.168.1.43";# Server IP
-$env['http_url'] = '/phpHiveAdmin/cliQuery.php';# cliQuery.php uri link not modify it
-$env['http_port'] = '80';# server port
+#$env['http_ip'] = "192.168.1.43";# Server IP
+#$env['http_url'] = '/phpHiveAdmin/cliQuery.php';# cliQuery.php uri link not modify it
+#$env['http_port'] = '80';# server port
 #------------------
 $env['etl'] = './etl/';# path to etl configuration files
 #------------------
@@ -64,8 +61,3 @@ $env['hdfsToHiveDir'] = '/hdfs/data/dw/';
 $transport = new TSocket(HOST, PORT);
 $protocol = new TBinaryProtocol($transport);
 $client = new ThriftHiveClient($protocol);
-
-//$timer = new Timer;
-
-
-//Create ThriftHive object

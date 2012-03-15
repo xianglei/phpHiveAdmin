@@ -95,7 +95,7 @@ else
 		}
 		else
 		{
-			$timer->start();
+			#$timer->start();
 			$sql = $_POST['sql'];
 			echo $sql.'<br /><br />';
 			//add limit to standard sql
@@ -151,9 +151,9 @@ else
 			}
 			echo "</table>\n";
 			include_once 'templates/sql_query.html';
-			$timer->stop();
-			echo 'Excution time: '.$timer->spent().'s';
-			unset($timer);
+			#$timer->stop();
+			#echo 'Excution time: '.$timer->spent().'s';
+			#unset($timer);
 		}
 		
 		/*
