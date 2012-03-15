@@ -68,7 +68,7 @@ class Authorize
 			foreach($array as $k => $v)
 			{
 				$line = trim($v);
-				$auth = $pUsername.":".$pPassword;
+				echo $auth = $pUsername.":".$pPassword;
 				if(preg_match("/".$auth."/",$line))
 				{
 					$arr = explode(":",$line);
