@@ -57,7 +57,7 @@ $_SESSION['username'] = @$_GET['username'];
 $_SESSION['password'] = @$_GET['password'];
 
 
-$_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['$password']);
+$_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
 
 echo $_SESSION['onlydb']; 
 if($SESSION['onlydb'] == "")
