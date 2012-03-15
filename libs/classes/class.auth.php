@@ -1,19 +1,6 @@
 <?php
 class Authorize
 {
-	#pack the auth file with new value or removed values
-	public function PackAuthFile($pAuthFilename,$pValues)
-	{
-		if(!file_exists($pAuthFilename))
-		{
-			return false;
-		}
-		else
-		{
-			return true;
-		}
-	}
-	
 	#$pValues username:password:onlydb, one name in array mode like this: array("xianglei:123:active","xianglei23:1234:active,active2")
 	public function AddUsers($pAuthFilename,$pValues)
 	{
@@ -86,5 +73,6 @@ class Authorize
 			return "";
 		}
 	}
+	
 }
 ?>
