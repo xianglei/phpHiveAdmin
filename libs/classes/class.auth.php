@@ -64,7 +64,7 @@ class Authorize
 	{
 		if(file_exists($pAuthFilename))
 		{
-			$array = file($pAuthFilename)
+			$array = file($pAuthFilename);
 			foreach($array as $k => $v)
 			{
 				$line = trim($v);
