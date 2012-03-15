@@ -2,9 +2,6 @@
 session_start();
 $session_id = session_id();
 $session_name = session_name();
-session_register("username");
-session_register("password");
-session_register("onlydb");
 $GLOBALS['THRIFT_ROOT'] = './libs/';
 // load the required files for connecting to Hive
 require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
