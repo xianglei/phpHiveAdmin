@@ -32,5 +32,7 @@ IMPORTANT:
 for localized language using,modify /config.inc.php and /index.php,
  in these files, change "langs/lang_xx.php" to your language set.
 
-for security, modify access_list file change only IP to your IP lists
- for access, an IP addr each line.
+accesslist intro.
+username:password:onlydb for each line
+
+if you want to use all db, put "all" on "onlydb" area

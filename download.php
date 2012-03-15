@@ -10,6 +10,7 @@ else
 	$filename = $env['output_path']."/hive_res.".$_GET['str'].".out";
 	if(file_exists($filename))
 	{
+		/*
 		$fp = fopen($filename,"r");
 		$fd = fopen($env['download_path']."/hive_res.".$_GET['str'].".out","w");
 		while(!feof($fp))
@@ -20,11 +21,10 @@ else
 		}
 		fclose($fp);
 		fclose($fd);
+		*/
 		
-		echo "<a href=\"tmp/hive_res.".$_GET['str'].".out\">Download Link</a>";
-		//unlink("./hive_res.".$_GET['str'].".out");
+		//unlink($filename);
 		
-		/*
 		header("Pragma: public");
 		header("Expires: 0");
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
@@ -32,7 +32,6 @@ else
 		header('Content-Length: ' . filesize($filename));
 		header("Content-Disposition: attachment; filename=".$filename);
 		readfile($filename);
-		*/
 
 		//unlink($filename);
 	}
