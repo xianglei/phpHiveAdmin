@@ -74,10 +74,6 @@ class Authorize
 					$onlydb = $line[2];
 					return $onlydb;
 				}
-				else
-				{
-					return "";
-				}
 			}
 		}
 		else

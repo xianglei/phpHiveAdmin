@@ -50,20 +50,30 @@ $timer = new Timer;
 
 $auth = new Authorize;
 
-if($_GET['username'] == "")
+# for my company use only below, you can change it to standard authrize as you wish
+if(@$_GET['username'] == "" || !@$_GET['username'])
 {
-	$_GET['username'] = "data";
+	$username = "data";
 }
-if($_GET['password'] == "")
+else
 {
-	$_GET['password'] = "3e4r5t6y";
+	$username = $_GET['username'];
 }
+if(@$_GET['password'] == "" || !@$_GET['password'])
+{
+	$password = "3e4r5t6y";
+}
+else
+{
+	$password = $_GET['password'];
+}
+#
 
-$_SESSION['username'] = @$_GET['username'];
-$_SESSION['password'] = @$_GET['password'];
+$_SESSION['username'] = $username;
+$_SESSION['password'] = $password;
 
 $_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
-
+echo $_SESSION['onlydb'];
 if($_SESSION['onlydb'] == "")
 {       
         die("Cannot access");
