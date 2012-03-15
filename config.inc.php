@@ -11,10 +11,12 @@ if($_GET['username'] != "" && $_GET['password'] != "")
 	$_SESSION['username'] = $_GET['username'];
 	$_SESSION['password'] = $_GET['password'];
 }
+else
+{
+	$_SESSION['username'] = $_SESSION['username'];
+	$_SESSION['password'] = $_SESSION['password'];
+}
 #
-
-$_SESSION['username'] = $username;
-$_SESSION['password'] = $password;
 
 $_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
 //echo $_SESSION['onlydb'];
