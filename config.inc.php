@@ -23,7 +23,7 @@ $_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSI
 require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'transport/TSocket.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'protocol/TBinaryProtocol.php';
-require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.timer.php';
+//require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.timer.php';
 # Set up the transport/protocol/client
 require_once 'langs/lang_en.php';
 # langs path en file to use chinese, modify to 'langs/lang_cn.php'
@@ -60,7 +60,7 @@ $transport = new TSocket(HOST, PORT);
 $protocol = new TBinaryProtocol($transport);
 $client = new ThriftHiveClient($protocol);
 
-$timer = new Timer;
+//$timer = new Timer;
 
 
 //Create ThriftHive object
