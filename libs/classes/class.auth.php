@@ -72,7 +72,7 @@ class Authorize
 				if(($pUsername == $line[0]) && ($pPassword == $line[1]))
 				{
 					$onlydb = $line[2];
-					echo $onlydb;
+					return $onlydb;
 				}
 				else
 				{
