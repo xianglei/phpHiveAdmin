@@ -1,7 +1,7 @@
 <?php
 include_once "config.inc.php";
-include "templates/style.css";
 echo "<meta http-equiv=\"refresh\" content=\"2\">";
+include "templates/style.css";
 if(!@$_GET['str'])
 {
 	die("Invalid Entry");
