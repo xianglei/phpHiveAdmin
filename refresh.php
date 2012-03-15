@@ -1,7 +1,7 @@
-﻿<meta http-equiv="refresh" content="2">
-<?php
-include "templates/style.css";
+﻿<?php
 include_once "config.inc.php";
+include "templates/style.css";
+
 
 if(!@$_GET['str'])
 {
@@ -25,3 +25,4 @@ else
 	}
 }
 ?>
+<meta http-equiv="refresh" content="2">
