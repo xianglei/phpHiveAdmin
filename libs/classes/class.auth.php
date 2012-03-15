@@ -67,7 +67,7 @@ class Authorize
 			$str = $this->OpenAuthFile($pAuthFilename);
 			$auth = explode("\n",$str);
 			foreach($auth as $k => $v)
-			{
+			{echo $v;
 				$line = explode(":",$v);
 				if(($pUsername == $line[0]) && ($pPassword == $line[1]))
 				{
