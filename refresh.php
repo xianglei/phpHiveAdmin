@@ -12,6 +12,7 @@ else
 	$str = $_GET['str'];
 	if(file_exists($env['output_path']."/hive_run.".$str.".out"))
 	{
+		echo "<meta http-equiv=\"refresh\" content=\"2\">";
 		$array = @file($env['output_path']."/hive_run.".$str.".out");
 		$array = array_reverse($array);
 		foreach($array as $k=>$v)
@@ -21,8 +22,8 @@ else
 	}
 	else
 	{
+		echo "<meta http-equiv=\"refresh\" content=\"2\">";
 		echo "Map/Reduce is Running...plz wait a second";
 	}
 }
 ?>
-<meta http-equiv="refresh" content="2">
