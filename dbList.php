@@ -18,8 +18,8 @@ if($_SESSION['onlydb'] == "all")
 	}
 }
 else
-{echo $_SESSION['onlydb'];
-	$onlydb = explode(",",$_SESSION['onlydb']);var_dump($onlydb);
+{
+	$onlydb = explode(",",$_SESSION['onlydb']);
 	while('' != @$db_array[$i]) {
 		if(in_array($db_array[$i],$onlydb))
 		{
