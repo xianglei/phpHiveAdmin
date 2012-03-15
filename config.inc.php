@@ -1,6 +1,8 @@
 <?php
 session_id();
 session_start();
+$GLOBALS['THRIFT_ROOT'] = './libs/';
+require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.auth.php';
 $auth = new Authorize;
 
 # for my company use only below, you can change it to standard authrize as you wish
@@ -17,13 +19,11 @@ $_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSI
 #{       
 #        die("Cannot access");
 #}
-$GLOBALS['THRIFT_ROOT'] = './libs/';
 # load the required files for connecting to Hive
 require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'transport/TSocket.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'protocol/TBinaryProtocol.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.timer.php';
-require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.auth.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'packages/ExecutorService/ExecutorService.php';
 # Set up the transport/protocol/client
 require_once 'langs/lang_en.php';
