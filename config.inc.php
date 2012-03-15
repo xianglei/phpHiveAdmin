@@ -51,22 +51,8 @@ $timer = new Timer;
 $auth = new Authorize;
 
 # for my company use only below, you can change it to standard authrize as you wish
-if(@$_GET['username'] == "" || !@$_GET['username'])
-{
-	$username = "data";
-}
-else
-{
-	$username = $_GET['username'];
-}
-if(@$_GET['password'] == "" || !@$_GET['password'])
-{
-	$password = "3e4r5t6y";
-}
-else
-{
-	$password = $_GET['password'];
-}
+$username = @$_GET['username'];
+$password = @$_GET['password'];
 #
 
 $_SESSION['username'] = $username;
