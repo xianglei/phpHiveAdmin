@@ -57,14 +57,10 @@ $_SESSION['username'] = @$_GET['username'];
 $_SESSION['password'] = @$_GET['password'];
 
 
-$_SESSION['onlydb'] = $auth->AuthUser("accesslist",$username,$password);
+$_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['$password']);
 
 echo $_SESSION['onlydb']; 
-if($onlydb != "")
-{       
-        echo $onlydb = $auth->AuthUser("accesslist",$username,$password);
-}
-else
+if($SESSION['onlydb'] == "")
 {       
         die("Cannot access");
 }
