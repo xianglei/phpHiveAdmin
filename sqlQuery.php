@@ -82,7 +82,7 @@ else
 			$sql = "use ".@$_POST['database'].";".@$_POST['sql'];
 			
 			$logfile = "./logs/".$_SESSION['username']."_".$sha1.".log";
-			$etc->LogAction($logfile,"w",$sql);
+			$etc->LogAction($logfile,"w",$sql."\n");
 			
 			$path = $env['http_url']."?time=".$sha1."&query=".base64_encode($sql);
 			$cookie = sha1($mtime);
@@ -115,7 +115,7 @@ else
 			$sha1 = $date."_".sha1($mtime);
 			
 			$logfile = "./logs/".$_SESSION['username']."_".$sha1.".log";
-			$etc->LogAction($logfile,"w",$sql);
+			$etc->LogAction($logfile,"w",$sql."\n");
 			
 			$client->execute($sql);
 			$array = $client->fetchAll();
