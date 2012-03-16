@@ -20,6 +20,10 @@ else
 #--------------------------
 
 $_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
+if($_SESSION['onlydb'] == "")
+{
+	die('No access');
+}
 
 # load the required files for connecting to Hive
 require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
