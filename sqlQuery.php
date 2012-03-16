@@ -3,6 +3,7 @@ ignore_user_abort(true);
 set_time_limit(0);
 include_once 'config.inc.php';
 
+$etc = new Etc;
 
 if(!$_GET['database'] || '' == $_GET['database'])
 {
@@ -69,7 +70,7 @@ else
 	{
 		if(preg_match("/( {0,}select +\* +from)/i",@$_POST['sql']) && !preg_match("/limit/i", @$_POST['sql']))# if select * from with no limit died.
 		{
-			die("Don't select * from, you should add limit!!!");
+			die("Dont 'select * from', you should add limit!!!");
 		}
 		elseif(!preg_match("/limit/i", @$_POST['sql']))
 		{
@@ -79,6 +80,10 @@ else
 			$sha1 = $date."_".sha1($mtime);
 		
 			$sql = "use ".@$_POST['database'].";".@$_POST['sql'];
+			
+			$logfile = "./logs/".$_SESSION['username']."_".$sha1.".log";
+			$etc->LogAction($logfile,"w",$sql);
+			
 			$path = $env['http_url']."?time=".$sha1."&query=".base64_encode($sql);
 			$cookie = sha1($mtime);
 
@@ -103,8 +108,15 @@ else
 			#$timer->start();
 			$sql = $_POST['sql'];
 			echo $sql.'<br /><br />';
-			//add limit to standard sql
-		
+			
+			$mtime = explode(" ",microtime());
+			$date = date("Y-m-d",$mtime[1]);
+			$mtime = (float)$mtime[1] + (float)$mtime[0];
+			$sha1 = $date."_".sha1($mtime);
+			
+			$logfile = "./logs/".$_SESSION['username']."_".$sha1.".log";
+			$etc->LogAction($logfile,"w",$sql);
+			
 			$client->execute($sql);
 			$array = $client->fetchAll();
 
