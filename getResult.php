@@ -9,41 +9,48 @@ if(!@$_GET['str'])
 else
 {
 	$str = @$_GET['str'];
-	if(file_exists($env['output_path']."/hive_res.".$str.".out") && filesize($env['output_path']."/hive_res.".$str.".out") != 0)
+	if(file_exists($env['output_path']."/hive_res.".$str.".out"))
 	{
-		echo "<input type=button name=download value=\"Download Result File\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
-		$fp = fopen($env['output_path']."/hive_res.".$str.".out","r");
-		$i = 0;
-		while($i != 30)
+		if(filesize($env['output_path']."/hive_res.".$str.".out") != 0)
 		{
-			$string .= fgets($fp,4096);
-			$i++;
+			echo "<input type=button name=download value=\"Download Result File\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
+			$fp = fopen($env['output_path']."/hive_res.".$str.".out","r");
+			$i = 0;
+			while($i != 30)
+			{
+				$string .= fgets($fp,4096);
+				$i++;
+			}
+			$array = explode("\n",substr($string,0,-1));//stop at last return
+			$i = 0;
+			echo "<table border=1 cellspacing=1 cellpadding=3>\n";
+			foreach($array as $k=>$v)
+			{
+				if(($i % 2) == 0)
+				{
+					$color = "bgcolor=\"".$env['trColor1']."\"";
+				}
+				else
+				{
+					$color = "bgcolor=\"".$env['trColor2']."\"";
+				}
+				$arr = explode('	',$v);
+				echo "<tr ".$color.">\n";
+				foreach($arr as $kk=>$vv)
+				{
+					$vv = str_replace('<','&lt;',$vv);
+					$vv = str_replace('>','&gt;',$vv);
+					echo "<td>".$vv."</td>\n";
+				}
+				echo "</tr>\n";
+				$i++;
+			}
+			echo "</table>\n";
 		}
-		$array = explode("\n",substr($string,0,-1));//stop at last return
-		$i = 0;
-		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
-		foreach($array as $k=>$v)
+		else
 		{
-			if(($i % 2) == 0)
-			{
-				$color = "bgcolor=\"".$env['trColor1']."\"";
-			}
-			else
-			{
-				$color = "bgcolor=\"".$env['trColor2']."\"";
-			}
-			$arr = explode('	',$v);
-			echo "<tr ".$color.">\n";
-			foreach($arr as $kk=>$vv)
-			{
-				$vv = str_replace('<','&lt;',$vv);
-				$vv = str_replace('>','&gt;',$vv);
-				echo "<td>".$vv."</td>\n";
-			}
-			echo "</tr>\n";
-			$i++;
+			echo "No result fetched";
 		}
-		echo "</table>\n";
 	}
 	else
 	{
