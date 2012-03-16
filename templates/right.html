@@ -26,7 +26,7 @@ echo $lang['addDatabase'];
 ?>
 
 <?php
-if($_SESSION['onlydb'] != "")
+if($_SESSION['onlydb'] == "all")
 {
 ?>
 <form method=post action=addDatabase.php>
