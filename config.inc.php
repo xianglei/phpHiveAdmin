@@ -52,6 +52,7 @@ $env['java_home'] = '/usr/java/jdk1.6.0_21';# jdk root path
 $env['etl'] = './etl/';# path to etl configuration files
 #------------------
 $env['output_path'] = '/data2/tmp/phpHiveAdmin';# For cliQuery.php, where to put stderr output log file and original result file
+$env['logs_path'] = './logs/';
 #------------------
 
 $env['showTables'] = 'show tables';

@@ -74,15 +74,14 @@ else
 		}
 		elseif(!preg_match("/limit/i", @$_POST['sql']))
 		{
-			$mtime = explode(" ",microtime());
-			$date = date("Y-m-d",$mtime[1]);
-			$mtime = (float)$mtime[1] + (float)$mtime[0];
-			$sha1 = $date."_".sha1($mtime);
+			$sha1 = $etc->FingerPrintMake();
 		
 			$sql = "use ".@$_POST['database'].";".@$_POST['sql'];
 			
-			$logfile = "./logs/".$_SESSION['username']."_".$sha1.".log";
+			#log sql action
+			$logfile = $env['logs_path'].$_SESSION['username']."_".$sha1.".log";
 			$etc->LogAction($logfile,"w",$sql."\n");
+			#
 			
 			$path = $env['http_url']."?time=".$sha1."&query=".base64_encode($sql);
 			$cookie = sha1($mtime);
@@ -109,18 +108,16 @@ else
 			$sql = $_POST['sql'];
 			echo $sql.'<br /><br />';
 			
-			$mtime = explode(" ",microtime());
-			$date = date("Y-m-d",$mtime[1]);
-			$mtime = (float)$mtime[1] + (float)$mtime[0];
-			$sha1 = $date."_".sha1($mtime);
+			$sha1 = $etc->FingerPrintMake();
 			
-			$logfile = "./logs/".$_SESSION['username']."_".$sha1.".log";
+			#log sql
+			$logfile = $env['logs_path'].$_SESSION['username']."_".$sha1.".log";
 			$etc->LogAction($logfile,"w",$sql."\n");
 			
 			$client->execute($sql);
 			$array = $client->fetchAll();
 
-			//construct table desc table
+			#construct table desc table
 			echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 			$i = 0;
 			foreach ($array_desc_desc as $value)
@@ -142,7 +139,7 @@ else
 				echo "</tr>\n";
 				$i++;
 			}
-			//construct result table
+			#construct result table
 			$i = 0;		
 			while ('' != @$array[$i])
 			{
@@ -162,7 +159,7 @@ else
 						$value = str_replace('>','&gt;',$value);
 						echo "<td>".$value."</td>\n";
 				}
-				//echo '<td>'.$array[$i].'</td>';
+				#echo '<td>'.$array[$i].'</td>';
 				echo "</tr>\n";
 				$i++;
 			}

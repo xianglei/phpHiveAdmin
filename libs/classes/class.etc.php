@@ -1,6 +1,15 @@
 <?php
 class Etc
 {
+	public function FingerPrintMake()
+	{
+		$mtime = explode(" ",microtime());
+		$date = date("Y-m-d",$mtime[1]);
+		$mtime = (float)$mtime[1] + (float)$mtime[0];
+		$sha1 = $date."_".sha1($mtime);
+		return $sha1;
+	}
+
 	public function LogAction($pFilename,$pAct,$pStream)
 	{
 		$fp = fopen($pFilename,$pAct);
