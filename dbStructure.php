@@ -35,11 +35,14 @@ else
 		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 		echo "<tr bgcolor=#FFFF99>
 		<td><input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"javascript:isSelect('tablenames');\" /></td>
-		<td>".$lang['tableName']."</td>
-		<td>".$lang['alterTable']."</td>
-		<td>".$lang['loadData']."</td>
-		<td>".$lang['dropTable']."</td>
-		</tr>";
+		<td>".$lang['tableName']."</td>";
+		if($_SESSION['onlydb'] == "all")
+		{
+			<td>".$lang['alterTable']."</td>
+			<td>".$lang['loadData']."</td>
+			<td>".$lang['dropTable']."</td>
+		}
+		echo "</tr>";
 		while ('' != @$db_array[$i])
 		{
 			if(($i % 2) == 0)
@@ -59,18 +62,20 @@ else
 			echo "<td>\n";
 			echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right">'.$db_array[$i].'</a>';
 			echo "</td>\n";
-		
-			echo "<td>\n";
-			echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_props.png>".$lang['alterTable']."</a>";
-			echo "</td>\n";
+			if($_SESSION['onlydb'] == "all")
+			{
+				echo "<td>\n";
+				echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_props.png>".$lang['alterTable']."</a>";
+				echo "</td>\n";
 			
-			echo "<td>\n";
-			echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_import.png>".$lang['loadData']."</a>";
-			echo "</td>\n";
+				echo "<td>\n";
+				echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_import.png>".$lang['loadData']."</a>";
+				echo "</td>\n";
 		
-			echo "<td>\n";
-			echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
-			echo "</td>\n";
+				echo "<td>\n";
+				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
+				echo "</td>\n";
+			}
 			
 			echo "</tr>\n";
 			$i++;
