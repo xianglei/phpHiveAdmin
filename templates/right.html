@@ -24,9 +24,17 @@ Welcome to phpHiveAdmin
 <?php
 echo $lang['addDatabase'];
 ?>
+
+<?php
+if($_SESSION['onlydb'] != "")
+{
+?>
 <form method=post action=addDatabase.php>
 <input type=text name=newdbname>
 <input type=submit name=submit value=<?php echo $lang['submit'];?>>
 </form>
 </body>
 </html>
+<?php
+}
+?>
