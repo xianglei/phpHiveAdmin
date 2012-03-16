@@ -22,13 +22,11 @@ body {
 Welcome to phpHiveAdmin
 </center>
 <?php
-echo $lang['addDatabase'];
-?>
-
-<?php
 if($_SESSION['onlydb'] == "all")
 {
+	echo $lang['addDatabase'];
 ?>
+
 <form method=post action=addDatabase.php>
 <input type=text name=newdbname>
 <input type=submit name=submit value=<?php echo $lang['submit'];?>>
