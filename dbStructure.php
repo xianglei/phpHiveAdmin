@@ -85,7 +85,10 @@ else
 		echo $lang['select']." / ".$lang['deselect']."<bR><br>\n";
 		echo "<input type=submit name=submit value=".$lang['submit'].">";
 		echo "</form><br><br>";
-		include_once "templates/add_table.html";
+		if($_SESSION['onlydb'] == "all")
+		{
+			include_once "templates/add_table.html";
+		}
 	}
 	else
 	{
