@@ -4,6 +4,7 @@ session_start();
 $GLOBALS['THRIFT_ROOT'] = './libs/';
 
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.auth.php';
+require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etc.php';
 $auth = new Authorize;
 
 # for my company use only below, you can change it to standard authrize as you wish
