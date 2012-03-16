@@ -38,9 +38,9 @@ else
 		<td>".$lang['tableName']."</td>";
 		if($_SESSION['onlydb'] == "all")
 		{
-			<td>".$lang['alterTable']."</td>
+			echo "<td>".$lang['alterTable']."</td>
 			<td>".$lang['loadData']."</td>
-			<td>".$lang['dropTable']."</td>
+			<td>".$lang['dropTable']."</td>";
 		}
 		echo "</tr>";
 		while ('' != @$db_array[$i])
