@@ -21,6 +21,15 @@ if(!@$_POST['filename'])
 		$i++;
 	}
 	$dir->close();
+	
+	if($filename[0] != "")
+	{
+		$filename = $filename;
+	}
+	else
+	{
+		$filename = array();
+	}
 
 	echo "<<< <a href=\"javascript:history.back();\">".$lang['back']."</a><br><br>";
 	echo "Put ini file into './etl/'<br><br>";
