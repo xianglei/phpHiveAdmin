@@ -2,6 +2,8 @@
 include_once 'config.inc.php';
 include_once 'templates/style.css';
 
+$etl = new Etl;
+
 if(!@$_POST['filename'])
 {
 	$dir = dir($env['etl']);
@@ -53,13 +55,13 @@ else
 	{
 		foreach($_POST['filename'] as $k => $v)
 		{
-			$ini = parse_ini_file($env['etl'].$v,true);
+			$ini = $etl->ParseEtl($v);
 			//var_dump($ini);
 			/*
 			; Comments start with ';'
 			[mysql]
 			hostname = "192.168.1.50"
-			port = "3306"
+			port = "3306";
 			username = "root"
 			password = "password"
 			database = "exampledb";
@@ -95,9 +97,9 @@ else
 			
 			$array = file("/tmp/tmp0/000000_0");
 			$fp = fopen($filename,"wb");
-			foreach(@$array as $k => $v)
+			foreach(@$array as $kk => $vv)
 			{
-				$str = str_replace("\x01", $ini['mysql']['terminator'], $v)."\n";
+				$str = str_replace("\x01", $ini['mysql']['terminator'], $vv)."\n";
 				fwrite($fp,$str);
 			}
 			fclose($fp);
@@ -109,9 +111,12 @@ else
 				{
 					$replace = " REPLACE ";
 				}
-				else
+				elseif ($ini['mysql']['load'] == "new")
 				{
 					$replace = " ";
+				}
+				{
+					die("ini set error");
 				}
 				$sql = "LOAD DATA LOCAL INFILE '/tmp/".$filename."' ".$replace." INTO TABLE ".$ini['mysql']['database'].".".$ini['mysql']['table']." FIELDS TERMINATED BY '\\".$ini['mysql']['terminator']."'";
 			}echo $sql;

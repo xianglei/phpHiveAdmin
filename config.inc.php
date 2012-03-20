@@ -5,6 +5,7 @@ $GLOBALS['THRIFT_ROOT'] = './libs/';
 
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.auth.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etc.php';
+require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etl.php';
 $auth = new Authorize;
 
 # for my company use only below, you can change it to standard authrize as you wish
@@ -21,7 +22,7 @@ else
 #--------------------------
 
 $_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
-if(($_SESSION['onlydb'] == "") || ($_GET['username'] == "" && $_GET['password'] == ""))
+if(($_SESSION['onlydb'] == "") && ($_GET['username'] == "" || $_GET['password'] == ""))
 {
 	die('No access');
 }
