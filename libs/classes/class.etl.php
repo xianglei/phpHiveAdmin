@@ -28,7 +28,8 @@ class Etl
 		if(file_exists($env['etl'].$pFilename))
 		{
 			$fp = fopen($env['etl'].$pFilename,"r");
-			while (!feof($env['etl'].$pFilename)) {
+			while (!feof($fp))
+			{
 				$str .= fgets($fp,1024);
 			}
 			fclose($fp);
@@ -56,7 +57,8 @@ class Etl
 			$array = parse_ini_file($env['etl'].$pFilename,TRUE);
 			return $array;
 		}
-		else {
+		else
+		{
 			return "ini file not exists";
 		}
 	}
