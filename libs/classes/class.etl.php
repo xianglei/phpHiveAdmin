@@ -27,9 +27,9 @@ class Etl
 		global $env;
 		if(file_exists($env['etl'].$pFilename))
 		{
-			$fp = fopen($pFilename,"r");
-			while (!feof($pFilename)) {
-				$str .= fgets($fp);
+			$fp = fopen($env['etl'].$pFilename,"r");
+			while (!feof($env['etl'].$pFilename)) {
+				$str .= fgets($fp,1024);
 			}
 			fclose($fp);
 			return $str;
