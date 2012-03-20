@@ -14,7 +14,7 @@ else
 	{
 		if(!@$_POST['filename'])
 		{
-			$str = $etl->GetEtl($env['etl'].$_GET['filename']);
+			$str = $etl->GetEtl($_GET['filename']);
 			echo "<form method=post>";
 			echo "<textarea name=content  cols=\"60\" rows=\"30\">".$str."</textarea><br>";
 			echo "<input type=hidden name=filename value=".$_GET['filename'].">";
