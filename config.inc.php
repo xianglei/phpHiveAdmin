@@ -21,7 +21,7 @@ else
 #--------------------------
 
 $_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
-if($_SESSION['onlydb'] == "")
+if(($_SESSION['onlydb'] == "") || ($_GET['username'] == "" && $_GET['password'] == ""))
 {
 	die('No access');
 }
