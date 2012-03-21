@@ -155,7 +155,7 @@ else
 				{
 					echo @$client->execute($v);
 				}
-				echo "<script>alert('success');window.location='sqlQuery.php?database=".$_POST['database']."&table=".$_POST['table']."';</script>";
+				echo "<script>alert('".$lang['success']."');window.location='sqlQuery.php?database=".$_POST['database']."&table=".$_POST['table']."';</script>";
 			}
 		}
 	}

@@ -27,7 +27,7 @@ else
 		}
 		else
 		{
-			echo "Already done, press 'Get Result Button for view and download'";
+			echo $lang['cliDone'];
 		}
 	}
 	else
@@ -45,7 +45,7 @@ else
 		}
 		else
 		{
-			echo "Already done, press 'Get Result Button for view and download'";
+			echo $lang['cliDone'];
 		}
 	}
 }

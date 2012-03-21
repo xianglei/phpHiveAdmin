@@ -16,7 +16,7 @@ else
 	}
 	else
 	{
-		die ("Unknown error");
+		die ($lang['unknownError']);
 	}
 }
 ?>

@@ -4,7 +4,7 @@ include_once 'templates/style.css';
 
 if(!@$_GET['str'])
 {
-	die('Invalid entry');
+	die($lang['invalidEntry']);
 }
 else
 {
@@ -13,7 +13,7 @@ else
 	{
 		if(filesize($env['output_path']."/hive_res.".$str.".out") != 0)
 		{
-			echo "<input type=button name=download value=\"Download Result File\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
+			echo "<input type=button name=download value=\"".$lang['downloadResultFile']."\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
 			$fp = fopen($env['output_path']."/hive_res.".$str.".out","r");
 			$i = 0;
 			while($i != 30)
@@ -49,12 +49,12 @@ else
 		}
 		else
 		{
-			echo "No result fetched";
+			echo $lang['noResultFetched'];
 		}
 	}
 	else
 	{
-		echo "Not yet";
+		echo $lang['notReadyYet'];
 	}
 }
 ?>

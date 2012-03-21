@@ -37,7 +37,7 @@ else
 	}
 	else
 	{
-		die('Invalid Filename');
+		die($lang['invalidFilename']);
 	}
 }
 ?>

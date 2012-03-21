@@ -63,4 +63,14 @@ $lang['noFileChoose'] = '没有选择任何文件';
 $lang['noSuchFile'] = '文件不存在???';
 $lang['save'] = '保存';
 $lang['success'] = '成功!';
+$lang['invalidEntry'] = '非法入口';
+$lang['cliDone'] = "已经完成,点击 '获取结果按钮 查看并下载'";
+$lang['invalidFilename'] = '不合法的文件名';
+$lang['unknownError'] = "无法辨识的错误";
+$lang['downloadResultFile'] = "结果集下载";
+$lang['noResultFetched'] = "没有找到任何结果";
+$lang['notReadyYet'] = "查询还未结束, 请等待...";
+$lang['runningMapReduce'] = "Map/Reduce 正在处理...请耐心等待";
+$lang['fingerprintOfMapReduce'] = "Map/Reduce 进度唯一指纹ID:";
+$lang['forceLimit'] = "不要使用'select * from', 如必须使用，请加上limit!!!";
 ?>

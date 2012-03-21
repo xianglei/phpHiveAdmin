@@ -52,7 +52,7 @@ else
 		{
 			if($_POST['path'] == '')
 			{
-				echo "<script>alert('must enter path');history.back();</script>";
+				echo "<script>alert($lang['mustEnterPath']);history.back();</script>";
 			}
 			else
 			{

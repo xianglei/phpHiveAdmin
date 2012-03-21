@@ -5,7 +5,7 @@ $env['output_path'] = '/data2/tmp/phpHiveAdmin';
 include "templates/style.css";
 if(!@$_GET['str'])
 {
-	die("Invalid Entry");
+	die($lang['invalidEntry']);
 }
 else
 {
@@ -21,7 +21,7 @@ else
 	}
 	else
 	{
-		echo "Map/Reduce is Running...plz wait a second";
+		echo $lang['runningMapReduce'];
 	}
 }
 ?>

@@ -63,4 +63,14 @@ $lang['noFileChoose'] = 'Not choose any File';
 $lang['noSuchFile'] = 'File not exists???';
 $lang['save'] = 'Save';
 $lang['success'] = 'Success!';
+$lang['invalidEntry'] = 'Invalid entrance';
+$lang['cliDone'] = "Already done, press 'Get Result Button for view and download'";
+$lang['invalidFilename'] = 'Invalid Filename';
+$lang['unknownError'] = "Unknown error";
+$lang['downloadResultFile'] = "Download Result File";
+$lang['noResultFetched'] = "No result fetched";
+$lang['notReadyYet'] = "Not ready yet, plz wait...";
+$lang['runningMapReduce'] = "Map/Reduce is Running...plz wait a second";
+$lang['fingerprintOfMapReduce'] = "Map/Reduce Job Unique Finger Print:";
+$lang['forceLimit'] = "Dont 'select * from', you should add limit!!!";
 ?>

@@ -12,7 +12,7 @@ if(!$_GET['database'] || '' == $_GET['database'])
 else
 {
 
-	echo $_GET['database'].' --  <a href=dbStructure.php?database='.$_GET['database'].' target="right">Back</a><br /><br />';
+	echo $_GET['database'].' --  <a href=dbStructure.php?database='.$_GET['database'].' target="right">'.$lang['back'].'</a><br /><br />';
 
 	include_once 'templates/sql_query_navi.html';
 	include_once 'templates/style.css';
@@ -74,7 +74,7 @@ else
 	{
 		if(preg_match("/( {0,}select +\* +from)/i",@$_POST['sql']) && !preg_match("/limit/i", @$_POST['sql']))# if select * from with no limit died.
 		{
-			die("Dont 'select * from', you should add limit!!!");
+			die($lang['forceLimit']);
 		}
 		elseif(!preg_match("/limit/i", @$_POST['sql']))
 		{
@@ -100,7 +100,7 @@ else
 			";
 			echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode($sql)."' , getReult)\">";
 			echo "<input type=button value=\"Get Result\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
-			echo "<br><br>Map/Reduce Job Unique Finger Print: ".$sha1;
+			echo "<br><br>".$lang['fingerprintOfMapReduce']." ".$sha1;
 			echo "<br><br>";
 			echo "SQL: ".$sql;
 			echo "<br><br>";

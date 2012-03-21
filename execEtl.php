@@ -137,6 +137,6 @@ else
 	}
 	else
 	{
-		die ('<script>alert(\'not choose anyone\';history.back();</script>');
+		die ('<script>alert(\''.$lang['noFileChoose'].'\';history.back();</script>');
 	}
 }
