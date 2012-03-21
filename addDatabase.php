@@ -7,6 +7,10 @@ if(!@$_POST['newdbname'])
 }
 else
 {
+	$transport = new TSocket(HOST, PORT);
+	$protocol = new TBinaryProtocol($transport);
+	$client = new ThriftHiveClient($protocol);
+	
 	$transport->open();
 
 	$client->execute('create database '.$_POST['newdbname']);

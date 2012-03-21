@@ -18,6 +18,10 @@ else
 	include_once 'templates/style.css';
 	echo "<br /><br />";
 	
+	$transport = new TSocket(HOST, PORT);
+	$protocol = new TBinaryProtocol($transport);
+	$client = new ThriftHiveClient($protocol);
+	
 	$transport->open();
 
 	$sql = 'use '.$_GET['database'];
@@ -29,7 +33,7 @@ else
 	$client->execute($sql);
 	$array_desc_table = $client->fetchAll();
 	//get table description and explode the desc into a multi-dimensional array
-	//»ñÈ¡±íËµÃ÷£¬²¢·ÅÈë¶þÎ¬Êý×é$array_desc_desc
+	//ï¿½ï¿½È¡ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¬ï¿½ï¿½ï¿½ï¿½$array_desc_desc
 	$i = 0;
 	while ('' != @$array_desc_table[$i])
 	{

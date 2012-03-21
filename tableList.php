@@ -7,6 +7,10 @@ if(!@$_GET['database'])
 }
 else
 {
+	$transport = new TSocket(HOST, PORT);
+	$protocol = new TBinaryProtocol($transport);
+	$client = new ThriftHiveClient($protocol);
+	
 	$transport->open();
 
 	$client->execute('use '.$_GET['database']);

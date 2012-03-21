@@ -64,8 +64,4 @@ $env['trColor2'] = '#DFDFDF';
 $env['hdfsToHiveDir'] = '/hdfs/data/dw/';
 # '/hdfs' is a libhdfs mount point to localize directory 
 
-$transport = new TSocket(HOST, PORT);
-$protocol = new TBinaryProtocol($transport);
-$client = new ThriftHiveClient($protocol);
-
 $timer = new Timer;

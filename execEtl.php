@@ -15,7 +15,14 @@ if(!@$_POST['filename'])
 		{
 			if($entry != '..')
 			{
-				$filename[$i] = $entry;
+				if ($entry != "")
+				{
+					$filename[$i] = $entry;
+				}
+				else
+				{
+					$filename[$i] = "";
+				}
 			}
 		}
 		$i++;
