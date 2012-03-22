@@ -12,11 +12,11 @@ class Etl
 		{
 			if(unlink($env['etl'].$v))
 			{
-				echo $v." remove success <br>\n";
+				return TRUE;
 			}
 			else
 			{
-				echo $v." remove unsuccess, check the file authority <BR>\n";
+				return FALSE;
 			}
 			
 		}
@@ -59,7 +59,7 @@ class Etl
 		}
 		else
 		{
-			return "ini file not exists";
+			return FALSE;
 		}
 	}
 }

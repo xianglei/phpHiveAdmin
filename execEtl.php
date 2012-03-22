@@ -63,6 +63,10 @@ else
 		foreach($_POST['filename'] as $k => $v)
 		{
 			$ini = $etl->ParseEtl($v);
+			if($ini == FALSE)
+			{
+				die($lang['iniFileError']);
+			}
 			//var_dump($ini);
 			/*
 			; Comments start with ';'

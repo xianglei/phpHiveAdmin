@@ -73,4 +73,5 @@ $lang['notReadyYet'] = "Not ready yet, plz wait...";
 $lang['runningMapReduce'] = "Map/Reduce is Running...plz wait a second";
 $lang['fingerprintOfMapReduce'] = "Map/Reduce Job Unique Finger Print:";
 $lang['forceLimit'] = "Dont 'select * from', you should add limit!!!";
+$lang['iniFileError'] = 'ini file parse error';
 ?>
