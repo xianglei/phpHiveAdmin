@@ -28,11 +28,26 @@ class MysqlMeta extends Hive
 		$this->mRes = mysql_query($pSql,$this->mDb);
 	}
 	
-	public function GetResult($pSql)
+	public function GetResultRow($pSql)
 	{
 		$this->Query($pSql);
 		$i = 0;
 		while($array = mysql_fetch_row($this->mRes))
+		{
+			foreach($array as $k => $v)
+			{
+				$arr[$i][$k] = $v;
+			}
+			$i++;
+		}
+		return $arr;
+	}
+	
+	public function GetResultKey($pSql)
+	{
+		$this->Query($pSql);
+		$i = 0;
+		while($array = mysql_fetch_array($this->mRes))
 		{
 			foreach($array as $k => $v)
 			{

@@ -13,7 +13,7 @@ else
 	switch (@$_GET['detail']) {
 		case 'dbs':
 			$sql = "select * from DBS";
-			$arr = $meta->GetResult($sql);
+			$arr = $meta->GetResultRow($sql);
 			echo "<table border=1 cellspacing=1 cellpadding=3>";
 			$i = 0;
 			foreach ($arr as $k => $v)
