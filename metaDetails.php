@@ -33,13 +33,6 @@ else
 	}
 
 	$arr = $meta->GetResultRow($sql);
-	$offset = @$_GET['offset'];
-	$starter = ($offset*100)+1;
-	if($starter < 0)
-	{
-		$starter = 0;
-	}
-	echo "<a href=metaDetails.php?detail=dbs&offset=".$starter.">Next</a> - <a href=metaDetails.php?detail=dbs&offset=".$starter.">Previous</a><br>";
 	echo "<table border=1 cellspacing=1 cellpadding=3>";
 	$i = 0;
 	foreach ($arr as $k => $v)
@@ -63,6 +56,5 @@ else
 		$i++;
 	}
 	echo "</table><br>";
-	echo "<a href=metaDetails.php?detail=dbs&offset=".$starter.">Next</a> - <a href=metaDetails.php?detail=dbs&offset=".$starter.">Previous</a>";
 }
 ?>
