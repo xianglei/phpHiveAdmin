@@ -12,7 +12,7 @@ else
 {
 	switch (@$_GET['detail']) {
 		case 'dbs':
-			$sql = "desc DBS";
+			$sql = "select * from DBS";
 			$arr = $meta->GetResult($sql);
 			echo "<table border=1 cellspacing=1 cellpadding=3>";
 			$i = 0;
