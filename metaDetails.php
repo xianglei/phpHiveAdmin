@@ -16,6 +16,7 @@ else
 			$arr = $meta->GetResult($sql);
 			echo "<table border=1 cellspacing=1 cellpadding=3>";
 			$i = 0;
+			var_dump($arr);
 			foreach ($arr as $k => $v)
 			{
 				if(($i % 2) == 0)
