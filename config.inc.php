@@ -6,6 +6,7 @@ $GLOBALS['THRIFT_ROOT'] = './libs/';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.auth.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etc.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etl.php';
+require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.hive.php';
 $auth = new Authorize;
 
 # for my company use only below, you can change it to standard authrize as you wish
