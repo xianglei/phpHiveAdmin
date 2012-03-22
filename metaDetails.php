@@ -41,7 +41,7 @@ else
 			
 		case 'tables':
 			echo "<table border=1 cellspacing=1 cellpadding=3>";
-			$sql = "select * from DBS";
+			$sql = "select * from TBLS";
 			$arr = $meta->GetResultRow($sql);
 			$i = 0;
 			foreach ($arr as $k => $v)
@@ -69,7 +69,7 @@ else
 			
 		case 'partitions':
 			echo "<table border=1 cellspacing=1 cellpadding=3>";
-			$sql = "select * from DBS";
+			$sql = "select * from PARTITIONS";
 			$arr = $meta->GetResultRow($sql);
 			$i = 0;
 			foreach ($arr as $k => $v)
@@ -97,7 +97,7 @@ else
 			
 		case 'indexes':
 			echo "<table border=1 cellspacing=1 cellpadding=3>";
-			$sql = "select * from DBS";
+			$sql = "select * from IDXS";
 			$arr = $meta->GetResultRow($sql);
 			$i = 0;
 			foreach ($arr as $k => $v)
