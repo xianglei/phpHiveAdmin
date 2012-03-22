@@ -36,10 +36,10 @@ class MysqlMeta extends Hive
 		{
 			foreach($array as $k => $v)
 			{
-				$arr[$k] = $v;
+				$arr[$i] = $v;
 			}
 			$i++;
-		}
+		}var_dump($array);
 		return $arr;
 	}
 	
