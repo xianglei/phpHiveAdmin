@@ -108,6 +108,7 @@ else
 		}
 		else
 		{
+			$timer = new Timer;
 			$timer->start();
 			$sql = $_POST['sql'];
 			echo $sql.'<br /><br />';

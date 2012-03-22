@@ -38,6 +38,13 @@ require_once 'langs/lang_en.php';
 
 define('HOST','192.168.1.49');
 define('PORT','10000');
+define('METATYPE', 'mysql');
+#can set to mysql pgsql derby, derby may need unixODBC to connect;
+define('METADB','192.168.1.28');
+define('METAPORT', '3306');
+define('METAUSER', 'hive');
+define('METAPASS', 'hive');
+define('METANAME', 'hive');
 
 #------------------
 $env['hive_jar'] = '/opt/modules/hive/hive-0.7.1/lib/hive-contrib-0.7.1.jar';
@@ -55,7 +62,6 @@ $env['etl'] = './etl/';# path to etl configuration files
 $env['output_path'] = '/data2/tmp/phpHiveAdmin';# For cliQuery.php, where to put stderr output log file and original result file
 $env['logs_path'] = './logs/';
 #------------------
-
 $env['showTables'] = 'show tables';
 $env['bodyColor'] = '#EFEFEF';
 $env['trColor1'] = '#AFAFAF';
@@ -63,5 +69,3 @@ $env['trColor2'] = '#DFDFDF';
 # Important: varius below is being used only if you mount hdfs to a local filesystem with fusefs tool!!!Unless it will cause fatal error
 $env['hdfsToHiveDir'] = '/hdfs/data/dw/';
 # '/hdfs' is a libhdfs mount point to localize directory 
-
-$timer = new Timer;

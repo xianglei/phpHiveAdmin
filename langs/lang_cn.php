@@ -74,4 +74,5 @@ $lang['runningMapReduce'] = "Map/Reduce 正在处理...请耐心等待";
 $lang['fingerprintOfMapReduce'] = "Map/Reduce 进度唯一指纹ID:";
 $lang['forceLimit'] = "不要使用'select * from', 如必须使用，请加上limit!!!";
 $lang['iniFileError'] = 'ini文件解析错误';
+$lang['metaSummury'] = '元数据汇总报告';
 ?>
