@@ -12,120 +12,57 @@ else
 {
 	switch (@$_GET['detail']) {
 		case 'dbs':
-			echo "<table border=1 cellspacing=1 cellpadding=3>";
-			$sql = "select * from DBS";
-			$arr = $meta->GetResultRow($sql);
-			$i = 0;
-			foreach ($arr as $k => $v)
-			{
-				if(($i % 2) == 0)
-				{
-					$color = "bgcolor=\"".$env['trColor1']."\"";
-				}
-				else
-				{
-					$color = "bgcolor=\"".$env['trColor2']."\"";
-				}
-				echo "<tr ".$color.">\n";
-				foreach ($v as $kk => $vv)
-				{
-					echo "<td>";
-					echo $vv;
-					echo "</td>";
-				}
-				echo "</tr>";
-				$i++;
-			}
-			echo "</table>";
+			$sql = "select * from DBS limit ".$@_GET['offset'].",100";
 			break;
 			
 		case 'tables':
-			echo "<table border=1 cellspacing=1 cellpadding=3>";
 			$sql = "select * from TBLS";
-			$arr = $meta->GetResultRow($sql);
-			$i = 0;
-			foreach ($arr as $k => $v)
-			{
-				if(($i % 2) == 0)
-				{
-					$color = "bgcolor=\"".$env['trColor1']."\"";
-				}
-				else
-				{
-					$color = "bgcolor=\"".$env['trColor2']."\"";
-				}
-				echo "<tr ".$color.">\n";
-				foreach ($v as $kk => $vv)
-				{
-					echo "<td>";
-					echo $vv;
-					echo "</td>";
-				}
-				echo "</tr>";
-				$i++;
-			}
-			echo "</table>";
 			break;
 			
 		case 'partitions':
-			echo "<table border=1 cellspacing=1 cellpadding=3>";
 			$sql = "select * from PARTITIONS";
-			$arr = $meta->GetResultRow($sql);
-			$i = 0;
-			foreach ($arr as $k => $v)
-			{
-				if(($i % 2) == 0)
-				{
-					$color = "bgcolor=\"".$env['trColor1']."\"";
-				}
-				else
-				{
-					$color = "bgcolor=\"".$env['trColor2']."\"";
-				}
-				echo "<tr ".$color.">\n";
-				foreach ($v as $kk => $vv)
-				{
-					echo "<td>";
-					echo $vv;
-					echo "</td>";
-				}
-				echo "</tr>";
-				$i++;
-			}
-			echo "</table>";
 			break;
 			
 		case 'indexes':
-			echo "<table border=1 cellspacing=1 cellpadding=3>";
 			$sql = "select * from IDXS";
-			$arr = $meta->GetResultRow($sql);
-			$i = 0;
-			foreach ($arr as $k => $v)
-			{
-				if(($i % 2) == 0)
-				{
-					$color = "bgcolor=\"".$env['trColor1']."\"";
-				}
-				else
-				{
-					$color = "bgcolor=\"".$env['trColor2']."\"";
-				}
-				echo "<tr ".$color.">\n";
-				foreach ($v as $kk => $vv)
-				{
-					echo "<td>";
-					echo $vv;
-					echo "</td>";
-				}
-				echo "</tr>";
-				$i++;
-			}
-			echo "</table>";
 			break;
 		
 		default:
 			echo ($lang['invalidEntry']);
 			break;
 	}
+
+	$arr = $meta->GetResultRow($sql);
+	$offset = @$_GET['offset'];
+	$starter = ($offset+1)*100;
+	if($start < 0)
+	{
+		$starter = 0;
+	}
+	echo "<a href=metaDetails.php?detail=dbs&offset=".$starter.">Next</a> - <a href=metaDetails.php?detail=dbs&offset=".$starter.">Previous</a><br>";
+	echo "<table border=1 cellspacing=1 cellpadding=3>";
+	$i = 0;
+	foreach ($arr as $k => $v)
+	{
+		if(($i % 2) == 0)
+		{
+			$color = "bgcolor=\"".$env['trColor1']."\"";
+		}
+		else
+		{
+			$color = "bgcolor=\"".$env['trColor2']."\"";
+		}
+		echo "<tr ".$color.">\n";
+		foreach ($v as $kk => $vv)
+		{
+			echo "<td>";
+			echo $vv;
+			echo "</td>";
+		}
+		echo "</tr>";
+		$i++;
+	}
+	echo "</table><br>";
+	echo "<a href=metaDetails.php?detail=dbs&offset=".$starter.">Next</a> - <a href=metaDetails.php?detail=dbs&offset=".$starter.">Previous</a>";
 }
 ?>
