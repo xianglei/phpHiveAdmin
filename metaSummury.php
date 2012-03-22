@@ -8,7 +8,7 @@ $sql = "select count(*) as count from DBS where NAME != 'default'";
 $arr = $meta->GetResultKey($sql);
 echo $lang['metaDbs']."<a href=metaDetails.php?detail=dbs>".$arr[0]['count'] . "</a><br>\n";
 
-$sql = "select count(*) from TBLS";
+$sql = "select count(*) as count from TBLS";
 $arr = $meta->GetResultKey($sql);
 echo $lang['metaTables']."<a href=metaDetails.php?detail=tables>".$arr[0]['count'] . "</a><br>\n";
 
