@@ -43,6 +43,11 @@ class MysqlMeta extends Hive
 		return $arr;
 	}
 	
+	public function Close()
+	{
+		$this->__destruct();
+	}
+	
 	public function __destruct()
 	{
 		mysql_close($this->mDb);
