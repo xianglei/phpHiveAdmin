@@ -12,19 +12,19 @@ else
 {
 	switch (@$_GET['detail']) {
 		case 'dbs':
-			$sql = "select * from DBS limit ".$@_GET['offset'].",100";
+			$sql = "select * from DBS limit ".@$_GET['offset'].",100";
 			break;
 			
 		case 'tables':
-			$sql = "select * from TBLS";
+			$sql = "select * from TBLS limit ".@$_GET['offset'].",100";
 			break;
 			
 		case 'partitions':
-			$sql = "select * from PARTITIONS";
+			$sql = "select * from PARTITIONS limit ".@$_GET['offset'].",100";
 			break;
 			
 		case 'indexes':
-			$sql = "select * from IDXS";
+			$sql = "select * from IDXS limit ".@$_GET['offset'].",100";
 			break;
 		
 		default:
