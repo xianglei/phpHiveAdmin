@@ -32,14 +32,14 @@ class MysqlMeta extends Hive
 	{
 		$this->Query($pSql);
 		$i = 0;
-		while($array = mysql_fetch_array($this->mRes))
+		while($array = mysql_fetch_row($this->mRes))
 		{
 			foreach($array as $k => $v)
 			{
-				$arr[$i] = $v;
+				$arr[$i][$k] = $v;
 			}
 			$i++;
-		}var_dump($array);
+		}
 		return $arr;
 	}
 	
