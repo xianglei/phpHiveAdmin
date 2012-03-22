@@ -34,8 +34,8 @@ else
 
 	$arr = $meta->GetResultRow($sql);
 	$offset = @$_GET['offset'];
-	$starter = ($offset+1)*100;
-	if($start < 0)
+	$starter = ($offset*100)+1;
+	if($starter < 0)
 	{
 		$starter = 0;
 	}
