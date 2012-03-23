@@ -93,4 +93,5 @@ $lang['invalidPartitionNums'] = 'Invalid Partition number';
 $lang['partitionName'] = "Parition Name: ";
 $lang['partitionType'] = 'Partition Type: ';
 $lang['partitionComment'] = 'Partition Comment: ';
+$lang['addPartitions'] = 'Add Partitions(numberic): ';
 ?>

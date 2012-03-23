@@ -130,10 +130,6 @@ else
 					die("<script>alert('".$lang['invalidPartitionNums']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>");
 				}
 			}
-			else
-			{
-				die("<script>alert('".$lang['invalidPartitionNums']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>");
-			}
 			#
 			if(@$_POST['external'] == 1)
 			{
