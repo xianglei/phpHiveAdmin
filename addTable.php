@@ -185,7 +185,7 @@ else
 					case 'sequence':
 						$stored = " STORED AS SEQUENCEFILE ";
 						break;
-					case 'bzip2':
+					case 'gzip':
 						$stored = " STORED AS INPUTFORMAT \"org.apache.hadoop.io.compress.GzipCodec\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
 						break;
 					case 'bzip2':
