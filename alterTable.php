@@ -14,7 +14,7 @@ else
 	
 	$transport->open();
 
-	$client->execute('add jar '.$env['hive_jar']);
+	//$client->execute('add jar '.$env['hive_jar']);
 	$client->execute('use '.$_GET['database']);
 
 	if(!@$_GET['table'])

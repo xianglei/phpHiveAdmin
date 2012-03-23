@@ -10,7 +10,7 @@ $time = @$_GET['time'];
 
 if("" == $query || "" == $time)
 {
-	die('Invalid entry');
+	die($lang['invalidEntry']);
 }
 else
 {

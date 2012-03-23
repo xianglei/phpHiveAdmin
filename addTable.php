@@ -90,7 +90,7 @@ else
 				$ext = " EXTERNAL ";
 				if(@$_POST['lzo'] != 1)
 				{
-					$stored = " ";
+					$stored = " TEXTFILE ";
 				}
 				else
 				{
@@ -117,7 +117,7 @@ else
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
 			$sql = $sql . $limit . $stored . $path;
-			echo $sql."<br>";
+			echo "<br>".$sql."<br>";
 			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 		}

@@ -106,15 +106,17 @@ else
 			$client->execute('add jar '.$ini['hive']['udf']);
 			$client->execute($hql);
 			
-			$array = file("/tmp/tmp0/000000_0");
+			$fd = fopen("/tmp/tmp0/000000_0","rb");
 			$fp = fopen($filename,"wb");
-			foreach(@$array as $kk => $vv)
+			while (!feof($fd))
 			{
-				$str = str_replace("\x01", $ini['mysql']['terminator'], $vv)."\n";
+				$str = trim(fgets($fd,4096));
+				$str = str_replace("\x01", $ini['mysql']['terminator'], $str)."\n";
 				fwrite($fp,$str);
+				unset($str);
 			}
 			fclose($fp);
-			unset($array);
+			fclose($fd);
 			
 			if($ini['mysql']['type'] == "load")
 			{
@@ -126,11 +128,13 @@ else
 				{
 					$replace = " ";
 				}
+				else	
 				{
-					die("ini set error");
+					die($lang['iniFileError']);
 				}
 				$sql = "LOAD DATA LOCAL INFILE '/tmp/".$filename."' ".$replace." INTO TABLE ".$ini['mysql']['database'].".".$ini['mysql']['table']." FIELDS TERMINATED BY '\\".$ini['mysql']['terminator']."'";
-			}echo $sql;
+			}
+			echo "<br>".$sql."<br>";
 			mysql_query($sql);
 		
 			$transport->close();
