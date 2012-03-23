@@ -1,3 +1,17 @@
+03-23-2012
+0.06 beta2
+1. Can add and drop SCHEMA now, add create database query with "if not exists" and drop database query with "if exists".
+2. Now can create partitions when create a new table, and can detect if input is valid when do create table action.
+3. Add "Meta data summury" on top frame, now can show metastore data (mysql only, but pgsql and derby soon).
+4. Arrange some code into OOP mode.
+5. Re-write execETL to prevent the big data out-of-memory crash of php.
+6. Some logical detection improved.
+7. Language improved.
+8. External Internal when did a create table action change to "select" method, default is "External" if not select.
+9. lzop checkbox replaced with a select method, can set to TEXT, LZOP, Sequece File. Gzip and bzip2 are on the way.
+10. MAP,ARRAY,STRUCTURE data types are planning set into PHA.
+11. new Class action set to each page which used it only by itself, to save memory use.
+
 03-15-2012
 0.06 beta1
 1. Fix php header error caused by UTF-8 BOM on all pages. I hate this byte.
