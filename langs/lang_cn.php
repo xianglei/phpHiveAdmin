@@ -93,5 +93,6 @@ $lang['invalidPartitionNums'] = '不合法的分区数';
 $lang['partitionName'] = "分区名称: ";
 $lang['partitionType'] = '分区类型: ';
 $lang['partitionComment'] = '分区注释: ';
+$lang['noPartitionAdd'] = '不需分区请留空.';
 $lang['addPartitions'] = '增加分区字段(数字): ';
 ?>
