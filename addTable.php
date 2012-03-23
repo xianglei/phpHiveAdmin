@@ -82,46 +82,57 @@ else
 				die("<script>alert('".$lang['invalidFieldNums']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>");
 			}
 			#make partitions
-			if(is_numeric($_POST['partitions']) && $_POST['partitions'] != 0)
+			if(is_numeric($_POST['partitions']))
 			{
-				echo "<table border=1 cellspacing=1 cellpadding=3>";
-				echo "<tr bgcolor=\"#FFFF99\">
-					  <td>".$lang['partitionName']."</td>
-					  <td>".$lang['partitionType']."</td>
-					  <td>".$lang['partitionComment']."</td>
-				  	</tr>";
-				for ($i = 0; $i < $_POST['partitions']; $i++)
+				if($_POST['partitions'] != 0)
 				{
-					if(($i % 2) == 0)
+					echo "<table border=1 cellspacing=1 cellpadding=3>";
+					echo "<tr bgcolor=\"#FFFF99\">
+					  	<td>".$lang['partitionName']."</td>
+					  	<td>".$lang['partitionType']."</td>
+					  	<td>".$lang['partitionComment']."</td>
+				  		</tr>";
+					for ($i = 0; $i < $_POST['partitions']; $i++)
 					{
-						$color = $env['trColor1'];
+						if(($i % 2) == 0)
+						{
+							$color = $env['trColor1'];
+						}
+						else
+						{
+							$color = $env['trColor2'];
+						}
+						echo "<tr bgcolor=".$color.">\n";
+						//-------------
+						echo "<td>\n";
+						echo "<input type=text name=partition_name[]>\n";
+						echo "</td>\n";
+						//-------------
+						echo "<td>\n";
+						echo "<select name=partition_type[]>";
+						foreach($type as $kk => $vv)
+						{
+							echo "<option value=".$kk.">".$vv."</option>";
+						}
+						echo "</select>";
+						echo "</td>\n";
+						//-------------
+						echo "<td>\n";
+						echo "<input type=text name=partition_comment[]>\n";
+						echo "</td>\n";
+						//-------------
+						echo "</tr>\n";
 					}
-					else
-					{
-						$color = $env['trColor2'];
-					}
-					echo "<tr bgcolor=".$color.">\n";
-					//-------------
-					echo "<td>\n";
-					echo "<input type=text name=partition_name[]>\n";
-					echo "</td>\n";
-					//-------------
-					echo "<td>\n";
-					echo "<select name=partition_type[]>";
-					foreach($type as $kk => $vv)
-					{
-						echo "<option value=".$kk.">".$vv."</option>";
-					}
-					echo "</select>";
-					echo "</td>\n";
-					//-------------
-					echo "<td>\n";
-					echo "<input type=text name=partition_comment[]>\n";
-					echo "</td>\n";
-					//-------------
-					echo "</tr>\n";
+					echo "</table><br>";
 				}
-				echo "</table><br>";
+				else
+				{
+					die("<script>alert('".$lang['invalidPartitionNums']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>");
+				}
+			}
+			else
+			{
+				die("<script>alert('".$lang['invalidPartitionNums']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>");
 			}
 			#
 			if(@$_POST['external'] == 1)
@@ -212,7 +223,7 @@ else
 			$sql = $sql.$str.")";
 			$sql = $sql . $tablecomment . $partition .$limit . $stored . $path;
 			echo "<br>".$sql."<br>";
-			$client->execute($sql);
+			//$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 		}
 	}
