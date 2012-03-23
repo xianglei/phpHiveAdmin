@@ -211,7 +211,7 @@ else
 				$stored = " ";
 				$path = '';
 			}
-			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS ".$_POST['database'].".".$_POST['newtablename']." (";
+			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS '".$_POST['database']."'.'".$_POST['newtablename']."' (";
 			$i = 0;
 			$str = "";
 			while ("" != @$_POST['field_name'][$i])
