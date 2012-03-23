@@ -99,7 +99,7 @@ else
 				$tablecomment = " COMMENT".$_POST['tablecomment']." ";
 				if($_POST['partition'] != "")
 				{
-					$partition = " PARTITION BY (".$_POST['partition'].") ";
+					$partition = " PARTITIONED BY (".$_POST['partition'].") ";
 				}
 				else
 				{
