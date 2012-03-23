@@ -96,7 +96,7 @@ else
 			if(@$_POST['external'] != '' && @$_POST['delimiter'] != '')
 			{
 				$ext = " EXTERNAL ";
-				$tablecomment = " COMMENT ".$_POST['tablecomment']." ";
+				$tablecomment = " COMMENT '".$_POST['tablecomment']."' ";
 				if($_POST['partition'] != "")
 				{
 					$partition = " PARTITIONED BY (".$_POST['partition'].") ";
@@ -151,7 +151,7 @@ else
 			$sql = $sql.$str.")";
 			$sql = $sql . $tablecomment . $partition .$limit . $stored . $path;
 			echo "<br>".$sql."<br>";
-			//$client->execute($sql);
+			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 		}
 	}
