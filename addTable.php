@@ -67,6 +67,7 @@ else
 				echo "</tr>\n";
 			}
 			echo "<input type=hidden name=database value=".$_POST['database'].">";
+			echo "<input type=hidden name=tablecomment value=".$_POST['tablecomment'].">";
 			echo "<input type=hidden name=newtablename value=".$_POST['newtablename'].">";
 			echo "<input type=hidden name=fieldnums value=".$_POST['fieldnums'].">";
 			//echo "<input type=hidden name=extenal value=".$_POST['extenal'].">";
@@ -74,6 +75,7 @@ else
 			if(@$_POST['external'] == 1)
 			{
 				echo "<table border=1 cellspacing=1 cellpadding=3>";
+				echo "<tr><td>".$lang['Partition']."</td><td><input type=text name=partition value=\"\"></td></tr>";
 				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
 				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter></td></tr>";
 				echo "</table>";
@@ -94,11 +96,20 @@ else
 			if(@$_POST['external'] != '' && @$_POST['delimiter'] != '')
 			{
 				$ext = " EXTERNAL ";
+				$tablecomment = $_POST['tablecomment'];
+				if($_POST['partition'] != "")
+				{
+					$partition = " PARTITION BY (".$_POST['partition'].") ";
+				}
+				else
+				{
+					$partition = " ";
+				}
 				
 				switch (@$_POST['format'])
 				{
 					case 'text':
-						$stored = " TEXTFILE ";
+						$stored = " STORED AS TEXTFILE ";
 						break;
 					case 'lzoped':
 						$stored = " STORED AS INPUTFORMAT \"com.hadoop.mapred.DeprecatedLzoTextInputFormat\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
@@ -106,8 +117,14 @@ else
 					case 'sequence':
 						$stored = " STORED AS SEQUENCEFILE ";
 						break;
+					case 'bzip2':
+						$stored = " STORED AS INPUTFORMAT \"org.apache.hadoop.io.compress.GzipCodec\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
+						break;
+					case 'bzip2':
+						$stored = " STORED AS INPUTFORMAT \"org.apache.hadoop.io.compress.BZip2Codec\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
+						break;
 					default:
-						$stored = " TEXTFILE ";
+						$stored = " STORED AS TEXTFILE ";
 						break;
 				}
 				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$_POST['delimiter']."\" ";
@@ -116,6 +133,8 @@ else
 			else
 			{
 				$ext = '';
+				$tablecomment = $_POST['tablecomment'];
+				$partition = '';
 				$limit = '';
 				$stored = " ";
 				$path = '';
@@ -130,9 +149,9 @@ else
 			}
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
-			$sql = $sql . $limit . $stored . $path;
+			$sql = $sql . $tablecomment . $partition .$limit . $stored . $path;
 			echo "<br>".$sql."<br>";
-			$client->execute($sql);
+			//$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 		}
 	}

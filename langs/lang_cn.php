@@ -84,4 +84,8 @@ $lang['lzoped'] = 'lzo压缩';
 $lang['sequenced'] = '序列化文件';
 $lang['bzip2ed'] = 'bzip2压缩';
 $lang['gziped'] = 'gzip压缩';
+$lang['Partition'] = '分区: ';
+$lang['external'] = '外部表';
+$lang['internal'] = '内部表';
+$lang['tableComment'] = '表注释: ';
 ?>

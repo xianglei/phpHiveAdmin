@@ -84,4 +84,8 @@ $lang['lzoped'] = 'LZO';
 $lang['sequenced'] = 'Sequence File';
 $lang['bzip2ed'] = 'BZIP2';
 $lang['gziped'] = 'GZIP';
+$lang['Partition'] = 'Partition: ';
+$lang['external'] = 'External';
+$lang['internal'] = 'Internal';
+$lang['tableComment'] = 'Table Comment: ';
 ?>
