@@ -110,7 +110,7 @@ else
 						//-------------
 						echo "<td>\n";
 						echo "<select name=partition_type[]>";
-						foreach($type as $kk => $vv)
+						foreach($parttype as $kk => $vv)
 						{
 							echo "<option value=".$kk.">".$vv."</option>";
 						}
