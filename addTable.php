@@ -67,7 +67,7 @@ else
 				echo "</tr>\n";
 			}
 			echo "<input type=hidden name=database value=".$_POST['database'].">";
-			echo "<input type=hidden name=tablecomment value=".$_POST['tablecomment'].">";
+			echo "<input type=hidden name=tablecomment value=\"".$_POST['tablecomment']."\">";
 			echo "<input type=hidden name=newtablename value=".$_POST['newtablename'].">";
 			echo "<input type=hidden name=fieldnums value=".$_POST['fieldnums'].">";
 			//echo "<input type=hidden name=extenal value=".$_POST['extenal'].">";
@@ -96,7 +96,7 @@ else
 			if(@$_POST['external'] != '' && @$_POST['delimiter'] != '')
 			{
 				$ext = " EXTERNAL ";
-				$tablecomment = " COMMENT".$_POST['tablecomment']." ";
+				$tablecomment = " COMMENT ".$_POST['tablecomment']." ";
 				if($_POST['partition'] != "")
 				{
 					$partition = " PARTITIONED BY (".$_POST['partition'].") ";
