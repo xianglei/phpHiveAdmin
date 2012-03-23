@@ -96,7 +96,7 @@ else
 			if(@$_POST['external'] != '' && @$_POST['delimiter'] != '')
 			{
 				$ext = " EXTERNAL ";
-				$tablecomment = $_POST['tablecomment'];
+				$tablecomment = " COMMENT".$_POST['tablecomment']." ";
 				if($_POST['partition'] != "")
 				{
 					$partition = " PARTITION BY (".$_POST['partition'].") ";
@@ -133,7 +133,7 @@ else
 			else
 			{
 				$ext = '';
-				$tablecomment = $_POST['tablecomment'];
+				$tablecomment = " COMMENT".$_POST['tablecomment']." ";
 				$partition = '';
 				$limit = '';
 				$stored = " ";
