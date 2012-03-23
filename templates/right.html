@@ -28,7 +28,46 @@ if($_SESSION['onlydb'] == "all")
 ?>
 
 <form method=post action=addDatabase.php>
-<input type=text name=newdbname>
+	<table border="1" cellpadding="3" cellspacing="1">
+		<tr>
+			<td>
+				<?php echo $lang['addDatabase'];?>
+			</td>
+			<td>
+				<input type=text name=newdbname>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $lang['addDatabaseComment'];?>
+			</td>
+			<td>
+				<input type=text name=newdbcomment>
+			</td>
+		</tr>
+</table><br>
+<input type=submit name=submit value=<?php echo $lang['submit'];?>>
+</form>
+<br><br>
+<form method=post action=addSchema.php>
+	<table border="1" cellpadding="3" cellspacing="1">
+		<tr>
+			<td>
+				<?php echo $lang['addSchema'];?>
+			</td>
+			<td>
+				<input type=text name=newschemaname>
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<?php echo $lang['addSchemaComment'];?>
+			</td>
+			<td>
+				<input type=text name=newschemacomment>
+			</td>
+		</tr>
+</table><br>
 <input type=submit name=submit value=<?php echo $lang['submit'];?>>
 </form>
 </body>

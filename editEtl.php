@@ -29,7 +29,7 @@ else
 	}
 	else
 	{
-		echo "<script>alert($lang['noSuchFile']);history.back();</script>";
+		echo "<script>alert(".$lang['noSuchFile'].");history.back();</script>";
 	}
 }
 ?>
