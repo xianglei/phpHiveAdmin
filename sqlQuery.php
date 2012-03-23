@@ -24,7 +24,7 @@ else
 	
 	$transport->open();
 
-	$sql = 'use ``'.$_GET['database'].'`';
+	$sql = 'use `'.$_GET['database'].'`';
 	//echo $sql.'<br /><br />';
 	$client->execute($sql);
 	//$client->fetchOne();
