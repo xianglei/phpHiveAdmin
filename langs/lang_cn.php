@@ -50,7 +50,6 @@ $lang['ifPartition'] = "分区? ex: (ds='2008-08-08')";
 $lang['ifExternal'] = "是否为外部表?";
 $lang['externalPath'] = "外部路径 ex:(hdfs:///data/datawash/www): ";
 $lang['delimiter'] = '数据分隔符 支持正则(, \t \n |)：';
-$lang['lzoped'] = "LZO压缩格式? ";
 $lang['overwrite'] = "覆盖原数据?";
 $lang['mustEnterPath'] = "必须为数据加载输入完整的路径和文件名";
 $lang['loadDataSuccess'] = "加载成功";
@@ -79,4 +78,10 @@ $lang['metaDbs'] = '数据库汇总: ';
 $lang['metaTables'] = '数据表汇总: ';
 $lang['metaPartitions'] = '分区汇总: ';
 $lang['metaIndexes'] = '索引汇总: ';
+$lang['dataFormat'] = '源数据格式: ';
+$lang['textFile'] = '纯文本';
+$lang['lzoped'] = 'lzo压缩';
+$lang['sequenced'] = '序列化文件';
+$lang['bzip2ed'] = 'bzip2压缩';
+$lang['gziped'] = 'gzip压缩';
 ?>

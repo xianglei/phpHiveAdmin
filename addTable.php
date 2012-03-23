@@ -77,7 +77,13 @@ else
 				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
 				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter></td></tr>";
 				echo "</table>";
-				echo $lang['lzoped']." <input type=checkbox name=lzo value=1><br><br>";
+				echo $lang['dataFormat']."<select name=format>
+				<option value=text>".$lang['textFile']."</option>
+				<option value=lzop>".$lang['lzoped']."</option>
+				<option value=sequence>".$lang['sequenced']."</option>
+				<option value=bzip2 disabled>".$lang['bzip2ed']."</option>
+				<option value=gzip disabled>".$lang['gziped']."</option>
+				</select><br><br>";
 			}			
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
@@ -88,13 +94,21 @@ else
 			if(@$_POST['external'] != '' && @$_POST['delimiter'] != '')
 			{
 				$ext = " EXTERNAL ";
-				if(@$_POST['lzo'] != 1)
+				
+				switch (@$_POST['format'])
 				{
-					$stored = " TEXTFILE ";
-				}
-				else
-				{
-					$stored = " STORED AS INPUTFORMAT \"com.hadoop.mapred.DeprecatedLzoTextInputFormat\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
+					case 'text':
+						$stored = " TEXTFILE ";
+						break;
+					case 'lzoped':
+						$stored = " STORED AS INPUTFORMAT \"com.hadoop.mapred.DeprecatedLzoTextInputFormat\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
+						break;
+					case 'sequence':
+						$stored = " STORED AS SEQUENCEFILE ";
+						break;
+					default:
+						$stored = " TEXTFILE ";
+						break;
 				}
 				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$_POST['delimiter']."\" ";
 				$path = " LOCATION '".$_POST['external']."' ";

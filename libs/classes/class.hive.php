@@ -40,7 +40,14 @@ class MysqlMeta extends Hive
 			}
 			$i++;
 		}
-		return $arr;
+		if($arr[0][0] != "")
+		{
+			return $arr;
+		}
+		else
+		{
+			return FALSE;
+		}
 	}
 	
 	public function GetResultKey($pSql)

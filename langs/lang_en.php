@@ -50,7 +50,6 @@ $lang['ifPartition'] = "Partition? ex:(ds='2008-08-08')";
 $lang['ifExternal'] = "If an extenal table?";
 $lang['externalPath'] = "Extenal path ex:(hdfs:///data/datawash/www): ";
 $lang['delimiter'] = 'Delimiter support regular exp(, \t \n |) : ';
-$lang['lzoped'] = "LZO compressed ? ";
 $lang['overwrite'] = "Overwrite?";
 $lang['mustEnterPath'] = "Must enter a fullpath and filename to load";
 $lang['loadDataSuccess'] = "Loading success";
@@ -79,4 +78,10 @@ $lang['metaDbs'] = 'Databases: ';
 $lang['metaTables'] = 'Tables: ';
 $lang['metaPartitions'] = 'Partitions: ';
 $lang['metaIndexes'] = 'Indexes: ';
+$lang['dataFormat'] = 'Data Format: ';
+$lang['textFile'] = 'Text File';
+$lang['lzoped'] = 'LZO';
+$lang['sequenced'] = 'Sequence File';
+$lang['bzip2ed'] = 'BZIP2';
+$lang['gziped'] = 'GZIP';
 ?>
