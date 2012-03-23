@@ -223,7 +223,7 @@ else
 			$sql = $sql.$str.")";
 			$sql = $sql . $tablecomment . $partition .$limit . $stored . $path;
 			echo "<br>".$sql."<br>";
-			//$client->execute($sql);
+			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 		}
 	}
