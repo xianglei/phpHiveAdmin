@@ -2,11 +2,13 @@
 <br>
 <form method=post action=addTable.php>
 <?php echo $lang['tableName'];?>
-<input type=text name=newtablename>&nbsp;&nbsp;&nbsp;&nbsp;
+<input type=text name=newtablename><br><br>
 <?php echo $lang['fieldNums'];?>
-<input type=text name=fieldnums>
+<input type=text name=fieldnums><br><br>
 <?php echo $lang['tableComment'];?>
-<input type=text name=tablecomment>
+<input type=text name=tablecomment><br><br>
+<?php echo $lang['Partition'];?>
+<input type=text name=partitions><br><br>
 <?php echo $lang['ifExternal'];?>
 <select name=external>
 	<option value="1"><?php echo $lang['external'];?></option>

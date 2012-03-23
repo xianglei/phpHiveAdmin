@@ -35,47 +35,99 @@ else
 			$type = array('string'=>'String','tinyint'=>'Tiny int(3)','smallint'=>'Small int(5)','int'=>'Int(10)','bigint'=>'Big int(19)','double'=>'Double',
 						//'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays',
 						'float'=>'Float','boolean'=>'Boolean');
-			for ($i = 0; $i < $_POST['fieldnums']; $i++)
+			$parttype = array('string' => 'STRING', 'int' => 'INT');
+			#make columns
+			if(is_numeric($_POST['fieldnums']) && $_POST['fieldnums'] != 0)
 			{
-				if(($i % 2) == 0)
+				for ($i = 0; $i < $_POST['fieldnums']; $i++)
 				{
-					$color = $env['trColor1'];
+					if(($i % 2) == 0)
+					{
+						$color = $env['trColor1'];
+					}
+					else
+					{
+						$color = $env['trColor2'];
+					}
+					echo "<tr bgcolor=".$color.">\n";
+					//-------------
+					echo "<td>\n";
+					echo "<input type=text name=field_name[]>\n";
+					echo "</td>\n";
+					//-------------
+					echo "<td>\n";
+					echo "<select name=field_type[]>";
+					foreach($type as $kk => $vv)
+					{
+						echo "<option value=".$kk.">".$vv."</option>";
+					}
+					echo "</select>";
+					echo "</td>\n";
+					//-------------
+					echo "<td>\n";
+					echo "<input type=text name=comment[]>\n";
+					echo "</td>\n";
+					//-------------
+					echo "</tr>\n";
 				}
-				else
-				{
-					$color = $env['trColor2'];
-				}
-				echo "<tr bgcolor=".$color.">\n";
-				//-------------
-				echo "<td>\n";
-				echo "<input type=text name=field_name[]>\n";
-				echo "</td>\n";
-				//-------------
-				echo "<td>\n";
-				echo "<select name=field_type[]>";
-				foreach($type as $kk => $vv)
-				{
-					echo "<option value=".$kk.">".$vv."</option>";
-				}
-				echo "</select>";
-				echo "</td>\n";
-				//-------------
-				echo "<td>\n";
-				echo "<input type=text name=comment[]>\n";
-				echo "</td>\n";
-				//-------------
-				echo "</tr>\n";
+				echo "<input type=hidden name=database value=".$_POST['database'].">";
+				echo "<input type=hidden name=tablecomment value=\"".$_POST['tablecomment']."\">";
+				echo "<input type=hidden name=newtablename value=".$_POST['newtablename'].">";
+				echo "<input type=hidden name=fieldnums value=".$_POST['fieldnums'].">";
+				#echo "<input type=hidden name=extenal value=".$_POST['extenal'].">";
+				echo "</table><br>";
 			}
-			echo "<input type=hidden name=database value=".$_POST['database'].">";
-			echo "<input type=hidden name=tablecomment value=\"".$_POST['tablecomment']."\">";
-			echo "<input type=hidden name=newtablename value=".$_POST['newtablename'].">";
-			echo "<input type=hidden name=fieldnums value=".$_POST['fieldnums'].">";
-			//echo "<input type=hidden name=extenal value=".$_POST['extenal'].">";
-			echo "</table><br>";
+			else
+			{
+				die("<script>alert('".$lang['invalidFieldNums']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>");
+			}
+			#make partitions
+			if(is_numeric($_POST['partitions']) && $_POST['partitions'] != 0)
+			{
+				echo "<table border=1 cellspacing=1 cellpadding=3>";
+				echo "<tr bgcolor=\"#FFFF99\">
+					  <td>".$lang['partitionName']."</td>
+					  <td>".$lang['partitionType']."</td>
+					  <td>".$lang['partitionComment']."</td>
+				  	</tr>";
+				for ($i = 0; $i < $_POST['partitions']; $i++)
+				{
+					if(($i % 2) == 0)
+					{
+						$color = $env['trColor1'];
+					}
+					else
+					{
+						$color = $env['trColor2'];
+					}
+					echo "<tr bgcolor=".$color.">\n";
+					//-------------
+					echo "<td>\n";
+					echo "<input type=text name=partition_name[]>\n";
+					echo "</td>\n";
+					//-------------
+					echo "<td>\n";
+					echo "<select name=partition_type[]>";
+					foreach($type as $kk => $vv)
+					{
+						echo "<option value=".$kk.">".$vv."</option>";
+					}
+					echo "</select>";
+					echo "</td>\n";
+					//-------------
+					echo "<td>\n";
+					echo "<input type=text name=partition_comment[]>\n";
+					echo "</td>\n";
+					//-------------
+					echo "</tr>\n";
+				}
+				echo "</table><br>";
+			}
+			#
 			if(@$_POST['external'] == 1)
 			{
 				echo "<table border=1 cellspacing=1 cellpadding=3>";
-				echo "<tr><td>".$lang['Partition']."</td><td><input type=text name=partition value=\"\"></td></tr>";
+				//echo "<tr><td>".$lang['Partition']."</td><td></td></tr>";
 				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
 				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter></td></tr>";
 				echo "</table>";
@@ -97,9 +149,18 @@ else
 			{
 				$ext = " EXTERNAL ";
 				$tablecomment = " COMMENT '".$_POST['tablecomment']."' ";
-				if($_POST['partition'] != "")
+				if(isset($_POST['partition_type']))
 				{
-					$partition = " PARTITIONED BY (".$_POST['partition'].") ";
+					$i = 0;
+					$str = "";						
+					$partition = " PARTITIONED BY (";
+					while ("" != @$_POST['partition_name'][$i])
+					{
+						$str .= $_POST['partition_name'][$i]." ".$_POST['partition_type'][$i]." COMMENT '".$_POST['partition_comment'][$i]."',";
+						$i++;
+					}
+					$str = substr($str,0,-1);
+					$partition = $partition.$str.")";
 				}
 				else
 				{

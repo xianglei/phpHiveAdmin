@@ -84,8 +84,13 @@ $lang['lzoped'] = 'LZO';
 $lang['sequenced'] = 'Sequence File';
 $lang['bzip2ed'] = 'BZIP2';
 $lang['gziped'] = 'GZIP';
-$lang['Partition'] = 'Partition: ';
+$lang['Partition'] = 'Partitions(numberic): ';
 $lang['external'] = 'External';
 $lang['internal'] = 'Internal';
 $lang['tableComment'] = 'Table Comment: ';
+$lang['invalidFieldNums'] = 'Invalid Column number';
+$lang['invalidPartitionNums'] = 'Invalid Partition number';
+$lang['partitionName'] = "Parition Name: ";
+$lang['partitionType'] = 'Partition Type: ';
+$lang['partitionComment'] = 'Partition Comment: ';
 ?>

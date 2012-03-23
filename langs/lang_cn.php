@@ -84,8 +84,13 @@ $lang['lzoped'] = 'lzo压缩';
 $lang['sequenced'] = '序列化文件';
 $lang['bzip2ed'] = 'bzip2压缩';
 $lang['gziped'] = 'gzip压缩';
-$lang['Partition'] = '分区: ';
+$lang['Partition'] = '分区数量(数字): ';
 $lang['external'] = '外部表';
 $lang['internal'] = '内部表';
 $lang['tableComment'] = '表注释: ';
+$lang['invalidFieldNums'] = '不合法的字段数';
+$lang['invalidPartitionNums'] = '不合法的分区数';
+$lang['partitionName'] = "分区名称: ";
+$lang['partitionType'] = '分区类型: ';
+$lang['partitionComment'] = '分区注释: ';
 ?>
