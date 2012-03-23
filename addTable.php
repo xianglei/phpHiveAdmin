@@ -167,7 +167,7 @@ else
 					$partition = " PARTITIONED BY (";
 					while ("" != @$_POST['partition_name'][$i])
 					{
-						$str .= "'".$_POST['partition_name'][$i]."' ".$_POST['partition_type'][$i]." COMMENT '".$_POST['partition_comment'][$i]."',";
+						$str .= "`".$_POST['partition_name'][$i]."` ".$_POST['partition_type'][$i]." COMMENT '".$_POST['partition_comment'][$i]."',";
 						$i++;
 					}
 					$str = substr($str,0,-1);
@@ -211,12 +211,12 @@ else
 				$stored = " ";
 				$path = '';
 			}
-			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS ".$_POST['database'].".".$_POST['newtablename']." (";
+			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS `".$_POST['database']."`.`".$_POST['newtablename']."` (";
 			$i = 0;
 			$str = "";
 			while ("" != @$_POST['field_name'][$i])
 			{
-				$str .= "'".$_POST['field_name'][$i]."' ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."',";
+				$str .= "`".$_POST['field_name'][$i]."` ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."',";
 				$i++;
 			}
 			$str = substr($str,0,-1);
