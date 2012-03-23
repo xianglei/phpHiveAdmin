@@ -1,19 +1,16 @@
 <?php echo $lang['addTable'];?>
 <br>
 <form method=post action=addTable.php>
-<?php echo $lang['tableName'];?>
-<input type=text name=newtablename><br><br>
-<?php echo $lang['fieldNums'];?>
-<input type=text name=fieldnums><br><br>
-<?php echo $lang['tableComment'];?>
-<input type=text name=tablecomment><br><br>
-<?php echo $lang['Partition'];?>
-<input type=text name=partitions><br><br>
-<?php echo $lang['ifExternal'];?>
-<select name=external>
+<table cellpadding="3" cellspacing="1" border="1">
+	<tr><td><?php echo $lang['tableName'];?></td><td><input type=text name=newtablename></td></tr>
+	<tr><td><?php echo $lang['fieldNums'];?></td><td><input type=text name=fieldnums></td></tr>
+	<tr><td><?php echo $lang['tableComment'];?></td><td><input type=text name=tablecomment></td></tr>
+	<tr><td><?php echo $lang['Partition'];?></td><td><input type=text name=partitions></td></tr>
+	<tr><td><?php echo $lang['ifExternal'];?></td><td><select name=external>
 	<option value="1"><?php echo $lang['external'];?></option>
 	<option value="0"><?php echo $lang['internal'];?></option>
-</select><br>
+	</select></td></tr>
+</table>
 <input type=submit name=submit value=<?php echo $lang['submit'];?>>
 <input type=hidden name=database value=<?php echo $_GET['database'];?>>
 </form><br><br>
