@@ -35,7 +35,7 @@ else
 			$type = array('string'=>'String','tinyint'=>'Tiny int(3)','smallint'=>'Small int(5)','int'=>'Int(10)','bigint'=>'Big int(19)','double'=>'Double',
 						//'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays',
 						'float'=>'Float','boolean'=>'Boolean');
-			$parttype = array('string' => 'STRING', 'int' => 'INT');
+			$parttype = array('STRING' => 'STRING', 'INT' => 'INT');
 			#make columns
 			if(is_numeric($_POST['fieldnums']) && $_POST['fieldnums'] != 0)
 			{
@@ -140,7 +140,7 @@ else
 				echo "<table border=1 cellspacing=1 cellpadding=3>";
 				//echo "<tr><td>".$lang['Partition']."</td><td></td></tr>";
 				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
-				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter></td></tr>";
+				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter value=\",\"></td></tr>";
 				echo "</table>";
 				echo $lang['dataFormat']."<select name=format>
 				<option value=text>".$lang['textFile']."</option>
