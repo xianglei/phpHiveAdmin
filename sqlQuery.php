@@ -24,12 +24,12 @@ else
 	
 	$transport->open();
 
-	$sql = 'use '.$_GET['database'];
+	$sql = 'use `'.$_GET['database'].'`';
 	//echo $sql.'<br /><br />';
 	$client->execute($sql);
 	//$client->fetchOne();
 	
-	$sql = 'desc '.$_GET['table'];
+	$sql = 'desc `'.$_GET['table'].'`';
 	$client->execute($sql);
 	$array_desc_table = $client->fetchAll();
 	//get table description and explode the desc into a multi-dimensional array
