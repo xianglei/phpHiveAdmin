@@ -1,7 +1,7 @@
 <?php
 include_once 'config.inc.php';
 include_once 'templates/style.css';
-if(!@$_POST['newdbname'] || @$_POST['newdbname'] == "")
+if(!@$_POST['newschemaname'] || @$_POST['newschemaname'] == "")
 {
 	die($lang['invalidEntry']);
 }
