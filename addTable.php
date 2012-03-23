@@ -133,7 +133,7 @@ else
 			else
 			{
 				$ext = '';
-				$tablecomment = " COMMENT".$_POST['tablecomment']." ";
+				$tablecomment = " COMMENT ".$_POST['tablecomment']." ";
 				$partition = '';
 				$limit = '';
 				$stored = " ";
