@@ -12,11 +12,11 @@ else
 {
 	switch (@$_GET['detail']) {
 		case 'dbs':
-			$sql = "select * from DBS limit";
+			$sql = "select * from DBS";
 			break;
 			
 		case 'tables':
-			$sql = "select * from TBLS limit";
+			$sql = "select * from TBLS";
 			break;
 			
 		case 'partitions':
