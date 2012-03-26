@@ -46,7 +46,8 @@ else
 			$i++;
 		endforeach
 		#-----------
-		$sql = $sql.substr($tmp,0,-1).")";echo $sql;
+		$sql = $sql.substr($tmp,0,-1).")";
+		echo $sql;
 	}
 }
 
