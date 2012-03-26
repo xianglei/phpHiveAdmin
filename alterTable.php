@@ -53,10 +53,10 @@ else
 			echo "</table><br><br>";
 			echo '<table border=1 cellspacing=1 cellpadding=3>';
 			echo "<tr bgcolor=#FFFF99>
+					<td>".$lang['dropTable']."</td>
 					<td>".$lang['fieldName']."</td>
 					<td>".$lang['fieldType']."</td>
 					<td>".$lang['comment']."</td>
-					<td>".$lang['dropTable']."</td>
 				  </tr>";
 			$i = 0;
 			foreach ($array_desc_desc as $key => $value)
