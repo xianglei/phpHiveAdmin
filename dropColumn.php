@@ -44,7 +44,7 @@ else
 		foreach($array_desc_desc as $k => $v):
 			$tmp .= "`".$array_desc_desc[$i]['name']."` ".$array_desc_desc[$i]['type']." COMMENT '".$array_desc_desc[$i]['comment']."',";
 			$i++;
-		endforeach
+		endforeach;
 		#-----------
 		$sql = $sql.substr($tmp,0,-1).")";
 		echo $sql;
