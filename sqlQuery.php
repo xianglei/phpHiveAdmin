@@ -99,7 +99,7 @@ else
 			</script>
 			";
 			echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode($sql)."' , getReult)\">";
-			echo "<input type=button value=\"Get Result\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
+			echo "<input type=button value=\"".$lang['getResult']."\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
 			echo "<br><br>".$lang['fingerprintOfMapReduce']." ".$sha1;
 			echo "<br><br>";
 			echo "SQL: ".$sql;

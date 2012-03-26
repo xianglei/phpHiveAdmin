@@ -101,4 +101,5 @@ $lang['partitionType'] = 'Partition Type: ';
 $lang['partitionComment'] = 'Partition Comment: ';
 $lang['noPartitionAdd'] = 'Leave Blank For not used.';
 $lang['addPartitions'] = 'Add Partitions(numberic): ';
+$lang['getResult'] = 'View Result';
 ?>
