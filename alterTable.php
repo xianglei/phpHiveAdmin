@@ -74,6 +74,12 @@ else
 				{
 					//echo '<tr '.$color.'>';
 					//echo '<td>';
+					if($k == 'name')
+					{
+						echo "<td>";
+						echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropColumnConfirm']."','dropColumn.php?database=".$_GET['database']."&table=".$_GET['table']."&column=".$v."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
+						echo "</td>";
+					}
 					if($k == 'type')
 					{
 						echo "<td>";
@@ -110,12 +116,6 @@ else
 					}
 					//echo '</td>';
 					//echo '</tr>';
-					if($k == 'name')
-					{
-						echo "<td>";
-						echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropColumnConfirm']."','dropColumn.php?database=".$_GET['database']."&table=".$_GET['table']."&column=".$v."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
-						echo "</td>";
-					}
 				}
 				echo '</tr>';
 				$i++;

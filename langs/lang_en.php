@@ -104,4 +104,5 @@ $lang['addPartitions'] = 'Add Partitions(numberic): ';
 $lang['getResult'] = 'View Result';
 $lang['sure'] = 'Are you sure???';
 $lang['columnNumbers'] = 'Column numbers: ';
+$lang['dropColumnConfirm'] = 'Drop this column? (This will not delete data on HDFS)';
 ?>

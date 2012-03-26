@@ -104,4 +104,5 @@ $lang['addPartitions'] = '增加分区字段(数字): ';
 $lang['getResult'] = '显示结果集';
 $lang['sure'] = '确认吗???';
 $lang['columnNumbers'] = '字段数: ';
+$lang['dropColumnConfirm'] = '删除字段? (本操作不会删除HDFS上的数据)';
 ?>
