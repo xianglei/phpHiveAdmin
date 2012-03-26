@@ -132,10 +132,10 @@ else
 				echo $sql = "ALTER TABLE `".$_POST['table']."` RENAME TO `".$_POST['new_table_name']."`";
 				echo "<input type=hidden name=sql[] value=\"".$sql."\">";
 				echo "<br><br>";
-				$sql = "ALTER TABLE `".$_POST['table']."` CHANGE ";
+				$sql = "ALTER TABLE `".$_POST['table']."` ";
 				while ($i < count($_POST['field_type']))
 				{
-					$tmp .= " `".$_POST['old_field_name'][$i]."` `".$_POST['field_name'][$i]."` ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."' ";
+					$tmp .= " CHANGE `".$_POST['old_field_name'][$i]."` `".$_POST['field_name'][$i]."` ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."' ";
 					//echo "<input type=hidden name=sql[] value=\"".$sql."\">";
 					$i++;
 				}
