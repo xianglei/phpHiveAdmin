@@ -38,7 +38,7 @@ else
 			$i++;
 		}
 		#-----------construct sql---------
-		$sql = "ALTER TABLE ".$_GET['database'].".".$_GET['table']." REPLACE COLUMNS ( ";
+		$sql = "ALTER TABLE `".$_GET['table']."` REPLACE COLUMNS ( ";
 		foreach($array_desc_desc as $k => $v):
 			$tmp .= "`".$v['name']."` ".$v['type']." COMMENT '".$v['comment']."',";
 		endforeach;
