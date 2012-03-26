@@ -36,13 +36,12 @@ else
 				unset($array_desc_desc[$i]);
 			}
 			$i++;
-		}var_dump($array_desc_desc);
+		}
 		#-----------construct sql---------
 		$sql = "ALTER TABLE `".$_GET['database']."`.`".$_GET['table']."` REPLACE COLUMNS ( ";
-		$i = 0;
 		foreach($array_desc_desc as $k => $v):
+			var_dump($v);
 			$tmp .= "`".$array_desc_desc[$i]['name']."` ".$array_desc_desc[$i]['type']." COMMENT '".$array_desc_desc[$i]['comment']."',";
-			$i++;
 		endforeach;
 		#-----------
 		$sql = $sql.substr($tmp,0,-1).")";
