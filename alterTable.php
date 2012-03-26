@@ -132,14 +132,16 @@ else
 				echo $sql = "ALTER TABLE `".$_POST['table']."` RENAME TO `".$_POST['new_table_name']."`";
 				echo "<input type=hidden name=sql[] value=\"".$sql."\">";
 				echo "<br><br>";
+				$sql = "ALTER TABLE `".$_POST['table']."` CHANGE ";
 				while ($i < count($_POST['field_type']))
 				{
-					$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['old_field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."'";
-					echo "<br>";
-					echo $sql;
-					echo "<input type=hidden name=sql[] value=\"".$sql."\">";
+					$tmp .= " `".$_POST['old_field_name'][$i]."` `".$_POST['field_name'][$i]."` ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."',";
+					//echo "<input type=hidden name=sql[] value=\"".$sql."\">";
 					$i++;
 				}
+				$sql = $sql.substr($tmp,0,-1);
+				echo $sql;
+				echo "<input type=hidden name=sql[] value=\"".$sql."\">";
 				echo "<input type=hidden name=confirm value=1><br>";
 				echo "<input type=hidden name=table value=".$_POST['table'].">";
 				echo "<input type=hidden name=database value=".$_POST['database'].">";
