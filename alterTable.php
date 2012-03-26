@@ -56,6 +56,7 @@ else
 					<td>".$lang['fieldName']."</td>
 					<td>".$lang['fieldType']."</td>
 					<td>".$lang['comment']."</td>
+					<td>".$lang['dropTable']."</td>
 				  </tr>";
 			$i = 0;
 			foreach ($array_desc_desc as $key => $value)
@@ -109,6 +110,12 @@ else
 					}
 					//echo '</td>';
 					//echo '</tr>';
+					if($k == 'name')
+					{
+						echo "<td>";
+						echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropColumnConfirm']."','dropColumn.php?database=".$_GET['database']."&table=".$_GET['table']."&column=".$v."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
+						echo "</td>";
+					}
 				}
 				echo '</tr>';
 				$i++;
