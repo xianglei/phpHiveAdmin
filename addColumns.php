@@ -2,7 +2,7 @@
 include_once 'config.inc.php';
 include_once 'templates/style.css';
 
-if(!@$_GET['database'])
+if(!@$_POST['database'])
 {
 	die($lang['dieDatabaseChoose']);
 }
@@ -14,11 +14,11 @@ else
 	
 	$transport->open();
 
-	$client->execute('use '.$_GET['database']);
+	$client->execute('use '.$_POST['database']);
 	
-	if(!@$_GET['table'])
+	if(!@$_POST['table'])
 	{
-		echo "<script>window.location=dbStructure.php?database=".$_GET['database']."</script>";
+		echo "<script>window.location=dbStructure.php?database=".$_POST['database']."</script>";
 	}
 	else
 	{
@@ -26,8 +26,8 @@ else
 		{
 			echo "<form method=post>";
 			echo $lang['fieldNums']."<input type=text name=fieldnums>";
-			echo "<input type=hidden name=database value=".$_GET["database"].">";
-			echo "<input type=hidden name=table value=".$_GET["table"].">";
+			echo "<input type=hidden name=database value=".$_POST["database"].">";
+			echo "<input type=hidden name=table value=".$_POST["table"].">";
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "</form>";
 		}

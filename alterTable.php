@@ -119,15 +119,18 @@ else
 			echo "&nbsp;&nbsp;";
 			echo "<input type=button value=".$lang['cancel']." onclick=\"javascript:history.back();\">";
 			echo "&nbsp;&nbsp;";
-			#------------------------add columns form-------------
 			echo "</form>";
 			echo "<br><br>";
-			echo "<form method=post action=addColumns.php?database=".$_GET['database']."&table=".$_GET['table'].">";
+			#------------------------add columns form-------------
+			echo "<form method=post action=addColumns.php>";
 			echo "<table border=1 cellspacing=1 cellpadding=3>";
 			echo "<tr>";
-			echo "<td><input type=submit value=\"".$lang['addColumns']."\"></td><td>".$lang['columnNumbers']."</td><td><input type=text name=fieldnums></td>";
+			echo "<td>".$lang['columnNumbers']."</td><td><input type=text name=fieldnums></td><td><input type=submit value=\"".$lang['addColumns']."\"></td>";
 			echo "</tr>";
 			echo "</table>";
+			echo "<input type=hidden name=table value=".$_GET['table'].">";
+			echo "<input type=hidden name=database value=".$_GET['database'].">";
+			echo "</form>";
 			#-----------------------------------------------------
 		}
 		else
