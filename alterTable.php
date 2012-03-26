@@ -98,7 +98,6 @@ else
 						echo "<td>";
 						echo "<input type=text name=field_name[] value=".$v.">\n";
 						echo "<input type=hidden name=old_field_name[] value=".$v.">\n";
-						//echo "<input type=hidden name=field_name[] value=".$v." />\n";
 						echo "</td>";
 					}
 					if($k == 'comment')
@@ -120,7 +119,7 @@ else
 			echo "&nbsp;&nbsp;";
 			echo "<input type=button value=".$lang['cancel']." onclick=\"javascript:history.back();\">";
 			echo "&nbsp;&nbsp;";
-			echo "<input type=button value=\"".$lang['addPartitions']."\" onclick=\"javascript:window.location='addTablePartitions.php?database=".$_GET['database']."&table=".$_GET['table']."'\">";
+			//echo "<input type=button value=\"".$lang['addPartitions']."\" onclick=\"javascript:window.location='addTablePartitions.php?database=".$_GET['database']."&table=".$_GET['table']."'\">";
 			echo "</form>";
 		}
 		else
@@ -135,7 +134,10 @@ else
 				echo "<br><br>";
 				while ($i < count($_POST['field_type']))
 				{
-					$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['old_field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."'";
+					if($_POST['old_field_name'][$i] != $_POST['field_name'][$i])
+					{
+						$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['old_field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."'";
+					}
 					echo "<br>";
 					echo $sql;
 					echo "<input type=hidden name=sql[] value=\"".$sql."\">";
@@ -144,7 +146,7 @@ else
 				echo "<input type=hidden name=confirm value=1><br>";
 				echo "<input type=hidden name=table value=".$_POST['table'].">";
 				echo "<input type=hidden name=database value=".$_POST['database'].">";
-				echo "Sure???<br>";
+				echo $lang['sure']."<br>";
 				echo "<input type=submit name=submit value=".$lang['submit'].">";
 				echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"window.location='index.php?frame=right'\">";
 				echo "</form>";
