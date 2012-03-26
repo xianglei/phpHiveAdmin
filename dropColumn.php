@@ -28,6 +28,10 @@ else
 		while ('' != @$array_desc_table[$i])
 		{
 			$array_desc = explode('	',$array_desc_table[$i]);
+			if($array_desc[0] == $_GET['column'])
+			{
+				unset($array_desc[0]);
+			}
 			$array_desc_desc[$i] = $array_desc[0];
 			$i++;
 		}var_dump($array_desc_desc);
