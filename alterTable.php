@@ -138,6 +138,10 @@ else
 					{
 						$sql = "ALTER TABLE ".$_POST['table']." CHANGE ".$_POST['old_field_name'][$i]." ".$_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."'";
 					}
+					else
+					{
+						continue;
+					}
 					echo "<br>";
 					echo $sql;
 					echo "<input type=hidden name=sql[] value=\"".$sql."\">";
