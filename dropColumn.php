@@ -40,9 +40,8 @@ else
 		#-----------construct sql---------
 		$sql = "ALTER TABLE `".$_GET['database']."`.`".$_GET['table']."` REPLACE COLUMNS ( ";
 		foreach($array_desc_desc as $k => $v):
-			var_dump($v);
 			foreach($v as $kk => $vv):
-				$tmp .= "`".$vv['name']."` ".$vv['type']." COMMENT '".$vv['comment']."',";
+				$tmp .= "`".$v[0]."` ".$v[1]." COMMENT '".$v[2]."',";
 			endforeach;
 		endforeach;
 		#-----------
