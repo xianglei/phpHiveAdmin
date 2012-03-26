@@ -14,7 +14,7 @@ else
 	
 	$transport->open();
 
-	$client->execute('use '.$_POST['database']);
+	$client->execute('use '.$_GET['database']);
 	
 	if(!@$_GET['table'])
 	{
