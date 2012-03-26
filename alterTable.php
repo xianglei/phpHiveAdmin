@@ -119,7 +119,7 @@ else
 			echo "&nbsp;&nbsp;";
 			echo "<input type=button value=".$lang['cancel']." onclick=\"javascript:history.back();\">";
 			echo "&nbsp;&nbsp;";
-			//echo "<input type=button value=\"".$lang['addPartitions']."\" onclick=\"javascript:window.location='addTablePartitions.php?database=".$_GET['database']."&table=".$_GET['table']."'\">";
+			echo "<input type=button value=\"".$lang['addColumns']."\" onclick=\"javascript:window.location='addColumns.php?database=".$_GET['database']."&table=".$_GET['table']."'\">";
 			echo "</form>";
 		}
 		else
