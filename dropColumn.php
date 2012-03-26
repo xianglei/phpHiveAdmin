@@ -41,7 +41,13 @@ else
 		$sql = "ALTER TABLE `".$_GET['database']."`.`".$_GET['table']."` REPLACE COLUMNS ( ";
 		foreach($array_desc_desc as $k => $v):
 			foreach($v as $kk => $vv):
-				$tmp .= "`".$v[0]."` ".$v[1]." COMMENT '".$v[2]."',";
+				if($kk == 'name')
+					$name = $vv;
+				if($kk == 'type')
+					$type = $vv;
+				if($kk == 'comment')
+					$comment = $vv;
+				$tmp .= "`".$type."` ".$type." COMMENT '".$comment."',";
 			endforeach;
 		endforeach;
 		#-----------
