@@ -129,7 +129,7 @@ else
 				//var_dump($_POST['field_name']);var_dump($_POST['field_type']);
 				$i = 0;
 				echo "<form name=confirm method=post>";
-				echo $sql = "ALTER TABLE ".$_POST['table']." RENAME TO ".$_POST['new_table_name'];
+				echo $sql = "ALTER TABLE `".$_POST['table']."` RENAME TO `".$_POST['new_table_name']."`";
 				echo "<input type=hidden name=sql[] value=\"".$sql."\">";
 				echo "<br><br>";
 				while ($i < count($_POST['field_type']))
