@@ -45,6 +45,8 @@ else
 		#-----------
 		$sql = $sql.substr($tmp,0,-1).")";
 		echo $sql;
+		$client->execute($sql);
+		echo "<script>alert('".$lang['success']."');window.location='sqlQuery.php?database=".$_GET['database']."&table=".$_GET['table']."';</script>";
 	}
 }
 
