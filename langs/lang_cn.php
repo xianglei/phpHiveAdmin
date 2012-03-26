@@ -103,4 +103,5 @@ $lang['noPartitionAdd'] = '不需分区请留空.';
 $lang['addPartitions'] = '增加分区字段(数字): ';
 $lang['getResult'] = '显示结果集';
 $lang['sure'] = '确认吗???';
+$lang['columnNumbers'] = '字段数: ';
 ?>

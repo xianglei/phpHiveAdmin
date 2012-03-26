@@ -125,7 +125,7 @@ else
 			echo "<form method=post action=addColumns.php?database=".$_GET['database']."&table=".$_GET['table'].">";
 			echo "<table border=1 cellspacing=1 cellpadding=3>";
 			echo "<tr>";
-			echo "<td><input type=submit value=".$lang['addColumns']."></td><td><input type=text name=fieldnums></td>";
+			echo "<td><input type=submit value=\"".$lang['addColumns']."\"></td><td>".$lang['columnNumbers']."</td><td><input type=text name=fieldnums></td>";
 			echo "</tr>";
 			echo "</table>";
 			#-----------------------------------------------------
