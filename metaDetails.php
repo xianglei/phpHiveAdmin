@@ -33,7 +33,7 @@ else
 	}
 
 	$arr = $meta->GetResultRow($sql);
-	echo "<a href=metaSummury.php>".$lang['back']."</a><br>";
+	echo "<a href=metaSummury.php>".$lang['back']."</a><br><br>";
 	echo "<table border=1 cellspacing=1 cellpadding=3>";
 	$i = 0;
 	foreach (@$arr as $k => $v)
