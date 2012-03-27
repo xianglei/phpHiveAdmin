@@ -1,0 +1,9 @@
+<form method=post action=addColumns.php>
+<table border=1 cellspacing=1 cellpadding=3>
+<tr>
+<td><?=$lang['columnNumbers']?></td><td><input type=text name=fieldnums></td><td><input type=submit value="<?=$lang['addColumns']?>"></td>
+</tr>
+</table>
+<input type=hidden name=table value="<?=$_GET['table']?>">
+<input type=hidden name=database value="<?=$_GET['database']?>">
+</form>

@@ -7,6 +7,8 @@ require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.auth.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etc.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etl.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.hive.php';
+
+#comment below if you didn't wanna use authenticate
 $auth = new Authorize;
 
 # for my company use only below, you can change it to standard authrize as you wish
@@ -27,6 +29,7 @@ if(($_SESSION['onlydb'] == "") && ($_GET['username'] == "" || $_GET['password'] 
 {
 	die('No access');
 }
+#comment up if you didn't wanna use authenticate
 
 # load the required files for connecting to Hive
 require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';

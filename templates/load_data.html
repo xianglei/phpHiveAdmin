@@ -1,0 +1,23 @@
+<form method=post>
+For local use, input path as /data/data1/. For HDFS use, input path as /data/data1/ where path in HDFS<br>
+<table border=1 cellspacing=1 cellpadding=3>
+			
+<tr bgcolor=#FFFF99>
+<td><?=$lang['chooseFS']?></td>
+<td><?=$lang['pathToLoad']?></td>
+<td><?=$lang['ifPartition']?></td>
+<td><?=$lang['overwrite']?></td>
+<tr>
+			
+<tr bgcolor=#99FFFF>
+<td><select name=local><option value=local><?=$lang['local']?></option><option value=hdfs><?=$lang['hdfs']?></option></select></td>
+<td><input type=text name=path></td>
+<td><input type=text name=partition></td>
+<td><input type=checkbox name=overwrite value=1></td>
+<tr>
+			
+</table><br>
+<input type=hidden name=database value="<?=$_GET['database']?>">
+<input type=hidden name=table value="<?=$_GET['table']?>">
+<input type=submit value="<?=$lang['submit']?>">
+</form>

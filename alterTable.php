@@ -129,15 +129,7 @@ else
 			echo "</form>";
 			echo "<br><br>";
 			#------------------------add columns form-------------
-			echo "<form method=post action=addColumns.php>";
-			echo "<table border=1 cellspacing=1 cellpadding=3>";
-			echo "<tr>";
-			echo "<td>".$lang['columnNumbers']."</td><td><input type=text name=fieldnums></td><td><input type=submit value=\"".$lang['addColumns']."\"></td>";
-			echo "</tr>";
-			echo "</table>";
-			echo "<input type=hidden name=table value=".$_GET['table'].">";
-			echo "<input type=hidden name=database value=".$_GET['database'].">";
-			echo "</form>";
+			include_once "templates/add_columns.html";
 			#-----------------------------------------------------
 		}
 		else
