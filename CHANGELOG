@@ -1,3 +1,15 @@
+03-28-2012
+0.06 beta3
+1. Can add and drop column(s) with a table by using alterTable
+2. Remove some useless $env variables
+3. add back link to metaDetail.php
+4. put some html to templates/
+5. Add AS select_statment when create an internal table(hive 0.5.0 up).
+6. can use RCFile selection when create a table (hive 0.6.0 up).
+7. Now can clone a new table from an exist table.
+8. Fix a create internal table bug caused by table comment
+9. Add most pages back link to dbStructure.php
+
 03-23-2012
 0.06 beta2
 1. Can add and drop SCHEMA now, add create database query with "if not exists" and drop database query with "if exists".
