@@ -24,7 +24,7 @@ else
 	
 	 	if(!@$_POST['newtablename'])
 	 	{
-			include_once "temlplates/clone_table.html";
+			include_once "templates/clone_table.html";
 	 	}
 	 	else
 	 	{
