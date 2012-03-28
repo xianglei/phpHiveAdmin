@@ -14,7 +14,6 @@ else
 	
 	$transport->open();
 
-	$client->execute('add jar '.$env['hive_jar']);
 	$client->execute('use '.$_POST['database']);
 	
 	 if("" == $_POST['newtablename'] || "" == $_POST['fieldnums'])
@@ -149,10 +148,19 @@ else
 				<option value=text>".$lang['textFile']."</option>
 				<option value=lzop>".$lang['lzoped']."</option>
 				<option value=sequence>".$lang['sequenced']."</option>
+				<option value=rcfile>".$lang['rcfile']."</option>
 				<option value=bzip2 disabled>".$lang['bzip2ed']."</option>
 				<option value=gzip disabled>".$lang['gziped']."</option>
 				</select><br><br>";
-			}			
+			}
+			if(@$_POST['external'] == 1)
+			{
+				echo $lang['asRcfile']."<input type=text name=as disabled>";
+			}
+			else
+			{
+				echo $lang['asRcfile']."<input type=text name=as>";
+			}
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
 			echo "</form>";
@@ -192,6 +200,9 @@ else
 					case 'sequence':
 						$stored = " STORED AS SEQUENCEFILE ";
 						break;
+					case 'rcfile':
+						$stored = " STORED AS RCFILE ";
+						break;
 					case 'gzip':
 						$stored = " STORED AS INPUTFORMAT \"org.apache.hadoop.io.compress.GzipCodec\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
 						break;
@@ -204,6 +215,7 @@ else
 				}
 				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$_POST['delimiter']."\" ";
 				$path = " LOCATION '".$_POST['external']."' ";
+				$as = "";
 			}
 			else
 			{
@@ -213,6 +225,14 @@ else
 				$limit = '';
 				$stored = " ";
 				$path = '';
+				if($_POST['as'] != "")
+				{
+					$as = "AS ".str_replace("\"", "'", $_POST['as']);
+				}
+				else
+				{
+					$as = '';
+				}
 			}
 			$sql = "CREATE ".$ext." TABLE IF NOT EXISTS `".$_POST['database']."`.`".$_POST['newtablename']."` (";
 			$i = 0;
@@ -224,7 +244,7 @@ else
 			}
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
-			$sql = $sql . $tablecomment . $partition .$limit . $stored . $path;
+			$sql = $sql . $tablecomment . $partition .$limit . $stored . $path . $as;
 			echo "<br>".$sql."<br>";
 			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";

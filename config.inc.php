@@ -50,17 +50,20 @@ define('METAUSER', 'hive');
 define('METAPASS', 'hive');
 define('METANAME', 'hive');
 
+#define('METATYPE', 'pgsql');
+#define('METADB','192.168.1.28');
+#define('METAPORT', '5432');
+#define('METAUSER', 'hive');
+#define('METAPASS', 'hive');
+#define('METANAME', 'hive');
+
 #------------------
 $env['hive_jar'] = '/opt/modules/hive/hive-0.7.1/lib/hive-contrib-0.7.1.jar';
 #------------------server env
 $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';# hadoop root path
 $env['hive_home'] = '/opt/modules/hive/hive-0.7.1';# hive root path
 $env['java_home'] = '/usr/java/jdk1.6.0_21';# jdk root path
-#------------------http env
-#$env['http_ip'] = "192.168.1.43";# Server IP
-#$env['http_url'] = '/phpHiveAdmin/cliQuery.php';# cliQuery.php uri link not modify it
-#$env['http_port'] = '80';# server port
-#------------------
+
 $env['etl'] = './etl/';# path to etl configuration files
 #------------------
 $env['output_path'] = '/data2/tmp/phpHiveAdmin';# For cliQuery.php, where to put stderr output log file and original result file

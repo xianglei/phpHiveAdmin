@@ -105,4 +105,7 @@ $lang['getResult'] = '显示结果集';
 $lang['sure'] = '确认吗???';
 $lang['columnNumbers'] = '字段数: ';
 $lang['dropColumnConfirm'] = '删除字段? (本操作不会删除HDFS上的数据)';
+$lang['rcfile'] = 'RCFile(hive 0.6.0以上版本)';
+$lang['asRcfile'] = 'AS select_statment (无需请留空): ';
+$lang['cloneTable'] = '复制表';
 ?>

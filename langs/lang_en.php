@@ -105,4 +105,7 @@ $lang['getResult'] = 'View Result';
 $lang['sure'] = 'Are you sure???';
 $lang['columnNumbers'] = 'Column numbers: ';
 $lang['dropColumnConfirm'] = 'Drop this column? (This will not delete data on HDFS)';
+$lang['rcfile'] = 'RCFile(hive 0.6.0 up only)';
+$lang['asRcfile'] = 'AS select_statment (No use Leave it blank): ';
+$lang['cloneTable'] = 'Clone';
 ?>
