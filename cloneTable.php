@@ -29,6 +29,7 @@ else
 	 	else
 	 	{
 	 		$sql = 'CREATE TABLE '.$_POST['newtablename'].' LIKE '.$_POST['table'];
+			echo $sql;
 			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 	 	}
