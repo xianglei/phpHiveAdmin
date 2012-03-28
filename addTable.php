@@ -144,25 +144,25 @@ else
 				//echo "<tr><td>".$lang['Partition']."</td><td></td></tr>";
 				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
 				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter value=\",\"></td></tr>";
-				echo "</table>";
-				echo $lang['dataFormat']."<select name=format>
+				echo "<tr><td>";
+				echo $lang['dataFormat']."</td><td><select name=format>
 				<option value=text>".$lang['textFile']."</option>
 				<option value=lzop>".$lang['lzoped']."</option>
 				<option value=sequence>".$lang['sequenced']."</option>
 				<option value=rcfile>".$lang['rcfile']."</option>
 				<option value=bzip2 disabled>".$lang['bzip2ed']."</option>
 				<option value=gzip disabled>".$lang['gziped']."</option>
-				</select><br><br>";
+				</select></td></tr>";
 			}
 			if(@$_POST['external'] == 1)
 			{
-				echo $lang['asRcfile']."<input type=text name=as disabled>";
+				echo "<tr><td>".$lang['asRcfile']."</td><td><input type=text name=as disabled></td></tr>";
 			}
 			else
 			{
-				echo $lang['asRcfile']."<input type=text name=as>";
+				echo "<tr><td>".$lang['asRcfile']."<input type=text name=as></td></tr>";
 			}
-			echo "<br><br>";
+			echo "</table><br><br>";
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
 			echo "</form>";
