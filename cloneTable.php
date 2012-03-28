@@ -21,6 +21,8 @@ else
 		$transport->open();
 
 		$client->execute('use '.$_GET['database']);
+		
+		echo "<a href=dbStructure.php?database=".$_POST['database'].">".$lang['back']."</a><br><br>";
 	
 	 	if(!@$_POST['newtablename'])
 	 	{

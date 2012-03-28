@@ -22,6 +22,7 @@ else
 	}
 	else
 	{
+		echo "<a href=dbStructure.php?database=".$_POST['database'].">".$lang['back']."</a><br><br>";
 		if(!@$_POST['fieldnums'])
 		{
 			echo "<form method=post>";

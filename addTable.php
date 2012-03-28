@@ -15,13 +15,14 @@ else
 	$transport->open();
 
 	$client->execute('use '.$_POST['database']);
+	echo "<a href=dbStructure.php?database=".$_POST['database'].">".$lang['back']."</a><br><br>";
 	
-	 if("" == $_POST['newtablename'] || "" == $_POST['fieldnums'])
-	 {
+	if("" == $_POST['newtablename'] || "" == $_POST['fieldnums'])
+	{
 		echo "<script>alert('".$lang['addTableAlert']."'); history.back()</script>";
-	 }
-	 else
-	 {
+	}
+	else
+	{
 		if(!@$_POST['field_name'] || !@$_POST['field_type'])
 		{
 			echo "<form name=newTable method=post>";
@@ -161,6 +162,7 @@ else
 			{
 				echo $lang['asRcfile']."<input type=text name=as>";
 			}
+			echo "<br><br>";
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
 			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
 			echo "</form>";
