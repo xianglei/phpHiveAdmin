@@ -44,8 +44,8 @@ else
 		{
 			echo "<td>".$lang['alterTable']."</td>
 			<td>".$lang['loadData']."</td>
-			<td>".$lang['dropTable']."</td>
-			<td>".$lang['cloneTable']."</td>";
+			<td>".$lang['cloneTable']."</td>
+			<td>".$lang['dropTable']."</td>";
 		}
 		echo "</tr>";
 		while ('' != @$db_array[$i])
@@ -76,13 +76,13 @@ else
 				echo "<td>\n";
 				echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_import.png>".$lang['loadData']."</a>";
 				echo "</td>\n";
-		
-				echo "<td>\n";
-				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
-				echo "</td>\n";
 				
 				echo "<td>\n";
 				echo "<a href=cloneTable.php?database=".$_GET['database']."&table=".$db_array[$i]."\">".$lang['cloneTable']."</a>";
+				echo "</td>\n";
+		
+				echo "<td>\n";
+				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
 				echo "</td>\n";
 			}
 			
