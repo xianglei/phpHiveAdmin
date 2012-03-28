@@ -4,6 +4,8 @@ include_once 'templates/style.css';
 
 $meta = new MysqlMeta();
 
+echo "<<< <a href=index.php?frame=right>".$lang['back']."</a><br><br>";
+
 $sql = "select count(*) as count from DBS where NAME != 'default'";
 $arr = $meta->GetResultKey($sql);
 echo $lang['metaDbs']."<a href=metaDetails.php?detail=dbs&offset=0>".$arr[0]['count'] . "</a><br>\n";

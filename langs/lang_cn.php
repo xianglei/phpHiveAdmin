@@ -108,4 +108,5 @@ $lang['dropColumnConfirm'] = '删除字段? (本操作不会删除HDFS上的数�
 $lang['rcfile'] = 'RCFile(hive 0.6.0以上版本)';
 $lang['asRcfile'] = 'AS select_statment (无需请留空): ';
 $lang['cloneTable'] = '复制表';
+$lang['putIni'] = '将ini文件放到\'./etl/\'路径下: ';
 ?>

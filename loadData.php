@@ -22,6 +22,7 @@ else
 	}
 	else
 	{
+		echo "<a href=dbStructure.php?database=".$_GET['database'].">".$lang['back']."</a><br><br>";
 		if(!@$_POST['path'])
 		{
 			include_once "templates/load_data.html";

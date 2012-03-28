@@ -23,6 +23,7 @@ else
 	}
 	else
 	{
+		echo "<a href=dbStructure.php?database=".$_GET['database'].">".$lang['back']."</a><br><br>";
 		if(!@$_POST['submit'])
 		{
 			$sql = 'desc '.$_GET['table'];

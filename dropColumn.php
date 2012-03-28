@@ -22,6 +22,7 @@ else
 	}
 	else
 	{
+		echo "<a href=dbStructure.php?database=".$_GET['database'].">".$lang['back']."</a><br><br>";
 		$client->execute('desc '.$_GET['table']);
 		$array_desc_table = $client->fetchAll();
 		$i = 0;

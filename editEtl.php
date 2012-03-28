@@ -10,6 +10,7 @@ if(!@$_GET['filename'])
 }
 else
 {
+	echo "<a href=index.php?frame=right>".$lang['back']."</a><br><br>";
 	if(file_exists($env['etl'].$_GET['filename']))
 	{
 		if(!@$_POST['filename'])
