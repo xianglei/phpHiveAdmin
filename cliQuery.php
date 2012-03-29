@@ -35,7 +35,8 @@ else
 		mkdir($env['output_path'],0777);
 		
 		$sql = base64_decode($query);
-		$sql = '"'.str_replace("`","",str_replace("\"","'",$sql)).'"';
+		$sql = str_replace("\"","'",$sql);
+		$sql = '"'.str_replace('`',"",$sql).'"';
 		
 		if(!file_exists($env['output_path'].'/hive_res.'.$time.'.out') || filesize($env['output_path'].'/hive_res.'.$time.'.out') == 0)
 		{
