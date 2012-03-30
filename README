@@ -1,6 +1,6 @@
 This is a HIVE(hadoop) admin and query tool written in php
 
-It can simply use like phpMyAdmin.
+It can simply use like phpMyAdmin, and you should not to config any php options when install, it can use 99% functions by php ./configure --enable-socket
 
 Program development environment:
 
@@ -19,7 +19,7 @@ But you must hive a hive-cli on the machine which put phpHiveAdmin on it.
 ------------------------Chinese 中文说明-----------------------
 这是一个用php写成的Hive(hadoop)查询管理工具
 
-可以像phpMyAdmin那样轻松的使用。
+可以像phpMyAdmin那样轻松的使用，并且不需要任何额外的php选项支持，仅仅使用php ./configure --enable-socket就可以使用99%的功能。
 程序开发环境
 
 CentOS 5.4
