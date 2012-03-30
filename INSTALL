@@ -1,15 +1,12 @@
-1: "wget" or "git clone git://github.com/xianglei/phpHiveAdmin.git"
+1: run git clone git://github.com/xianglei/phpHiveAdmin.git
 
-2:. untar it.
-
-3: add this follow to your nginx.conf in your "location ~ .php$ {};"
- area
+2: add this follow to your nginx.conf in your "location ~ .php$ {};" area
 
 fastcgi_connect_timeout 36000;
 fastcgi_send_timeout 36000;
 fastcgi_read_timeout 36000;
 
-4: in php 5.3.9 open $PHP_HOME/etc/php-fpm.conf modify to this:
+3: in php 5.3.9 open $PHP_HOME/etc/php-fpm.conf modify to this:
 
 process_control_timeout = 36000s
 
@@ -25,14 +22,61 @@ and this:
 
 default_socket_timeout = 36000
 
-5: restart nginx && php-fpm
+4: restart nginx && php-fpm
+
+5: open config.inc.php
+set define('HOST','192.168.1.49'); and define('PORT','10000'); to your hive thrift server address and port.
+
+Then?
+No then, surfing with data.
 
 IMPORTANT:
 
-for localized language using,modify /config.inc.php and /index.php,
- in these files, change "langs/lang_xx.php" to your language set.
+for localized language using,modify /config.inc.php
+ in this files, change "langs/lang_xx.php" to your language set.
 
 accesslist intro.
 username:password:onlydb for each line
+if you want to use all db, put "all" on "onlydb" area, else onlydb(s) use comma to seperate.
 
-if you want to use all db, put "all" on "onlydb" area
+-------------------Chinese中文安装说明-----------------------------
+1: 运行 git clone git://github.com/xianglei/phpHiveAdmin.git
+
+2: 将以下内容放入nginx.conf的php配置部分 "location ~ .php$ {};"
+
+fastcgi_connect_timeout 36000;
+fastcgi_send_timeout 36000;
+fastcgi_read_timeout 36000;
+
+3: php 5.3+以上版本 打开 $PHP_HOME/etc/php-fpm.conf 查找并修改如下:
+
+process_control_timeout = 36000s
+
+与这个:
+
+request_terminate_timeout = 36000s
+
+打开 $PHP_HOME/lib/php.ini 修改如下:
+
+max_input_time = 36000
+
+与这个:
+
+default_socket_timeout = 36000
+
+4: 重启 nginx && php-fpm
+
+5: 打开 config.inc.php
+找到 define('HOST','192.168.1.49'); and define('PORT','10000'); 并设置为你自己的hiveserver地址.
+
+然后?
+就没有然后了，在数据里冲浪吧.
+
+重要:
+
+为本地化使用，修改config.inc.php中的如下部分
+ 将"langs/lang_xx.php" 修改成你自己的语言设置.
+
+验证部分accesslist设置.
+username:password:onlydb
+每行一个，onlydb写all为全部访问，写数据库名则访问单独的数据库，库名可写多个，以英文逗号分隔。
