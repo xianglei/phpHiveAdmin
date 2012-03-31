@@ -79,8 +79,11 @@ else
 		elseif(!preg_match("/limit/i", @$_POST['sql']))
 		{
 			$sha1 = $etc->FingerPrintMake();
+			
+			$encode = new StringCoding;
+			$sql = $encode->ConvertToUtf8(@$_POST['sql']);
 		
-			$sql = "use ".@$_POST['database'].";".@$_POST['sql'];
+			$sql = "use ".@$_POST['database'].";".$sql;
 			
 			#log sql action
 			$logfile = $env['logs_path'].$_SESSION['username']."_".$sha1.".log";
