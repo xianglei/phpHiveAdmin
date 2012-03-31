@@ -72,7 +72,7 @@ else
 	}
 	else
 	{
-		if(preg_match("/( {0,}select +\* +from)/i",@$_POST['sql']) && !preg_match("/limit/i", @$_POST['sql']))# if select * from with no limit died.
+		if(preg_match("/( {0,}select +\* +from)/i",@$_POST['sql']) && (!preg_match("/limit/i", @$_POST['sql']) || !preg_match("/where/i", @$_POST['sql'])))# if select * from with no limit died.
 		{
 			die($lang['forceLimit']);
 		}
