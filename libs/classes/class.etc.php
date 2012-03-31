@@ -96,7 +96,7 @@ class StringCoding extends Etc
 	{
 		if(TRUE == $this->CheckGbk($pString))
 		{
-			$pString = iconv("GB2312","UTF-8",$pString);
+			$pString = iconv("GBK","UTF-8",$pString);
 		}
 		else
 		{
