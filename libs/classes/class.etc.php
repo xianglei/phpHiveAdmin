@@ -87,22 +87,93 @@ class Etc
 class StringCoding extends Etc
 {
 	
-	protected function CheckGbk($pString)
+	public $gb;          // 待转换的GB2312字符串
+	public $utf8;        // 转换后的UTF8字符串
+	public $CodeTable;   // 转换过程中使用的GB2312代码文件数组
+	public $ErrorMsg;    // 转换过程之中的错误讯息
+
+	public function Gb2Utf8($InStr="")
 	{
-		return preg_match('/[\x80-\xff]./', $pString);
+		$this->gb=$InStr;
+		$this->SetGb2312();
+		($this->gb=="")?0:$this->Convert();
 	}
-	
-	public function ConvertToUtf8($pString)
+
+	public function SetGb2312($InStr="gb2312.txt")
 	{
-		if(TRUE == $this->CheckGbk($pString))
-		{
-			$pString = iconv("GBK","UTF-8",$pString);
+		$this->ErrorMsg="";
+		$tmp=@file($InStr);
+        if (!$tmp)
+        {
+			$this->ErrorMsg="No GB2312";
+			return false;
 		}
-		else
+		$this->CodeTable=array();
+		while(list($key,$value)=each($tmp))
 		{
-			$pString = $pString;
+			$this->CodeTable[hexdec(substr($value,0,6))]=substr($value,7,6);
 		}
-		return $pString;
+	}
+ 
+	public function Convert()
+	{
+		$this->utf8="";
+		if(!trim($this->gb) || $this->ErrorMsg!="")
+		{
+			return ($this->utf8=$this->ErrorMsg);
+		}
+		$str=$this->gb;
+
+		while($str)
+		{
+			if (ord(substr($str,0,1))>127)
+			{
+				$tmp=substr($str,0,2);
+				$str=substr($str,2,strlen($str));
+				$tmp=$this->U2Utf8(hexdec($this->CodeTable[hexdec(bin2hex($tmp))-0x8080]));
+				for($i=0;$i<strlen ($tmp);$i+=3)
+				$this->utf8.=chr(substr($tmp,$i,3));
+			}
+			else
+			{
+				$tmp=substr($str,0,1);
+				$str=substr($str,1,strlen($str));
+				$this->utf8.=$tmp;
+			}
+		}
+		return $this->utf8;
+	}
+
+
+	public function U2Utf8($InStr)
+	{
+		for($i=0;$i<count($InStr);$i++)
+		{
+			$str="";
+			if ($InStr < 0x80)
+			{
+				$str.=ord($InStr);
+			}
+			else if ($InStr < 0x800)
+			{
+				$str.=(0xC0 | $InStr>>6);
+				$str.=(0x80 | $InStr & 0x3F);
+			}
+			else if ($InStr < 0x10000)
+			{
+				$str.=(0xE0 | $InStr>>12);
+				$str.=(0x80 | $InStr>>6 & 0x3F);
+				$str.=(0x80 | $InStr & 0x3F);
+			}
+			else if ($InStr < 0x200000)
+			{
+				$str.=(0xF0 | $InStr>>18);
+				$str.=(0x80 | $InStr>>12 & 0x3F);
+				$str.=(0x80 | $InStr>>6 & 0x3F);
+				$str.=(0x80 | $InStr & 0x3F);
+			}
+			return $str;
+		}
 	}
 }
 ?>

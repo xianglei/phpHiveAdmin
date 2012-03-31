@@ -81,9 +81,10 @@ else
 			$sha1 = $etc->FingerPrintMake();
 			
 			$encode = new StringCoding;
-			$sql = $encode->ConvertToUtf8(@$_POST['sql']);
+			$encode->gb = @$_POST['sql'];
+			$encode->Convert();
 		
-			$sql = "use ".@$_POST['database'].";".$sql;
+			$sql = "use ".@$_POST['database'].";".$encode->utf8;
 			
 			#log sql action
 			$logfile = $env['logs_path'].$_SESSION['username']."_".$sha1.".log";
