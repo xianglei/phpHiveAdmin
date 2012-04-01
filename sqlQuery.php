@@ -92,8 +92,8 @@ else
 			$logfile = $env['logs_path'].$_SESSION['username']."_".$sha1.".log";
 			$etc->LogAction($logfile,"w",$sql."\n");
 			#
-			$enc = new Encryption();
-			$path = $env['http_url']."?time=".$sha1."&query=".$enc->encrypt($sql);
+			$enc = new Encryption;$key = "phpHiveAdmin";
+			$path = $env['http_url']."?time=".$sha1."&query=".$enc->encrypt($sql,$key);
 			$cookie = sha1($mtime);
 
 			echo "
