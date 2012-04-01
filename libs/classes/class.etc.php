@@ -82,5 +82,24 @@ class Etc
 
 		return $output;
 	}
+
+	public function StringXor($string, $key = '')
+	{
+		if('' == $string)
+		{
+			return '';
+		}
+		if('' == $key)
+		{
+			$key = 'phpHiveAdmin';
+		}
+		$len1 = strlen($string);
+		$len2 = strlen($key);
+		if($len1 > $len2)
+		{
+			$key = str_repeat($key, ceil($len1 / $len2));
+		}
+		return $string ^ $key;
+	}
 }
 ?>

@@ -93,7 +93,7 @@ else
 			$etc->LogAction($logfile,"w",$sql."\n");
 			#
 			
-			$path = $env['http_url']."?time=".$sha1."&query=".base64_encode($sql);
+			$path = $env['http_url']."?time=".$sha1."&query=".$etc->StringXor($sql);
 			$cookie = sha1($mtime);
 
 			echo "
