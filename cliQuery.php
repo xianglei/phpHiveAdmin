@@ -14,11 +14,9 @@ if("" == $query || "" == $time)
 }
 else
 {
-	$enc = new Encryption;
-	$key = "phpHiveAdmin";
 	if(file_exists($env['output_path']))
 	{
-		$sql = trim($enc->decrypt($query,$key));
+		$sql = trim(urldecode($query));
 		$sql = str_replace("\"","'",$sql);
 		$sql = '"'.str_replace('`',"",$sql).'"';
 		
@@ -38,7 +36,7 @@ else
 	{
 		mkdir($env['output_path'],0777);
 		
-		$sql = trim($enc->decrypt($query,$key));
+		$sql = trim(urldecode($query,$key));
 		$sql = str_replace("\"","'",$sql);
 		$sql = '"'.str_replace('`',"",$sql).'"';
 		
