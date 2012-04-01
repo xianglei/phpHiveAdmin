@@ -93,7 +93,7 @@ else
 			$etc->LogAction($logfile,"w",$sql."\n");
 			#
 
-			$path = $env['http_url']."?time=".$sha1."&query=".urlencode($sql,$key);
+			#$path = $env['http_url']."?time=".$sha1."&query=".urlencode($sql,$key);
 			$cookie = sha1($mtime);
 
 			echo "
@@ -104,7 +104,8 @@ else
 			}
 			</script>
 			";
-			echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode($sql)."' , getReult)\">";
+			$enc = new Encryption;$key = "phpHiveAdmin";
+			echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".$enc->encrypt($sql,$key)."' , getReult)\">";
 			echo "<input type=button value=\"".$lang['getResult']."\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
 			echo "<br><br>".$lang['fingerprintOfMapReduce']." ".$sha1;
 			echo "<br><br>";
