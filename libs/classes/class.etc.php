@@ -82,24 +82,69 @@ class Etc
 
 		return $output;
 	}
-
-	public function StringXor($string, $key = '')
-	{
-		if('' == $string)
-		{
-			return '';
-		}
-		if('' == $key)
-		{
-			$key = 'phpHiveAdmin';
-		}
-		$len1 = strlen($string);
-		$len2 = strlen($key);
-		if($len1 > $len2)
-		{
-			$key = str_repeat($key, ceil($len1 / $len2));
-		}
-		return $string ^ $key;
-	}
 }
+
+class Encryption
+{ 
+/** 
+* 最终的密文代码，可设为任意不重复的10位英文字符a-zA-Z 
+*/ 
+	private $replacement = 'urskydMeIV'; 
+/** 
+* 增加的密文第一位，可设为1位除0以外的整数，即 1-9 
+*/ 
+	private $prefix = "8"; 
+/** 
+* 公钥,长度小于8位的正整数 
+*/ 
+	private $match = "111111"; 
+/** 
+* 转换后对照数组 
+*/ 
+	private $replaceenc; 
+	private $replacedec; 
+
+	function __construct()
+	{ 
+		for($i =0; $i < 10; $i++)
+		{ 
+			$this->replaceenc['/'.$i.'/'] = $this->replacement{$i}; 
+			$this->replacedec['/'.$this->replacement{$i}.'/'] = $i; 
+		}
+	}
+
+	public function encrypt($str)
+	{
+		return preg_replace(array_keys($this->replaceenc),$this->replaceenc,$this->mynotin(preg_replace("/(.)(.)/", "${2}${1}", $str))); 
+	}
+
+	public function decrypt($str)
+	{
+		return preg_replace("/(.)(.)/", "${2}${1}",$this->mynotout(preg_replace(array_keys($this->replacedec),$this->replacedec,$str)));
+	}
+
+	private function mynotin($str)
+	{ 
+		$str_out = "";
+		$i = 0;
+		while(isset($str{7*$i}))
+		{
+			$str_out .= (($this->prefix.substr($str, $i*7, 7))+0)^$this->match;
+			$i++;
+		}
+		return $str_out;
+	}
+
+	private function mynotout($str)
+	{
+		$str_out = "";
+		$i = 0;
+		while(isset($str{8*$i}))
+		{
+			$str_out .= substr((substr($str, $i*8, 8)+0)^$this->match, 1);
+			$i++;
+		}
+		return $str_out;
+	}
+} 
 ?>
