@@ -16,7 +16,7 @@ else
 {
 	if(file_exists($env['output_path']))
 	{
-		$sql = $etc->StringXor($query);
+		$sql = trim($etc->StringXor($query));
 		$sql = str_replace("\"","'",$sql);
 		$sql = '"'.str_replace('`',"",$sql).'"';
 		
@@ -35,7 +35,7 @@ else
 	{
 		mkdir($env['output_path'],0777);
 		
-		$sql = $etc->StringXor($query);
+		$sql = trim($etc->StringXor($query));
 		$sql = str_replace("\"","'",$sql);
 		$sql = '"'.str_replace('`',"",$sql).'"';
 		
