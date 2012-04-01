@@ -24,7 +24,7 @@ else
 		{
 			$exec = 'export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql.' > '.$env['output_path'].'/hive_res.'.$time.'.out';
 			//passthru($exec);
-			$etc->LogAction($pFilename, "w", $exec);
+			$etc->LogAction("logs/test.log", "w", $exec);
 			$etc->NonBlockingRun($exec,$time,$code);
 		}
 		else
@@ -44,7 +44,7 @@ else
 		{
 			$exec = 'export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql.' > '.$env['output_path'].'/hive_res.'.$time.'.out';
 			//passthru($exec);
-			$etc->LogAction($pFilename, "w", $exec);
+			$etc->LogAction("logs/test.log", "w", $exec);
 			$etc->NonBlockingRun($exec,$time,$code);
 		}
 		else
