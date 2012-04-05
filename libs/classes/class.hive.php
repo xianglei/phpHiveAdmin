@@ -1,33 +1,7 @@
 <?php
 class Hive
 {
-	public $mTransport = '';
-	public $mProtocol = '';
-	public $mClient = '';
-	
-	public function __construct()
-	{
-		$this->mTransport = new TSocket(HOST, PORT);
-		$this->mProtocol = new TBinaryProtocol($this->mTransport);
-		$this->mClient = new ThriftHiveClient($this->mProtocol);
-		$this->mTransport->open();
-	}
-	
-	public function Execute($pSql)
-	{
-		$this->mClient->execute($sql);
-	}
-	
-	public function Fetch($pSql)
-	{
-		$array = $this->Query($pSql);
-		return $array;
-	}
 
-	public function __destruct()
-	{
-		$this->mTransport->close();
-	}
 }
 
 class MysqlMeta extends Hive
