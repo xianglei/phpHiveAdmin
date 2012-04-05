@@ -10,7 +10,7 @@ else
 	$hive = new Hive();
 
 	$sql = "CREATE DATABASE IF NOT EXISTS ".$_POST['newdbname']." COMMENT '".$_POST['dbcomment']."'";
-	$hive->Query($sql);
+	$hive->Execute($sql);
 	echo $sql;
 	//$db_array = $client->fetchOne();
 	echo '<script>alert(\''.$lang['createDbSuccess'].'\');window.location=\'index.php?frame=right\';</script>';
