@@ -1,3 +1,11 @@
+Requierment:
+Linux or FreeBSD with Java, Hive and Hadoop on it.
+Nginx && php 5.3+
+
+To start Hive Thrift Server:
+`$HIVE_HOME/bin/hive --service hiveserver 10000 &` 
+
+Installation:
 1: run git clone git://github.com/xianglei/phpHiveAdmin.git
 
 2: add this follow to your nginx.conf in your "location ~ .php$ {};" area
@@ -6,7 +14,7 @@ fastcgi_connect_timeout 36000;
 fastcgi_send_timeout 36000;
 fastcgi_read_timeout 36000;
 
-3: in php 5.3.9 open $PHP_HOME/etc/php-fpm.conf modify to this:
+3: in php 5.3.x open $PHP_HOME/etc/php-fpm.conf modify to this:
 
 process_control_timeout = 36000s
 
@@ -36,7 +44,7 @@ $env['output_path']
 $env['logs_path'] = './logs/';
 
 Then?
-No then, surfing with data.
+No then, surfing in the data.
 
 IMPORTANT:
 
@@ -47,7 +55,20 @@ accesslist intro.
 username:password:onlydb for each line
 if you want to use all db, put "all" on "onlydb" area, else onlydb(s) use comma to seperate.
 
+
+
 -------------------Chinese中文安装说明-----------------------------
+
+
+
+系统要求:
+包含Java, Hive 和 Hadoop 的 Linux 或 FreeBSD服务器.
+Nginx 与 php 5.3+
+
+启动Hive thrift服务:
+`$HIVE_HOME/bin/hive --service hiveserver &`
+
+安装步骤:
 1: 运行 git clone git://github.com/xianglei/phpHiveAdmin.git
 
 2: 将以下内容放入nginx.conf的php配置部分 "location ~ .php$ {};"

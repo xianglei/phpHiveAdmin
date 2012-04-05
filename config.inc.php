@@ -35,6 +35,7 @@ if(($_SESSION['onlydb'] == "") && ($_GET['username'] == "" || $_GET['password'] 
 
 # load the required files for connecting to Hive
 require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
+require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hadoopfs/ThriftHadoopFileSystem.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'transport/TSocket.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'protocol/TBinaryProtocol.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.timer.php';
@@ -55,6 +56,9 @@ require_once 'langs/lang_en.php';
 
 define('HOST','192.168.1.49');
 define('PORT','10000');
+
+define('HADOOP_FS_HOST','192.168.1.16');
+define('HADOOP_FS_PORT','50000');
 
 
 #----------defination of meta type and connection variables-------
@@ -98,6 +102,6 @@ $env['trColor1'] = '#AFAFAF';
 $env['trColor2'] = '#DFDFDF';
 # Important: varius below is being used only if you mount hdfs to a local filesystem with fusefs tool!!!Unless it will cause fatal error
 # 重要，下面的变量是定义hdfs浏览访问所使用，需要fusefs-dfs支持。如果没有，请不要使用浏览hdfs功能。
-$env['hdfsToHiveDir'] = '/hdfs/data/dw/';
+$env['hdfsToHiveDir'] = '/';
 # '/hdfs' is a libhdfs mount point to localize directory
 # 这里定义的是通过libhdfs mount到本地的路径。
