@@ -7,7 +7,7 @@ class Hive
 	
 	public function __construct()
 	{
-		$this->mTransport = new TSocket(HOST, PORT);
+		$this->mTransport = new TSocket(HOST, PORT);echo HOST;echo PORT;
 		$this->mProtocol = new TBinaryProtocol($this->mTransport);
 		$this->mClient = new ThriftHiveClient($this->mProtocol);
 	}
