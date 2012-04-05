@@ -1,9 +1,9 @@
 <?php
 class Hive
 {
-	private $mTransport = '';
-	private $mProtocol = '';
-	protected $mClient = '';
+	public $mTransport = '';
+	public $mProtocol = '';
+	public $mClient = '';
 	
 	public function __construct()
 	{
