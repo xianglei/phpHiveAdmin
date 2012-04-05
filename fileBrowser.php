@@ -18,7 +18,7 @@ include_once 'templates/style.css';
 	$socket->setRecvTimeout(20000);
 	$transport = new TBufferedTransport($socket);
 	$protocol = new TBinaryProtocol($transport);
-	$client = new ThriftHadoopFileSystemClient($protocol);
+	$client = new hadoopfs_ThriftHadoopFileSystemClient($protocol);
 	$transport->open();
 	
 	try
