@@ -17,7 +17,7 @@ class ThriftHandle {
       self::$_TSPEC = array(
         -1 => array(
           'var' => 'id',
-          'type' => TType::I64,
+          'type' => TType::STRING,
           ),
         );
     }
@@ -48,8 +48,8 @@ class ThriftHandle {
       switch ($fid)
       {
         case -1:
-          if ($ftype == TType::I64) {
-            $xfer += $input->readI64($this->id);
+          if ($ftype == TType::STRING) {
+            $xfer += $input->readString($this->id);
           } else {
             $xfer += $input->skip($ftype);
           }
@@ -68,8 +68,8 @@ class ThriftHandle {
     $xfer = 0;
     $xfer += $output->writeStructBegin('ThriftHandle');
     if ($this->id !== null) {
-      $xfer += $output->writeFieldBegin('id', TType::I64, -1);
-      $xfer += $output->writeI64($this->id);
+      $xfer += $output->writeFieldBegin('id', TType::STRING, -1);
+      $xfer += $output->writeString($this->id);
       $xfer += $output->writeFieldEnd();
     }
     $xfer += $output->writeFieldStop();
