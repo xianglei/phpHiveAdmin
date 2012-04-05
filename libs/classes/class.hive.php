@@ -12,7 +12,7 @@ class Hive
 		$this->mClient = new ThriftHiveClient($this->mProtocol);
 	}
 	
-	public function Query($pSql)
+	public function Execute($pSql)
 	{
 		$this->mTransport->open();
 		$this->mClient->execute($sql);
