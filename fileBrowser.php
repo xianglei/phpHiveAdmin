@@ -31,6 +31,7 @@ else
 	{  
 		// create directory
 		$dirpathname = new hadoopfs_Pathname(array("pathname" => "/user/root/hadoop"));
+		var_dump($dirpathname);
 		if($client->exists($dirpathname) == TRUE)
 		{
 			echo $dirpathname->pathname . " exists.\n";
