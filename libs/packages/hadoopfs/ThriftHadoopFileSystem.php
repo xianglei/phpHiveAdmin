@@ -1076,7 +1076,7 @@ class ThriftHadoopFileSystem_setInactivityTimeoutPeriod_args {
       self::$_TSPEC = array(
         1 => array(
           'var' => 'periodInSeconds',
-          'type' => TType::I64,
+          'type' => TType::STRING,
           ),
         );
     }
@@ -1107,8 +1107,8 @@ class ThriftHadoopFileSystem_setInactivityTimeoutPeriod_args {
       switch ($fid)
       {
         case 1:
-          if ($ftype == TType::I64) {
-            $xfer += $input->readI64($this->periodInSeconds);
+          if ($ftype == TType::STRING) {
+            $xfer += $input->readString($this->periodInSeconds);
           } else {
             $xfer += $input->skip($ftype);
           }
@@ -1127,8 +1127,8 @@ class ThriftHadoopFileSystem_setInactivityTimeoutPeriod_args {
     $xfer = 0;
     $xfer += $output->writeStructBegin('ThriftHadoopFileSystem_setInactivityTimeoutPeriod_args');
     if ($this->periodInSeconds !== null) {
-      $xfer += $output->writeFieldBegin('periodInSeconds', TType::I64, 1);
-      $xfer += $output->writeI64($this->periodInSeconds);
+      $xfer += $output->writeFieldBegin('periodInSeconds', TType::STRING, 1);
+      $xfer += $output->writeString($this->periodInSeconds);
       $xfer += $output->writeFieldEnd();
     }
     $xfer += $output->writeFieldStop();
@@ -1522,7 +1522,7 @@ class ThriftHadoopFileSystem_createFile_args {
           ),
         6 => array(
           'var' => 'blocksize',
-          'type' => TType::I64,
+          'type' => TType::STRING,
           ),
         );
     }
@@ -1604,8 +1604,8 @@ class ThriftHadoopFileSystem_createFile_args {
           }
           break;
         case 6:
-          if ($ftype == TType::I64) {
-            $xfer += $input->readI64($this->blocksize);
+          if ($ftype == TType::STRING) {
+            $xfer += $input->readString($this->blocksize);
           } else {
             $xfer += $input->skip($ftype);
           }
@@ -1652,8 +1652,8 @@ class ThriftHadoopFileSystem_createFile_args {
       $xfer += $output->writeFieldEnd();
     }
     if ($this->blocksize !== null) {
-      $xfer += $output->writeFieldBegin('blocksize', TType::I64, 6);
-      $xfer += $output->writeI64($this->blocksize);
+      $xfer += $output->writeFieldBegin('blocksize', TType::STRING, 6);
+      $xfer += $output->writeString($this->blocksize);
       $xfer += $output->writeFieldEnd();
     }
     $xfer += $output->writeFieldStop();
@@ -2322,7 +2322,7 @@ class ThriftHadoopFileSystem_read_args {
           ),
         -1 => array(
           'var' => 'offset',
-          'type' => TType::I64,
+          'type' => TType::STRING,
           ),
         -2 => array(
           'var' => 'size',
@@ -2371,8 +2371,8 @@ class ThriftHadoopFileSystem_read_args {
           }
           break;
         case -1:
-          if ($ftype == TType::I64) {
-            $xfer += $input->readI64($this->offset);
+          if ($ftype == TType::STRING) {
+            $xfer += $input->readString($this->offset);
           } else {
             $xfer += $input->skip($ftype);
           }
@@ -2403,8 +2403,8 @@ class ThriftHadoopFileSystem_read_args {
       $xfer += $output->writeFieldEnd();
     }
     if ($this->offset !== null) {
-      $xfer += $output->writeFieldBegin('offset', TType::I64, -1);
-      $xfer += $output->writeI64($this->offset);
+      $xfer += $output->writeFieldBegin('offset', TType::STRING, -1);
+      $xfer += $output->writeString($this->offset);
       $xfer += $output->writeFieldEnd();
     }
     if ($this->handle !== null) {
@@ -4341,11 +4341,11 @@ class ThriftHadoopFileSystem_getFileBlockLocations_args {
           ),
         2 => array(
           'var' => 'start',
-          'type' => TType::I64,
+          'type' => TType::STRING,
           ),
         3 => array(
           'var' => 'length',
-          'type' => TType::I64,
+          'type' => TType::STRING,
           ),
         );
     }
@@ -4390,15 +4390,15 @@ class ThriftHadoopFileSystem_getFileBlockLocations_args {
           }
           break;
         case 2:
-          if ($ftype == TType::I64) {
-            $xfer += $input->readI64($this->start);
+          if ($ftype == TType::STRING) {
+            $xfer += $input->readString($this->start);
           } else {
             $xfer += $input->skip($ftype);
           }
           break;
         case 3:
-          if ($ftype == TType::I64) {
-            $xfer += $input->readI64($this->length);
+          if ($ftype == TType::STRING) {
+            $xfer += $input->readString($this->length);
           } else {
             $xfer += $input->skip($ftype);
           }
@@ -4425,13 +4425,13 @@ class ThriftHadoopFileSystem_getFileBlockLocations_args {
       $xfer += $output->writeFieldEnd();
     }
     if ($this->start !== null) {
-      $xfer += $output->writeFieldBegin('start', TType::I64, 2);
-      $xfer += $output->writeI64($this->start);
+      $xfer += $output->writeFieldBegin('start', TType::STRING, 2);
+      $xfer += $output->writeString($this->start);
       $xfer += $output->writeFieldEnd();
     }
     if ($this->length !== null) {
-      $xfer += $output->writeFieldBegin('length', TType::I64, 3);
-      $xfer += $output->writeI64($this->length);
+      $xfer += $output->writeFieldBegin('length', TType::STRING, 3);
+      $xfer += $output->writeString($this->length);
       $xfer += $output->writeFieldEnd();
     }
     $xfer += $output->writeFieldStop();
