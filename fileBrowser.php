@@ -24,7 +24,7 @@ include_once 'templates/style.css';
 	try
 	{  
 		// create directory
-		$dirpathname = new Pathname(array("pathname" => "/user/root/hadoop"));
+		$dirpathname = new Pathname(array("pathname" => "/user/hadoop/hadoop"));
 		if($client->exists($dirpathname->pathname) == TRUE)
 		{
 			echo $dirpathname->pathname . " exists.\n";
