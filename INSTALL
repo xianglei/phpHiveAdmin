@@ -26,6 +26,14 @@ default_socket_timeout = 36000
 
 5: open config.inc.php
 set define('HOST','192.168.1.49'); and define('PORT','10000'); to your hive thrift server address and port.
+find variables below in config.inc.php, change to your own path，and chmod etl,output_path,logs_path to 0777
+$env['hive_jar']
+$env['hadoop_home']
+$env['hive_home']
+$env['java_home']
+$env['etl'] = './etl/';
+$env['output_path']
+$env['logs_path'] = './logs/';
 
 Then?
 No then, surfing with data.
@@ -68,6 +76,14 @@ default_socket_timeout = 36000
 
 5: 打开 config.inc.php
 找到 define('HOST','192.168.1.49'); and define('PORT','10000'); 并设置为你自己的hiveserver地址.
+在config.inc.php中找到以下变量，并修改为你自己的路径，请赋予etl,output_path,logs_path 0777权限
+$env['hive_jar']
+$env['hadoop_home']
+$env['hive_home']
+$env['java_home']
+$env['etl'] = './etl/';
+$env['output_path']
+$env['logs_path'] = './logs/';
 
 然后?
 就没有然后了，在数据里冲浪吧.

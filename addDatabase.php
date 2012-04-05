@@ -7,17 +7,13 @@ if(!@$_POST['newdbname'] || @$_POST['newdbname'] == "")
 }
 else
 {
-	$transport = new TSocket(HOST, PORT);
-	$protocol = new TBinaryProtocol($transport);
-	$client = new ThriftHiveClient($protocol);
-	
-	$transport->open();
+	$hive = new Hive();
 
 	$sql = "CREATE DATABASE IF NOT EXISTS ".$_POST['newdbname']." COMMENT '".$_POST['dbcomment']."'";
-	$client->execute($sql);
+	$hive->Query($sql);
 	echo $sql;
 	//$db_array = $client->fetchOne();
 	echo '<script>alert(\''.$lang['createDbSuccess'].'\');window.location=\'index.php?frame=right\';</script>';
-	$transport->close();
+	$hive->__destruct();
 }
 ?>
