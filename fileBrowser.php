@@ -2,12 +2,6 @@
 include_once 'config.inc.php';
 include_once 'templates/style.css';
 
-if(!@$_GET['dir'])
-{
-	$dir = $env['hdfsToHiveDir'];
-}
-else
-{
 	/*
 	//echo str_replace("/","\/",$_GET['dir']);
 	if(preg_match('/'.str_replace("/","\/",$_GET['dir']).'/i',$env['hdfsToHiveDir']) == '0')
@@ -92,7 +86,6 @@ else
 	{
 		print_r($e);
 	}
-}
 
 //if (is_dir($dir)) {
 	/*
