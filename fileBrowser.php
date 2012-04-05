@@ -18,13 +18,13 @@ include_once 'templates/style.css';
 	$socket->setRecvTimeout(20000);
 	$transport = new TBufferedTransport($socket);
 	$protocol = new TBinaryProtocol($transport);
-	$client = new hadoopfs_ThriftHadoopFileSystemClient($protocol);
+	$client = new ThriftHadoopFileSystemClient($protocol);
 	$transport->open();
 	
 	try
 	{  
 		// create directory
-		$dirpathname = new hadoopfs_Pathname(array("pathname" => "/user/root/hadoop"));
+		$dirpathname = new Pathname(array("pathname" => "/user/root/hadoop"));
 		if($client->exists($dirpathname->pathname) == TRUE)
 		{
 			echo $dirpathname->pathname . " exists.\n";
@@ -34,7 +34,7 @@ include_once 'templates/style.css';
 			$result = $client->mkdirs($dirpathname);
 		}
 		// put file
-		$filepathname = new hadoopfs_Pathname(array("pathname" => $dirpathname->pathname . "/hello.txt"));
+		$filepathname = new Pathname(array("pathname" => $dirpathname->pathname . "/hello.txt"));
 		$localfile = fopen("hello.txt", "rb");
 		$hdfsfile = $client->create($filepathname);
 		while(true)
