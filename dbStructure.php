@@ -30,7 +30,7 @@ else
 		}
 		else
 		{
-			echo "<a href=dropDatabase.php?database=".$_GET['database']."><img src=images/b_deltbl.png>".$lang['dropDatabase']."</a>";
+			echo "<a href=# onclick=\"javascript:realconfirm=('".$lang['dropDbConfirm']."','".$_GET['database']."');return false;\"><img src=images/b_deltbl.png>".$lang['dropDatabase']."</a>";
 		}
 		echo "</td></tr></table><br><br>";
 		

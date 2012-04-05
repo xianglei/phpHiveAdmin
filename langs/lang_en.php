@@ -107,4 +107,5 @@ $lang['rcfile'] = 'RCFile(hive 0.6.0 up only)';
 $lang['asRcfile'] = 'AS select_statment (No use Leave it blank): ';
 $lang['cloneTable'] = 'Clone';
 $lang['putIni'] = 'Put ini file into: ';
+$lang['dropDbConfirm'] = 'Are you sure to drop this DB?';
 ?>
