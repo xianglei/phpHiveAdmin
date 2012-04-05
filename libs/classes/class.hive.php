@@ -7,14 +7,14 @@ class Hive
 	
 	public function __construct()
 	{
-		$this->mTransport = new TSocket(HOST, PORT);echo HOST;echo PORT;
+		$this->mTransport = new TSocket(HOST, PORT);
 		$this->mProtocol = new TBinaryProtocol($this->mTransport);
 		$this->mClient = new ThriftHiveClient($this->mProtocol);
+		$this->mTransport->open();
 	}
 	
 	public function Execute($pSql)
 	{
-		$this->mTransport->open();
 		$this->mClient->execute($sql);
 	}
 	
