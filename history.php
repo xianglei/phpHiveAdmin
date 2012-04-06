@@ -49,7 +49,7 @@ if ($dh = opendir($dir))
 				$fp = fopen($dir.$file);
 				while(!feof($fp)):
 					$str .= fgets($fp);
-				endwhile
+				endwhile;
 				echo $str;
 				echo "</td>";
 			}
