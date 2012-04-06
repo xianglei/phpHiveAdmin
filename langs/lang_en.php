@@ -109,4 +109,5 @@ $lang['cloneTable'] = 'Clone';
 $lang['putIni'] = 'Put ini file into: ';
 $lang['dropDbConfirm'] = 'Are you sure to drop this DB?';
 $lang['history'] = 'History';
+$lang['fileContent'] = 'File Content';
 ?>

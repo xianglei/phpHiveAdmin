@@ -109,4 +109,5 @@ $lang['cloneTable'] = '复制表';
 $lang['putIni'] = '将ini文件放到\'./etl/\'路径下: ';
 $lang['dropDbConfirm'] = '确认要删除DB?';
 $lang['history'] = '历史查询';
+$lang['fileContent'] = '文件内容';
 ?>
