@@ -13,8 +13,6 @@ else
 
 if ($dh = opendir($dir))
 {
-	if(!@$_POST['searchkey'])
-	{
 		echo "<a href=history.php?dir=".$env['logs_path'].">Back to Root</a><br><br>";
 	
 		include_once "templates/search_history.html";
@@ -79,10 +77,5 @@ if ($dh = opendir($dir))
 		closedir($dh);
 		echo "</table>";
 		echo "Files: ".$i;
-	}
-	else
-	{	echo $str = 'grep '.@$_POST['searchkey'].' '.$env['logs_path'];
-		echo $res = exec($str);
-	}
 }
 ?>
