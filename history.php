@@ -39,12 +39,18 @@ if ($dh = opendir($dir))
 		{
 			if(is_dir($dir.$file))
 			{
-				echo "<td><a href=history.php?dir=".$dir.$file."/>$file</td>\n";
+				echo "<td>$file</td>\n";
 				echo "<td>Directory</td>";
 			}
 			else
 			{
-				echo "<td><a href=history.php?dir=".$dir.$file.">$file</td>\n";
+				$tmp = explode("_", $file);
+				$str = $tmp[1]."_".$tmp[2];
+				if(file_exists($env['output_path']."/hive_res.".$str.".out"))
+				{
+					echo "<td><a href=getResult.php?str=".$str.">$file</td>\n";
+				}
+				
 				echo "<td>";
 				$fp = fopen($dir.$file,"r");
 				while(!feof($fp)):
@@ -53,6 +59,7 @@ if ($dh = opendir($dir))
 				echo $str;
 				unset ($str);
 				echo "</td>";
+				
 			}
 			echo "<td>".filetype($dir.$file)."</td>\n";
 			echo "<td>".filesize($dir.$file)."</td>\n";

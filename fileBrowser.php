@@ -43,11 +43,11 @@ if ($dh = opendir($dir))
 		{
 			if(is_dir($dir.$file))
 			{
-				echo "<td><a href=fileBrowser.php?dir=".$dir.$file."/>$file </td>\n";
+				echo "<td><a href=fileBrowser.php?dir=".$dir.$file."/>$file</a></td>\n";
 			}
 			else
 			{
-				echo "<td><a href=fileBrowser.php?dir=".$dir.$file.">$file </td>\n";
+				echo "<td><a href=fileBrowser.php?dir=".$dir.$file.">$file</a></td>\n";
 			}
 			echo "<td>".filetype($dir.$file)."</td>\n";
 			echo "<td>".filesize($dir.$file)."</td>\n";
