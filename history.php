@@ -45,7 +45,7 @@ if ($dh = opendir($dir))
 			else
 			{
 				$tmp = explode("_", $file);
-				$str = $tmp[1]."_".$tmp[2];
+				echo $str = $tmp[1]."_".$tmp[2];
 				if(file_exists($env['output_path']."/hive_res.".$str.".out"))
 				{
 					echo "<td><a href=getResult.php?str=".$str.">$file</a></td>\n";
