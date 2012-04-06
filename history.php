@@ -48,10 +48,10 @@ if ($dh = opendir($dir))
 			else
 			{
 				$tmp = explode("_", $file);
-				$str = substr($tmp[1]."_".$tmp[2],0,-4);
-				if(file_exists($env['output_path']."/hive_res.".$str.".out"))
+				$tmp = substr($tmp[1]."_".$tmp[2],0,-4);
+				if(file_exists($env['output_path']."/hive_res.".$tmp.".out"))
 				{
-					echo "<td><a href=getResult.php?str=".$str.">$file</a></td>\n";
+					echo "<td><a href=getResult.php?str=".$tmp.">$file</a></td>\n";
 				}
 				else
 				{
@@ -61,9 +61,9 @@ if ($dh = opendir($dir))
 				echo "<td>";
 				$fp = fopen($dir.$file,"r");
 				while(!feof($fp)):
-					$str1 .= fgets($fp,1024);
+					$str .= fgets($fp,1024);
 				endwhile;
-				echo $str1;
+				echo $str;
 				unset ($str);
 				echo "</td>";
 				
