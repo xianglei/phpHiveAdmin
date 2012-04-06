@@ -81,8 +81,8 @@ if ($dh = opendir($dir))
 		echo "Files: ".$i;
 	}
 	else
-	{
-		echo $res = exec('grep '.@$_POST['searchkey'].' '.$env['logs_path']);
+	{	echo $str = 'grep '.@$_POST['searchkey'].' '.$env['logs_path'];
+		echo $res = exec($str);
 	}
 }
 ?>
