@@ -108,4 +108,5 @@ $lang['asRcfile'] = 'AS select_statment (No use Leave it blank): ';
 $lang['cloneTable'] = 'Clone';
 $lang['putIni'] = 'Put ini file into: ';
 $lang['dropDbConfirm'] = 'Are you sure to drop this DB?';
+$lang['history'] = 'History';
 ?>

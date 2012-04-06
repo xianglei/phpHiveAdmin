@@ -71,51 +71,39 @@
 
 <body bgcolor="#EFEFEF">
 <a href="dbList.php" target="left">
-<?php
-echo $lang['SQL'];
-?>
+<?=$lang['SQL']?>
 </a>
 -
 <a href="execEtl.php" target="right">
-<?php
-echo $lang['ETL'];
-?>
+<?=$lang['ETL']?>
 </a>
 -
 <a href="getClusterStatus.php" target="right">
-<?php
-echo $lang['ClusterStatus'];
-?>
+<?=$lang['ClusterStatus']?>
 </a>
 -
 <a href="getSchema.php" target="right">
-<?php
-echo $lang['Schema'];
-?>
+<?=$lang['Schema']?>
 </a>
 -
 <a href="getThriftSchema.php" target="right">
-<?php
-echo $lang['ThriftSchema'];
-?>
+<?=$lang['ThriftSchema']?>
 </a>
 -
 <a href="getQueryPlan.php" target="right">
-<?php
-echo $lang['QueryPlan'];
-?>
+<?=$lang['QueryPlan']?>
 </a>
 -
 <a href="fileBrowser.php" target="right">
-<?php
-echo $lang['fileBrowser'];
-?>(<?php echo $lang['needHDFS'];?>)
+<?=$lang['fileBrowser']?>(<?=$lang['needHDFS']?>)
 </a>
 -
 <a href="metaSummury.php" target="right">
-<?php
-echo $lang['metaSummury'];
-?>
+<?=$lang['metaSummury']?>
+</a>
+-
+<a href="history.php" target="right">
+	<?=$lang['history']?>
 </a>
 &nbsp;&nbsp;&nbsp;&nbsp;
 phpHiveAdmin

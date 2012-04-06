@@ -1,7 +1,10 @@
 <?php
 class Hive
 {
-
+	public function GetHistoryFileSortByDate()
+	{
+		
+	}
 }
 
 class MysqlMeta extends Hive
