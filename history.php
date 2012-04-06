@@ -82,7 +82,7 @@ if ($dh = opendir($dir))
 	}
 	else
 	{
-		$res = exec('grep '.$searchkey.' '.$env['logs_path']);
+		echo $res = exec('grep '.$searchkey.' '.$env['logs_path']);
 	}
 }
 ?>
