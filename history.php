@@ -39,18 +39,19 @@ if ($dh = opendir($dir))
 		{
 			if(is_dir($dir.$file))
 			{
-				echo "<td><a href=history.php?dir=".$dir.$file."/>$file </td>\n";
+				echo "<td><a href=history.php?dir=".$dir.$file."/>$file</td>\n";
 				echo "<td>Directory</td>";
 			}
 			else
 			{
-				echo "<td><a href=history.php?dir=".$dir.$file.">$file </td>\n";
+				echo "<td><a href=history.php?dir=".$dir.$file.">$file</td>\n";
 				echo "<td>";
 				$fp = fopen($dir.$file,"r");
 				while(!feof($fp)):
 					$str .= fgets($fp,1024);
 				endwhile;
 				echo $str;
+				unset ($str);
 				echo "</td>";
 			}
 			echo "<td>".filetype($dir.$file)."</td>\n";
