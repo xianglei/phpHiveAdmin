@@ -48,7 +48,7 @@ if ($dh = opendir($dir))
 				echo "<td>";
 				$fp = fopen($dir.$file);
 				while(!feof($fp)):
-					$str .= fgets($fp);
+					$str .= fgets($fp,1024);
 				endwhile;
 				echo $str;
 				echo "</td>";
