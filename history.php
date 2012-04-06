@@ -46,7 +46,7 @@ if ($dh = opendir($dir))
 			{
 				echo "<td><a href=history.php?dir=".$dir.$file.">$file </td>\n";
 				echo "<td>";
-				$fp = fopen($dir.$file);
+				$fp = fopen($dir.$file,"r");
 				while(!feof($fp)):
 					$str .= fgets($fp,1024);
 				endwhile;
