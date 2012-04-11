@@ -98,12 +98,11 @@ default_socket_timeout = 36000
 5: 打开 config.inc.php
 找到 define('HOST','192.168.1.49'); and define('PORT','10000'); 并设置为你自己的hiveserver地址.
 在config.inc.php中找到以下变量，并修改为你自己的路径，请赋予etl,output_path,logs_path 0777权限
-$env['hive_jar']
-$env['hadoop_home']
-$env['hive_home']
-$env['java_home']
+$env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';
+$env['hive_home'] = '/opt/modules/hive/hive-0.7.1';
+$env['java_home'] = '/usr/java/jdk1.6.0_21';
 $env['etl'] = './etl/';
-$env['output_path']
+$env['output_path'] = '/data2/tmp/phpHiveAdmin';
 $env['logs_path'] = './logs/';
 
 然后?
