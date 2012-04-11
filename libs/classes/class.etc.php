@@ -104,10 +104,10 @@ class Etc
 			{
 				$right_arr[] = $pArray[$i];
 			}
-		}var_dump($left_arr);
+		}
 		$left_arr = $this->QuickSortForLogFile($left_arr);
 		$right_arr = $this->QuickSortForLogFile($right_arr);
-
+var_dump($left_arr);
 		return array_merge($right_arr, array($key), $left_arr);
 	}
 }
