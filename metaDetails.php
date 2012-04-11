@@ -68,8 +68,9 @@ else
 		echo "</tr>";
 		$i++;
 	}
-	echo "</table><br>";
-	echo "<a href=metaSummury.php>".$lang['back']."</a><br>";
+	echo "</table>";
 	$pagination->render();
+	echo "<br>";
+	echo "<a href=metaSummury.php>".$lang['back']."</a><br>";
 }
 ?>
