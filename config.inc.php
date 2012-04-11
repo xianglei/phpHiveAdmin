@@ -13,21 +13,11 @@ $auth = new Authorize;
 
 # for my company use only below, you can change it to standard authrize as you wish
 # 仅仅是我公司内部使用所需要的验证，你可以自己改造成自己的标准验证方式
-if(!@$_GET['username'] && !@$_GET['password'])
-{
-	$username = "test1";
-	$password = "test1";
-}
-else
-{
-	$username = @$_GET['username'];
-	$password = @$_GET['password'];
-}
 
-if($username != "" && $password != "")
+if($_GET['username'] != "" && $_GET['password'] != "")
 {
-	$_SESSION['username'] = $username;
-	$_SESSION['password'] = $password;
+	$_SESSION['username'] = $_GET['username'];
+	$_SESSION['password'] = $_GET['password'];
 }
 else
 {
