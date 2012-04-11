@@ -1,3 +1,33 @@
+0.06 beta4
+0. define project name to: Molten Core
+1. Add History list and result to phpHiveAdmin
+2. Fix a hyperlink error when cloning a table
+3. Auto remove ` in sql query string when doing a query
+4. Add chinese installation description to INSTALL
+5. More clearly description in config.inc.php, and chinese.
+6. localized to README
+7. page visualization look better now (I'm not good at frontend, sorry for that)
+8. "select * " with where will make a map/reduce query, no more limit error.
+9. Fix doing a sql in command mode bug
+10. Fix possiblly error caesed by complicated query and character encoding(like chinese UTF8 encoding)
+11. Add confirm to drop db.
+12. Stop all development based on filesystem, tune to mysql-based management on next beta release.
+
+
+0. 定义项目名称为：熔火之心
+1. 加入历史查询列表，并可以从历史列表里获取往日查询结果
+2. 修正一个复制表的超链接错误
+3. 自动移除在SQL查询的时候，SQL语句中可能出现的 ` 符号
+4. 在INSTALL文件中增加中文说明
+5. config.inc.php中的说明注释变得更加详细清楚，并加入中文说明
+6. README文件加入中文说明
+7. 页面看上去更好看一点了( 我实在不擅长前端开发,抱歉了各位 )
+8. "select *" 配合where时将执行map/reduce操作，而不会再报一个limit错误
+9. 修正一个命令行查询sql的错误
+10. 修正一些复杂查询和字符编码(例如汉字)，可能会带来的执行错误
+11. 删除数据库增加确认
+12. 停止一切基于文件系统的开发，从下个版本开始，将调整为基于mysql管理phpHiveAdmin相关数据。
+
 03-28-2012
 0.06 beta3
 1. Can add and drop column(s) with a table by using alterTable

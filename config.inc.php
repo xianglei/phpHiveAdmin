@@ -13,10 +13,21 @@ $auth = new Authorize;
 
 # for my company use only below, you can change it to standard authrize as you wish
 # 仅仅是我公司内部使用所需要的验证，你可以自己改造成自己的标准验证方式
-if($_GET['username'] != "" && $_GET['password'] != "")
+if(!@$_GET['username'] && !@$_GET['password'])
 {
-	$_SESSION['username'] = $_GET['username'];
-	$_SESSION['password'] = $_GET['password'];
+	$username = "test1";
+	$password = "test1";
+}
+else
+{
+	$username = @$_GET['username'];
+	$password = @$_GET['password'];
+}
+
+if($username != "" && $password != "")
+{
+	$_SESSION['username'] = $username;
+	$_SESSION['password'] = $password;
 }
 else
 {
@@ -102,8 +113,8 @@ $env['showTables'] = 'show tables';
 $env['bodyColor'] = '#EFEFEF';
 $env['trColor1'] = '#AFAFAF';
 $env['trColor2'] = '#DFDFDF';
-# Important: varius below is being used only if you mount hdfs to a local filesystem with fusefs tool!!!Unless it will cause fatal error
+# Important: various below is being used only if you mount hdfs to a local filesystem with fusefs tool!!!Unless it will cause fatal error
 # 重要，下面的变量是定义hdfs浏览访问所使用，需要fusefs-dfs支持。如果没有，请不要使用浏览hdfs功能。
-$env['hdfsToHiveDir'] = '/';
+$env['hdfsToHiveDir'] = '/hdfs';
 # '/hdfs' is a libhdfs mount point to localize directory
 # 这里定义的是通过libhdfs mount到本地的路径。
