@@ -425,7 +425,7 @@ class Zebra_Pagination
                     // apply padding if required
                     ($this->_padding ? str_pad($i, strlen($this->_total_pages), '0', STR_PAD_LEFT) : $i) .
 
-                    '&nbsp;&nbsp;</a>';
+                    '</a>&nbsp;&nbsp;';
 
             }
 
@@ -441,7 +441,7 @@ class Zebra_Pagination
                 // apply padding if required
                 ($this->_padding ? str_pad('1', strlen($this->_total_pages), '0', STR_PAD_LEFT) : '1') .
 
-                '&nbsp;&nbsp;</a>';
+                '</a>&nbsp;&nbsp;';
 
             // compute the number of pages to display to the left of the currently selected page
             // so that the current page is always centered
@@ -498,7 +498,7 @@ class Zebra_Pagination
                     // apply padding if required
                     ($this->_padding ? str_pad($i, strlen($this->_total_pages), '0', STR_PAD_LEFT) : $i) .
 
-                    '&nbsp;&nbsp;</a>';
+                    '</a>&nbsp;&nbsp;';
 
             }
 
@@ -513,7 +513,7 @@ class Zebra_Pagination
 
                 $this->_total_pages .
 
-                '&nbsp;&nbsp;</a>';
+                '</a>&nbsp;&nbsp;';
 
             // if the total number of available pages is greater than the number of pages to be displayed at once
             // it means we can show the "next page" link
