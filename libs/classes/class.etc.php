@@ -89,7 +89,8 @@ class Etc
 		{
 			return $pArray;
 		}
-		$key = explode("_",$pArray[1]);
+		$key = explode("_",$pArray[0]);
+		$key = $key[1];
 		$left_arr = array();
 		$right_arr = array();
 		for ($i=1; $i<count($pArray); $i++)
