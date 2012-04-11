@@ -35,7 +35,7 @@ if ($dh = opendir($dir))
 	}
 	closedir($dh);
 	
-	$records_per_page = 30;
+	$records_per_page = 10;
 	$pagination = new Zebra_Pagination();
 	$pagination->records(count($file_array));
 	$pagination->records_per_page($records_per_page);

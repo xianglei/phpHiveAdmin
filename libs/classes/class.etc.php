@@ -498,7 +498,7 @@ class Zebra_Pagination
                     // apply padding if required
                     ($this->_padding ? str_pad($i, strlen($this->_total_pages), '0', STR_PAD_LEFT) : $i) .
 
-                    '</a>';
+                    '&nbsp;&nbsp;</a>';
 
             }
 
