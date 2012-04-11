@@ -110,4 +110,6 @@ $lang['putIni'] = 'Put ini file into: ';
 $lang['dropDbConfirm'] = 'Are you sure to drop this DB?';
 $lang['history'] = 'History';
 $lang['fileContent'] = 'File Content';
+$lang['nextPage'] = 'Next Page';
+$lang['previousPage'] = 'Previous Page';
 ?>

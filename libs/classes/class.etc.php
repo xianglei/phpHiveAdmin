@@ -384,6 +384,7 @@ class Zebra_Pagination
      */
     function render($return_output = false)
     {
+    	global $lang;
 
         // get some properties of the class
         $this->get_page();
@@ -406,7 +407,7 @@ class Zebra_Pagination
                 // if we're on the first page, the link is disabled
                 '" class="navigation left' . ($this->page == 1 ? ' disabled' : '') . '"' .
 
-                '>previous page</a>';
+                '>'.$lang['previousPage'].'</a>';
 
         }
 
@@ -433,7 +434,7 @@ class Zebra_Pagination
         } else {
 
             // put a link to the first page
-            $output .= '<a href="' . $this->_build_uri(1) . '" ' .
+            $output .= '&nbsp;&nbsp;<a href="' . $this->_build_uri(1) . '" ' .
 
                 // highlight if it is the currently selected page
                 ($this->page == 1 ? 'class="current"' : '') . '>' .
@@ -490,7 +491,7 @@ class Zebra_Pagination
             // place links for each page
             for ($i = $starting_page; $i <= $ending_page; $i++) {
 
-                $output .= '<a href="' . $this->_build_uri($i) . '" ' .
+                $output .= '&nbsp;&nbsp;<a href="' . $this->_build_uri($i) . '" ' .
 
                     // highlight the currently selected page
                     ($this->page == $i ? 'class="current"' : '') . '>' .
@@ -506,7 +507,7 @@ class Zebra_Pagination
             if ($this->_total_pages - $ending_page > 1) $output .= '<span>&hellip;</span>';
 
             // put a link to the last page
-            $output .= '<a href="' . $this->_build_uri($this->_total_pages) . '" ' .
+            $output .= '&nbsp;&nbsp;<a href="' . $this->_build_uri($this->_total_pages) . '" ' .
 
                 // highlight if it is the currently selected page
                 ($this->page == $i ? 'class="current"' : '') . '>' .
@@ -527,7 +528,7 @@ class Zebra_Pagination
                     // if we're on the last page, the link is disabled
                     '" class="navigation right' . ($this->page == $this->_total_pages ? ' disabled' : '') . '"' .
 
-                    '>next page</a>';
+                    '>'.$lang['nextPage'].'</a>';
 
             }
 
