@@ -33,6 +33,18 @@ else
 	}
 
 	$arr = $meta->GetResultRow($sql);
+	
+	$records_per_page = 50;
+	$pagination = new Zebra_Pagination();
+	$pagination->records(count($arr));
+	$pagination->records_per_page($records_per_page);
+	
+	$arr = array_slice(
+    $arr,
+    (($pagination->get_page() - 1) * $records_per_page),
+    $records_per_page
+	);
+	
 	echo "<a href=metaSummury.php>".$lang['back']."</a><br><br>";
 	echo "<table border=1 cellspacing=1 cellpadding=3>";
 	$i = 0;
@@ -57,6 +69,7 @@ else
 		$i++;
 	}
 	echo "</table><br>";
-	echo "<a href=metaSummury.php>".$lang['back']."</a>";
+	echo "<a href=metaSummury.php>".$lang['back']."</a><br>";
+	$pagination->render();
 }
 ?>
