@@ -17,6 +17,7 @@ if ($dh = opendir($dir))
 
 	include_once "templates/search_history.html";
 
+	#Read file list in ./logs/ directory
 	$i = 0;
    	while (($file = readdir($dh)) !== false)
 	{
@@ -35,10 +36,12 @@ if ($dh = opendir($dir))
 	}
 	closedir($dh);
 	
+	#Filename quick sort by date desc
 	$etc = new Etc;
 	$file_array = $etc->QuickSortForLogFile($file_array);
-	var_dump($file_array);
+	#
 	
+	#Make Pagination object
 	$records_per_page = 20;
 	$pagination = new Zebra_Pagination();
 	$pagination->records(count($file_array));
