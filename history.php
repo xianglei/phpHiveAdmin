@@ -37,6 +37,7 @@ if ($dh = opendir($dir))
 	
 	$etc = new Etc;
 	$file_array = $etc->QuickSortForLogFile($file_array);
+	var_dump($file_array);
 	
 	$records_per_page = 20;
 	$pagination = new Zebra_Pagination();
