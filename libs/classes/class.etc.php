@@ -82,6 +82,33 @@ class Etc
 
 		return $output;
 	}
+
+	public function QuickSortForLogFile($pArray)
+	{
+		if (count($pArray) <= 1)
+		{
+			return $pArray;
+		}
+		$key = explode("_",$pArray[1]);
+		$left_arr = array();
+		$right_arr = array();
+		for ($i=1; $i<count($pArray); $i++)
+		{
+			$sort_key = explode("_",$pArray[$i]);
+			if ( $sort_key[1] <= $key)
+			{
+				$left_arr[] = $pArray[$i];
+			}
+			else
+			{
+				$right_arr[] = $pArray[$i];
+			}
+		}
+		$left_arr = $this->QuickSortForLogFile($left_arr);
+		$right_arr = $this->QuickSortForLogFile($right_arr);
+
+		return array_merge($left_arr, array($key), $right_arr);
+	}
 }
 
 
@@ -96,7 +123,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function Zebra_Pagination()
+    public function Zebra_Pagination()
     {
 
         // set default starting page
@@ -166,7 +193,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function base_url($base_url = '')
+    public function base_url($base_url = '')
     {
 
         // set the base URL
@@ -187,7 +214,7 @@ class Zebra_Pagination
      *
      *  @return integer     Returns the current page's number
      */
-    function get_page()
+    public function get_page()
     {
 
         // if page was not already set through the "set_page" method
@@ -271,7 +298,7 @@ class Zebra_Pagination
      *
      *  @returns void
      */
-    function method($method)
+    public function method($method)
     {
 
         // by default, we assume page propagation is done through GET
@@ -303,7 +330,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function padding($enabled = true)
+    public function padding($enabled = true)
     {
 
         // set padding
@@ -328,7 +355,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function records($records)
+    public function records($records)
     {
 
         // the number of records
@@ -355,7 +382,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function records_per_page($records_per_page)
+    public function records_per_page($records_per_page)
     {
 
         // the number of records displayed on one page
@@ -382,7 +409,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function render($return_output = false)
+    public function render($return_output = false)
     {
     	global $lang;
 
@@ -561,7 +588,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function selectable_pages($selectable_pages)
+    public function selectable_pages($selectable_pages)
     {
 
         // the number of selectable pages
@@ -589,7 +616,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function set_page($page)
+    public function set_page($page)
     {
 
         // set the current page
@@ -622,7 +649,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function trailing_slash($enabled)
+    public function trailing_slash($enabled)
     {
 
         // set the state of trailing slashes
@@ -646,7 +673,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function variable_name($variable_name)
+    public function variable_name($variable_name)
     {
 
         // set the variable name
@@ -661,7 +688,7 @@ class Zebra_Pagination
      *
      *  @return void
      */
-    function _build_uri($page)
+    public function _build_uri($page)
     {
 
         // if page propagation method is through SEO friendly URLs
@@ -714,7 +741,6 @@ class Zebra_Pagination
         }
 
     }
-
 }
 
 ?>
