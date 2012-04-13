@@ -35,12 +35,11 @@ default_socket_timeout = 36000
 5: open config.inc.php
 set define('HOST','192.168.1.49'); and define('PORT','10000'); to your hive thrift server address and port.
 find variables below in config.inc.php, change to your own path，and chmod etl,output_path,logs_path to 0777
-$env['hive_jar']
-$env['hadoop_home']
-$env['hive_home']
-$env['java_home']
+$env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';
+$env['hive_home'] = '/opt/modules/hive/hive-0.7.1';
+$env['java_home'] = '/usr/java/jdk1.6.0_21';
 $env['etl'] = './etl/';
-$env['output_path']
+$env['output_path'] = '/data2/tmp/phpHiveAdmin';
 $env['logs_path'] = './logs/';
 
 Then?
