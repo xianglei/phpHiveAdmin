@@ -4,7 +4,7 @@ class Etc
 	public function FingerPrintMake()
 	{
 		$mtime = explode(" ",microtime());
-		$date = date("Y-m-d",$mtime[1]);
+		$date = date("Y-m-d-H-i-s",$mtime[1]);
 		$mtime = (float)$mtime[1] + (float)$mtime[0];
 		$sha1 = $date."_".sha1($mtime);
 		return $sha1;
