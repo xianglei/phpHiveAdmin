@@ -47,7 +47,7 @@ if ($dh = opendir($dir))
 		$i++;
 	}
 	closedir($dh);
-	var_dump($file_array);
+	
 	#Filename quick sort by date desc
 	$etc = new Etc;
 	$file_array = $etc->QuickSortForLogFile($file_array);
@@ -70,7 +70,7 @@ if ($dh = opendir($dir))
 	echo "<td>".$lang['filename']."</td><td>".$lang['fileContent']."</td><td>".$lang['filetype']."</td><td>".$lang['filesize']."</td>";
 	echo "</tr>";
 	
-	foreach ($file_array as $index => $file)
+	foreach (@$file_array as $index => $file)
 	{
 		if(($index % 2) == 0)
 		{
