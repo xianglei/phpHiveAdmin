@@ -44,6 +44,15 @@ if ($dh = opendir($dir))
 		}
 		$i++;
 	}
+	
+	$i = 0;
+	foreach ($file_array as $v)
+	{
+		$array[$i] = $v;
+		$i++;
+	}
+	$file_array = $array;
+	
 	closedir($dh);
 	var_dump($file_array);
 	#Filename quick sort by date desc
