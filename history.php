@@ -29,7 +29,19 @@ if ($dh = opendir($dir))
 		{
 			if(!is_dir($dir.$file))
 			{
-				$file_array[$i] = $file; 
+				if($_SESSION['onlydb'] == 'all')
+				{
+					$file_array[$i] = $file;
+				}
+				else
+				{
+					if(preg_match('/'.$_SESSION['username'].'/', $file))
+					{
+						$file_array[$i] = $file;
+					}
+				}
+				
+					
 			}
 		}
 		$i++;
@@ -42,7 +54,7 @@ if ($dh = opendir($dir))
 	#
 	
 	#Make Pagination object
-	$records_per_page = 20;
+	$records_per_page = 30;
 	$pagination = new Zebra_Pagination();
 	$pagination->records(count($file_array));
 	$pagination->records_per_page($records_per_page);
@@ -103,6 +115,5 @@ if ($dh = opendir($dir))
 	}
 	echo "</table>";
 	$pagination->render();
-	
 }
 ?>

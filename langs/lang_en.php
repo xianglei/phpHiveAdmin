@@ -112,4 +112,5 @@ $lang['history'] = 'History';
 $lang['fileContent'] = 'File Content';
 $lang['nextPage'] = 'Next Page';
 $lang['previousPage'] = 'Previous Page';
+$lang['welcome'] = 'Welcome to Big Data';
 ?>
