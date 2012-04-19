@@ -40,14 +40,12 @@ if ($dh = opendir($dir))
 						$file_array[$i] = $file;
 					}
 				}
-				
-					
 			}
 		}
 		$i++;
 	}
 	closedir($dh);
-	
+	var_dump($file_array);
 	#Filename quick sort by date desc
 	$etc = new Etc;
 	$file_array = $etc->QuickSortForLogFile($file_array);
