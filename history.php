@@ -2,6 +2,8 @@
 include_once 'config.inc.php';
 include_once 'templates/style.css';
 
+$etc = new Etc;
+
 if(preg_match('/'.str_replace("/","\/",$_GET['dir']).'/i',$env['logs_path']) == '0')
 {
 	$dir = $_GET['dir'];
@@ -44,19 +46,13 @@ if ($dh = opendir($dir))
 		}
 		$i++;
 	}
-	
-	$i = 0;
-	foreach ($file_array as $v)
-	{
-		$array[$i] = $v;
-		$i++;
-	}
-	$file_array = $array;
+
+	$file_array = $etc->ArrayReindex($file_array);
 	
 	closedir($dh);
 	#var_dump($file_array);
 	#Filename quick sort by date desc
-	$etc = new Etc;
+
 	$file_array = $etc->QuickSortForLogFile($file_array);
 	#
 	

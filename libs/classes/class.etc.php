@@ -1,6 +1,16 @@
 <?php
 class Etc
 {
+	public function ArrayReindex($pArray)
+	{
+		$i = 0;
+		foreach($pArray as $value)
+		{
+			$arr[$i] = $value; 
+			$i++;
+		}
+		return $arr;
+	}
 	public function FingerPrintMake()
 	{
 		$mtime = explode(" ",microtime());
