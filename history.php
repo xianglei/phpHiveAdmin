@@ -47,7 +47,7 @@ if ($dh = opendir($dir))
 		$i++;
 	}
 	closedir($dh);
-	
+	var_dump($file_array);
 	#Filename quick sort by date desc
 	$etc = new Etc;
 	$file_array = $etc->QuickSortForLogFile($file_array);
@@ -59,7 +59,7 @@ if ($dh = opendir($dir))
 	$pagination->records(count($file_array));
 	$pagination->records_per_page($records_per_page);
 	
-	$file_array = array_slice(
+	$file_array = @array_slice(
     $file_array,
     (($pagination->get_page() - 1) * $records_per_page),
     $records_per_page
