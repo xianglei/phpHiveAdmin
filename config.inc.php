@@ -47,8 +47,7 @@ require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.timer.php';
 #-----------定义所使用语言----------------------
 
 require_once 'langs/lang_en.php';
-$env['lang'] = 'export LANG=zh_CN.UTF-8;';
-#$env['lang'] = 'export LANG=en_US.UTF-8';
+#$env['lang_set'] = 'en_US.UTF-8';
 
 # langs path en file to use chinese, modify to 'langs/lang_cn.php'
 # 语言包所使用的路径，中文请使用'lang/lang_cn.php'
@@ -94,6 +93,7 @@ $env['hive_jar'] = '/opt/modules/hive/hive-0.7.1/lib/hive-contrib-0.7.1.jar';
 $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';# hadoop root path
 $env['hive_home'] = '/opt/modules/hive/hive-0.7.1';# hive root path
 $env['java_home'] = '/usr/java/jdk1.6.0_21';# jdk root path
+$env['lang_set'] = 'zh_CN.UTF-8;';#system language set
 #------------------definations of log path and results path, give these path to 0777 mode------------
 #------------------定义日志和结果输出的文件路径，请赋予0777权限------------------------------------
 $env['etl'] = './etl/';# path to etl configuration files
