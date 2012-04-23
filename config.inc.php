@@ -47,6 +47,8 @@ require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.timer.php';
 #-----------定义所使用语言----------------------
 
 require_once 'langs/lang_en.php';
+$env['lang'] = 'export LANG=zh_CN.UTF-8;';
+#$env['lang'] = 'export LANG=en_US.UTF-8';
 
 # langs path en file to use chinese, modify to 'langs/lang_cn.php'
 # 语言包所使用的路径，中文请使用'lang/lang_cn.php'
