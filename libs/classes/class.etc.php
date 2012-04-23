@@ -37,6 +37,10 @@ class Etc
 		);
 
 		$pipes= array();
+		
+		$log = $env['logs_path'].$pTimestamp.".debug";
+		$this->LogAction($log,"w",$pCmd."\n");
+		
 		$process = proc_open($pCmd, $descriptorspec, $pipes);
 
 		$output= "";
