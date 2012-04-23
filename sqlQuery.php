@@ -89,8 +89,8 @@ else
 			}
 			
 			#log sql action
-			$logfile = $env['logs_path'].$_SESSION['username']."_".$sha1.".log";
-			$etc->LogAction($logfile,"w",$sql."\n");
+			//$logfile = $env['logs_path'].$_SESSION['username']."_".$sha1.".log";
+			//$etc->LogAction($logfile,"w",$sql."\n");
 			#
 
 			#$path = $env['http_url']."?time=".$sha1."&query=".urlencode($sql,$key);
@@ -105,7 +105,7 @@ else
 			</script>
 			";
 			
-			echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".urlencode($sql)."' , getReult)\">";
+			echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".base64_encode($sql)."' , getReult)\">";
 			echo "<input type=button value=\"".$lang['getResult']."\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
 			echo "<br><br>".$lang['fingerprintOfMapReduce']." ".$sha1;
 			echo "<br><br>";

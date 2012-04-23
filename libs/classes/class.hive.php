@@ -1,7 +1,12 @@
 <?php
 class Hive
 {
-	public function GetHistoryFileSortByDate()
+	public function __construct()
+	{
+		
+	}
+	
+	public function __destruct()
 	{
 		
 	}

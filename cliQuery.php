@@ -16,9 +16,14 @@ else
 {
 	if(file_exists($env['output_path']))
 	{
-		$sql = trim(urldecode($query));
+		$sql = trim(base64_decode($query));
 		$sql = str_replace("\"","'",$sql);
 		$sql = '"'.str_replace('`',"",$sql).'"';
+		
+		#log sql action
+		$logfile = $env['logs_path'].$_SESSION['username']."_".$time.".log";
+		$etc->LogAction($logfile,"w",$sql."\n");
+		#
 		
 		if(!file_exists($env['output_path'].'/hive_res.'.$time.'.out') || filesize($env['output_path'].'/hive_res.'.$time.'.out') == 0)
 		{
