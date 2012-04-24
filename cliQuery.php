@@ -16,7 +16,7 @@ else
 {
 	if(file_exists($env['output_path']))
 	{
-		$sql = trim(base64_decode($query));
+		$sql = trim(urldecode($query));
 		$sql = str_replace("\"","'",$sql);
 		$sql = '"'.str_replace('`',"",$sql).'"';
 		
@@ -49,7 +49,7 @@ else
 	{
 		mkdir($env['output_path'],0777);
 		
-		$sql = trim(base64_decode($query,$key));
+		$sql = trim(urldecode($query,$key));
 		$sql = str_replace("\"","'",$sql);
 		$sql = '"'.str_replace('`',"",$sql).'"';
 		
