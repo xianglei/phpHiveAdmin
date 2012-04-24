@@ -42,6 +42,15 @@ $env['etl'] = './etl/';
 $env['output_path'] = '/data2/tmp/phpHiveAdmin';
 $env['logs_path'] = './logs/';
 
+$env['lang_set'] = 'zh_CN.UTF-8';#system language set
+#$env['lang_set'] = 'en_US.UTF-8';#if you are using with english
+$env['setenv'] = 'export';
+
+Open refresh.php
+Modify
+$env['output_path'] = '/data2/tmp/phpHiveAdmin';
+to your own set , same as config.inc.php
+
 Then?
 No then, surfing in the data.
 
@@ -103,6 +112,15 @@ $env['java_home'] = '/usr/java/jdk1.6.0_21';
 $env['etl'] = './etl/';
 $env['output_path'] = '/data2/tmp/phpHiveAdmin';
 $env['logs_path'] = './logs/';
+
+$env['lang_set'] = 'zh_CN.UTF-8';#system language set
+#$env['lang_set'] = 'en_US.UTF-8';#if you are using with english
+$env['setenv'] = 'export';
+
+打开refresh.php
+修改
+$env['output_path'] = '/data2/tmp/phpHiveAdmin';
+为你自己的路径，与config.inc.php设置相同
 
 然后?
 就没有然后了，在数据里冲浪吧.

@@ -1,3 +1,38 @@
+0.07 beta1
+1. While consider for a long long time, I decide that do not use mysql to support phpHiveAdmin now, 
+
+sorry
+2. Add pagination and filename quicksort order by date desc in history and metaDetail page(Zebra 
+
+Pagination(LGPL) class support)
+3. For compatibility reason, remove short_tag written in php templates
+4. Fix a javascript bug when doing a drop database action.
+5. Remove useless ./tmp directory
+6. Modify log filename and result filename to date-time format for quick sort
+7. 'Only user' only see their own history files, but except 'all' privilege user.
+8. Fix a bug that a query with chinese utf8 string in it may cause none or zero result, I hope this is 
+
+the last time I worked with character encoding.
+9. support BASH , SH and CSH settings for query now, recommand to use 'export'(BASH) for default php-
+
+fpm user shell in config.inc.php.
+
+
+
+1. 经过长时间的考虑，我还是决定暂时不用mysql来支持phpHiveAdmin了，抱歉
+2. 在历史页面和meta数据报告页面增加分页并对文件系统返回的文件名做反向的快速排序。(Zebra Pagination
+
+(LGPL)分页类支持)
+3. 基于兼容性的原因，去掉了模板页中的php省略写法
+4. 修正一个删除数据库的javascript错误
+5. 移除无用的./tmp文件夹
+6. 因快速排序需要，将日志文件名和结果集文件名改成了日期-时间格式
+7. 受限用户只能看到受限的历史记录了，所有权为all则不受此限制
+8. 修正一个由于中文utf8编码带来的可能导致查询结果为空或0的问题，我希望这是我最后一次在字符编码上较劲。
+9. 支持BASH, SH, CSH 查询环境变量设置, 强烈建议在config.inc.php中使用'export'(BASH)作为php-fpm的缺省用
+
+户的默认shell
+
 0.06 beta4
 0. define project name to: Molten Core
 1. Add History list and result to phpHiveAdmin
