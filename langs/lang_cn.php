@@ -113,4 +113,5 @@ $lang['fileContent'] = '文件内容';
 $lang['nextPage'] = '下一页';
 $lang['previousPage'] = '上一页';
 $lang['welcome'] = '欢迎进入大数据';
+$lang['permissionDenied'] = '你不具备足够的执行权限';
 ?>

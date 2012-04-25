@@ -25,6 +25,7 @@ else
 		$etc->LogAction($logfile,"w",$sql."\n");
 		#
 		
+		#didn't use sql verification, may cause be hacked
 		if(!file_exists($env['output_path'].'/hive_res.'.$time.'.out') || filesize($env['output_path'].'/hive_res.'.$time.'.out') == 0)
 		{
 			if($env['setenv'] == 'export')

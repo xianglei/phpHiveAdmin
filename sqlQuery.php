@@ -4,6 +4,7 @@ set_time_limit(0);
 include_once 'config.inc.php';
 
 $etc = new Etc;
+$auth = new Authorize;
 
 if(!$_GET['database'] || '' == $_GET['database'])
 {
@@ -79,13 +80,22 @@ else
 		elseif(!preg_match("/limit/i", @$_POST['sql']))
 		{
 			$sha1 = $etc->FingerPrintMake();
-			if(substr(@$_POST['sql'],-1) != ";")
+			
+			#auth if have enough privileges to do hql query
+			$sql = $auth->AuthSql($_SESSION['onlydb'],@$_POST['sql']);
+			if($sql == FALSE)
 			{
-				$sql = "use ".@$_POST['database'].";".@$_POST['sql'].";";
+				die("<script>alert('".$lang['permissionDenied']."');history.back()</script>");
+			}
+			#auth if have enough privileges to do hql query
+			
+			if(substr($sql,-1) != ";")
+			{
+				$sql = "use ".@$_POST['database'].";".$sql.";";
 			}
 			else
 			{
-				$sql = "use ".@$_POST['database'].";".@$_POST['sql'];
+				$sql = "use ".@$_POST['database'].";".$sql;
 			}
 			
 			#log sql action
@@ -119,6 +129,14 @@ else
 			$timer->start();
 			$sql = $_POST['sql'];
 			echo $sql.'<br /><br />';
+			
+			#auth if have enough privileges to do hql query
+			$sql = $auth->AuthSql($_SESSION['onlydb'],@$_POST['sql']);
+			if($sql == FALSE)
+			{
+				die("<script>alert('".$lang['permissionDenied']."');history.back()</script>");
+			}
+			#auth if have enough privileges to do hql query
 			
 			$sha1 = $etc->FingerPrintMake();
 			
