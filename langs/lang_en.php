@@ -113,5 +113,5 @@ $lang['fileContent'] = 'File Content';
 $lang['nextPage'] = 'Next Page';
 $lang['previousPage'] = 'Previous Page';
 $lang['welcome'] = 'Welcome to Big Data';
-$lang['permissionDenied'] = 'You don\'t have enough permission to do this query.';
+$lang['permissionDenied'] = 'You dont have enough permission to do this query.';
 ?>
