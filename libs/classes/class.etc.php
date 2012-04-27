@@ -111,6 +111,8 @@ class Etc
 		}
 		fclose($fp2);
 		fclose($fp1);
+		
+		unlink($filename1);
 	}
 
 	public function QuickSortForLogFile($pArray)

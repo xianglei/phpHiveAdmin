@@ -9,9 +9,9 @@ if(!@$_GET['str'])
 else
 {
 	$str = @$_GET['str'];
-	if(file_exists($env['output_path']."/hive_res.".$str.".out"))
+	if(file_exists($env['output_path']."/hive_res.".$str.".csv"))
 	{
-		if(filesize($env['output_path']."/hive_res.".$str.".out") != 0)
+		if(filesize($env['output_path']."/hive_res.".$str.".csv") != 0)
 		{
 			echo "<input type=button name=download value=\"".$lang['downloadResultFile']."\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
 			$fp = fopen($env['output_path']."/hive_res.".$str.".out","r");
@@ -34,7 +34,8 @@ else
 				{
 					$color = "bgcolor=\"".$env['trColor2']."\"";
 				}
-				$arr = explode('	',$v);
+				#$arr = explode('	',$v);
+				$arr = explode(",",$v);
 				echo "<tr ".$color.">\n";
 				foreach($arr as $kk=>$vv)
 				{
