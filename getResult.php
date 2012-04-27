@@ -14,7 +14,7 @@ else
 		if(filesize($env['output_path']."/hive_res.".$str.".csv") != 0)
 		{
 			echo "<input type=button name=download value=\"".$lang['downloadResultFile']."\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
-			$fp = fopen($env['output_path']."/hive_res.".$str.".out","r");
+			$fp = fopen($env['output_path']."/hive_res.".$str.".csv","r");
 			$i = 0;
 			while($i != 30)
 			{
