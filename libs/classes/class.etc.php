@@ -97,6 +97,22 @@ class Etc
 		return $output;
 	}
 
+	public function ExportCSV($pFingerPrint)
+	{
+		global $env;
+		$filename1 = $env['output_path'].'/hive_res.'.$pFingerPrint.'.out';
+		$filename2 = $env['output_path'].'/hive_res.'.$pFingerPrint.'.csv';
+		$fp1 = @fopen($filename1,"r");
+		$fp2 = @fopen($filename2,"w");
+		while(!feof($fp1))
+		{
+			$str = str_replace("\t", ",", fgets($fp1));
+			fputs($fp2,$str);
+		}
+		fclose($fp2);
+		fclose($fp1);
+	}
+
 	public function QuickSortForLogFile($pArray)
 	{
 		if (count($pArray) <= 1)
