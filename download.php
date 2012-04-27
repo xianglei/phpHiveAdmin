@@ -7,7 +7,7 @@ else
 {
 	include_once "config.inc.php";
 	//$env['output_path'] = '/tmp/phpHiveAdmin';
-	$filename = $env['output_path']."/hive_res.".$_GET['str'].".out";
+	$filename = $env['output_path']."/hive_res.".$_GET['str'].".csv";
 	if(file_exists($filename))
 	{
 		/*
