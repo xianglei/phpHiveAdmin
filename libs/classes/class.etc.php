@@ -3,6 +3,8 @@ class Etc
 {
 	public function ArrayReindex($pArray)
 	{
+		if(is_array($pArray) == FALSE)
+			$pArray[0] = "";
 		$i = 0;
 		foreach(@$pArray as $value)
 		{
