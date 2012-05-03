@@ -61,6 +61,18 @@
 8. Fix a create internal table bug caused by table comment
 9. Add most pages back link to dbStructure.php
 
+0.06 beta3
+1. 使用修改表，可以添加和删除单个字段
+2. 移除一些无用的$env变量
+3. 在metaDetail.php添加返回连接
+4. 将部分html剥离放入 templates文件夹
+5. 加入在创建一个内部表的时候添加 AS select条件创建方式(hive 0.5.0以上版本)
+6. 创建表时，可以选择RCFile文件输入(hive 0.6.0以上版本)
+7. 现在可以从一个已经存在的表结构复制出新表
+8. 修复一个创建内部表时表注释引发的bug
+9. 增加其他页面到dbStructure.php的返回连接
+
+
 03-23-2012
 0.06 beta2
 1. Can add and drop SCHEMA now, add create database query with "if not exists" and drop database query with "if exists".
@@ -75,11 +87,31 @@
 10. MAP,ARRAY,STRUCTURE data types are planning set into PHA.
 11. new Class action set to each page which used it only by itself, to save memory use.
 
+0.06 beta2
+1. 可以添加删除SCHEMA, 创建和删除数据库的时候增加判断if not exists 和 if exists
+2. 现在可以在创建表的同时创建partition字段，并且会校验选项输入是否合法。
+3. 在顶部导航加入元数据汇总连接，可以查看元数据汇报(目前仅支持mysql，pgsql和derby正在开发)
+4. 将部分代码整理为OOP方式.
+5. 将execETL部分重写，以防止php的大数据导致内存溢出
+6. 增强了一些逻辑的判断
+7. 改进了语言部分
+8. 创建表时所选择内部外部表，改成select方式，并且默认是创建外部表。
+9. lzop的checkbox被替换成了select方式，现在可以选择TEXT, LZOP, 序列化文件，正在筹划编写GZIP和BZIP2
+10 MAP,ARRAY,STRUCTURE数据类型计划会放入phpHiveAdmin
+11. php创建对象的动作被单独放入每个页面创建并销毁，用来节省内存。
+
+
 03-15-2012
 0.06 beta1
 1. Fix php header error caused by UTF-8 BOM on all pages. I hate this byte.
 2. Add username,password and onlydb authorize function, can show only db for only user now. But I did't make this as a standard authrication, but you can change it as you wish by setup config.inc.php , simply add a new line on accesslist(not encrypt yet, but soon it will be).
 3.Start arrange codes into OOP mode.
+
+0.06 beta1
+1. 修复UTF-8 BOM字节导致的php header输出错误
+2. 加入用户名，密码，和onlydb验证函数，能够为低权限用户限制数据库的查看,但是我没有将其做成标准的验证，你可以自己稍微修改一下。
+3. 开始用OOP方式整理代码。
+
 
 03-09-2012
 0.05 beta2
@@ -90,10 +122,23 @@ Milestone!!!
 3. Simple query with 'limit' is still using thrift interface to get data.
 4. To use download result function, please make sure phpHiveAdmin/tmp is under the correct permissions.
 
+0.05 beta2
+里程碑
+1. 重写了所有的hql查询页面，复杂查询可以直接从一个自刷新的frame监控map/reduce进度!!!
+(用异步和非阻塞的方式获取系统的stderr十分的困难，但是办到了)
+2.改变结果集获取方式，大结果集现在可以直接从服务器下载，防止出现php内存溢出
+3. 带limit的简单查询仍然使用thrift接口进行查询
+4. 使用下载结果集功能。请确保phpHiveAdmin/tmp目录被设置了正确的权限
+
+
 ﻿02-24-2012
 0.05 beta1
 1. a simple ETL function had been added, setting up an ini file can
  do HIVE --> mysql ETL job. It's experimental!!!
+
+0.05 beta1
+1. 增加了一个简单的ETL功能， 可以通过简单的设置一个ini文件，来进行hive到mysql的ETL，不过这是实验性质的，后果自负。
+ 
 
 02-17-2012
 0.04 beta1
@@ -105,12 +150,26 @@ format : hdfs:///data/datawash/log/
 3. add drop database to dbStructure
 4. ETL to mysql by setting an ini_file -- still plannning :(  
 
+0.04 beta1
+1. 现在可以创建外部表，并制定HDFS来加载纯文本或者lzo压缩的数据。
+2. 可以在sqlQuery页面从本地文件或HDFS加载数据
+3. 在dbStructure增加删除数据库连接
+4. 用设置ini文件设置ETL到mysql的方式---还在计划中
+
+
 02-16-2012
 0.03
 1. add drop database
 2. alter table can modify comment
 3. an exist table can add columns
 4. a lot of link errors
+
+0.03
+1. 增加删除数据库
+2. 修改表结构可以修改表注释
+3. 一个存在的表可以添加列
+4. 修复很多连接错误
+
 
 02-15-2012
 0.02 beta1
@@ -119,8 +178,15 @@ format : hdfs:///data/datawash/log/
 2. Add alter table name (must be rooted php, or it will throw a fatal
  error, but table name can be still changed).
 3. Add drop table link to drop an exist table 
-4. Reconstruct alter table page, it looks better now. 5. add some icons
- from phpMyAdmin which made UI better.
+4. Reconstruct alter table page, it looks better now. 
+5. add some icons from phpMyAdmin which made UI better.
+ 
+0.02 beta1
+1. 增加创建表
+2. 增加修改表名(必须用root破解的php，否则会报出一个致命错误，但是表名仍然会被修改)
+3. 增加删除表的连接
+4. 重构了修改表结构页面，看起来更舒服了
+5. 从phpMyAdmin里面扒来了一些小图片让界面看上去更好一点
 
 02-13-2012
 0.01 beta3
@@ -128,12 +194,19 @@ format : hdfs:///data/datawash/log/
 add File Browser which can browse hdfs filesystem , important notice: 
 Need libhdfs,fuse-dfs and you should mount hdfs to local filesystem.
 
+0.01 beta3
+增加文件浏览器，可以浏览hdfs系统，重要：
+需要libhdfs, fuse-dfs，并且你需要把hdfs mount为本地系统
+
 02-13-2012
 0.01 beta2
 
 30 results limit may cause query bug, so remove it, added alter table
  properties to phpHiveAdmin can change field name and field
  property(string int ...) Download
+ 
+0.01 beta2
+30条结果的强制限制会引发错误，所以移除掉，增加修改表，并可以修改字段名和字段属性
 
 02-07-2012
 0.01 beta1
@@ -145,3 +218,7 @@ To prevent big result data making a browser crash, I strongly suggest
 modify some bug and now can be doing sql query. Add export csv data
  link to phphiveadmin, but I suggest you'd better do a sql query first
  before you did an export action. 
+ 
+0.01 beta1
+为防止大结果集导致的浏览器故障，我强烈建议在hsql查询中加入limit，如果没有，将会强制增加30条结果限制
+修改了一些bug，并可做hql查询。 增加导出csv连接, 但是我强烈建议你在导出结果前做一个sql查询的校验。
