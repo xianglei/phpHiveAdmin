@@ -198,7 +198,7 @@ else
 			$slots = $mslots.$rslots;
 			# Get map red Slots which the current user can use 
 			
-			$sql = $slots.$sql;
+			echo $sql = $slots.$sql;
 			$client->execute($sql);
 			$array = $client->fetchAll();
 
