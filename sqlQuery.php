@@ -171,33 +171,6 @@ else
 			$logfile = $env['logs_path'].$_SESSION['username']."_".$sha1.".log";
 			$etc->LogAction($logfile,"w",$sql."\n");
 			
-			# Get map red Slots which the current user can use 
-			$slots = $auth->AuthMapReduceSlots($env["privFile"],$_SESSION['username'],$_SESSION['password']);
-			$slots = explode(",",$slots);
-			$mslots = $slots[0];
-			$rslots = $slots[1];
-			//var_dump($slots);
-			if($mslots != '0')
-			{
-				$mslots = "set mapred.map.tasks=".$mslots."; ";
-			}
-			else
-			{
-				$mslots = "";
-			}
-			
-			if($rslots != '0')
-			{
-				$rslots = "set mapred.reduce.tasks=".$rslots."; ";
-			}
-			else
-			{
-				$rslots = ""; 
-			}
-			
-			$slots = $mslots.$rslots;
-			# Get map red Slots which the current user can use 
-			
 			$sql = $slots.$sql;
 			$client->execute($sql);
 			$array = $client->fetchAll();
