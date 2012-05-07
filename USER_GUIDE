@@ -1,0 +1,53 @@
+By following the installation guide, now you may see the phpHiveAdmin UI from a browser. Still it's simple. But however, the most important thing is to use it. So let's start
+
+## 1. Setting up language
+Open config.inc.php, find "require_once 'langs/lang_en.php';" Change it to your localize language, now support English/Chinese
+
+## 2.Setting up Hive thrift server
+Open config.inc.php find "define('HOST','192.168.1.49'); and define('PORT','10000');" set HOST to your hive ip, and PORT to your hive port
+
+## 3.Setting up Hive and Hadoop command line path
+Open config.inc.php to find lines below and modify it to your HIVE and HADOOP and JAVA executable HOME directory, like you set `export HADOOP_HOME=...` in bash. 
+
+1. $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';
+2. $env['hive_home'] = '/opt/modules/hive/hive-0.7.1';
+3. $env['java_home'] = '/usr/java/jdk1.6.0_21';
+
+## 4.Setting up log and data storage path to write-able permissions
+1. $env['etl'] = './etl/';( ETL path, need all write-able privilege )
+2. $env['output_path'] = '/data2/tmp/phpHiveAdmin';( query result storage path, need all write-able privilege )
+3. $env['logs_path'] = './logs/';( query logs storage path, need write-able privilege )
+
+## 5.Setting up ACL(Access Control List) file
+1. open accesslist.ini file with vi
+2. write the username and password you want, and set the only access database for the limited user in privdb, seperated with comma each database name.
+3. mrslots means Map/Reduce slots set, front is map slots and end is reduce slots, seperated with a comma, 0,0 means unlimited.
+
+
+***
+
+
+继续安装指南，现在你可以从浏览器中看到phpHiveAdmin的界面了，虽然很简单，但是无论如何，最重要的是可以用，所以，开始设置
+
+## 1. 设置语言
+打开 config.inc.php，找到"require_once 'langs/lang_en.php';"并修改为你自己习惯的语言，目前支持 英文/中文
+
+## 2. 设置Hive Thrift Server
+打开 config.inc.php，找到"define('HOST','192.168.1.49'); 和 define('PORT','10000');" 并设置为hive thrift server的IP和端口
+
+## 3.设置Hive, Hadoop和Java的安装路径
+打开 config.inc.php 找到以下条目，并修改为你自己的HIVE, HADOOP 和 JAVA的默认安装路径， 就如同你在BASH中设置$HADOOP_HOME一样
+
+1. $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';
+2. $env['hive_home'] = '/opt/modules/hive/hive-0.7.1';
+3. $env['java_home'] = '/usr/java/jdk1.6.0_21';
+
+## 4.设置下列路径的正确访问权限
+1. $env['etl'] = './etl/';( etl存储配置路径，全局可写 )
+2. $env['output_path'] = '/data2/tmp/phpHiveAdmin';( 查询结果集存储路径，需要全局可写 )
+3. $env['logs_path'] = './logs/';( 查询历史日志存储，需要全局可写 )
+
+## 5.配置访问控制列表文件
+1. 用vi打开 accesslist.ini 文件
+2. 写上你需要的用户名密码, 并且在privdb部分配置受限用户的受限访问db列表，用英文逗号分隔数据库名
+3. mrslots 意思是 Map/Reduce 槽位设置, 前面是map槽位后面是reduce槽位, 用英文逗号分隔, 0,0 意味着不受限.
