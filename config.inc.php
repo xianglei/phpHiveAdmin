@@ -28,7 +28,7 @@ else
 
 $env["privFile"] = "accesslist.ini";
 
-$_SESSION['onlydb'] = $auth->AuthUser($env["privFile"],$_SESSION['username'],$_SESSION['password']);var_dump($_SESSION);
+$_SESSION['onlydb'] = $auth->AuthUser($env["privFile"],$_SESSION['username'],$_SESSION['password']);
 if($_SESSION['onlydb'] == FALSE)
 {
 	die('No access');
