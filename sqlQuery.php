@@ -89,13 +89,40 @@ else
 			}
 			#auth if have enough privileges to do hql query
 			
-			if(substr($sql,-1) != ";")
+			# Get map red Slots which the current user can use 
+			$slots = $auth->AuthMapReduceSlots($env["privFile"],$_SESSION['username'],$_SESSION['password']);
+			$slots = explode(",",$slots);
+			$mslots = $slots[0];
+			$rslots = $slots[1];
+			
+			if($mslots != 0)
 			{
-				$sql = "use ".@$_POST['database'].";".$sql.";";
+				$mslots = "set mapred.map.tasks=".$mslots."; ";
 			}
 			else
 			{
-				$sql = "use ".@$_POST['database'].";".$sql;
+				$slots = "";
+			}
+			
+			if($rslots != 0)
+			{
+				$rslots = "set mapred.reduce.tasks=".$rslots."; ";
+			}
+			else
+			{
+				$rslots = ""; 
+			}
+			
+			$slots = $mslots.$rslots;
+			# Get map red Slots which the current user can use 
+			
+			if(substr($sql,-1) != ";")
+			{
+				$sql = "use ".@$_POST['database'].";".$slots.$sql.";";
+			}
+			else
+			{
+				$sql = "use ".@$_POST['database'].";".$slots.$sql;
 			}
 			
 			#log sql action
@@ -144,6 +171,34 @@ else
 			$logfile = $env['logs_path'].$_SESSION['username']."_".$sha1.".log";
 			$etc->LogAction($logfile,"w",$sql."\n");
 			
+			# Get map red Slots which the current user can use 
+			$slots = $auth->AuthMapReduceSlots($env["privFile"],$_SESSION['username'],$_SESSION['password']);
+			$slots = explode(",",$slots);
+			$mslots = $slots[0];
+			$rslots = $slots[1];
+			
+			if($mslots != 0)
+			{
+				$mslots = "set mapred.map.tasks=".$mslots."; ";
+			}
+			else
+			{
+				$slots = "";
+			}
+			
+			if($rslots != 0)
+			{
+				$rslots = "set mapred.reduce.tasks=".$rslots."; ";
+			}
+			else
+			{
+				$rslots = ""; 
+			}
+			
+			$slots = $mslots.$rslots;
+			# Get map red Slots which the current user can use 
+			
+			$sql = $slots.$sql;
 			$client->execute($sql);
 			$array = $client->fetchAll();
 

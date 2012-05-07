@@ -66,6 +66,35 @@ class Authorize
 					continue;
 				}
 			}
+			return "";
+			
+		}
+		else
+		{
+			return "";
+		}
+	}
+	
+	public function AuthMapReduceSlots($pAuthFilename,$pUsername,$pPassword)
+	{
+		if(file_exists($pAuthFilename))
+		{
+			$array = file($pAuthFilename);
+			foreach($array as $k => $v)
+			{
+				$line = trim($v);
+				$auth = $pUsername.":".$pPassword;
+				if(preg_match("/".$auth."/",$line))
+				{
+					$arr = explode(":",$line);
+					return $arr[3];
+				}
+				else
+				{
+					continue;
+				}
+			}
+			return "";
 			
 		}
 		else

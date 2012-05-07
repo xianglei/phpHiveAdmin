@@ -3,6 +3,8 @@ session_id();
 session_start();
 $GLOBALS['THRIFT_ROOT'] = './libs/';
 
+$env["privFile"] = "accesslist";
+
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.auth.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etc.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etl.php';
@@ -26,7 +28,7 @@ else
 }
 #--------------------------
 
-$_SESSION['onlydb'] = $auth->AuthUser("accesslist",$_SESSION['username'],$_SESSION['password']);
+$_SESSION['onlydb'] = $auth->AuthUser($env["privFile"],$_SESSION['username'],$_SESSION['password']);
 if(($_SESSION['onlydb'] == "") && ($_GET['username'] == "" || $_GET['password'] == ""))
 {
 	die('No access');
