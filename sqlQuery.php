@@ -95,7 +95,7 @@ else
 			$mslots = $slots[0];
 			$rslots = $slots[1];
 			
-			if($mslots != 0)
+			if($mslots != "0")
 			{
 				$mslots = "set mapred.map.tasks=".$mslots."; ";
 			}
@@ -104,7 +104,7 @@ else
 				$slots = "";
 			}
 			
-			if($rslots != 0)
+			if($rslots != "0")
 			{
 				$rslots = "set mapred.reduce.tasks=".$rslots."; ";
 			}
@@ -177,7 +177,7 @@ else
 			$mslots = $slots[0];
 			$rslots = $slots[1];
 			
-			if($mslots != 0)
+			if($mslots != "0")
 			{
 				$mslots = "set mapred.map.tasks=".$mslots."; ";
 			}
@@ -186,7 +186,7 @@ else
 				$slots = "";
 			}
 			
-			if($rslots != 0)
+			if($rslots != "0")
 			{
 				$rslots = "set mapred.reduce.tasks=".$rslots."; ";
 			}
