@@ -51,27 +51,24 @@ class Authorize
 	{
 		if(file_exists($pAuthFilename))
 		{
-			$array = file($pAuthFilename);
+			$array = parse_ini_file($pAuthFilename,TRUE);
 			foreach($array as $k => $v)
 			{
-				$line = trim($v);
-				$auth = $pUsername.":".$pPassword;
-				if(preg_match("/".$auth."/",$line))
+				if(preg_match("/".$pUsername."/",$v["username"]) && preg_match("/".$pPassword."/", $v["password"]))
 				{
-					$arr = explode(":",$line);
-					return $arr[2];
+					return $v["privdb"];
 				}
 				else
 				{
 					continue;
 				}
 			}
-			return "";
+			return FALSE;
 			
 		}
 		else
 		{
-			return "";
+			return FALSE;
 		}
 	}
 	
@@ -82,24 +79,21 @@ class Authorize
 			$array = file($pAuthFilename);
 			foreach($array as $k => $v)
 			{
-				$line = trim($v);
-				$auth = $pUsername.":".$pPassword;
-				if(preg_match("/".$auth."/",$line))
+				if(preg_match("/".$pUsername."/",$v["username"]) && preg_match("/".$pPassword."/", $v["password"]))
 				{
-					$arr = explode(":",$line);
-					return $arr[3];
+					return $v["mrslots"];
 				}
 				else
 				{
 					continue;
 				}
 			}
-			return "";
+			return FALSE;
 			
 		}
 		else
 		{
-			return "";
+			return FALSE;
 		}
 	}
 	
