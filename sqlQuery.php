@@ -176,7 +176,7 @@ else
 			$slots = explode(",",$slots);
 			$mslots = $slots[0];
 			$rslots = $slots[1];
-			
+			var_dump($slots);
 			if($mslots != "0")
 			{
 				$mslots = "set mapred.map.tasks=".$mslots."; ";
@@ -198,7 +198,7 @@ else
 			$slots = $mslots.$rslots;
 			# Get map red Slots which the current user can use 
 			
-			echo $sql = $slots.$sql;
+			$sql = $slots.$sql;
 			$client->execute($sql);
 			$array = $client->fetchAll();
 
