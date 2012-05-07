@@ -93,7 +93,7 @@ if ($dh = opendir($dir))
 		{
 			$tmp = explode("_", $file);
 			$tmp = substr($tmp[1]."_".$tmp[2],0,-4);
-			if(file_exists($env['output_path']."/hive_res.".$tmp.".out"))
+			if(file_exists($env['output_path']."/hive_res.".$tmp.".csv"))
 			{
 				echo "<td><a href=getResult.php?str=".$tmp.">$file</a></td>\n";
 			}
