@@ -13,7 +13,7 @@ else
 	
 	$transport->open();
 
-	$sql = "CREATE DATABASE IF NOT EXISTS ".$_POST['newdbname']." COMMENT '".$_POST['dbcomment']."'";
+	$sql = "CREATE DATABASE IF NOT EXISTS ".$_POST['newdbname']." COMMENT '".$_POST['newdbcomment']."'";
 	$client->execute($sql);
 	echo $sql;
 	//$db_array = $client->fetchOne();

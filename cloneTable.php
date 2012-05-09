@@ -8,6 +8,7 @@ if(!@$_GET['database'])
 }
 else
 {
+	
 	if(!@$_GET['table'])
 	{
 		echo "<script>window.location=dbStructure.php?database=".$_GET['database']."</script>";

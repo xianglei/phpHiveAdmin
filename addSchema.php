@@ -19,5 +19,6 @@ else
 	//$db_array = $client->fetchOne();
 	echo '<script>alert(\''.$lang['createSchemaSuccess'].'\');window.location=\'index.php?frame=right\';</script>';
 	$transport->close();
+	
 }
 ?>

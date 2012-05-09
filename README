@@ -31,4 +31,4 @@ php 5.3.8
 nginx 1.0.10
 
 已验证可以被下列操作系统所支持，但你必须有一个hive的可执行程序在本机。
-Linux,FreeBSD,Windows with php 5.3+ and nginx 1.0+
+Linux,FreeBSD,Windows with php 5.3+ and nginx 1.0+ .

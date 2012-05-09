@@ -19,4 +19,5 @@ else
 	$client->execute($sql);
 	echo "<script>alert('".$lang['dropDbSuccess']."');window.location='index.php?frame=right'</script>";
 	$transport->close();
+	
 }

@@ -1,5 +1,6 @@
 <?php
 
+
 include_once 'config.inc.php';
 
 if(@$_GET['frame'])

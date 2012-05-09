@@ -104,6 +104,5 @@ else
 			}	
 		}
 	}
-	
 	$transport->close();
 }
