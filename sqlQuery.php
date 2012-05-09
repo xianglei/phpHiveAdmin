@@ -90,7 +90,7 @@ else
 			#auth if have enough privileges to do hql query
 			
 			# Get map red Slots which the current user can use 
-			$slots = $auth->AuthMapReduceSlots($env["privFile"],$_SESSION['username'],$_SESSION['password']);
+			/*$slots = $auth->AuthMapReduceSlots($env["privFile"],$_SESSION['username'],$_SESSION['password']);
 			$slots = explode(",",$slots);
 			$mslots = $slots[0];
 			$rslots = $slots[1];
@@ -113,9 +113,9 @@ else
 				$rslots = ""; 
 			}
 			
-			$slots = $mslots.$rslots;
+			$slots = $mslots.$rslots;*/
 			# Get map red Slots which the current user can use 
-			
+			$slots = "";
 			if(substr($sql,-1) != ";")
 			{
 				$sql = "use ".@$_POST['database'].";".$slots.$sql.";";
@@ -227,69 +227,6 @@ else
 			echo 'Excution time: '.$timer->spent().'s';
 			unset($timer);
 		}
-		
-		/*
-		$timer->start();
-		$sql = $_POST['sql'];
-		//add limit to standard sql
-		
-		echo $sql.'<br /><br />';
-		$client->execute($sql);
-		$array = $client->fetchAll();
-
-		//construct table desc table
-		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
-		$i = 0;
-		foreach ($array_desc_desc as $value)
-		{
-			if(0 == $i)
-			{
-				$color = "bgcolor=\"#FFFF99\"";
-			}
-			else
-			{
-				$color = "bgcolor=\"#99FFFF\"";
-			}
-			echo "<tr ".$color.">\n";
-			foreach($value as $v)
-			{
-				echo "<td>".$v."</td>\n";
-				$i++;
-			}
-			echo "</tr>\n";
-			$i++;
-		}
-		//construct result table
-		$i = 0;		
-		while ('' != @$array[$i])
-		{
-			if(($i % 2) == 0)
-			{
-				$color = "bgcolor=\"".$env['trColor1']."\"";
-			}
-			else
-			{
-				$color = "bgcolor=\"".$env['trColor2']."\"";
-			}
-			echo "<tr ".$color.">\n";
-			$arr = explode('	',$array[$i]);
-			foreach ($arr as $key => $value)
-			{
-					$value = str_replace('<','&lt;',$value);
-					$value = str_replace('>','&gt;',$value);
-					echo "<td>".$value."</td>\n";
-			}
-			//echo '<td>'.$array[$i].'</td>';
-			echo "</tr>\n";
-			$i++;
-		}
-		echo "</table>\n";
-		include_once 'templates/sql_query.html';
-		$timer->stop();
-		echo 'Excution time: '.$timer->spent().'s';
-		unset($timer);
-	}
-	*/
 	}
 	$transport->close();
 }
