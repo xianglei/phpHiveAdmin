@@ -59,9 +59,16 @@ IMPORTANT:
 for localized language using,modify /config.inc.php
  in this files, change "langs/lang_xx.php" to your language set.
 
-accesslist intro.
-username:password:onlydb for each line
-if you want to use all db, put "all" on "onlydb" area, else onlydb(s) use comma to seperate.
+accesslist intro:
+
+[0]
+;userset order above
+username=yourname
+password=yourpass
+privdb=the database that this user can see
+mrslots=map slots,reduce slots(not used in recent version, but future will be)
+
+if you want to show all db, put "all" on "onlydb" area, else onlydb(s) use comma to seperate.
 
 
 
@@ -105,7 +112,7 @@ default_socket_timeout = 36000
 
 5: 打开 config.inc.php
 找到 define('HOST','192.168.1.49'); and define('PORT','10000'); 并设置为你自己的hiveserver地址.
-在config.inc.php中找到以下变量，并修改为你自己的路径，请赋予etl,output_path,logs_path 0777权限
+在config.inc.php中找到以下变量，并修改为你自己的路径，请赋予etl,output_path,logs_path 777权限
 $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';
 $env['hive_home'] = '/opt/modules/hive/hive-0.7.1';
 $env['java_home'] = '/usr/java/jdk1.6.0_21';
@@ -130,6 +137,11 @@ $env['output_path'] = '/data2/tmp/phpHiveAdmin';
 为本地化使用，修改config.inc.php中的如下部分
  将"langs/lang_xx.php" 修改成你自己的语言设置.
 
-验证部分accesslist设置.
-username:password:onlydb
-每行一个，onlydb写all为全部访问，写数据库名则访问单独的数据库，库名可写多个，以英文逗号分隔。
+验证部分accesslist.ini设置.
+[0]
+;userset order above
+username=yourname
+password=yourpass
+privdb=the database that this user can see
+mrslots=map slots,reduce slots(最近版本不会使用，但是未来会开放)
+onlydb写all为全部访问，写数据库名则访问单独的数据库，库名可写多个，以英文逗号分隔。
