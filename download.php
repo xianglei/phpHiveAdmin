@@ -31,8 +31,13 @@ else
 		header("Content-Type: application/force-download");
 		header('Content-Length: ' . filesize($filename));
 		header("Content-Disposition: attachment; filename=".$filename);
-		readfile($filename);
-
+		//readfile($filename);
+		$fp = fopen ($filename,"r");
+		while (!feof($fp))
+		{
+			echo $str = fgets($fp,4096);
+		}
+		fclose($fp);
 		//unlink($filename);
 	}
 	else
