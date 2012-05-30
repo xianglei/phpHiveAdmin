@@ -101,7 +101,7 @@ $env['setenv'] = 'export';
 
 #------------------definations of log path and results path, give these path to 0777 mode------------
 #------------------定义日志和结果输出的文件路径，请赋予0777权限------------------------------------
-$env['etl'] = './etl/';# path to etl configuration files
+$env['etl'] = './etl/';# path to put etl configuration files
 $env['output_path'] = '/data2/tmp/phpHiveAdmin';# For cliQuery.php, where to put stderr output log file and original result file
 $env['logs_path'] = './logs/';
 #--------------------------------------------------------------------------------------------------
