@@ -29,7 +29,7 @@ class Etc
 			}
 			$i++;
 		}
-		#$arr = $this->ArrayReindex($arr);
+		$arr = $this->ArrayReindex($arr);
 		return $arr;
 	}
 	
