@@ -59,7 +59,7 @@ foreach( $list_arr as $k => $v)
 {
 	$pos = strpos($v,"/"); 
 	$str = substr($v,($pos-1),strlen($v));
-	echo $str."<br>\n";
+	echo "<a href=getFilelist.php?path=$str>".$str."</a><br>\n";
 }
 
 unlink($filename);
