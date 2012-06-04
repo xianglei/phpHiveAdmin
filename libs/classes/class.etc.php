@@ -23,11 +23,7 @@ class Etc
 		$i = 0;
 		foreach ($pArray as $key => $value)
 		{
-			if($value="")
-			{
-				unset($pArray[$key]);
-			}
-			else
+			if($value != "")
 			{
 				$arr[$i] = $value;
 			}
