@@ -86,7 +86,7 @@ $time = time();
 $etc->NonBlockingRun2($exec,$time,$code);
 $filename = $env['output_path'].'/dfs_browse.'.$time.'.out';
 $list_arr = file($filename);
-echo "<br><br>";
+echo "<br>";
 echo "<a href=fileBrowser.php?dir=/>".$lang['backToRoot']."</a><br><br>";
 echo "<a href=javascript:history.back()>".$lang['back']."</a><br><br>";
 echo "<table border=1 cellspacing=1 cellpadding=3>";
@@ -109,7 +109,7 @@ foreach( $list_arr as $k => $v)
 		echo "<tr bgcolor=\"".$color."\">";
 		$pos = strpos($v,"/"); 
 		$str = trim(substr($v,($pos-1),strlen($v)));
-		echo "<td><a href=getFilelist.php?path=$str>".$str."</a></td>\n";
+		echo "<td><a href=fileBrowser.php?path=$str>".$str."</a></td>\n";
 		echo "</tr>";
 	}
 	$i++;
