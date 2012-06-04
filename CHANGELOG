@@ -1,5 +1,5 @@
 0.08 beta1 (important security an other update)
-1. Security update: limited user can not doing "create" "drop" "alter" "insert" query with writing an hql.
+1. Security update: limited user can not doing "create" "drop" "alter" "insert" "load" query with writing an hql.
 2. now the query result file export to standard csv seperated by comma, 
    you can directly dowload and load it into Microsoft excel or other
    database like mysql.
@@ -20,7 +20,7 @@
     remove useless getFilelist.php file.
 
 (重要的安全与其他更新)
-1. 安全更新: 受限用户将不能从hql语句中执行 create drop alter insert语句
+1. 安全更新: 受限用户将不能从hql语句中执行 create drop alter insert load语句
 2. 现在查询结果能直接导出成标准英文逗号分隔的csv文件，你可以直接下载，并可以在微软Excel或其他数据库如mysql直接加载。
 3. 修正日志文件列表为空时的警告错误。
 4. 将验证文件从纯文本改成了ini文件。并且加入了对受限用户的map/reduce槽位控制参数，例如 "mrslots=2,1"意味着2个map和1个reduce，但是map参数可能不发挥作用. 0,0意味着不受限。
