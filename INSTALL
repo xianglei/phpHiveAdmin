@@ -45,6 +45,7 @@ $env['logs_path'] = './logs/';
 $env['lang_set'] = 'zh_CN.UTF-8';#system language set
 #$env['lang_set'] = 'en_US.UTF-8';#if you are using with english
 $env['setenv'] = 'export';
+$env['seperator'] = "\t";#seperator(delimiter) set for hive external table
 
 Open refresh.php
 Modify
@@ -123,6 +124,7 @@ $env['logs_path'] = './logs/';
 $env['lang_set'] = 'zh_CN.UTF-8';#system language set
 #$env['lang_set'] = 'en_US.UTF-8';#if you are using with english
 $env['setenv'] = 'export';
+$env['seperator'] = "\t";#hive中外部表数据的分隔符
 
 打开refresh.php
 修改

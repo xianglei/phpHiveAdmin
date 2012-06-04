@@ -1,3 +1,35 @@
+0.08 beta1 (important security an other update)
+1. Security update: limited user can not doing "create" "drop" "alter" "insert" query with writing an hql.
+2. now the query result file export to standard csv seperated by comma, 
+   you can directly dowload and load it into Microsoft excel or other
+   database like mysql.
+3. Fix a warning by empty log file list
+4. Change Authfile from a text to an ini file, and add arguments of 
+   map/reduce slots limit for limited user. For example "mrslot=2,1" 
+   means 2 maps and 1 reduce, but, may map control not effects. 0,0 
+   means not limited.
+5. Add a simple user guide file, named USER_GUIDE in phpHiveAdmin root path.
+6. Prepare to add auto installation script for first install on next release.
+7. Fix a bug that may cause php process lockdown when doing a big file download.
+8. Fix choose lzo but still use text store as when add a table
+9. Add a new global setting variable named $env['seperator'] in config.inc.php
+   which can set seperator(delimiter) for hive external table
+   source data columns seperates, It will effects function ExportCSV 
+   in libs/classes/class.etc.php.
+
+(重要的安全与其他更新)
+1. 安全更新: 受限用户将不能从hql语句中执行 create drop alter insert语句
+2. 现在查询结果能直接导出成标准英文逗号分隔的csv文件，你可以直接下载，并可以在微软Excel或其他数据库如mysql直接加载。
+3. 修正日志文件列表为空时的警告错误。
+4. 将验证文件从纯文本改成了ini文件。并且加入了对受限用户的map/reduce槽位控制参数，例如 "mrslots=2,1"意味着2个map和1个reduce，但是map参数可能不发挥作用. 0,0意味着不受限。
+5. 加入简单的用户指南文件，放在phpHiveAdmin的根目录，叫做USER_GUIDE
+6. 准备下一版加入初次安装的自动安装脚本
+7. 修正一个处理大文件下载时可能会导致php进程锁死的错误
+8. 创建表时选择lzo会保存成TEXT已经修正
+9. 在config.inc.php中加入一个新的全局定义变量$env['seperator']，用于设置hive外部表的源数据分隔符格式，在libs/classes/class.etc.php中的ExportCSV函数中发挥作用。
+
+#---------------------------------------------------------------------------------------------------------------------
+
 0.07 beta1
 1. While consider for a long long time, I decide that do not use mysql to support phpHiveAdmin now, sorry
 2. Add pagination and filename quicksort order by date desc in history and metaDetail page(Zebra Pagination(LGPL) class support)
