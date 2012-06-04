@@ -67,9 +67,8 @@ foreach( $list_arr as $k => $v)
 }
 echo "</table>";
 echo "<br>";
-echo "<a href=fileBrowser.php?dir=/>".$lang['backToRoot']."</a><br><br>";
 echo "<a href=javascript:history.back()>".$lang['back']."</a><br><br>";
-
+echo "<a href=fileBrowser.php?dir=/>".$lang['backToRoot']."</a><br><br>";
 unlink($filename);
 
 ?>
