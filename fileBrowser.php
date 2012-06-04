@@ -112,7 +112,7 @@ foreach( $list_arr as $k => $v)
 	{
 		echo "<tr bgcolor=\"".$color."\">";
 		$tmp = explode(" ", $v);
-		#var_dump($tmp);
+		var_dump($tmp);
 		#$pos = strpos($v,"/"); 
 		#$str = trim(substr($v,($pos-1),strlen($v)));
 		echo "<td>".$tmp[0]."</td>";
