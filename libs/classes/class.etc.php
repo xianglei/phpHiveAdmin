@@ -21,7 +21,7 @@ class Etc
 			return False;
 		}
 		$i = 0;
-		foreach ($$pArray as $key => $value)
+		foreach ($pArray as $key => $value)
 		{
 			if($value="")
 			{
