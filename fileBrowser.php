@@ -91,6 +91,10 @@ echo "<a href=fileBrowser.php?dir=/>".$lang['backToRoot']."</a><br><br>";
 echo "<a href=javascript:history.back()>".$lang['back']."</a><br><br>";
 echo "<table border=1 cellspacing=1 cellpadding=3>";
 echo "<tr bgcolor=\"#FFFF99\">";
+echo "<td>".$lang['fileProperty']."</td>";
+echo "<td>".$lang['fileUser']."</td>";
+echo "<td>".$lang['fileGroup']."</td>";
+echo "<td>".$lang['fileTime']."</td>";
 echo "<td>".$lang['filename']."</td>";
 echo "</tr>";
 $i = 0;
@@ -108,10 +112,14 @@ foreach( $list_arr as $k => $v)
 	{
 		echo "<tr bgcolor=\"".$color."\">";
 		$tmp = explode(" ", $v);
-		var_dump($tmp);
-		$pos = strpos($v,"/"); 
-		$str = trim(substr($v,($pos-1),strlen($v)));
-		echo "<td><a href=fileBrowser.php?path=$str>".$str."</a></td>\n";
+		#var_dump($tmp);
+		#$pos = strpos($v,"/"); 
+		#$str = trim(substr($v,($pos-1),strlen($v)));
+		echo "<td>".$tmp[0]."</td>";
+		echo "<td>".$tmp[4]."</td>";
+		echo "<td>".$tmp[5]."</td>";
+		echo "<td>".$tmp[16]." ".$tmp[17]."</td>";
+		echo "<td><a href=fileBrowser.php?path=".$tmp[18].">".$tmp[18]."</a></td>\n";
 		echo "</tr>";
 	}
 	$i++;
