@@ -98,9 +98,12 @@ $env['lang_set'] = 'zh_CN.UTF-8';#system language set
 #$env['lang_set'] = 'en_US.UTF-8';
 $env['setenv'] = 'export';
 #may set to export and setenv
+$env['seperator'] = "\t";#\t
+#set columns seperator for select
+#设置原始数据的分隔符
 
-#------------------definations of log path and results path, give these path to 0777 mode------------
-#------------------定义日志和结果输出的文件路径，请赋予0777权限------------------------------------
+#------------------definations of log path and results path, give these path to 777 mode------------
+#------------------定义日志和结果输出的文件路径，请赋予777权限------------------------------------
 $env['etl'] = './etl/';# path to put etl configuration files
 $env['output_path'] = '/data2/tmp/phpHiveAdmin';# For cliQuery.php, where to put stderr output log file and original result file
 $env['logs_path'] = './logs/';

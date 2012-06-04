@@ -108,7 +108,7 @@ class Etc
 		$fp2 = @fopen($filename2,"w");
 		while(!feof($fp1))
 		{
-			$str = str_replace("\t", ",", fgets($fp1));
+			$str = str_replace($env['seperator'], ",", fgets($fp1));
 			fputs($fp2,$str);
 		}
 		fclose($fp2);

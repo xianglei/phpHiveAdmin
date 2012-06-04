@@ -49,7 +49,7 @@ else
 	}
 	else
 	{
-		mkdir($env['output_path'],0777);
+		mkdir($env['output_path'],777);
 		
 		$sql = trim(urldecode($query,$key));
 		$sql = str_replace("\"","'",$sql);
