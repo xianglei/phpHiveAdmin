@@ -13,6 +13,18 @@ class Etc
 		}
 		return $arr;
 	}
+	
+	public function ArrayFilter($pArray)
+	{
+		if(is_array($pArray) == FALSE)
+		{
+			return FALSE;
+		}
+		$arr = array_filter($pArray);
+		$arr = $this->ArrayReindex($arr);
+		return $arr;
+	}
+	
 	public function FingerPrintMake()
 	{
 		$mtime = explode(" ",microtime());
