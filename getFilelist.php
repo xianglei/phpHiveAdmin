@@ -58,7 +58,7 @@ $list_arr = file($filename);
 foreach( $list_arr as $k => $v)
 {
 	$pos = strpos($v,"/"); 
-	$str = substr($v,($pos-1),strlen($v));
+	$str = trim(substr($v,($pos-1),strlen($v)));
 	echo "<a href=getFilelist.php?path=$str>".$str."</a><br>\n";
 }
 
