@@ -131,12 +131,12 @@ class Etc
 		$todo= array($pipes[1],$pipes[2]);
 	
 		$fp = fopen($env['output_path']."/dfs_browse.".$pTimestamp.".out","w");
-		fwrite($fp,$pTimestamp."\n\n");
+		//fwrite($fp,$pTimestamp."\n\n");
 		while( true )
 		{
 			$read= array(); 
 			#if( !feof($pipes[1]) ) $read[]= $pipes[1];
-			if( !feof($pipes[2]) )	$read[]= $pipes[2];// get system stderr on real time
+			if( !feof($pipes[1]) )	$read[]= $pipes[1];// get system stderr on real time
 			
 			if (!$read)
 			{
