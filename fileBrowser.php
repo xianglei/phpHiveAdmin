@@ -56,11 +56,11 @@ foreach( $list_arr as $k => $v)
 		$tmp = $etc->ArrayFilter($tmp);
 		var_dump($tmp);
 		echo "<td>".$tmp[0]."</td>";
-		echo "<td>".$tmp[1]."</td>";
 		echo "<td>".$tmp[2]."</td>";
 		echo "<td>".$tmp[3]."</td>";
-		echo "<td>".$tmp[4]." ".$tmp[5]."</td>";
-		echo "<td><a href=fileBrowser.php?path=".$tmp[6].">".$tmp[6]."</a></td>\n";
+		echo "<td>".$tmp[4]."</td>";
+		echo "<td>".$tmp[5]." ".$tmp[6]."</td>";
+		echo "<td><a href=fileBrowser.php?path=".$tmp[7].">".$tmp[7]."</a></td>\n";
 		echo "</tr>";
 	}
 	$i++;
