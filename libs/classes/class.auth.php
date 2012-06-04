@@ -99,7 +99,7 @@ class Authorize
 	
 	public function AuthSql($pPrivilege,$pSql)
 	{
-		if(preg_match("/\bcreate\b/i",$pSql) || preg_match("/\bdrop\b/i",$pSql) || preg_match("/\balter\b/i",$pSql) || preg_match("/\binsert\b/i",$pSql))
+		if(preg_match("/\bcreate\b/i",$pSql) || preg_match("/\bdrop\b/i",$pSql) || preg_match("/\balter\b/i",$pSql) || preg_match("/\binsert\b/i",$pSql) || preg_match("/\bload\b/i",$pSql))
 		{
 			if($pPrivilege != "all")
 			{
