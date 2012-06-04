@@ -196,7 +196,7 @@ else
 					case 'text':
 						$stored = " STORED AS TEXTFILE ";
 						break;
-					case 'lzoped':
+					case 'lzop':
 						$stored = " STORED AS INPUTFORMAT \"com.hadoop.mapred.DeprecatedLzoTextInputFormat\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
 						break;
 					case 'sequence':
