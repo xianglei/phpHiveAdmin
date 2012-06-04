@@ -18,9 +18,21 @@ class Etc
 	{
 		if(is_array($pArray) == FALSE)
 		{
-			return FALSE;
+			return False;
 		}
-		$arr = array_filter($pArray);
+		$i = 0;
+		foreach ($$pArray as $key => $value)
+		{
+			if($value="")
+			{
+				unset($pArray[$key]);
+			}
+			else
+			{
+				$arr[$i] = $value;
+			}
+			$i++;
+		}
 		$arr = $this->ArrayReindex($arr);
 		return $arr;
 	}
