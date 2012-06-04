@@ -26,7 +26,6 @@ $lang['deselect'] = 'DeSelect All';
 $lang['alterTableWarning'] = 'Alter Table columns, Please be careful';
 $lang['fileBrowser'] = "File Browser";
 $lang['filename'] = "Filename";
-$lang['filetype'] = "Filetype";
 $lang['filesize'] = "Filesize";
 $lang['tableName'] = "Table name: ";
 $lang['fieldNums'] = "Column numbers: ";
