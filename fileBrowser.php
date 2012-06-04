@@ -34,8 +34,8 @@ echo "<tr bgcolor=\"#FFFF99\">";
 echo "<td>".$lang['fileProperty']."</td>";
 echo "<td>".$lang['fileUser']."</td>";
 echo "<td>".$lang['fileGroup']."</td>";
-echo "<td>".$lang['fileTime']."</td>";
 echo "<td>".$lang['filesize']."</td>";
+echo "<td>".$lang['fileTime']."</td>";
 echo "<td>".$lang['filename']."</td>";
 echo "</tr>";
 $i = 0;
@@ -54,7 +54,7 @@ foreach( $list_arr as $k => $v)
 		echo "<tr bgcolor=\"".$color."\">";
 		$tmp = explode(" ", $v);
 		$tmp = $etc->ArrayFilter($tmp);
-		var_dump($tmp);
+		#var_dump($tmp);
 		echo "<td>".$tmp[0]."</td>";
 		echo "<td>".$tmp[2]."</td>";
 		echo "<td>".$tmp[3]."</td>";
