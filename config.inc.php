@@ -38,7 +38,6 @@ if($_SESSION['onlydb'] == FALSE)
 
 # load the required files for connecting to Hive
 require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
-require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hadoopfs/ThriftHadoopFileSystem.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'transport/TSocket.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'protocol/TBinaryProtocol.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.timer.php';
@@ -59,12 +58,6 @@ require_once 'langs/lang_en.php';
 
 define('HOST','192.168.1.49');
 define('PORT','10000');
-
-#-----------definations of hadoop thrift filesystem(still has problem,do not use it)-----
-#-----------定义hadoop thrift文件系统(仍然存在未解决问题，请勿使用)-------------------------
-#define('HADOOP_FS_HOST','192.168.1.16');
-#define('HADOOP_FS_PORT','50000');
-
 
 #----------defination of meta type and connection variables-------
 #----------定义元数据管理的类型相关变量---------------------------
