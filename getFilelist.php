@@ -49,4 +49,5 @@ $etc->NonBlockingRun2($exec,$time,$code);
 $filename = $env['output_path'].'/dfs_browse.'.$time.'.out';
 $arr = file($filename);
 var_dump($arr);
+unlink($filename);
 ?>
