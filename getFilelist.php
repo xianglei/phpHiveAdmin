@@ -40,14 +40,27 @@ else
 
 $transport->close();
 */
-
+if(!@$_GET['path'])
+{
+	$path = "/";
+}
+else
+{
+	$path = $_GET['path'];
+}
 $etc = new Etc;
-$sql = '"dfs -ls /"';
+$sql = '"dfs -ls '.$path.'"';
 $exec = ('export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql);
 $time = time();
 $etc->NonBlockingRun2($exec,$time,$code);
 $filename = $env['output_path'].'/dfs_browse.'.$time.'.out';
-$arr = file($filename);
-var_dump($arr);
+$list_arr = file($filename);
+foreach( $list_arr as $k => $v)
+{
+	$pos = strpos($v,"/"); 
+	$str = substr($v,($pos-1),strlen($v));
+	echo $str."<br>\n";
+}
+
 unlink($filename);
 ?>
