@@ -25,7 +25,6 @@ $lang['select'] = 'Select All';
 $lang['deselect'] = 'DeSelect All';
 $lang['alterTableWarning'] = 'Alter Table columns, Please be careful';
 $lang['fileBrowser'] = "File Browser";
-$lang['needHDFS'] = "Need Fuse-dfs";
 $lang['filename'] = "Filename";
 $lang['filetype'] = "Filetype";
 $lang['filesize'] = "Filesize";

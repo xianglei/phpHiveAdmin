@@ -113,8 +113,4 @@ $env['showTables'] = 'show tables';
 $env['bodyColor'] = '#EFEFEF';
 $env['trColor1'] = '#AFAFAF';
 $env['trColor2'] = '#DFDFDF';
-# Important: various below is being used only if you mount hdfs to a local filesystem with fusefs tool!!!Unless it will cause fatal error
-# 重要，下面的变量是定义hdfs浏览访问所使用，需要fusefs-dfs支持。如果没有，请不要使用浏览hdfs功能。
-$env['hdfsToHiveDir'] = '/hdfs';
-# '/hdfs' is a libhdfs mount point to localize directory
-# 这里定义的是通过libhdfs mount到本地的路径。
+
