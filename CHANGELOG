@@ -16,6 +16,8 @@
    which can set seperator(delimiter) for hive external table
    source data columns seperates, It will effects function ExportCSV 
    in libs/classes/class.etc.php.
+10. A standalone HDFS file browser now works, no fuse-dfs or other needed. And
+    remove useless getFilelist.php file.
 
 (重要的安全与其他更新)
 1. 安全更新: 受限用户将不能从hql语句中执行 create drop alter insert语句
@@ -27,6 +29,7 @@
 7. 修正一个处理大文件下载时可能会导致php进程锁死的错误
 8. 创建表时选择lzo会保存成TEXT已经修正
 9. 在config.inc.php中加入一个新的全局定义变量$env['seperator']，用于设置hive外部表的源数据分隔符格式，在libs/classes/class.etc.php中的ExportCSV函数中发挥作用。
+10. hdfs文件系统浏览现在可以独立的正常工作，不需要fuse-dfs或其他的支持。并且移除了无用的getFilelist.php文件。
 
 #---------------------------------------------------------------------------------------------------------------------
 
