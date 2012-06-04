@@ -104,9 +104,11 @@ foreach( $list_arr as $k => $v)
 	{
 		$color = $env['trColor2'];
 	}
-	if($v != "")
+	if(!preg_match("/Found/i", $v))
 	{
 		echo "<tr bgcolor=\"".$color."\">";
+		$tmp = explode(" ", $v);
+		var_dump($tmp);
 		$pos = strpos($v,"/"); 
 		$str = trim(substr($v,($pos-1),strlen($v)));
 		echo "<td><a href=fileBrowser.php?path=$str>".$str."</a></td>\n";
