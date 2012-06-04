@@ -4,6 +4,7 @@
 include_once 'config.inc.php';
 include_once 'templates/style.css';
 
+/*
 $transport = new TSocket(HOST, PORT);
 $protocol = new TBinaryProtocol($transport);
 $client = new ThriftHiveClient($protocol);
@@ -38,5 +39,8 @@ else
 }
 
 $transport->close();
-
+*/
+$sql = "dfs -ls /";
+$exec = 'export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql;
+var_dump($exec);
 ?>
