@@ -42,11 +42,11 @@ $transport->close();
 */
 
 $etc = new Etc;
-$sql = "dfs -ls /";
+$sql = '"dfs -ls /"';
 $exec = ('export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql);
 $time = time();
 $etc->NonBlockingRun2($exec,$time,$code);
 $filename = $env['output_path'].'/dfs_browse.'.$time.'.out';
 $arr = file($filename);
-var_dump($filename);
+var_dump($arr);
 ?>
