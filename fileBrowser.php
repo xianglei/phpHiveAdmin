@@ -91,7 +91,7 @@ echo "<a href=fileBrowser.php?dir=/>".$lang['backToRoot']."</a><br><br>";
 echo "<a href=javascript:history.back()>".$lang['back']."</a><br><br>";
 echo "<table border=1 cellspacing=1 cellpadding=3>";
 echo "<tr bgcolor=\"#FFFF99\">";
-echo "<td>".$lang['filename']."</td><td>".$lang['filetype']."</td><td>".$lang['filesize']."</td>";
+echo "<td>".$lang['filename']."</td>";
 echo "</tr>";
 $i = 0;
 foreach( $list_arr as $k => $v)
@@ -104,11 +104,14 @@ foreach( $list_arr as $k => $v)
 	{
 		$color = $env['trColor2'];
 	}
-	echo "<tr bgcolor=\"".$color."\">";
-	$pos = strpos($v,"/"); 
-	$str = trim(substr($v,($pos-1),strlen($v)));
-	echo "<td><a href=getFilelist.php?path=$str>".$str."</a></td>\n";
-	echo "</tr>";
+	if($v != "")
+	{
+		echo "<tr bgcolor=\"".$color."\">";
+		$pos = strpos($v,"/"); 
+		$str = trim(substr($v,($pos-1),strlen($v)));
+		echo "<td><a href=getFilelist.php?path=$str>".$str."</a></td>\n";
+		echo "</tr>";
+	}
 	$i++;
 }
 echo "</table>";
