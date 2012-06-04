@@ -53,7 +53,7 @@ foreach( $list_arr as $k => $v)
 		echo "<tr bgcolor=\"".$color."\">";
 		$tmp = explode(" ", $v);
 		$tmp = $etc->ArrayFilter($tmp);
-		#var_dump($tmp);
+		var_dump($tmp);
 		echo "<td>".$tmp[0]."</td>";
 		echo "<td>".$tmp[2]."</td>";
 		echo "<td>".$tmp[3]."</td>";
