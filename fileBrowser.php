@@ -58,7 +58,7 @@ foreach( $list_arr as $k => $v)
 		echo "<td>".$tmp[0]."</td>";
 		echo "<td>".$tmp[2]."</td>";
 		echo "<td>".$tmp[3]."</td>";
-		echo "<td>".$tmp[4]."</td>";
+		echo "<td>".($tmp[4]/1024/1024)."MB</td>";
 		echo "<td>".$tmp[5]." ".$tmp[6]."</td>";
 		echo "<td><a href=fileBrowser.php?path=".$tmp[7].">".$tmp[7]."</a></td>\n";
 		echo "</tr>";
