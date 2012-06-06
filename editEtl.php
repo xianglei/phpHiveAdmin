@@ -26,7 +26,7 @@ else
 		else
 		{
 			$etl->PutEtl($_POST['content'], $_POST['filename']);
-			echo "<script>alert(".$lang['success'].");window.location='execEtl.php'";
+			echo "<script>alert(\"".$lang['success']."\");window.location='execEtl.php';</script>";
 		}
 	}
 	else
