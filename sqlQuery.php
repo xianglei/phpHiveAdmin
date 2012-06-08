@@ -73,12 +73,12 @@ else
 	}
 	else
 	{
-		if(preg_match("/( {0,}select +\* +from)/i",@$_POST['sql']) && !preg_match("/limit/i", @$_POST['sql']) && !preg_match("/where/i", @$_POST['sql']))# if select * from with no limit died.
+		/*if(preg_match("/( {0,}select +\* +from)/i",@$_POST['sql']) && !preg_match("/limit/i", @$_POST['sql']) && !preg_match("/where/i", @$_POST['sql']))# if select * from with no limit died.
 		{
 			die($lang['forceLimit']);
-		}
-		elseif(!preg_match("/limit/i", @$_POST['sql']))
-		{
+		}*/
+		//elseif(!preg_match("/limit/i", @$_POST['sql']))
+		//{
 			$sha1 = $etc->FingerPrintMake();
 			
 			#auth if have enough privileges to do hql query
@@ -149,8 +149,8 @@ else
 			echo "SQL: ".$sql;
 			echo "<br><br>";
 			echo "<iframe id=stderr width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
-		}
-		else
+		//}
+		/*else
 		{
 			$timer = new Timer;
 			$timer->start();
@@ -226,7 +226,7 @@ else
 			$timer->stop();
 			echo 'Excution time: '.$timer->spent().'s';
 			unset($timer);
-		}
+		}*/
 	}
 	$transport->close();
 }
