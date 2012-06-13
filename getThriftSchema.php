@@ -10,7 +10,7 @@ $client = new ThriftHiveClient($protocol);
 
 $transport->open();
 
-$client->execute('add jar '.$env['hive_jar']);
+#$client->execute('add jar '.$env['hive_jar']);
 
 $status = $client->getThriftSchema();
 //var_dump($status);
