@@ -215,7 +215,8 @@ else
 						$stored = " STORED AS TEXTFILE ";
 						break;
 				}
-				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$_POST['delimiter']."\" ";
+				$limit = stripcslashes($_POST['delimiter']);
+				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$limit."\" ";
 				$path = " LOCATION '".$_POST['external']."' ";
 				$as = "";
 			}
