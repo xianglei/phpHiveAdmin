@@ -10,10 +10,11 @@ class Etc
 		}
 		fclose($fp);
 		$start = stripos($sql, "select") + 6;
-		$end = stripos($sql, "from") - 6;
-		$sub = trim(substr($sql,$start,$end));
-		$column = explode(",", $sub);
-		return $column; #as an array
+		$end = stripos($sql, "from");
+		$length = $end - $start;
+		$sub = trim(substr($sql,$start,$length));
+		$columns = explode(",", $sub);
+		return $columns; #as an array
 	}
 	
 	public function GetResult($pFilename)
