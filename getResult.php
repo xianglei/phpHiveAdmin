@@ -10,7 +10,7 @@ else
 {
 	$str = @$_GET['str'];
 	$filename = $env['output_path']."/hive_res.".$str.".csv";
-	$logfile = $envp['logs_path'].$_SESSION['username']."_".$time.".log";
+	$logfile = $env['logs_path'].$_SESSION['username']."_".$time.".log";
 	if(file_exists($filename))
 	{
 		if(filesize($filename) != 0)
