@@ -20,7 +20,7 @@ class Etc
 		else
 		{
 			$sql = explode(";",$sql);
-			$sql = substr($sql[0],1,strlen($sql[0]));echo $sql;
+			$sql = substr($sql[0],1,strlen($sql[0])).";";echo $sql;
 			$transport = new TSocket(HOST, PORT);
 			$protocol = new TBinaryProtocol($transport);
 			$client = new ThriftHiveClient($protocol);
