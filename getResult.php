@@ -1,33 +1,30 @@
 <?php
 include_once 'config.inc.php';
 include_once 'templates/style.css';
-if(!@$_GET['str'] && !@$_GET['filename'])
+if(!@$_GET['str'])
 {
 	die($lang['invalidEntry']);
 }
 else
 {
-	if(@$_GET['str'])
+	if($_SESSION['onlydb'] != "all")
 	{
 		$str = @$_GET['str'];
 	}
-	elseif(@$_GET['filename'])
-	{
-		$str = explode("_",$_GET['filename']);
-		$str = substr($str[1]."_".$str[2],0,-4);
-	}
 	else
 	{
-		die($lang['invalidEntry']);
+		$str = explode("_",$_GET['str']);
+		$str = substr($str[1]."_".$str[2],0,-4);
 	}
+
 	$filename = $env['output_path']."/hive_res.".$str.".csv";
-	if(!@$_GET['filename'])
+	if($_SESSION['onlydb'] != "all")
 	{
 		$logfile = $env['logs_path'].$_SESSION['username']."_".$str.".log";
 	}
 	else
 	{
-		$logfile = $env['logs_path'].$_GET['filename'];
+		$logfile = $env['logs_path'].$_GET['str'];
 	}
 	echo $logfile;
 	echo $filename;

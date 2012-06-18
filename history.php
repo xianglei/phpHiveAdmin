@@ -97,7 +97,7 @@ if ($dh = opendir($dir))
 			{
 				if($_SESSION['onlydb'] == 'all')
 				{
-					echo "<td><a href=getResult.php?filename=".$file.">$file</a></td>\n";
+					echo "<td><a href=getResult.php?str=".$file.">$file</a></td>\n";
 				}
 				else
 				{
