@@ -1,7 +1,7 @@
 <?php
 include_once 'config.inc.php';
 include_once 'templates/style.css';
-
+echo $_GET['filename'];
 if(!@$_GET['str'])
 {
 	if(!@$_GET['filename'])
@@ -10,7 +10,7 @@ if(!@$_GET['str'])
 	}
 }
 else
-{echo $_GET['filename'];
+{
 	if(!@$_GET['str'] != '')
 	{
 		$str = @$_GET['str'];
