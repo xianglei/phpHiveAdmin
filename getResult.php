@@ -22,7 +22,7 @@ else
 			$array_column = $etc->SplitSqlColumn($logfile);
 			
 			$array = $etc->GetResult($filename);
-			$array = explode("\n",substr($string,0,-1));//stop at last return
+			$array = explode("\n",substr($array,0,-1));//stop at last return
 			$i = 0;
 			echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 			echo "<tr bgcolor=#FFFF99>";
