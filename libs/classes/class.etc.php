@@ -13,7 +13,34 @@ class Etc
 		$end = stripos($sql, "from");
 		$length = $end - $start;
 		$sub = trim(substr($sql,$start,$length));
-		$columns = explode(",", $sub);
+		if($sub != "*")
+		{
+			$columns = explode(",", $sub);
+		}
+		else
+		{
+			$sql = explode(";",$sql);
+			$transport = new TSocket(HOST, PORT);
+			$protocol = new TBinaryProtocol($transport);
+			$client = new ThriftHiveClient($protocol);
+			$transport->open();
+			$client->execute($sql[0]);
+			
+			$sql = 'desc '.$_GET['table'];
+			$client->execute($sql);
+			$array_desc_table = $client->fetchAll();
+			
+			$i = 0;
+			while ('' != @$array_desc_table[$i])
+			{
+				$array_desc = explode('	',$array_desc_table[$i]);
+				$array_desc_desc[$i] = $array_desc[0];
+				$i++;
+			}
+			$columns = $array_desc_desc;
+			
+		}
+		
 		return $columns; #as an array
 	}
 	
