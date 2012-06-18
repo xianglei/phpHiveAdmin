@@ -160,7 +160,7 @@ else
 			}
 			else
 			{
-				echo "<tr><td>".$lang['asRcfile']."<input type=text name=as></td></tr>";
+				echo "<table  border=1 cellspacing=1 cellpadding=3><tr><td>".$lang['asRcfile']."<input type=text name=as></td></tr>";
 				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter value=\",\"></td></tr>";
 			}
 			echo "</table><br><br>";
@@ -221,12 +221,13 @@ else
 				$path = " LOCATION '".$_POST['external']."' ";
 				$as = "";
 			}
-			else
+			elseif(@$_POST['external'] == '' && @$_POST['delimiter'] != "")
 			{
 				$ext = '';
 				$tablecomment = ''; #" COMMENT ".$_POST['tablecomment']." ";
 				$partition = '';
-				$limit = '';
+				$limit = stripcslashes($_POST['delimiter']);
+				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$limit."\" ";
 				$stored = " ";
 				$path = '';
 				if($_POST['as'] != "")
