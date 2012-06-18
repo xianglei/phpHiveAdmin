@@ -18,20 +18,13 @@ else
 		$str = substr($str[1]."_".$str[2],0,-4);
 	}
 	$filename = $env['output_path']."/hive_res.".$str.".csv";
-	if($_SESSION != 'all')
+	if(!@$_GET['filename'])
 	{
 		$logfile = $env['logs_path'].$_SESSION['username']."_".$str.".log";
 	}
 	else
 	{
-		if(@$_GET['filename'] != "")
-		{
-			$logfile = $env['logs_path'].$_GET['filename'];
-		}
-		else
-		{
-			die($lang['invalidEntry']);
-		}
+		$logfile = $env['logs_path'].$_GET['filename'];
 	}
 	echo $logfile;
 	echo $filename;
