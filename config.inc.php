@@ -21,8 +21,8 @@ if($_GET['username'] != "" && $_GET['password'] != "")
 }
 else
 {
-	$_SESSION['username'] = "data";
-	$_SESSION['password'] = "3e4r5t6y";
+	$_SESSION['username'] = $_SESSION['username'];
+	$_SESSION['password'] = $_SESSION['password'];
 }
 #--------------------------
 
