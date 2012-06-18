@@ -15,7 +15,7 @@ else
 	if(@$_GET['filename'] != '')
 	{
 		$str = explode("_",$_GET['filename']);
-		$str = $str[1]."_".$str[2];
+		$str = substr($str[1]."_".$str[2],0,-4);
 	}
 	$filename = $env['output_path']."/hive_res.".$str.".csv";
 	if($_SESSION != 'all')
