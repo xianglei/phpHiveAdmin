@@ -39,7 +39,8 @@ else
 			//passthru($exec);
 			#$log = $env['logs_path'].$time.".debug";
 			#$etc->LogAction($log,"w",$exec."\n");
-			$etc->NonBlockingRun($exec,$time,$code);
+			$runfile = $env['output_path']."/hive_run.".$time.".out";
+			$etc->NonBlockingRun($exec,$time,$runfile,2,$code);
 			$etc->ExportCSV($time);
 		}
 		else
@@ -71,7 +72,8 @@ else
 				$exec = 'setenv LANG '.$env['lang_set'].' && setenv HADOOP_HOME '.$env['hadoop_home'].' && setenv HIVE_HOME '.$env['hive_home'].' && setenv JAVA_HOME '.$env['java_home'].' && '.$env['hive_home'].'/bin/hive -e '.$sql.' > '.$env['output_path'].'/hive_res.'.$time.'.out';
 			}
 			//passthru($exec);
-			$etc->NonBlockingRun($exec,$time,$code);
+			$runfile = $env['output_path']."/hive_run.".$time.".out";
+			$etc->NonBlockingRun($exec,$time,$runfile,2,$code);
 			$etc->ExportCSV($time);
 		}
 		else

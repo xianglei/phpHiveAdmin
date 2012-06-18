@@ -1,6 +1,34 @@
 <?php
 class Etc
 {
+	public function SplitSqlColumn($pFilename)
+	{
+		$fp = fopen($pFilename,"r");
+		while(!feof($fp))
+		{
+			$sql .= fread($fp,1024);
+		}
+		fclose($fp);
+		$start = stripos($sql, "select") + 6;
+		$end = stripos($sql, "from") - 6;
+		$sub = trim(substr($sql,$start,$end));
+		$column = explode(",", $sub);
+		return $column; #as an array
+	}
+	
+	public function GetResult($pFilename)
+	{
+		$fp = fopen($pFilename,"r");
+		$i = 0;
+		while($i != 30)
+		{
+			$string .= fgets($fp,4096);
+			$i++;
+		}
+		fclose($fp);
+		return $string;
+	}
+	
 	public function ArrayReindex($pArray)
 	{
 		if(is_array($pArray) == FALSE)
@@ -49,7 +77,7 @@ class Etc
 		fclose($fp);
 	}
 	
-	public function NonBlockingRun($pCmd,$pTimestamp,&$pCode)
+	public function NonBlockingRun($pCmd,$pTimestamp,$pFilename,$pType,&$pCode)
 	{
 		global $env;
 		$descriptorspec = array(
@@ -80,13 +108,13 @@ class Etc
 		
 		$todo= array($pipes[1],$pipes[2]);
 	
-		$fp = fopen($env['output_path']."/hive_run.".$pTimestamp.".out","w");
+		$fp = fopen($pFilename,"w");
 		fwrite($fp,$pTimestamp."\n\n");
 		while( true )
 		{
 			$read= array(); 
 			#if( !feof($pipes[1]) ) $read[]= $pipes[1];
-			if( !feof($pipes[2]) )	$read[]= $pipes[2];// get system stderr on real time
+			if( !feof($pipes[$pType]) )	$read[]= $pipes[$pType];// get system stderr on real time
 			
 			if (!$read)
 			{

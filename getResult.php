@@ -9,21 +9,30 @@ if(!@$_GET['str'])
 else
 {
 	$str = @$_GET['str'];
-	if(file_exists($env['output_path']."/hive_res.".$str.".csv"))
+	$filename = $env['output_path']."/hive_res.".$str.".csv";
+	$logfile = $envp['logs_path'].$_SESSION['username']."_".$time.".log";
+	if(file_exists($filename))
 	{
-		if(filesize($env['output_path']."/hive_res.".$str.".csv") != 0)
+		if(filesize($filename) != 0)
 		{
 			echo "<input type=button name=download value=\"".$lang['downloadResultFile']."\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
-			$fp = fopen($env['output_path']."/hive_res.".$str.".csv","r");
-			$i = 0;
-			while($i != 30)
-			{
-				$string .= fgets($fp,4096);
-				$i++;
-			}
+			
+			$etc = new Etc;
+			
+			$array_column = $etc->SplitSqlColumn($logfile);
+			
+			$etc->GetResult($filename);
 			$array = explode("\n",substr($string,0,-1));//stop at last return
 			$i = 0;
 			echo "<table border=1 cellspacing=1 cellpadding=3>\n";
+			echo "<tr bgcolor=#FFFF99>";
+			foreach($array_column as $k => $v)
+			{
+				echo "<td>";
+				echo $v;
+				echo "</td>";
+			}
+			echo "</tr>";
 			foreach($array as $k=>$v)
 			{
 				if(($i % 2) == 0)

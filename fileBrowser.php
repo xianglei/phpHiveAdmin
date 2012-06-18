@@ -23,8 +23,9 @@ else
 	$exec = ('setenv HADOOP_HOME '.$env['hadoop_home'].' && setenv HIVE_HOME '.$env['hive_home'].' && setenv JAVA_HOME '.$env['java_home'].' && '.$env['hive_home'].'/bin/hive -e '.$sql);
 }
 $time = time();
-$etc->NonBlockingRun2($exec,$time,$code);
 $filename = $env['output_path'].'/dfs_browse.'.$time.'.out';
+$etc->NonBlockingRun($exec,$time,$filename,1,$code);
+
 $list_arr = file($filename);
 echo "<br>";
 echo "<a href=fileBrowser.php?dir=/>".$lang['backToRoot']."</a><br><br>";
