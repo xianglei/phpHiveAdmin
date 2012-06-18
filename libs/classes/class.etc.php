@@ -19,7 +19,7 @@ class Etc
 		}
 		else
 		{
-			$sql = explode(";",$sql);
+			$sql = explode(";",$sql);echo $sql[0];
 			$transport = new TSocket(HOST, PORT);
 			$protocol = new TBinaryProtocol($transport);
 			$client = new ThriftHiveClient($protocol);
@@ -38,7 +38,7 @@ class Etc
 				$i++;
 			}
 			$columns = $array_desc_desc;
-			
+			$transport->close();
 		}
 		
 		return $columns; #as an array
