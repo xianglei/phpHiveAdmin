@@ -109,7 +109,7 @@ class Etc
 		$todo= array($pipes[1],$pipes[2]);
 	
 		$fp = fopen($pFilename,"w");
-		fwrite($fp,$pTimestamp."\n\n");
+		#fwrite($fp,$pTimestamp."\n\n");
 		while( true )
 		{
 			$read= array(); 
