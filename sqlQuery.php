@@ -48,6 +48,9 @@ else
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
+		$sql = "select * from ".$_GET['table']." limit 10";
+		$client->execute($sql);
+		$array = $client->fetchAll();
 		echo '<table border=1 cellspacing=1 cellpadding=3>';
 		$i = 0;
 		foreach ($array_desc_desc as $value)
@@ -67,6 +70,29 @@ else
 				$i++;
 			}
 			echo '</tr>';
+		}
+		#construct limited data
+		while ('' != @$array[$i])
+		{
+			if(($i % 2) == 0)
+			{
+				$color = "bgcolor=\"".$env['trColor1']."\"";
+			}
+			else
+			{
+				$color = "bgcolor=\"".$env['trColor2']."\"";
+			}
+			echo "<tr ".$color.">\n";
+			$arr = explode('	',$array[$i]);
+			foreach ($arr as $key => $value)
+			{
+					$value = str_replace('<','&lt;',$value);
+					$value = str_replace('>','&gt;',$value);
+					echo "<td>".$value."</td>\n";
+			}
+			#echo '<td>'.$array[$i].'</td>';
+			echo "</tr>\n";
+			$i++;
 		}
 		echo '</table>';
 		include_once 'templates/sql_query.html';

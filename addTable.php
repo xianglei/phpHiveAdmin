@@ -161,6 +161,7 @@ else
 			else
 			{
 				echo "<tr><td>".$lang['asRcfile']."<input type=text name=as></td></tr>";
+				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter value=\",\"></td></tr>";
 			}
 			echo "</table><br><br>";
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
