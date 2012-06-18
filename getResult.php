@@ -26,10 +26,10 @@ else
 			$i = 0;
 			echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 			echo "<tr bgcolor=#FFFF99>";
-			foreach($array_column as $k => $v)
+			foreach($array_column as $kk => $vv)
 			{
 				echo "<td>";
-				echo $v;
+				echo $vv;
 				echo "</td>";
 			}
 			echo "</tr>";
