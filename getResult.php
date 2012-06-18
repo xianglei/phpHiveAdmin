@@ -10,7 +10,21 @@ else
 {
 	$str = @$_GET['str'];
 	$filename = $env['output_path']."/hive_res.".$str.".csv";
-	$logfile = $env['logs_path'].$_SESSION['username']."_".$str.".log";
+	if($_SESSION != 'all')
+	{
+		$logfile = $env['logs_path'].$_SESSION['username']."_".$str.".log";
+	}
+	else
+	{
+		if(@$_GET['filename'] != "")
+		{
+			$logfile = $env['logs_path'].$_GET['filename'];
+		}
+		else
+		{
+			die($lang['invalidEntry']);
+		}
+	}
 	if(file_exists($filename))
 	{
 		if(filesize($filename) != 0)

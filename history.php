@@ -95,7 +95,14 @@ if ($dh = opendir($dir))
 			$tmp = substr($tmp[1]."_".$tmp[2],0,-4);
 			if(file_exists($env['output_path']."/hive_res.".$tmp.".csv"))
 			{
-				echo "<td><a href=getResult.php?str=".$tmp.">$file</a></td>\n";
+				if($_SESSION['onlydb'] == 'all')
+				{
+					echo "<td><a href=getResult.php?filename=".$file.">$file</a></td>\n";
+				}
+				else
+				{
+					echo "<td><a href=getResult.php?str=".$tmp.">$file</a></td>\n";
+				}
 			}
 			else
 			{

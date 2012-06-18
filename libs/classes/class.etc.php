@@ -3,12 +3,12 @@ class Etc
 {
 	public function SplitSqlColumn($pFilename)
 	{
-		$fp = fopen($pFilename,"r");
-		while(!feof($fp))
+		$fp = @fopen($pFilename,"r");
+		while(!@feof($fp))
 		{
-			$sql .= fread($fp,1024);
+			$sql .= @fread($fp,1024);
 		}
-		fclose($fp);
+		@fclose($fp);
 		$start = stripos($sql, "select") + 6;
 		$end = stripos($sql, "from");
 		$length = $end - $start;
