@@ -36,6 +36,8 @@ else
 			die($lang['invalidEntry']);
 		}
 	}
+	echo $logfile;
+	echo $filename;
 	if(file_exists($filename))
 	{
 		if(filesize($filename) != 0)
