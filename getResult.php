@@ -4,11 +4,22 @@ include_once 'templates/style.css';
 
 if(!@$_GET['str'])
 {
-	die($lang['invalidEntry']);
+	if(!@$_GET['filename'])
+	{
+		die($lang['invalidEntry']);
+	}
 }
 else
 {
-	$str = @$_GET['str'];
+	if(!@$_GET['str'] != '')
+	{
+		$str = @$_GET['str'];
+	}
+	if(!@$_GET['filename'] != '')
+	{
+		$str = explode("_",$_GET['filename']);
+		$str = $str[1]."_".$str[2];
+	}
 	$filename = $env['output_path']."/hive_res.".$str.".csv";
 	if($_SESSION != 'all')
 	{
