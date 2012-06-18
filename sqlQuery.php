@@ -48,7 +48,7 @@ else
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
-		$sql = "select * from ".$_GET['table']." limit 10";
+		$sql = "select * from ".$_GET['table']." limit 2";
 		$client->execute($sql);
 		$array = $client->fetchAll();
 		echo '<table border=1 cellspacing=1 cellpadding=3>';
