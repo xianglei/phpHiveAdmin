@@ -2,12 +2,9 @@
 include_once 'config.inc.php';
 include_once 'templates/style.css';
 echo $_GET['filename'];
-if(!@$_GET['str'])
+if(!@$_GET['str'] && !@$_GET['filename'])
 {
-	if(!@$_GET['filename'])
-	{
-		die($lang['invalidEntry']);
-	}
+	die($lang['invalidEntry']);
 }
 else
 {
