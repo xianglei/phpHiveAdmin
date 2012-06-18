@@ -25,7 +25,7 @@ class Etc
 			$protocol = new TBinaryProtocol($transport);
 			$client = new ThriftHiveClient($protocol);
 			$transport->open();
-			$client->execute($sql[0]);
+			$client->execute($sql);
 			
 			$sql = 'desc '.$_GET['table'];
 			$client->execute($sql);
