@@ -10,7 +10,7 @@ if(!@$_GET['str'])
 	}
 }
 else
-{
+{echo $_GET['filename'];
 	if(!@$_GET['str'] != '')
 	{
 		$str = @$_GET['str'];
