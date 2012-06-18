@@ -72,6 +72,7 @@ else
 			echo '</tr>';
 		}
 		#construct limited data
+		$i = 0;
 		while ('' != @$array[$i])
 		{
 			if(($i % 2) == 0)
@@ -94,7 +95,7 @@ else
 			echo "</tr>\n";
 			$i++;
 		}
-		echo '</table>';
+		echo '</table><br>';
 		include_once 'templates/sql_query.html';
 	}
 	else

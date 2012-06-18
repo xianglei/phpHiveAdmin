@@ -160,7 +160,7 @@ else
 			}
 			else
 			{
-				echo "<table  border=1 cellspacing=1 cellpadding=3><tr><td>".$lang['asRcfile']."<input type=text name=as></td></tr>";
+				echo "<table  border=1 cellspacing=1 cellpadding=3><tr><td>".$lang['asRcfile']."</td><td><input type=text name=as></td></tr>";
 				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter value=\",\"></td></tr>";
 			}
 			echo "</table><br><br>";
