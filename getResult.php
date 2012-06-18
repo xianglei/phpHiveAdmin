@@ -8,11 +8,11 @@ if(!@$_GET['str'] && !@$_GET['filename'])
 }
 else
 {
-	if(!@$_GET['str'] != '')
+	if(@$_GET['str'] != '')
 	{
 		$str = @$_GET['str'];
 	}
-	if(!@$_GET['filename'] != '')
+	if(@$_GET['filename'] != '')
 	{
 		$str = explode("_",$_GET['filename']);
 		$str = $str[1]."_".$str[2];
