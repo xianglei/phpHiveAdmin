@@ -1,21 +1,24 @@
 <?php
 include_once 'config.inc.php';
 include_once 'templates/style.css';
-echo $_GET['filename'];
 if(!@$_GET['str'] && !@$_GET['filename'])
 {
 	die($lang['invalidEntry']);
 }
 else
 {
-	if(@$_GET['str'] != '')
+	if(@$_GET['str'])
 	{
 		$str = @$_GET['str'];
 	}
-	if(@$_GET['filename'] != '')
+	elseif(@$_GET['filename'])
 	{
 		$str = explode("_",$_GET['filename']);
 		$str = substr($str[1]."_".$str[2],0,-4);
+	}
+	else
+	{
+		die($lang['invalidEntry']);
 	}
 	$filename = $env['output_path']."/hive_res.".$str.".csv";
 	if(!@$_GET['filename'])
