@@ -26,8 +26,7 @@ else
 	{
 		$logfile = $env['logs_path'].$_GET['str'];
 	}
-	echo $logfile;
-	echo $filename;
+	
 	if(file_exists($filename))
 	{
 		if(filesize($filename) != 0)
