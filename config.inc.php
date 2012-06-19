@@ -32,7 +32,7 @@ if((!@$_GET['username'] || !@$_GET['username'] == "") || (!@$_GET['password'] ||
 }
 else
 {
-	$auth_arr = $auth->AuthUser($env["privFile"],$_GET['username'],$_GET['password']);
+	$auth_arr = $auth->AuthUser($env["privFile"],$_GET['username'],$_GET['password']);var_dump($auth_arr);
 	if(($auth_arr['onlydb'] == FALSE) || ($auth_arr['onlydb'] == ""))
 	{
 		include_once "templates/login.html";
