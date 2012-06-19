@@ -34,7 +34,7 @@ else
 {
 	$user = $_GET['username'];
 	$pass = $_GET['password'];
-	$onlydb = $auth->AuthUser($env["privFile"],$user,$pass);
+	echo $onlydb = $auth->AuthUser($env["privFile"],$user,$pass);
 	if(($onlydb == FALSE) || ($onlydb == ""))
 	{
 		include_once "templates/login.html";
