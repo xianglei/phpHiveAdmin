@@ -18,7 +18,7 @@ $auth = new Authorize;
 
 $env["privFile"] = "accesslist.ini";
 
-$_SESSION['onlydb'] = $auth->AuthUser($env["privFile"],@$_GET['username'],@$_GET['password']);
+echo $_SESSION['onlydb'] = $auth->AuthUser($env["privFile"],@$_GET['username'],@$_GET['password']);
 if($_SESSION['onlydb'] == FALSE)
 {
 	include_once "templates/login.html";
