@@ -26,14 +26,24 @@ require_once 'langs/lang_en.php';
 
 $env["privFile"] = "accesslist.ini";
 
-if(@$_SESSION['onlydb'] == "")
+if($_GET['username'] && $_GET['password'])
+{
+	$user = $_GET['username'];
+	$pass = $_GET['password'];
+}
+else
+{
+	$user = $_SESSION['username'];
+	$pass = $_SESSION['password'];
+}
+
+if(($user == "") || ($pass == ""))
 {
 	include_once "templates/login.html";
 }
 else
 {
-	$user = $_GET['username'];
-	$pass = $_GET['password'];
+
 	echo $onlydb = $auth->AuthUser($env["privFile"],$user,$pass);
 	if(($onlydb == FALSE) || ($onlydb == ""))
 	{
