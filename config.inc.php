@@ -26,7 +26,7 @@ require_once 'langs/lang_en.php';
 
 $env["privFile"] = "accesslist.ini";
 
-if((!@$_GET['username'] || !@$_GET['username'] == "") && (!@$_GET['password'] || @$_GET['password'] == ""))
+if((!@$_SESSION['username'] || !@$_SESSION['username'] == "") && (!@$_SESSION['password'] || @$_SESSION['password'] == ""))
 {
 	include_once "templates/login.html";
 }
