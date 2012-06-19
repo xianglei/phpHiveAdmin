@@ -29,8 +29,8 @@ else
 		header("Expires: 0");
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
 		header("Content-Type: application/force-download");
-		header('Content-Length: ' . filesize($filename));
-		header("Content-Disposition: attachment; filename=".$filename);
+		#header('Content-Length: ' . filesize($filename));
+		#header("Content-Disposition: attachment; filename=".$filename);
 		//readfile($filename);
 		$fp = fopen ($filename,"r");
 		while (!feof($fp))

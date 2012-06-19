@@ -117,4 +117,6 @@ $lang['fileProperty'] = "文件属性";
 $lang['fileUser'] = "用户";
 $lang['fileGroup'] = "组";
 $lang['fileTime'] = "创建时间";
+$lang['username'] = "用户名";
+$lang['password'] = '密　码';
 ?>

@@ -14,24 +14,19 @@ $auth = new Authorize;
 # for my company use only below, you can change it to standard authrize as you wish
 # 仅仅是我公司内部使用所需要的验证，你可以自己改造成自己的标准验证方式
 
-if($_GET['username'] != "" && $_GET['password'] != "")
-{
-	$_SESSION['username'] = $_GET['username'];
-	$_SESSION['password'] = $_GET['password'];
-}
-else
-{
-	$_SESSION['username'] = $_SESSION['username'];
-	$_SESSION['password'] = $_SESSION['password'];
-}
 #--------------------------
 
 $env["privFile"] = "accesslist.ini";
 
-$_SESSION['onlydb'] = $auth->AuthUser($env["privFile"],$_SESSION['username'],$_SESSION['password']);
+$_SESSION['onlydb'] = $auth->AuthUser($env["privFile"],@$_GET['username'],@$_GET['password']);
 if($_SESSION['onlydb'] == FALSE)
 {
-	die('No access');
+	include_once "templates/login.html";
+}
+else
+{
+	$_SESSION['username'] = $_GET['username'];
+	$_SESSION['password'] = $_GET['password'];
 }
 #comment up if you didn't wanna use authenticate
 #如果不需要验证，请注释掉以上部分
@@ -73,6 +68,7 @@ define('METAPORT', '3306');
 define('METAUSER', 'hive');
 define('METAPASS', 'hive');
 define('METANAME', 'hive');
+
 #----------------
 #define('METATYPE', 'pgsql');
 #define('METADB','192.168.1.28');

@@ -117,4 +117,6 @@ $lang['fileProperty'] = "File Property";
 $lang['fileUser'] = "User";
 $lang['fileGroup'] = "Group";
 $lang['fileTime'] = "Create Time";
+$lang['username'] = "Username";
+$lang['password'] = 'Password';
 ?>
