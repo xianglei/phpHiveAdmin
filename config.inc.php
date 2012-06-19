@@ -26,23 +26,23 @@ require_once 'langs/lang_en.php';
 
 $env["privFile"] = "accesslist.ini";
 
-if((!@$_SESSION['username'] || !@$_SESSION['username'] == "") && (!@$_SESSION['password'] || @$_SESSION['password'] == ""))
+if((!@$_SESSION['username'] || !@$_SESSION['username'] == "") || (!@$_SESSION['password'] || @$_SESSION['password'] == ""))
 {
 	include_once "templates/login.html";
 }
 else
 {
-	$onlydb = $auth->AuthUser($env["privFile"],$_GET['username'],$_GET['password']);
-	if(($onlydb == FALSE) || ($onlydb == ""))
+	$auth_arr = $auth->AuthUser($env["privFile"],$_GET['username'],$_GET['password']);
+	if(($auth_arr['onlydb'] == FALSE) || ($auth_arr['onlydb'] == ""))
 	{
 		include_once "templates/login.html";
 		$_SESSION['onlydb'] = "";
 	}
 	else
 	{
-		$_SESSION['username'] = $_GET['username'];
-		$_SESSION['password'] = $_GET['password'];
-		$_SESSION['onlydb'] = $onlydb;
+		$_SESSION['username'] = $auth_arr['username'];
+		$_SESSION['password'] = $auth_arr['password'];
+		$_SESSION['onlydb'] = $auth_arr['onlydb'];
 	}
 }
 

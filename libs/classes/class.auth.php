@@ -56,7 +56,7 @@ class Authorize
 			{
 				if(preg_match("/\b".$pUsername."\b/",$v["username"]) && preg_match("/\b".$pPassword."\b/", $v["password"]))
 				{
-					return $v["privdb"];
+					return $v;
 				}
 				else
 				{
