@@ -11,6 +11,14 @@ require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.hive.php';
 #comment below if you didn't wanna use authenticate
 $auth = new Authorize;
 
+#-----------defination of language--------------
+#-----------定义所使用语言----------------------
+
+require_once 'langs/lang_en.php';
+
+# langs path en file to use chinese, modify to 'langs/lang_cn.php'
+# 语言包所使用的路径，中文请使用'lang/lang_cn.php'
+
 # for my company use only below, you can change it to standard authrize as you wish
 # 仅仅是我公司内部使用所需要的验证，你可以自己改造成自己的标准验证方式
 
@@ -36,16 +44,6 @@ require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'transport/TSocket.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'protocol/TBinaryProtocol.php';
 require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.timer.php';
-# Set up the transport/protocol/client
-
-
-#-----------defination of language--------------
-#-----------定义所使用语言----------------------
-
-require_once 'langs/lang_en.php';
-
-# langs path en file to use chinese, modify to 'langs/lang_cn.php'
-# 语言包所使用的路径，中文请使用'lang/lang_cn.php'
 
 
 #-----------defination of HIVE Server and port-----

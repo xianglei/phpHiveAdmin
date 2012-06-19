@@ -54,7 +54,7 @@ class Authorize
 			$array = parse_ini_file($pAuthFilename,TRUE);
 			foreach($array as $k => $v)
 			{
-				if(preg_match("/\b".$pUsername."/\b",$v["username"]) && preg_match("/\b".$pPassword."/\b", $v["password"]))
+				if(preg_match('/\b'.$pUsername.'/\b',$v["username"]) && preg_match('/\b'.$pPassword.'/\b', $v["password"]))
 				{
 					return $v["privdb"];
 				}
