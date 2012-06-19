@@ -26,27 +26,27 @@ require_once 'langs/lang_en.php';
 
 $env["privFile"] = "accesslist.ini";
 
-if($_GET['username'] == "" || !$_GET['username'])
+if(!$_GET['username'])
 {
 	include_once "templates/login.html";var_dump($_GET);
 }
-elseif($_GET['password'] == "" || !$_GET['password'])
+elseif(!$_GET['password'])
 {
 	include_once "templates/login.html";var_dump($_GET);
 }
 else
 {
-	$auth_arr = $auth->AuthUser($env["privFile"],$_GET['username'],$_GET['password']);var_dump($auth_arr);
-	if(($auth_arr['onlydb'] == FALSE) || ($auth_arr['onlydb'] == ""))
+	$onlydb = $auth->AuthUser($env["privFile"],$_GET['username'],$_GET['password']);var_dump($auth_arr);
+	if(($onlydb == FALSE) || ($onlydb == ""))
 	{
 		include_once "templates/login.html";
 		$_SESSION['onlydb'] = "";
 	}
 	else
 	{
-		$_SESSION['username'] = $auth_arr['username'];
-		$_SESSION['password'] = $auth_arr['password'];
-		$_SESSION['onlydb'] = $auth_arr['onlydb'];
+		$_SESSION['username'] = $_GET['username'];
+		$_SESSION['password'] = $_GET['password'];
+		$_SESSION['onlydb'] = $onlydb;
 	}var_dump($_SESSION);var_dump($_GET);
 }
 
