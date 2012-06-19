@@ -25,8 +25,8 @@ require_once 'langs/lang_en.php';
 #--------------------------
 
 $env["privFile"] = "accesslist.ini";
-
-echo $_SESSION['onlydb'] = $auth->AuthUser($env["privFile"],@$_GET['username'],@$_GET['password']);
+echo $_GET['username'].$_GET['password'];
+echo $_SESSION['onlydb'] = $auth->AuthUser($env["privFile"],$_GET['username'],$_GET['password']);
 if($_SESSION['onlydb'] == FALSE)
 {
 	include_once "templates/login.html";
