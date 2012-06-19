@@ -13,8 +13,15 @@ else
 	}
 	else
 	{
-		$str = explode("_",$_GET['str']);
-		$str = substr($str[1]."_".$str[2],0,-4);
+		if(!is_numeric(substr($_GET['str'],0,1)))
+		{
+			$str = explode("_",$_GET['str']);
+			$str = substr($str[1]."_".$str[2],0,-4);
+		}
+		else
+		{
+			$str = $_GET['str'];
+		}
 	}
 
 	$filename = $env['output_path']."/hive_res.".$str.".csv";
