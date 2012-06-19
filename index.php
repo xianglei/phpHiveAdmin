@@ -2,19 +2,13 @@
 
 include_once 'config.inc.php';
 
-if($_SESSION['onlydb'] != "")
+if(@$_GET['frame'])
 {
-	if(@$_GET['frame'])
-	{
-		include_once 'templates/'.$_GET['frame'].'.html';
-	}
-	else
-	{
-		include_once 'templates/index.html';
-	}
+	include_once 'templates/'.$_GET['frame'].'.html';
 }
 else
 {
-	include_once 'templates/login.html';
+	include_once 'templates/index.html';
 }
+
 ?>

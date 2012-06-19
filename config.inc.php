@@ -26,7 +26,7 @@ require_once 'langs/lang_en.php';
 
 $env["privFile"] = "accesslist.ini";
 
-if(!$_SESSION['onlydb'] || $_SESSION['onlydb'] == "")
+if(@$_SESSION['onlydb'] == "")
 {
 	include_once "templates/login.html";
 }
@@ -38,7 +38,6 @@ else
 	if(($onlydb == FALSE) || ($onlydb == ""))
 	{
 		include_once "templates/login.html";
-		$_SESSION['onlydb'] = "";
 	}
 	else
 	{
