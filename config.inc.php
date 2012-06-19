@@ -28,7 +28,7 @@ $env["privFile"] = "accesslist.ini";
 
 if((!@$_GET['username'] || !@$_GET['username'] == "") || (!@$_GET['password'] || @$_GET['password'] == ""))
 {
-	include_once "templates/login.html";
+	include_once "templates/login.html";var_dump($_GET);
 }
 else
 {
@@ -43,7 +43,7 @@ else
 		$_SESSION['username'] = $auth_arr['username'];
 		$_SESSION['password'] = $auth_arr['password'];
 		$_SESSION['onlydb'] = $auth_arr['onlydb'];
-	}
+	}var_dump($_SESSION);var_dump($_GET);
 }
 
 #comment up if you didn't wanna use authenticate
