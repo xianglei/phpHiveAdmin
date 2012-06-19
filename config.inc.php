@@ -26,17 +26,19 @@ require_once 'langs/lang_en.php';
 
 $env["privFile"] = "accesslist.ini";
 
-if(!$_GET['username'])
+if(!$_GET['username'] || !$_SESSION['username'])
 {
-	include_once "templates/login.html";var_dump($_GET);
+	include_once "templates/login.html";
 }
-elseif(!$_GET['password'])
+elseif(!$_GET['password'] || !$_SESSION['password'])
 {
-	include_once "templates/login.html";var_dump($_GET);
+	include_once "templates/login.html";
 }
 else
 {
-	$onlydb = $auth->AuthUser($env["privFile"],$_GET['username'],$_GET['password']);var_dump($auth_arr);
+	$user = $_GET['username'];
+	$pass = $_GET['password'];
+	echo $onlydb = $auth->AuthUser($env["privFile"],$user,$pass);
 	if(($onlydb == FALSE) || ($onlydb == ""))
 	{
 		include_once "templates/login.html";
@@ -44,10 +46,10 @@ else
 	}
 	else
 	{
-		$_SESSION['username'] = $_GET['username'];
-		$_SESSION['password'] = $_GET['password'];
+		$_SESSION['username'] = $user;
+		$_SESSION['password'] = $pass;
 		$_SESSION['onlydb'] = $onlydb;
-	}var_dump($_SESSION);var_dump($_GET);
+	}var_dump($_SESSION);
 }
 
 #comment up if you didn't wanna use authenticate
