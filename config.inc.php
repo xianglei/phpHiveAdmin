@@ -26,7 +26,11 @@ require_once 'langs/lang_en.php';
 
 $env["privFile"] = "accesslist.ini";
 
-if(!$_SESSION['onlydb'])
+if(!$_GET['username'] && !$_SESSION['username'])
+{
+	include_once "templates/login.html";
+}
+elseif(!$_GET['password'] && !$_SESSION['password'])
 {
 	include_once "templates/login.html";
 }
