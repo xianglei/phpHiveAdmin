@@ -25,17 +25,27 @@ require_once 'langs/lang_en.php';
 #--------------------------
 
 $env["privFile"] = "accesslist.ini";
-echo $_GET['username'].$_GET['password'];
-echo $_SESSION['onlydb'] = $auth->AuthUser($env["privFile"],$_GET['username'],$_GET['password']);
-if($_SESSION['onlydb'] == FALSE)
+
+if((!@$_GET['username'] || !@$_GET['username'] == "") && (!@$_GET['password'] || @$_GET['password'] == ""))
 {
 	include_once "templates/login.html";
 }
 else
 {
-	$_SESSION['username'] = $_GET['username'];
-	$_SESSION['password'] = $_GET['password'];
+	$onlydb = $auth->AuthUser($env["privFile"],$_GET['username'],$_GET['password']);
+	if(($onlydb == FALSE) || ($onlydb == ""))
+	{
+		include_once "templates/login.html";
+		$_SESSION['onlydb'] = "";
+	}
+	else
+	{
+		$_SESSION['username'] = $_GET['username'];
+		$_SESSION['password'] = $_GET['password'];
+		$_SESSION['onlydb'] = $onlydb;
+	}
 }
+
 #comment up if you didn't wanna use authenticate
 #如果不需要验证，请注释掉以上部分
 
