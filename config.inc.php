@@ -31,6 +31,11 @@ if($_GET['username'] && $_GET['password'])
 	$user = $_GET['username'];
 	$pass = $_GET['password'];
 }
+elseif($_POST['username'] && $_POST['password'])
+{
+	$user = $_SESSION['username'];
+	$pass = $_SESSION['password'];
+}
 else
 {
 	$user = $_SESSION['username'];
