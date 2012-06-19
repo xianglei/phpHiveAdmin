@@ -26,11 +26,7 @@ require_once 'langs/lang_en.php';
 
 $env["privFile"] = "accesslist.ini";
 
-if(!$_GET['username'] && !$_SESSION['username'])
-{
-	include_once "templates/login.html";
-}
-elseif(!$_GET['password'] && !$_SESSION['password'])
+if(!$_SESSION['onlydb'])
 {
 	include_once "templates/login.html";
 }
@@ -49,7 +45,7 @@ else
 		$_SESSION['username'] = $user;
 		$_SESSION['password'] = $pass;
 		$_SESSION['onlydb'] = $onlydb;
-	}var_dump($_SESSION);
+	}
 }
 
 #comment up if you didn't wanna use authenticate
