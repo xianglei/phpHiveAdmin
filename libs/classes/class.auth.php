@@ -55,7 +55,7 @@ class Authorize
 			foreach($array as $k => $v)
 			{
 				if(preg_match("/\b".$pUsername."\b/",$v["username"]) && preg_match("/\b".$pPassword."\b/", $v["password"]))
-				{
+				{var_dump($v);
 					return $v['privdb'];
 				}
 				else
