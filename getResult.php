@@ -31,7 +31,14 @@ else
 	}
 	else
 	{
-		$logfile = $env['logs_path'].$_GET['str'];
+		if(is_numeric(substr($_GET['str'],0,1)))
+		{
+			$logfile = $env['logs_path'].$_SESSION['username']."_".$_GET['str'].".log";
+		}
+		else
+		{
+			$logfile = $env['logs_path'].$_GET['str'];
+		}		
 	}
 	
 	if(file_exists($filename))
