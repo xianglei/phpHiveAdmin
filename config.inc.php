@@ -44,7 +44,7 @@ if(($user == "") || ($pass == ""))
 else
 {
 
-	echo $onlydb = $auth->AuthUser($env["privFile"],$user,$pass);
+	$onlydb = $auth->AuthUser($env["privFile"],$user,$pass);
 	if(($onlydb == FALSE) || ($onlydb == ""))
 	{
 		include_once "templates/login.html";
