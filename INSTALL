@@ -8,49 +8,26 @@ To start Hive Thrift Server:
 Installation:
 1: run git clone git://github.com/xianglei/phpHiveAdmin.git
 
-2: add this follow to your nginx.conf in your "location ~ .php$ {};" area
+2: open config.inc.php
+set define('HOST','192.168.1.49'); and define('PORT','10000'); #To your hive thrift server address and port.
+find variables below in config.inc.php, change to your own path，and chmod etl,output_path,logs_path to 777 or 755
 
-fastcgi_connect_timeout 36000;
-fastcgi_send_timeout 36000;
-fastcgi_read_timeout 36000;
+$env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0'; #Path to your hadoop installation home
+$env['hive_home'] = '/opt/modules/hive/hive-0.7.1'; #Path to your hive installation home
+$env['java_home'] = '/usr/java/jdk1.6.0_21'; #Path to your java installation home
+$env['etl'] = './etl/'; #Where to put your etl sets
+$env['output_path'] = '/data2/tmp/phpHiveAdmin'; #where to put your map/reduce monitoring file and query result files 
+$env['logs_path'] = './logs/'; #Path to put your query log files
 
-3: in php 5.3.x open $PHP_HOME/etc/php-fpm.conf modify to this:
-
-process_control_timeout = 36000s
-
-and this:
-
-request_terminate_timeout = 36000s
-
-open $PHP_HOME/lib/php.ini modify to this:
-
-max_input_time = 36000
-
-and this:
-
-default_socket_timeout = 36000
-
-4: restart nginx && php-fpm
-
-5: open config.inc.php
-set define('HOST','192.168.1.49'); and define('PORT','10000'); to your hive thrift server address and port.
-find variables below in config.inc.php, change to your own path，and chmod etl,output_path,logs_path to 0777
-$env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';
-$env['hive_home'] = '/opt/modules/hive/hive-0.7.1';
-$env['java_home'] = '/usr/java/jdk1.6.0_21';
-$env['etl'] = './etl/';
-$env['output_path'] = '/data2/tmp/phpHiveAdmin';
-$env['logs_path'] = './logs/';
-
-$env['lang_set'] = 'zh_CN.UTF-8';#system language set
-#$env['lang_set'] = 'en_US.UTF-8';#if you are using with english
-$env['setenv'] = 'export';
+$env['lang_set'] = 'zh_CN.UTF-8'; #operation system language set
+#$env['lang_set'] = 'en_US.UTF-8'; #if you are using with english uncomment this and comment zhCN
+$env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q'; #command to run your udf functions, it maybe a jar or other initialized script. if no udf, set it to ''
+$env['setenv'] = 'export'; #The command to set your Environment variables, for sh and bash, set it to 'export'. for csh or ksh, set it to 'setenv' 
 $env['seperator'] = "\t";#seperator(delimiter) set for hive external table
 
 Open refresh.php
 Modify
-$env['output_path'] = '/data2/tmp/phpHiveAdmin';
-to your own set , same as config.inc.php
+$env['output_path'] = '/data2/tmp/phpHiveAdmin'; # To your own set , same as this array in config.inc.php
 
 Then?
 No then, surfing in the data.
@@ -66,8 +43,8 @@ accesslist intro:
 ;userset order above
 username=yourname
 password=yourpass
-privdb=the database that this user can see
-mrslots=map slots,reduce slots(not used in recent version, but future will be)
+privdb=all  #the database that this user can see
+mrslots=map slots,reduce slots  #(not used in recent version, but future will be)
 
 if you want to show all db, put "all" on "onlydb" area, else onlydb(s) use comma to seperate.
 
@@ -87,44 +64,24 @@ Nginx 与 php 5.3+
 安装步骤:
 1: 运行 git clone git://github.com/xianglei/phpHiveAdmin.git
 
-2: 将以下内容放入nginx.conf的php配置部分 "location ~ .php$ {};"
+2: 打开 config.inc.php
 
-fastcgi_connect_timeout 36000;
-fastcgi_send_timeout 36000;
-fastcgi_read_timeout 36000;
-
-3: php 5.3+以上版本 打开 $PHP_HOME/etc/php-fpm.conf 查找并修改如下:
-
-process_control_timeout = 36000s
-
-与这个:
-
-request_terminate_timeout = 36000s
-
-打开 $PHP_HOME/lib/php.ini 修改如下:
-
-max_input_time = 36000
-
-与这个:
-
-default_socket_timeout = 36000
-
-4: 重启 nginx && php-fpm
-
-5: 打开 config.inc.php
 找到 define('HOST','192.168.1.49'); and define('PORT','10000'); 并设置为你自己的hiveserver地址.
-在config.inc.php中找到以下变量，并修改为你自己的路径，请赋予etl,output_path,logs_path 777权限
-$env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';
-$env['hive_home'] = '/opt/modules/hive/hive-0.7.1';
-$env['java_home'] = '/usr/java/jdk1.6.0_21';
-$env['etl'] = './etl/';
-$env['output_path'] = '/data2/tmp/phpHiveAdmin';
-$env['logs_path'] = './logs/';
 
-$env['lang_set'] = 'zh_CN.UTF-8';#system language set
-#$env['lang_set'] = 'en_US.UTF-8';#if you are using with english
-$env['setenv'] = 'export';
-$env['seperator'] = "\t";#hive中外部表数据的分隔符
+在config.inc.php中找到以下变量，并修改为你自己的路径，请赋予etl,output_path,logs_path 777权限或755
+
+$env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0'; #hadoop安装的目录
+$env['hive_home'] = '/opt/modules/hive/hive-0.7.1'; #hive按转过得目录
+$env['java_home'] = '/usr/java/jdk1.6.0_21'; #java安装目录
+$env['etl'] = './etl/'; #放置elt设置的路径
+$env['output_path'] = '/data2/tmp/phpHiveAdmin'; #放置map/reduce实时监控输出和结果集文件的路径
+$env['logs_path'] = './logs/'; #放置查询日志的路径
+
+$env['lang_set'] = 'zh_CN.UTF-8'; #操作系统的语言设置
+#$env['lang_set'] = 'en_US.UTF-8'; #如使用英文，则取消前面的注释，并注释掉中文设置
+$env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q'; #调用UDF的命令, 可能为jar文件或初始化脚本. 如果没有udf, 则设置为 ''
+$env['setenv'] = 'export'; #系统环境变量的设置命令，针对sh和bash，使用export，针对csh和ksh，使用setenv
+$env['seperator'] = "\t"; #hive中外部表数据的分隔符
 
 打开refresh.php
 修改
