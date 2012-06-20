@@ -108,6 +108,7 @@ $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';# hadoop root path
 $env['hive_home'] = '/opt/modules/hive/hive-0.7.1';# hive root path
 $env['java_home'] = '/usr/java/jdk1.6.0_21';# jdk root path
 $env['lang_set'] = 'zh_CN.UTF-8';#system language set
+$env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q';#user defined function load command. it should be a jar, if not have an udf , set it to ""
 #$env['lang_set'] = 'en_US.UTF-8';
 $env['setenv'] = 'export';
 #may set to export and setenv

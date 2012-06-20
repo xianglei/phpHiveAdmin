@@ -14,14 +14,15 @@ else
 }
 $etc = new Etc;
 $sql = '"dfs -ls '.$path.'"';
-if($env['setenv'] == 'export')
-{
-	$exec = ('export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql);
-}
-else
-{
-	$exec = ('setenv HADOOP_HOME '.$env['hadoop_home'].' && setenv HIVE_HOME '.$env['hive_home'].' && setenv JAVA_HOME '.$env['java_home'].' && '.$env['hive_home'].'/bin/hive -e '.$sql);
-}
+
+$LANG = $env['setenv'].' LANG='.$env['lang_set'].'; ';
+$HADOOP_HOME = $env['setenv'].' HADOOP_HOME='.$env['hadoop_home'].'; ';
+$HIVE_HOME = $env['setenv'].' HIVE_HOME='.$env['hive_home'].'; ';
+$JAVA_HOME = $env['setenv'].'JAVA_HOME='.$env['java_home'].'; ';
+$UDF = ($env['udf'] != "") ? $env['udf'] : "";
+
+$exec = ($LANG . $HADOOP_HOME . $HIVE_HOME . $JAVA_HOME. $env['hive_home'].'/bin/hive '.$UDF.' -e '.$sql);
+
 $time = time();
 $filename = $env['output_path'].'/dfs_browse.'.$time.'.out';
 $etc->NonBlockingRun($exec,$time,$filename,1,$code);

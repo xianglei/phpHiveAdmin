@@ -14,6 +14,13 @@ if("" == $query || "" == $time)
 }
 else
 {
+	$LANG = $env['setenv'].' LANG='.$env['lang_set'].'; ';
+	$HADOOP_HOME = $env['setenv'].' HADOOP_HOME='.$env['hadoop_home'].'; ';
+	$HIVE_HOME = $env['setenv'].' HIVE_HOME='.$env['hive_home'].'; ';
+	$JAVA_HOME = $env['setenv'].'JAVA_HOME='.$env['java_home'].'; ';
+	
+	$UDF = ($env['udf'] != "") ? $env['udf'] : "";
+	
 	if(file_exists($env['output_path']))
 	{
 		$sql = trim(rawurldecode($query));
@@ -28,14 +35,9 @@ else
 		#didn't use sql verification, may cause be hacked
 		if(!file_exists($env['output_path'].'/hive_res.'.$time.'.out') || filesize($env['output_path'].'/hive_res.'.$time.'.out') == 0)
 		{
-			if($env['setenv'] == 'export')
-			{
-				$exec = 'export LANG='.$env['lang_set'].'; export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql.' > '.$env['output_path'].'/hive_res.'.$time.'.out';
-			}
-			else
-			{
-				$exec = 'setenv LANG '.$env['lang_set'].' && setenv HADOOP_HOME '.$env['hadoop_home'].' && setenv HIVE_HOME '.$env['hive_home'].' && setenv JAVA_HOME '.$env['java_home'].' && '.$env['hive_home'].'/bin/hive -e '.$sql.' > '.$env['output_path'].'/hive_res.'.$time.'.out';
-			}
+			
+			$exec = $LANG . $HADOOP_HOME . $HIVE_HOME . $JAVA_HOME. $env['hive_home'].'/bin/hive '.$UDF.' -e '.$sql.' > '.$env['output_path'].'/hive_res.'.$time.'.out';
+			
 			//passthru($exec);
 			#$log = $env['logs_path'].$time.".debug";
 			#$etc->LogAction($log,"w",$exec."\n");
@@ -63,14 +65,13 @@ else
 		
 		if(!file_exists($env['output_path'].'/hive_res.'.$time.'.out') || filesize($env['output_path'].'/hive_res.'.$time.'.out') == 0)
 		{
-			if($env['setenv'] == 'export')
-			{
-				$exec = 'export LANG='.$env['lang_set'].'; export HADOOP_HOME='.$env['hadoop_home'].'; export HIVE_HOME='.$env['hive_home'].'; export JAVA_HOME='.$env['java_home'].'; '.$env['hive_home'].'/bin/hive -e '.$sql.' > '.$env['output_path'].'/hive_res.'.$time.'.out';
-			}
-			else
-			{
-				$exec = 'setenv LANG '.$env['lang_set'].' && setenv HADOOP_HOME '.$env['hadoop_home'].' && setenv HIVE_HOME '.$env['hive_home'].' && setenv JAVA_HOME '.$env['java_home'].' && '.$env['hive_home'].'/bin/hive -e '.$sql.' > '.$env['output_path'].'/hive_res.'.$time.'.out';
-			}
+			$LANG = $env['setenv'].' LANG='.$env['lang_set'].'; ';
+			$HADOOP_HOME = $env['setenv'].' HADOOP_HOME='.$env['hadoop_home'].'; ';
+			$HIVE_HOME = $env['setenv'].' HIVE_HOME='.$env['hive_home'].'; ';
+			$JAVA_HOME = $env['setenv'].'JAVA_HOME='.$env['java_home'].'; ';
+
+			$exec = $LANG . $HADOOP_HOME . $HIVE_HOME . $JAVA_HOME. $env['hive_home'].'/bin/hive '.$UDF.' -e '.$sql.' > '.$env['output_path'].'/hive_res.'.$time.'.out';
+			
 			//passthru($exec);
 			$runfile = $env['output_path']."/hive_run.".$time.".out";
 			$etc->NonBlockingRun($exec,$time,$runfile,2,$code);
