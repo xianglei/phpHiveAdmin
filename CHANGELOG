@@ -1,3 +1,46 @@
+0.08 beta2
+1. Bug fix: A sql with symbol "plus" (+) in an HQL may cause a fatal error.
+2. Remove all default queries with "limit" by using thrift, all queries are using map/reduce,
+   but add 2 lines preview on sql query inputing page
+3. Simple HQL query Assembler is on developing.
+4. Limited user can not use "set" statment, it means you may not use "set"
+   to create a column name. But maybe hive can not use a keyword to create something.
+5. Regular express delimiter can be used with any symbol when create a new 
+   external table. So it's useful when create a new external table and load data 
+   from "insert overwirte directory" statment by using "\x01" to seprerate the data.
+6. Add delimiter regular express inputing for internal table creation
+7. Bug fix: add fclose to getResult.php
+8. Now you can see query column names on top of result view page.But it may cause a unfriendly display 
+   by using hive functions, such as get_json_object and so on.
+9. Security update: User login change to standard login form. The authentication action
+   changed to precision regular express match, you can change it to POST method
+10. Bug fix: Fix the wrong filename redirect when you click download result button
+11. NonBlockingRun and NonBlockingRun2 functions arranged to one function
+12. Add user define function config array $env['udf'], see INSTALL file for help.
+13. Bug fix: When modify a etl configuration file, the javascript on frontend did not execute.
+    (by hivefans)
+14. Modify INSTALL document, remove useless instructions and better details.
+
+1. 错误修复：包含加号(+)的HQL可能会导致HQL致命错误。
+2. 移除所有使用thrift的默认limit查询，现在所有查询都使用map/reduce.但在查询输入页面加入了2条数据预览
+3. 简单 HQL 查询拼装器正在进行开发.
+4. 受限用户不能使用set语句，同样，你不能使用set来创建字段，不过也许hive本身就不允许用关键字创建
+   什么东西
+5. 可以使用任意正则的符号来作为创建一个新表的分隔符，这在创建新外部表并且从insert overwrite directory  
+   语句加载数据用"\x01"来分割数据时非常有用
+6. 创建内部表加入正则分隔符输入
+7. 错误修复：在getReult页面加入fclose
+8. 获取查询结果页可以现在显示你所查询的字段名。但在使用hive函数时会产生错误，比如get_json_object这样的
+9. 安全更新:用户登录验证改为标准的登录框方式，目前采用GET，可自行修改为POST，验证改为正则精确匹配用户  
+   名密码
+10. 错误修复：修正当你点击下载结果集按钮时指向的错误的文件名。
+11. NonBlockingRun和NonBlockingRun2 函数整合为一个函数
+12. 加入用户自定义函数的命令配置项$env['udf'],查看INSTALL文件获取帮助
+13. 错误修复：修改etl配置文件后，js脚本没执行的bug (hivefans 提交)
+14. 修改INSTALL文档，移除意义不大的设置，更多细节说明
+
+#---------------------------------------------------------------------------------------------------------------------
+
 0.08 beta1 (important security an other update)
 1. Security update: limited user can not doing "create" "drop" "alter" "insert" "load" query with writing an hql.
 2. now the query result file export to standard csv seperated by comma, 

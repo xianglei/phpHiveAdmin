@@ -71,9 +71,9 @@ Nginx 与 php 5.3+
 在config.inc.php中找到以下变量，并修改为你自己的路径，请赋予etl,output_path,logs_path 777权限或755
 
 $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0'; #hadoop安装的目录
-$env['hive_home'] = '/opt/modules/hive/hive-0.7.1'; #hive按转过得目录
+$env['hive_home'] = '/opt/modules/hive/hive-0.7.1'; #hive安装的目录
 $env['java_home'] = '/usr/java/jdk1.6.0_21'; #java安装目录
-$env['etl'] = './etl/'; #放置elt设置的路径
+$env['etl'] = './etl/'; #放置elt配置的路径
 $env['output_path'] = '/data2/tmp/phpHiveAdmin'; #放置map/reduce实时监控输出和结果集文件的路径
 $env['logs_path'] = './logs/'; #放置查询日志的路径
 
