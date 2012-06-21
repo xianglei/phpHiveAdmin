@@ -31,16 +31,20 @@ if($_GET['username'] && $_GET['password'])
 	$user = $_GET['username'];
 	$pass = $_GET['password'];
 }
-elseif($_POST['username'] && $_POST['password'])
-{
-	$user = $_POST['username'];
-	$pass = $_POST['password'];
-}
 else
 {
-	$user = $_SESSION['username'];
-	$pass = $_SESSION['password'];
+	if($_POST['username'] && $_POST['password'])
+	{
+		$user = $_POST['username'];
+		$pass = $_POST['password'];
+	}
+	else
+	{
+		$user = $_SESSION['username'];
+		$pass = $_SESSION['password'];
+	}
 }
+
 
 if(($user == "") || ($pass == ""))
 {
