@@ -48,7 +48,8 @@ else
 
 if(($user == "") || ($pass == ""))
 {
-	echo ('<script>parent.location="index.php"</script>');
+	include_once "templates/login.html";
+	die('');
 }
 else
 {
@@ -56,7 +57,8 @@ else
 	$onlydb = $auth->AuthUser($env["privFile"],$user,$pass);
 	if(($onlydb == FALSE) || ($onlydb == ""))
 	{
-		echo ('<script>parent.location="index.php"</script>');
+		include_once "templates/login.html";
+		die('');
 	}
 	else
 	{
