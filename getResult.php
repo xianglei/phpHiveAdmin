@@ -7,94 +7,101 @@ if(!@$_GET['str'])
 }
 else
 {
-	if($_SESSION['onlydb'] != "all")
+	if(!$_SESSION['onlydb'] || $_SESSION['onlydb'] == "")
 	{
-		$str = @$_GET['str'];
+		die("<script>parent.location='index.php'</script>");
 	}
 	else
 	{
-		if(!is_numeric(substr($_GET['str'],0,1)))
+		if($_SESSION['onlydb'] != "all")
 		{
-			$str = explode("_",$_GET['str']);
-			$str = substr($str[1]."_".$str[2],0,-4);
+			$str = @$_GET['str'];
 		}
 		else
 		{
-			$str = $_GET['str'];
+			if(!is_numeric(substr($_GET['str'],0,1)))
+			{
+				$str = explode("_",$_GET['str']);
+				$str = substr($str[1]."_".$str[2],0,-4);
+			}
+			else
+			{
+				$str = $_GET['str'];
+			}
 		}
-	}
 
-	$filename = $env['output_path']."/hive_res.".$str.".csv";
-	if($_SESSION['onlydb'] != "all")
-	{
-		$logfile = $env['logs_path'].$_SESSION['username']."_".$str.".log";
-	}
-	else
-	{
-		if(is_numeric(substr($_GET['str'],0,1)))
+		$filename = $env['output_path']."/hive_res.".$str.".csv";
+		if($_SESSION['onlydb'] != "all")
 		{
-			$logfile = $env['logs_path'].$_SESSION['username']."_".$_GET['str'].".log";
+			$logfile = $env['logs_path'].$_SESSION['username']."_".$str.".log";
 		}
 		else
 		{
-			$logfile = $env['logs_path'].$_GET['str'];
-		}		
-	}
+			if(is_numeric(substr($_GET['str'],0,1)))
+			{
+				$logfile = $env['logs_path'].$_SESSION['username']."_".$_GET['str'].".log";
+			}
+			else
+			{
+				$logfile = $env['logs_path'].$_GET['str'];
+			}		
+		}
 	
-	if(file_exists($filename))
-	{
-		if(filesize($filename) != 0)
+		if(file_exists($filename))
 		{
-			echo "<input type=button name=download value=\"".$lang['downloadResultFile']."\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
-			
-			$etc = new Etc;
-			
-			$array_column = $etc->SplitSqlColumn($logfile);
-			
-			$array = $etc->GetResult($filename);
-			$array = explode("\n",substr($array,0,-1));//stop at last return
-			$i = 0;
-			echo "<table border=1 cellspacing=1 cellpadding=3>\n";
-			echo "<tr bgcolor=#FFFF99>";
-			foreach($array_column as $ka => $va)
+			if(filesize($filename) != 0)
 			{
-				echo "<td>";
-				echo $va;
-				echo "</td>";
+				echo "<input type=button name=download value=\"".$lang['downloadResultFile']."\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
+
+				$etc = new Etc;
+
+				$array_column = $etc->SplitSqlColumn($logfile);
+			
+				$array = $etc->GetResult($filename);
+				$array = explode("\n",substr($array,0,-1));//stop at last return
+				$i = 0;
+				echo "<table border=1 cellspacing=1 cellpadding=3>\n";
+				echo "<tr bgcolor=#FFFF99>";
+				foreach($array_column as $ka => $va)
+				{
+					echo "<td>";
+					echo $va;
+					echo "</td>";
+				}
+				echo "</tr>";
+				foreach($array as $k=>$v)
+				{
+					if(($i % 2) == 0)
+					{
+						$color = "bgcolor=\"".$env['trColor1']."\"";
+					}
+					else
+					{
+						$color = "bgcolor=\"".$env['trColor2']."\"";
+					}
+					#$arr = explode('	',$v);
+					$arr = explode(",",$v);
+					echo "<tr ".$color.">\n";
+					foreach($arr as $kk=>$vv)
+					{
+						$vv = str_replace('<','&lt;',$vv);
+						$vv = str_replace('>','&gt;',$vv);
+						echo "<td>".$vv."</td>\n";
+					}
+					echo "</tr>\n";
+					$i++;
+				}
+				echo "</table>\n";
 			}
-			echo "</tr>";
-			foreach($array as $k=>$v)
+			else
 			{
-				if(($i % 2) == 0)
-				{
-					$color = "bgcolor=\"".$env['trColor1']."\"";
-				}
-				else
-				{
-					$color = "bgcolor=\"".$env['trColor2']."\"";
-				}
-				#$arr = explode('	',$v);
-				$arr = explode(",",$v);
-				echo "<tr ".$color.">\n";
-				foreach($arr as $kk=>$vv)
-				{
-					$vv = str_replace('<','&lt;',$vv);
-					$vv = str_replace('>','&gt;',$vv);
-					echo "<td>".$vv."</td>\n";
-				}
-				echo "</tr>\n";
-				$i++;
+				echo $lang['noResultFetched'];
 			}
-			echo "</table>\n";
 		}
 		else
 		{
-			echo $lang['noResultFetched'];
+			echo $lang['notReadyYet'];
 		}
-	}
-	else
-	{
-		echo $lang['notReadyYet'];
 	}
 }
 ?>
