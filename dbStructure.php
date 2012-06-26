@@ -84,14 +84,15 @@ else
 					$array_desc_desc['key'][$j] = trim($array_desc[0]);
 					$array_desc_desc['value'][$j] = trim($array_desc[1]);
 					$j++;
-				}var_dump($array_desc_desc);
+				}
+				#var_dump($array_desc_desc);
 				
 				echo "<td>\n";
 				echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_props.png>".$lang['alterTable']."</a>";
 				echo "</td>\n";
 			
 				echo "<td>\n";
-				if($array_desc_desc['key'][7] == "EXTERNAL_TABLE" || $array_desc_desc['key'][7] == "VIRTUAL_VIEW")
+				if($array_desc_desc['value'][7] == "EXTERNAL_TABLE" || $array_desc_desc['value'][7] == "VIRTUAL_VIEW")
 				{
 					echo "<img src=images/b_import.png>".$lang['loadData'];
 				}
