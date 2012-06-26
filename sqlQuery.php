@@ -37,7 +37,9 @@ else
 	$tsql = 'desc formatted '.$_GET['table'];
 	$client->execute($tsql);
 	$tstr = $client->fetchAll();
-	var_dump($tstr);
+	$a = $etc->GrepArray($tstr, "Table Type:");
+	echo $a;
+	
 	
 	//get table description and explode the desc into a multi-dimensional array
 	//��ȡ��˵�����������ά����$array_desc_desc

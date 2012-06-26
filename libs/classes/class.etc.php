@@ -1,6 +1,20 @@
 <?php
 class Etc
 {
+	public function GrepArray($pArray,$pString)
+	{
+		foreach($pArray as $k => $v)
+		{
+			if(preg_match('/\b'.$pString.'\b/',$v))
+			{
+				return $v;
+			}
+			else
+			{
+				continue;
+			}
+		}
+	}
 	public function SplitSqlColumn($pFilename)
 	{
 		$fp = @fopen($pFilename,"r");
