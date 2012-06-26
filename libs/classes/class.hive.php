@@ -6,6 +6,11 @@ class Hive
 		
 	}
 	
+	public function FomattedTableInfo($pString)
+	{
+		
+	}
+	
 	public function __destruct()
 	{
 		

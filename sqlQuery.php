@@ -33,6 +33,12 @@ else
 	$sql = 'desc '.$_GET['table'];
 	$client->execute($sql);
 	$array_desc_table = $client->fetchAll();
+	
+	$tsql = 'desc formatted '.$_GET['table'];
+	$client->execute($tsql);
+	$tstr = $client->fetchAll();
+	var_dump($tstr);
+	
 	//get table description and explode the desc into a multi-dimensional array
 	//��ȡ��˵�����������ά����$array_desc_desc
 	$i = 0;
