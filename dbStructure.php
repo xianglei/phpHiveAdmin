@@ -85,21 +85,28 @@ else
 					$array_desc_desc['value'][$j] = trim($array_desc[1]);
 					$j++;
 				}
-				var_dump($array_desc_desc);
-
 				
 				echo "<td>\n";
 				echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_props.png>".$lang['alterTable']."</a>";
 				echo "</td>\n";
 			
 				echo "<td>\n";
-				echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_import.png>".$lang['loadData']."</a>";
+				if($array_desc_desc['key'][7] == "EXTERNAL_TABLE" || $array_desc_desc['key'][7] == "VIRTUAL_VIEW")
+				{
+					echo "<img src=images/b_import.png>".$lang['loadData'];
+				}
+				else
+				{
+					echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_import.png>".$lang['loadData']."</a>";
+				}
 				echo "</td>\n";
 				
 				echo "<td>\n";
 				echo "<a href=\"cloneTable.php?database=".$_GET['database']."&table=".$db_array[$i]."\"><img src=images/b_clone.png>".$lang['cloneTable']."</a>";
 				echo "</td>\n";
-		
+
+				echo "<td>".$lang['tableDetail']."</td>";
+
 				echo "<td>\n";
 				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
 				echo "</td>\n";
