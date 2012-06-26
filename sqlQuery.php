@@ -37,7 +37,7 @@ else
 	$tsql = 'desc formatted '.$_GET['table'];
 	$client->execute($tsql);
 	$tstr = $client->fetchAll();
-	$a = $etc->GrepArray($tstr, "Table Type:");
+	$a = $etc->GrepArray($tstr, "EXTERNAL");
 	echo $a;
 	
 	
