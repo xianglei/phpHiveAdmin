@@ -1,20 +1,48 @@
 <?php
 class Etc
 {
-	public function GrepArray($pArray,$pString)
+	public function GetTableDetail($pArray,$pFlag)#flag=1 means columns detail, flag=2 means table properties, flag=3 means table sets 
 	{
-		foreach($pArray as $k => $v)
+		foreach($pArray as $k=>$v)
 		{
-			if(preg_match('/\b'.$pString.'\b/',$v))
+	        if(preg_match('/#/',$v))
 			{
-				return $v;
-			}
-			else
-			{
-				continue;
+                	$index[$k] = $k;
 			}
 		}
+		$index = $this->ArrayReindex($index);
+		if($pFlag == "1")
+		{
+			$offset = 2;
+			for ($i = $offset; $i < $index[1]; $i++)
+			{
+				$arr[$i] = trim($pArray[$i]);
+			}
+		}
+		elseif ($pFlag == "2")
+		{
+			$offset = $index[1] + 1;
+			for($i = $offset; $i <= $index[2]; $i++)
+			{
+				$arr[$i] = trim($pArray[$i]);
+			}
+		}
+		elseif ($pFlag == "3")
+		{
+			$offset = $index[2] + 1;
+			for ($i = $offset; $i < count($pArray); $i++)
+			{
+				$arr[$i] = trim($pArray[$i]);
+			}
+		}
+		else
+		{
+			$arr = array();
+		}
+		$arr = $this->ArrayReindex($arr);
+		return $arr;
 	}
+	
 	public function SplitSqlColumn($pFilename)
 	{
 		$fp = @fopen($pFilename,"r");
