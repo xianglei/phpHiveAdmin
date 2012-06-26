@@ -81,8 +81,8 @@ else
 				foreach ($arr as $k => $v)
 				{
 					$array_desc = explode(':',$v);
-					$array_desc_desc['key'][$i] = $array_desc[0];
-					$array_desc_desc['value'][$i] = $array_desc[1];
+					$array_desc_desc['key'][$i] = trim($array_desc[0]);
+					$array_desc_desc['value'][$i] = trim($array_desc[1]);
 					$i++;
 				}
 				var_dump($array_desc_desc);
