@@ -77,13 +77,13 @@ else
 				$arr = $client->fetchAll();
 				$arr  = $etc->GetTableDetail($arr, "2");
 				
-				$i = 0;
+				$j = 0;
 				foreach ($arr as $k => $v)
 				{
 					$array_desc = explode(':',$v);
-					$array_desc_desc['key'][$i] = trim($array_desc[0]);
-					$array_desc_desc['value'][$i] = trim($array_desc[1]);
-					$i++;
+					$array_desc_desc['key'][$j] = trim($array_desc[0]);
+					$array_desc_desc['value'][$j] = trim($array_desc[1]);
+					$j++;
 				}
 				var_dump($array_desc_desc);
 
