@@ -120,4 +120,5 @@ $lang['fileTime'] = "Erstellen Zeit";
 $lang['username'] = "Benutzername";
 $lang['password'] = 'Kennwort';
 $lang['logOut'] = 'ausloggen';
+$lang['tableDetail'] = 'Tabelle Detail';
 ?>

@@ -120,4 +120,5 @@ $lang['fileTime'] = "创建时间";
 $lang['username'] = "用户名";
 $lang['password'] = '密　码';
 $lang['logOut'] = '登出';
+$lang['tableDetail'] = '表详细';
 ?>

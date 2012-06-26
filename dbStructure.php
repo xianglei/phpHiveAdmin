@@ -2,6 +2,8 @@
 include_once "config.inc.php";
 include_once 'templates/style.css';
 
+$etc = new Etc;
+
 if(!@$_GET['database'])
 {
 	die($lang['dieDatabaseChoose']);
@@ -44,6 +46,7 @@ else
 			echo "<td>".$lang['alterTable']."</td>
 			<td>".$lang['loadData']."</td>
 			<td>".$lang['cloneTable']."</td>
+			<td>".$lang['tableDetail']."</td>
 			<td>".$lang['dropTable']."</td>";
 		}
 		echo "</tr>";
@@ -68,6 +71,23 @@ else
 			echo "</td>\n";
 			if($_SESSION['onlydb'] == "all")
 			{
+				
+				$sql = "desc formatted ".$db_array[$i];
+				$client->execute($sql);
+				$arr = $client->fetchAll();
+				$arr  = $etc->GetTableDetail($arr, "2");
+				
+				$i = 0;
+				while ('' != @$arr[$i])
+				{
+					$array_desc = explode(':',$arr[$i]);
+					$array_desc_desc['key'][$i] = $array_desc[0];
+					$array_desc_desc['value'][$i] = $array_desc[1];
+					$i++;
+				}
+				var_dump($array_desc_desc);
+
+				
 				echo "<td>\n";
 				echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_props.png>".$lang['alterTable']."</a>";
 				echo "</td>\n";
