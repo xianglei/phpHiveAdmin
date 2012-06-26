@@ -78,9 +78,9 @@ else
 				$arr  = $etc->GetTableDetail($arr, "2");
 				
 				$i = 0;
-				while ('' != @$arr[$i])
+				foreach ($arr as $k => $v)
 				{
-					$array_desc = explode(':',$arr[$i]);
+					$array_desc = explode(':',$v);
 					$array_desc_desc['key'][$i] = $array_desc[0];
 					$array_desc_desc['value'][$i] = $array_desc[1];
 					$i++;
