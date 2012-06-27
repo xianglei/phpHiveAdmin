@@ -30,7 +30,7 @@ else
 	$client->execute($sql);
 	//$client->fetchOne();
 	
-	$sql = 'desc formatted '.$_GET['table'];
+	$sql = 'desc '.$_GET['table'];
 	$client->execute($sql);
 	$array_desc_table = $client->fetchAll();
 	$arrar_desc_table = $etc->GetTableDetail($array_desc_table, "1");
