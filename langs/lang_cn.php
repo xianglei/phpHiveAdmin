@@ -122,4 +122,5 @@ $lang['password'] = '密　码';
 $lang['logOut'] = '登出';
 $lang['tableDetail'] = '表详细';
 $lang['notExternalTable'] = '只有MANAGED_TABLE可以执行load';
+$lang['loadDataComment'] = '仅供内部表使用, 选择本地或HDFS加载，输入路径格式 /data/data1/。(不需写hdfs://)';
 ?>

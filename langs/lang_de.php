@@ -122,4 +122,5 @@ $lang['password'] = 'Kennwort';
 $lang['logOut'] = 'ausloggen';
 $lang['tableDetail'] = 'Tabelle Detail';
 $lang['notExternalTable'] = 'Nur MANAGED_TABLE tun können Last';
+$lang['loadDataComment'] = 'Für MANAGED_TABLE Gebrauch, wählen Sie laden von lokalen oder HDFS, und geben Sie Pfad wie / data/data1. (nicht-Eingang HDFS :/ / für HDFS Last)';
 ?>

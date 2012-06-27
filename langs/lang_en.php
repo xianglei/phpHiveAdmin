@@ -122,4 +122,5 @@ $lang['password'] = 'Password';
 $lang['logOut'] = 'Logout';
 $lang['tableDetail'] = 'Table Details';
 $lang['notExternalTable'] = 'Only MANAGED_TABLE can do load';
+$lang['loadDataComment'] = 'For MANAGED_TABLE use only, choose load from local or HDFS, and enter path like /data/data1. (do not input hdfs:// for hdfs load)';
 ?>
