@@ -3,6 +3,8 @@
 include_once 'config.inc.php';
 include_once 'templates/style.css';
 
+$etc = new Etc;
+
 if(!@$_GET['database'])
 {
 	die($lang['dieDatabaseChoose']);
