@@ -40,7 +40,7 @@ else
 		}
 		if($array_desc_desc['value'][7] != "MANAGED_TABLE")
 		{
-			die('<script>alter("'.$lang['notExternalTable'].'");history.back();</script>');
+			die('<script>alert("'.$lang['notExternalTable'].'");history.back();</script>');
 		}
 		else
 		{
