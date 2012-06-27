@@ -23,51 +23,71 @@ else
 	}
 	else
 	{
-		echo "<a href=dbStructure.php?database=".$_GET['database'].">".$lang['back']."</a><br><br>";
-		if(!@$_POST['path'])
+		$sql = "desc formatted ".$db_array[$i];
+		$client->execute($sql);
+		$arr = $client->fetchAll();
+		$arr  = $etc->GetTableDetail($arr, "2");
+		
+		$j = 0;
+		foreach ($arr as $k => $v)
 		{
-			include_once "templates/load_data.html";
+			$array_desc = explode(':',$v);
+			$array_desc_desc['key'][$j] = trim($array_desc[0]);
+			$array_desc_desc['value'][$j] = trim($array_desc[1]);
+			$j++;
+		}
+		if($array_desc_desc['value'][7] != "MANAGED_TABLE")
+		{
+			die('<script>alter("'.$lang['notExternalTable'].'");history.back();</script>');
 		}
 		else
 		{
-			if($_POST['path'] == '')
+			echo "<a href=dbStructure.php?database=".$_GET['database'].">".$lang['back']."</a><br><br>";
+			if(!@$_POST['path'])
 			{
-				echo "<script>alert(".$lang['mustEnterPath'].");history.back();</script>";
+				include_once "templates/load_data.html";
 			}
 			else
 			{
-				if($_POST['partition'] == '')
+				if($_POST['path'] == '')
 				{
-					$par = "";
+					echo "<script>alert(".$lang['mustEnterPath'].");history.back();</script>";
 				}
 				else
 				{
-					$par = " PARTITION ".$_POST['partition'];
-				}
+					if($_POST['partition'] == '')
+					{
+						$par = "";
+					}
+					else
+					{
+						$par = " PARTITION ".$_POST['partition'];
+					}
 				
-				if($_POST['local'] == "local")
-				{
-					$local = " LOCAL ";
-				}
-				else
-				{
-					$local = "";
-				}
+					if($_POST['local'] == "local")
+					{
+						$local = " LOCAL ";
+					}
+					else
+					{
+						$local = "";
+					}
 				
-				if(@$_POST['overwrite'] == 1)
-				{
-					$over = " OVERWRITE ";
+					if(@$_POST['overwrite'] == 1)
+					{
+						$over = " OVERWRITE ";
+					}
+					else
+					{
+						$over = "";
+					}
+					$sql = "LOAD DATA ".$local." INPATH '".$_POST['path']."' ".$over." INTO TABLE ".$_POST['table'].$par ;
+					echo $sql;
+					$client->execute($sql);
+					echo "<script>alert('".$lang['loadDataSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 				}
-				else
-				{
-					$over = "";
-				}
-				$sql = "LOAD DATA ".$local." INPATH '".$_POST['path']."' ".$over." INTO TABLE ".$_POST['table'].$par ;
-				echo $sql;
-				$client->execute($sql);
-				echo "<script>alert('".$lang['loadDataSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 			}
 		}
+		$transport->close();
 	}
-	$transport->close();
 }

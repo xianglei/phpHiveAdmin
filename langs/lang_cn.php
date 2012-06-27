@@ -121,4 +121,5 @@ $lang['username'] = "用户名";
 $lang['password'] = '密　码';
 $lang['logOut'] = '登出';
 $lang['tableDetail'] = '表详细';
+$lang['notExternalTable'] = '只有MANAGED_TABLE可以执行load';
 ?>

@@ -71,35 +71,12 @@ else
 			echo "</td>\n";
 			if($_SESSION['onlydb'] == "all")
 			{
-				
-				$sql = "desc formatted ".$db_array[$i];
-				$client->execute($sql);
-				$arr = $client->fetchAll();
-				$arr  = $etc->GetTableDetail($arr, "2");
-				
-				$j = 0;
-				foreach ($arr as $k => $v)
-				{
-					$array_desc = explode(':',$v);
-					$array_desc_desc['key'][$j] = trim($array_desc[0]);
-					$array_desc_desc['value'][$j] = trim($array_desc[1]);
-					$j++;
-				}
-				#var_dump($array_desc_desc);
-				
 				echo "<td>\n";
 				echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_props.png>".$lang['alterTable']."</a>";
 				echo "</td>\n";
 			
 				echo "<td>\n";
-				if($array_desc_desc['value'][7] == "EXTERNAL_TABLE" || $array_desc_desc['value'][7] == "VIRTUAL_VIEW")
-				{
-					echo "<img src=images/b_import.png>".$lang['loadData'];
-				}
-				else
-				{
-					echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_import.png>".$lang['loadData']."</a>";
-				}
+				echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_import.png>".$lang['loadData']."</a>";
 				echo "</td>\n";
 				
 				echo "<td>\n";

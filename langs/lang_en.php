@@ -121,4 +121,5 @@ $lang['username'] = "Username";
 $lang['password'] = 'Password';
 $lang['logOut'] = 'Logout';
 $lang['tableDetail'] = 'Table Details';
+$lang['notExternalTable'] = 'Only MANAGED_TABLE can do load';
 ?>
