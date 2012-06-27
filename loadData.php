@@ -23,7 +23,7 @@ else
 	}
 	else
 	{
-		$sql = "desc formatted ".$db_array[$i];
+		$sql = "desc formatted ".$_GET['table'];
 		$client->execute($sql);
 		$arr = $client->fetchAll();
 		$arr  = $etc->GetTableDetail($arr, "2");
