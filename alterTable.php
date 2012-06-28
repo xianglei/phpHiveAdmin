@@ -134,7 +134,7 @@ else
 			include_once "templates/add_columns.html";
 			#-----------------------------------------------------
 			#------------------------add partitions form-------------
-			include_once "templates/add_partitions.html";
+			#include_once "templates/add_partitions.html";
 			#-----------------------------------------------------
 		}
 		else
