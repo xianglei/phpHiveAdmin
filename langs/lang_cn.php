@@ -48,7 +48,7 @@ $lang['local'] = "本地";
 $lang['hdfs'] = "HDFS";
 $lang['chooseFS'] = "选择文件系统";
 $lang['pathToLoad'] = "加载数据路径(数据的完整路径)";
-$lang['ifPartition'] = "分区? ex: (ds='2008-08-08')";
+$lang['ifPartition'] = "分区?(可选) ex: (ds='2008-08-08')";
 $lang['ifExternal'] = "是否为外部表?";
 $lang['externalPath'] = "外部路径 ex:(hdfs:///data/datawash/www): ";
 $lang['delimiter'] = '数据分隔符 支持正则(, \t \n |)：';

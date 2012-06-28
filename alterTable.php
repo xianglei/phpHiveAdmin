@@ -133,6 +133,9 @@ else
 			#------------------------add columns form-------------
 			include_once "templates/add_columns.html";
 			#-----------------------------------------------------
+			#------------------------add columns form-------------
+			include_once "templates/add_partitions.html";
+			#-----------------------------------------------------
 		}
 		else
 		{

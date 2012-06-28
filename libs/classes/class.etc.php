@@ -1,13 +1,13 @@
 <?php
 class Etc
 {
-	public function GetTableDetail($pArray,$pFlag)#flag=1 means columns detail, flag=2 means table properties, flag=3 means table sets 
+	public function GetTableDetail($pArray,$pFlag)#flag=1 means columns detail, flag=2 means table properties, flag=3 means table sets flag=4 means partitions
 	{
 		foreach($pArray as $k=>$v)
 		{
-	        if(preg_match('/#/',$v))
+			if(preg_match('/^                 /',$v))
 			{
-                	$index[$k] = $k;
+				$index[$k] = $k;
 			}
 		}
 		$index = $this->ArrayReindex($index);
@@ -19,18 +19,53 @@ class Etc
 				$arr[$i] = trim($pArray[$i]);
 			}
 		}
-		elseif ($pFlag == "2")
+		elseif($pFlag == "2")
 		{
-			$offset = $index[1] + 1;
-			for($i = $offset; $i <= $index[2]; $i++)
+			foreach($pArray as $k => $v)
+			{
+				if(preg_match('/^# Detailed Table/',$v))
+				{
+					$offset_start = $k+1;
+				}
+				if(preg_match('/^# Storage/',$v))
+				{
+					$offset_end = $k-1;
+				}
+			}
+			for($i = $offset_start; $i < $offset_end; $i++)
 			{
 				$arr[$i] = trim($pArray[$i]);
 			}
 		}
-		elseif ($pFlag == "3")
+		elseif($pFlag == "3")
 		{
-			$offset = $index[2] + 1;
-			for ($i = $offset; $i < count($pArray); $i++)
+			foreach($pArray as $k => $v)
+			{
+				if(preg_match('/^# Storage/',$v))
+				{
+					$offset_start = $k+1;
+				}
+			}
+			$offset_end = count($pArray);
+			for($i = $offset_start; $i <= $offset_end; $i++)
+			{
+				$arr[$i] = trim($pArray[$i]);
+			}
+		}
+		elseif($pFlag == "4")
+		{
+			foreach($pArray as $k => $v)
+			{
+				if(preg_match('/^# Partition/',$v))
+				{
+					$offset_start = $k+3;
+				}
+				if(preg_match('/^# Detailed/',$v))
+				{
+					$offset_end = $k-1;
+				}
+			}
+			for($i = $offset_start; $i < $offset_end; $i++)
 			{
 				$arr[$i] = trim($pArray[$i]);
 			}

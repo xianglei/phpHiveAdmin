@@ -48,7 +48,7 @@ $lang['local'] = "lokal";
 $lang['hdfs'] = "HDFS";
 $lang['chooseFS'] = "Wählen Sie Datei-System";
 $lang['pathToLoad'] = "Pfad zum Laden(vollständiger Unix-Pfad, um Daten)";
-$lang['ifPartition'] = "Teilung? ex:(ds='2008-08-08')";
+$lang['ifPartition'] = "Teilung?(fakultativ) ex:(ds='2008-08-08')";
 $lang['ifExternal'] = "Wenn eine Tabelle extenal?";
 $lang['externalPath'] = "extenal Weg ex:(hdfs:///data/datawash/www): ";
 $lang['delimiter'] = 'Delimiter Unterstützung regelmäßigen exp(, \t \n |) : ';
