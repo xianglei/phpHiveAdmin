@@ -39,9 +39,9 @@ else
 				echo "<form name=newTable method=post>";
 				echo "<table border=1 cellspacing=1 cellpadding=3>";
 				echo "<tr bgcolor=\"#FFFF99\">
-						<td>".$lang['fieldName']."</td>
-						<td>".$lang['fieldType']."</td>
-						<td>".$lang['comment']."</td>
+						<!--<td>".$lang['partitionName']."</td>-->
+						<td>".$lang['partitionSet']."</td>
+						<td>".$lang['partitionLocation']."</td>
 					</tr>";
 				$type = array('string'=>'STRING','int'=>'INT');
 				for ($i = 0; $i < $_POST['fieldnums']; $i++)
@@ -56,21 +56,22 @@ else
 					}
 					echo "<tr bgcolor=".$color.">\n";
 					//-------------
-					echo "<td>\n";
-					echo "<input type=text name=field_name[]>\n";
-					echo "</td>\n";
+					#echo "<td>\n";
+					#echo "<input type=text name=field_name[]>\n";
+					#echo "</td>\n";
 					//-------------
 					echo "<td>\n";
-					echo "<select name=field_type[]>";
+					/*echo "<select name=field_type[]>";
 					foreach($type as $kk => $vv)
 					{
 						echo "<option value=".$kk.">".$vv."</option>";
 					}
-					echo "</select>";
+					echo "</select>";*/
+					echo "<input type=text name=partition_set[]>\n";
 					echo "</td>\n";
 					//-------------
 					echo "<td>\n";
-					echo "<input type=text name=comment[]>\n";
+					echo "<input type=text name=partition_location[]>\n";
 					echo "</td>\n";
 					//-------------
 					echo "</tr>\n";
@@ -86,18 +87,20 @@ else
 			}
 			else
 			{
-				$sql = "ALTER TABLE ".$_POST['table']." ADD PARTITION (";
 				$i = 0;
-				$str = "";
 				while ("" != @$_POST['field_name'][$i])
 				{
-					$str .= $_POST['field_name'][$i]." ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."',";
+					$sql = "ALTER TABLE ".$_POST['table']." ADD IF NOT EXISTS PARTITION ";
+				
+					$str = "";
+					$str .= $_POST['field_name'][$i]." ".$_POST['partition_set'][$i]." LOCATION '".$_POST['partition_location'][$i]."',";
+
+					$str = substr($str,0,-1);
+					$sql = $sql.$str."";
+					echo $sql."<br>";
+					#$client->execute($sql);
 					$i++;
 				}
-				$str = substr($str,0,-1);
-				$sql = $sql.$str.")";
-				echo $sql."<br>";
-				$client->execute($sql);
 				echo "<script>alert('".$lang['alterTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 			}	
 		}

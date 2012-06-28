@@ -123,4 +123,6 @@ $lang['logOut'] = 'Logout';
 $lang['tableDetail'] = 'Table Details';
 $lang['notExternalTable'] = 'Only MANAGED_TABLE can do load';
 $lang['loadDataComment'] = 'For MANAGED_TABLE use only, choose load from local or HDFS, and enter path like /data/data1. (do not input hdfs:// for hdfs load)';
+$lang['partitionSet'] = 'Partition set: input as (dtm=\'2012-06\')';
+$lang['partitionLocation'] = 'Location to Store partition:';
 ?>
