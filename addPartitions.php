@@ -101,7 +101,7 @@ else
 					#$client->execute($sql);
 					$i++;
 				}
-				echo "<script>alert('".$lang['alterTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
+				#echo "<script>alert('".$lang['alterTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
 			}	
 		}
 	}
