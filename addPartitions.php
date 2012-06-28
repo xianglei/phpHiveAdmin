@@ -34,7 +34,7 @@ else
 		}
 		else
 		{
-			if(!@$_POST['field_name'] || !@$_POST['field_type'])
+			if(!@$_POST['partition_set'] || !@$_POST['partition_location'])
 			{
 				echo "<form name=newTable method=post>";
 				echo "<table border=1 cellspacing=1 cellpadding=3>";
