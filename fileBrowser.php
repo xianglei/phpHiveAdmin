@@ -18,7 +18,7 @@ $sql = '"dfs -ls '.$path.'"';
 $LANG = $env['setenv'].' LANG='.$env['lang_set'].'; ';
 $HADOOP_HOME = $env['setenv'].' HADOOP_HOME='.$env['hadoop_home'].'; ';
 $HIVE_HOME = $env['setenv'].' HIVE_HOME='.$env['hive_home'].'; ';
-$JAVA_HOME = $env['setenv'].'JAVA_HOME='.$env['java_home'].'; ';
+$JAVA_HOME = $env['setenv'].' JAVA_HOME='.$env['java_home'].'; ';
 $UDF = ($env['udf'] != "") ? $env['udf'] : "";
 
 $exec = ($LANG . $HADOOP_HOME . $HIVE_HOME . $JAVA_HOME. $env['hive_home'].'/bin/hive '.$UDF.' -e '.$sql);
