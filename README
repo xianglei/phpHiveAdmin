@@ -13,5 +13,5 @@ php 5.3.8
 nginx 1.0.10
 
 Can be support with:
-Linux,FreeBSD,Windows with php 5.3+ and nginx 1.0+
+Linux,FreeBSD with php 5.3+ and nginx 1.0+, doesn't support with windows.
 But you must hive a hive-cli on the machine which put phpHiveAdmin on it.
