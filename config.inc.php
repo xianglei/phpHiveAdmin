@@ -119,8 +119,8 @@ $env['udf'] = '';#user defined function load command. it should be a jar, if not
 $env['setenv'] = 'export';
 #may set to export and setenv
 $env['seperator'] = "\t";#\t
-#set columns seperator for select
-#设置原始数据的分隔符
+#set columns seperator of your data
+#设置数据的分隔符
 
 #------------------definations of log path and results path, give these path to 777 mode------------
 #------------------定义日志和结果输出的文件路径，请赋予777权限------------------------------------
