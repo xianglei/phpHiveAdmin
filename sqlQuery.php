@@ -172,7 +172,7 @@ else
 			</script>
 			";
 			
-			$sql = str_replace("%", "\0x1b", $sql);//encode for like %
+			$sql = str_replace("%", "\027", $sql);//encode for like %
 			
 			echo "<body bgcolor=#EFEFEF onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".rawurlencode($sql)."' , getReult)\">";
 			echo "<input type=button value=\"".$lang['getResult']."\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
