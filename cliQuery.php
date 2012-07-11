@@ -24,6 +24,9 @@ else
 	if(file_exists($env['output_path']))
 	{
 		$sql = trim(rawurldecode($query));
+		
+		$sql = str_replace("\0x1b","%",$sql);//decode for like "%"
+		
 		$sql = str_replace("\"","'",$sql);
 		$sql = '"'.str_replace('`',"",$sql).'"';
 		
