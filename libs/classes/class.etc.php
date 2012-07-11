@@ -5,7 +5,7 @@ class Etc
 	{
 		foreach($pArray as $k=>$v)
 		{
-			if(preg_match('/^                 /',$v))
+			if(preg_match('/^	 	 /',$v))
 			{
 				$index[$k] = $k;
 			}
