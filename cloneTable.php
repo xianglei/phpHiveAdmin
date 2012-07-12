@@ -34,7 +34,7 @@ else
 	 		$sql = 'CREATE TABLE '.$_POST['newtablename'].' LIKE '.$_POST['table'];
 			echo $sql;
 			$client->execute($sql);
-			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
+			echo "<script>alert('".$lang['createTableSuccess']."');showsd1('tableList.php?database=".$_GET['database']."','dbStructure.php?database=".$_GET['database']."');</script>";
 	 	}
 	}
 }
