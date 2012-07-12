@@ -69,9 +69,10 @@
 <script>
 function showsd(link1,link2)
 {
-	var frame = parent.document.getElementsByName("right")[0];
-	frame.src =link1;
-	window.location =link2;
+	var frame_left = parent.document.getElementsByName("left")[0];
+	var frame_right = parent.document.getElementsByName("right")[0];
+	frame_left.src =link1;
+	frame_right.src =link2;
 }
 
 function showsd1(link1,link2)

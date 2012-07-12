@@ -27,7 +27,7 @@ else
 		$i++;
 	}
 	echo "<br>\n";
-	echo '<a href="javascript:showsd(\'index.php?frame=right\',\'dbList.php\')" target=left><<< '.$lang['back'].'</a>';
+	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><<< '.$lang['back'].'</a>';
 	$transport->close();
 }
 ?>
