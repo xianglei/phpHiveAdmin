@@ -71,16 +71,25 @@ Nginx 与 php 5.3+
 在config.inc.php中找到以下变量，并修改为你自己的路径，请赋予etl,output_path,logs_path 777权限或755
 
 $env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0'; #hadoop安装的目录
+
 $env['hive_home'] = '/opt/modules/hive/hive-0.7.1'; #hive安装的目录
+
 $env['java_home'] = '/usr/java/jdk1.6.0_21'; #java安装目录
+
 $env['etl'] = './etl/'; #放置elt配置的路径
+
 $env['output_path'] = '/data2/tmp/phpHiveAdmin'; #放置map/reduce实时监控输出和结果集文件的路径
+
 $env['logs_path'] = './logs/'; #放置查询日志的路径
 
 $env['lang_set'] = 'zh_CN.UTF-8'; #操作系统的语言设置
+
 #$env['lang_set'] = 'en_US.UTF-8'; #如使用英文，则取消前面的注释，并注释掉中文设置
+
 $env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q'; #调用UDF的命令, 可能为jar文件或初始化脚本. 如果没有udf, 则设置为 ''
+
 $env['setenv'] = 'export'; #系统环境变量的设置命令，针对sh和bash，使用export，针对csh和ksh，使用setenv
+
 $env['seperator'] = "\t"; #hive中外部表数据的分隔符
 
 打开refresh.php
