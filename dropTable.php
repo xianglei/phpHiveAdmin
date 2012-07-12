@@ -25,7 +25,7 @@ else
 	{
 		$sql = "drop table ".$_GET['table'];
 		$client->execute($sql);
-		echo "<script>alert('".$lang['dropTableSuccess']."');window.location='dbStructure.php?database=".$_GET['database']."'</script>";
+		echo "<script>alert('".$lang['dropTableSuccess']."');showsd1('tableList.php?database=".$_POST['database']."','dbStructure.php?database=".$_POST['database']."');</script>";
 	}
 	$transport->close();
 }

@@ -143,7 +143,7 @@ else
 				echo "<table border=1 cellspacing=1 cellpadding=3>";
 				//echo "<tr><td>".$lang['Partition']."</td><td></td></tr>";
 				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
-				echo "<tr><td>".$lang['columnTerminator']."</td><td><input type=text name=columnTerminator value=\",\"></td></tr>";
+				echo "<tr><td>".$lang['columnTerminator']."</td><td><input type=text name=columnTerminator value=\"\\t\"></td></tr>";
 				echo "<tr><td>".$lang['lineTerminator']."</td><td><input type=text name=lineTerminator value=\"\\n\"></td></tr>";
 				echo "<tr><td>";
 				echo $lang['dataFormat']."</td><td><select name=format>
