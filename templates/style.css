@@ -75,13 +75,6 @@ function showsd(link1,link2)
 	frame_right.src =link2;
 }
 
-function showsd1(link1,link2)
-{
-	var frame = parent.document.getElementsByName("left")[0];
-	frame.src =link1;
-	window.location =link2;
-}
-
 function isSelect(formname)
 {
 	for (var i=0;i<formname.elements.length;i++)
