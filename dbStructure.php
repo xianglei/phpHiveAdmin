@@ -86,7 +86,7 @@ else
 				echo "<td>".$lang['tableDetail']."</td>";
 
 				echo "<td>\n";
-				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
+				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']." ".$db_array[$i]."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
 				echo "</td>\n";
 			}
 			
