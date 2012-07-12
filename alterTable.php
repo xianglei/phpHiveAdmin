@@ -169,7 +169,7 @@ else
 				{
 					echo @$client->execute($v);
 				}
-				echo "<script>alert('".$lang['success']."');showsd('dbStructure.php?database=".$_POST['database']."','tableList.php?database=".$_POST['database']."');</script>";
+				echo "<script>alert('".$lang['success']."');showsd1('tableList.php?database=".$_POST['database']."','dbStructure.php?database=".$_POST['database']."');</script>";
 			}
 		}
 	}
