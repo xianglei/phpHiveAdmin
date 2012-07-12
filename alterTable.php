@@ -169,7 +169,7 @@ else
 				{
 					echo @$client->execute($v);
 				}
-				echo "<script>alert('".$lang['success']."');window.location='sqlQuery.php?database=".$_POST['database']."&table=".$_POST['new_table_name']."';</script>";
+				echo "<script>alert('".$lang['success']."');showsd('tableList.php?database=".$_POST['database']."','dbStructure.php?database=".$_POST['database']."');</script>";
 			}
 		}
 	}
