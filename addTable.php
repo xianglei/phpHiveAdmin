@@ -162,7 +162,7 @@ else
 			else
 			{
 				echo "<table  border=1 cellspacing=1 cellpadding=3><tr><td>".$lang['asRcfile']."</td><td><input type=text name=as></td></tr>";
-				echo "<tr><td>".$lang['columnTerminator']."</td><td><input type=text name=columnTerminator value=\",\"></td></tr>";
+				echo "<tr><td>".$lang['columnTerminator']."</td><td><input type=text name=columnTerminator value=\"\\t\"></td></tr>";
 				echo "<tr><td>".$lang['lineTerminator']."</td><td><input type=text name=lineTerminator value=\"\\n\"></td></tr>";
 			}
 			echo "</table><br><br>";
