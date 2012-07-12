@@ -149,7 +149,7 @@ else
 				echo "<br><br>";
 				while ($i < count($_POST['field_type']))
 				{
-					$sql = "ALTER TABLE `".$_POST['table']."` CHANGE `".$_POST['old_field_name'][$i]."` `".$_POST['field_name'][$i]."` ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."'";
+					$sql = "ALTER TABLE `".$_POST['new_table_name']."` CHANGE `".$_POST['old_field_name'][$i]."` `".$_POST['field_name'][$i]."` ".$_POST['field_type'][$i]." COMMENT '".$_POST['comment'][$i]."'";
 					echo "<br>";
 					echo $sql;
 					echo "<input type=hidden name=sql[] value=\"".$sql."\">";
