@@ -143,8 +143,8 @@ else
 				echo "<table border=1 cellspacing=1 cellpadding=3>";
 				//echo "<tr><td>".$lang['Partition']."</td><td></td></tr>";
 				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
-				echo "<tr><td>".$lang['columnTerminator']."</td><td><input type=text name=delimiter value=\",\"></td></tr>";
-				echo "<tr><td>".$lang['lineTerminator']."</td><td><input type=text name=delimiter value=\"\\n\"></td></tr>";
+				echo "<tr><td>".$lang['columnTerminator']."</td><td><input type=text name=columnTerminator value=\",\"></td></tr>";
+				echo "<tr><td>".$lang['lineTerminator']."</td><td><input type=text name=lineTerminator value=\"\\n\"></td></tr>";
 				echo "<tr><td>";
 				echo $lang['dataFormat']."</td><td><select name=format>
 				<option value=text>".$lang['textFile']."</option>
@@ -162,7 +162,8 @@ else
 			else
 			{
 				echo "<table  border=1 cellspacing=1 cellpadding=3><tr><td>".$lang['asRcfile']."</td><td><input type=text name=as></td></tr>";
-				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter value=\",\"></td></tr>";
+				echo "<tr><td>".$lang['columnTerminator']."</td><td><input type=text name=columnTerminator value=\",\"></td></tr>";
+				echo "<tr><td>".$lang['lineTerminator']."</td><td><input type=text name=lineTerminator value=\"\\n\"></td></tr>";
 			}
 			echo "</table><br><br>";
 			echo "<input type=submit name=submit value=".$lang['submit'].">";
@@ -171,7 +172,7 @@ else
 		}
 		else
 		{
-			if(@$_POST['external'] != '' && @$_POST['delimiter'] != '')
+			if(@$_POST['external'] != '' && @$_POST['columnTerminator'] != '')
 			{
 				$ext = " EXTERNAL ";
 				$tablecomment = " COMMENT '".$_POST['tablecomment']."' ";
@@ -217,18 +218,22 @@ else
 						$stored = " STORED AS TEXTFILE ";
 						break;
 				}
-				$limit = stripcslashes($_POST['delimiter']);
-				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$limit."\" ";
+				$columnTerminator = stripcslashes($_POST['columnTerminator']);
+				$columnTerminator = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$columnTerminator."\" ";
+				$lineTerminator = stripcslashes($_POST['lineTerminator']);
+				$lineTerminator = " LINES TERMINATED BY \"".$lineTerminator."\" ";
 				$path = " LOCATION '".$_POST['external']."' ";
 				$as = "";
 			}
-			elseif(@$_POST['external'] == '' && @$_POST['delimiter'] != "")
+			elseif(@$_POST['external'] == '' && @$_POST['columnTerminator'] != "")
 			{
 				$ext = '';
 				$tablecomment = ''; #" COMMENT ".$_POST['tablecomment']." ";
 				$partition = '';
-				$limit = stripcslashes($_POST['delimiter']);
-				$limit = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$limit."\" ";
+				$columnTerminator = stripcslashes($_POST['columnTerminator']);
+				$columnTerminator = " ROW FORMAT DELIMITED FIELDS TERMINATED BY \"".$columnTerminator."\" ";
+				$lineTerminator = stripcslashes($_POST['lineTerminator']);
+				$lineTerminator = " LINES TERMINATED BY \"".$lineTerminator."\" ";
 				$stored = " ";
 				$path = '';
 				if($_POST['as'] != "")
@@ -250,7 +255,7 @@ else
 			}
 			$str = substr($str,0,-1);
 			$sql = $sql.$str.")";
-			$sql = $sql . $tablecomment . $partition .$limit . $stored . $path . $as;
+			$sql = $sql . $tablecomment . $partition .$columnTerminator . $lineTerminator . $stored . $path . $as;
 			echo "<br>".$sql."<br>";
 			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
