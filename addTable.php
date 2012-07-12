@@ -150,8 +150,8 @@ else
 				<option value=lzop>".$lang['lzoped']."</option>
 				<option value=sequence>".$lang['sequenced']."</option>
 				<option value=rcfile>".$lang['rcfile']."</option>
-				<option value=bzip2 disabled>".$lang['bzip2ed']."</option>
-				<option value=gzip disabled>".$lang['gziped']."</option>
+				<option value=bzip2>".$lang['bzip2ed']."</option>
+				<option value=gzip>".$lang['gziped']."</option>
 				</select></td></tr>";
 			}
 			if(@$_POST['external'] == 1)
