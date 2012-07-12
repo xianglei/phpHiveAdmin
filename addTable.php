@@ -258,7 +258,7 @@ else
 			$sql = $sql . $tablecomment . $partition .$columnTerminator . $lineTerminator . $stored . $path . $as;
 			echo "<br>".$sql."<br>";
 			$client->execute($sql);
-			echo "<script>alert('".$lang['createTableSuccess']."');window.location='dbStructure.php?database=".$_POST['database']."';</script>";
+			echo "<script>alert('".$lang['createTableSuccess']."');showsd1('tableList.php?database=".$_POST['database']."','dbStructure.php?database=".$_POST['database']."');</script>";
 		}
 	}
 	$transport->close();
