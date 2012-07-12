@@ -143,7 +143,8 @@ else
 				echo "<table border=1 cellspacing=1 cellpadding=3>";
 				//echo "<tr><td>".$lang['Partition']."</td><td></td></tr>";
 				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
-				echo "<tr><td>".$lang['delimiter']."</td><td><input type=text name=delimiter value=\",\"></td></tr>";
+				echo "<tr><td>".$lang['columnTerminator']."</td><td><input type=text name=delimiter value=\",\"></td></tr>";
+				echo "<tr><td>".$lang['lineTerminator']."</td><td><input type=text name=delimiter value=\"\\n\"></td></tr>";
 				echo "<tr><td>";
 				echo $lang['dataFormat']."</td><td><select name=format>
 				<option value=text>".$lang['textFile']."</option>
@@ -207,10 +208,10 @@ else
 						$stored = " STORED AS RCFILE ";
 						break;
 					case 'gzip':
-						$stored = " STORED AS INPUTFORMAT \"org.apache.hadoop.io.compress.GzipCodec\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
+						$stored = " STORED AS TEXTFILE ";
 						break;
 					case 'bzip2':
-						$stored = " STORED AS INPUTFORMAT \"org.apache.hadoop.io.compress.BZip2Codec\" OUTPUTFORMAT \"org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat\" ";
+						$stored = " STORED AS TEXTFILE ";
 						break;
 					default:
 						$stored = " STORED AS TEXTFILE ";
