@@ -29,14 +29,14 @@ else
 		
 		$client->execute($sql);
 		$array_desc_table = $client->fetchAll();var_dump($array_desc_table);
-		$array_desc_table = $etc->GetTableDetail($array_desc_table, "1");
+		$array_desc_table_1 = $etc->GetTableDetail($array_desc_table, "1");
 		
 		#var_dump($array_desc_table);
 		
 		$i = 0;
-		while ('' != @$array_desc_table[$i])
+		while ('' != @$array_desc_table_1[$i])
 		{
-			$array_desc = explode('	',$array_desc_table[$i]);
+			$array_desc = explode('	',$array_desc_table_1[$i]);
 			$array_desc_desc['name'][$i] = $array_desc[0];
 			$array_desc_desc['type'][$i] = $array_desc[1];
 			$array_desc_desc['comment'][$i] = $array_desc[2];
@@ -65,7 +65,7 @@ else
 		echo "</table>";
 		
 		
-		$array_desc_table = $etc->GetTableDetail($array_desc_table, "2");
+		$array_desc_table_2 = $etc->GetTableDetail($array_desc_table, "2");
 		
 		var_dump($array_desc_table);
 	}
