@@ -23,7 +23,7 @@ class Etc
 		{
 			foreach($pArray as $k => $v)
 			{
-				if(preg_match('/^# Detailed Table/',$v))
+				if(preg_match('/^# Detailed/',$v))
 				{
 					$offset_start = $k+1;
 				}
@@ -74,7 +74,7 @@ class Etc
 		{
 			$arr = array();
 		}
-		$arr = $this->ArrayReindex($arr);
+		$arr = $this->ArrayReindex($arr);var_dump($arr);
 		return $arr;
 	}
 	
