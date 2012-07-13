@@ -59,15 +59,16 @@ class Etc
 				if(preg_match('/^# Partition/',$v))
 				{
 					$offset_start = $k+3;
-					if(preg_match('/^# Detailed/',$v))
-					{
-						$offset_end = $k-1;
-					}
 				}
 				else
 				{
 					$offset_start = 0;
 					$offset_end = 0;
+					break;
+				}
+				if(preg_match('/^# Detailed/',$v))
+				{
+					$offset_end = $k-1;
 				}
 			}
 			if($offset_start != 0 && $offset_end != 0)
