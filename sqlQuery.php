@@ -61,7 +61,7 @@ else
 		$i++;
 	}
 	######################################
-	//var_dump($array_desc_desc);
+	var_dump($array_desc_desc);
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
