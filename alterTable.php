@@ -27,23 +27,26 @@ else
 		echo "<a href=dbStructure.php?database=".$_GET['database'].">".$lang['back']."</a><br><br>";
 		if(!@$_POST['submit'])
 		{
-			$sql = 'desc '.$_GET['table'];
+			$sql = 'desc formatted '.$_GET['table'];
 			$client->execute($sql);
 			$array_desc_table = $client->fetchAll();
 			//get table description and explode the desc into a multi-dimensional array
 			//获取表说明，并放入二维数组$array_desc_desc
+			
+			$array_desc_table_1 = $etc->GetTableDetail($array_desc_table, "1");
+			$array_desc_table_4 = @$etc->GetTableDetail($array_desc_table, "4");
 			
 			$selected = " ";
 			$type = array('string'=>'String','tinyint'=>'Tiny int(3)','smallint'=>'Small int(5)','int'=>'Int(10)','bigint'=>'Big int(19)','double'=>'Double',
 						//'map'=>'Map','structs'=>'Structs','arrays'=>'Arrays',
 						'float'=>'Float','boolean'=>'Boolean');
 			$i = 0;
-			while ('' != @$array_desc_table[$i])
+			while ('' != @$array_desc_table_1[$i])
 			{
-				$array_desc = explode('	',$array_desc_table[$i]);
-				$array_desc_desc[$i]['name'] = $array_desc[0];
-				$array_desc_desc[$i]['type'] = $array_desc[1];
-				$array_desc_desc[$i]['comment'] = $array_desc[2];
+				$array_desc_1 = explode('	',$array_desc_table_1[$i]);
+				$array_desc_desc_1[$i]['name'] = $array_desc_1[0];
+				$array_desc_desc_1[$i]['type'] = $array_desc_1[1];
+				$array_desc_desc_1[$i]['comment'] = $array_desc_1[2];
 				$i++;
 			}
 			echo $lang['alterTableWarning'];
@@ -61,7 +64,7 @@ else
 					<td>".$lang['comment']."</td>
 				  </tr>";
 			$i = 0;
-			foreach ($array_desc_desc as $key => $value)
+			foreach ($array_desc_desc_1 as $key => $value)
 			{
 				if(($i % 2) == 0)
 				{

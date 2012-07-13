@@ -181,8 +181,8 @@ else
 			}
 			echo "</table>";
 		}
-		echo "<br><br>";
-		echo "<a href=javascript:history.back()>".$lang['back']."</a><br>";
+		echo "<br>";
+		echo "<a href=javascript:history.back()>".$lang['back']."</a><br><br>";
 		
 	}
 }
