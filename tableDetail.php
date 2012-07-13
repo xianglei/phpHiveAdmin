@@ -41,9 +41,9 @@ else
 		while ('' != @$array_desc_table_1[$i])
 		{
 			$array_desc = explode('	',$array_desc_table_1[$i]);
-			$array_desc_desc['name'][$i] = $array_desc[0];
-			$array_desc_desc['type'][$i] = $array_desc[1];
-			$array_desc_desc['comment'][$i] = $array_desc[2];
+			$array_desc_desc['name'][$i] = trim($array_desc[0]);
+			$array_desc_desc['type'][$i] = trim($array_desc[1]);
+			$array_desc_desc['comment'][$i] = trim($array_desc[2]);
 			$i++;
 		}
 		echo "<table border=1 cellspacing=1 cellpadding=3>";
