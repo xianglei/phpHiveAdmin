@@ -71,7 +71,7 @@ class Etc
 					$offset_end = $k-1;
 				}
 			}
-			if($offset_start != 0 && $offset_end != 0)
+			if($offset_start != 0 || $offset_end != 0)
 			{
 				for($i = $offset_start; $i < $offset_end; $i++)
 				{
