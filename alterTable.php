@@ -129,6 +129,17 @@ else
 			}
 			echo '</table><br>';
 			############################################################################################
+			
+			$i = 0;
+			while ('' != @$array_desc_table_4[$i])
+			{
+				$array_desc_4 = explode('	',$array_desc_table_4[$i]);
+				$array_desc_desc_4[$i]['name'] = $array_desc_4[0];
+				$array_desc_desc_4[$i]['type'] = $array_desc_4[1];
+				$array_desc_desc_4[$i]['comment'] = $array_desc_4[2];
+				$i++;
+			}
+			
 			echo '<table border=1 cellspacing=1 cellpadding=3>';
 			echo "<tr bgcolor=#FFFF99>
 					<td>".$lang['dropTable']."</td>
