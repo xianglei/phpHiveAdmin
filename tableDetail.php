@@ -28,7 +28,7 @@ else
 		$etc = new Etc;
 		
 		$client->execute($sql);
-		$array_desc_table = $client->fetchAll();
+		$array_desc_table = $client->fetchAll();var_dump($array_desc_table);
 		$array_desc_table = $etc->GetTableDetail($array_desc_table, "1");
 		
 		#var_dump($array_desc_table);

@@ -74,7 +74,7 @@ class Etc
 		{
 			$arr = array();
 		}
-		$arr = $this->ArrayReindex($arr);var_dump($arr);
+		$arr = $this->ArrayReindex($arr);
 		return $arr;
 	}
 	
