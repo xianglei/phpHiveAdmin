@@ -63,24 +63,22 @@ class Etc
 				else
 				{
 					$offset_start = 0;
-					$offset_end = 0;
-					break;
 				}
 				if(preg_match('/^# Detailed/',$v))
 				{
 					$offset_end = $k-1;
 				}
 			}
-			if($offset_start != 0 || $offset_end != 0)
+			if($offset_start == 0)
+			{
+				$arr = array();
+			}
+			else
 			{
 				for($i = $offset_start; $i < $offset_end; $i++)
 				{
 					$arr[$i] = trim($pArray[$i]);
 				}
-			}
-			else
-			{
-				$arr = "";
 			}
 		}
 		else

@@ -144,37 +144,40 @@ else
 		
 		$array_desc_table_4 = @$etc->GetTableDetail($array_desc_table, "4");var_dump($array_desc_table_4);
 		
-		//if($array_desc_table_4 != "")
-		$i = 0;
-		while ('' != @$array_desc_table_4[$i])
+		if($array_desc_table_4[0] != "")
 		{
-			$array_desc = explode("	",$array_desc_table_4[$i]);
-			$array_desc_desc['name'][$i] = trim($array_desc[0]);
-			$array_desc_desc['type'][$i] = trim($array_desc[1]);
-			echo "<td>".$array_desc_desc['comment'][$i]."</td>";
-			$i++;
-		}
+			$i = 0;
+			while ('' != @$array_desc_table_4[$i])
+			{
+				$array_desc = explode("	",$array_desc_table_4[$i]);
+				$array_desc_desc['name'][$i] = trim($array_desc[0]);
+				$array_desc_desc['type'][$i] = trim($array_desc[1]);
+				$array_desc_desc['comment'][$i] = trim($array_desc[1]);
+				$i++;
+			}
 		
-		echo "<table border=1 cellspacing=1 cellpadding=3>";
-		echo "<tr bgcolor=#FFFF99><td> Partition Name </td><td> Partition Type </td><td> Partition Comment </td></tr>";
-		$i = 0;
-		foreach ($array_desc_table_4 as $k => $v)
-		{
-			if(($i % 2) == 0)
+			echo "<table border=1 cellspacing=1 cellpadding=3>";
+			echo "<tr bgcolor=#FFFF99><td> Partition Name </td><td> Partition Type </td><td> Partition Comment </td></tr>";
+			$i = 0;
+			foreach ($array_desc_table_4 as $k => $v)
 			{
-				$color = "bgcolor=\"".$env['trColor1']."\"";
+				if(($i % 2) == 0)
+				{
+					$color = "bgcolor=\"".$env['trColor1']."\"";
+				}
+				else
+				{
+					$color = "bgcolor=\"".$env['trColor2']."\"";
+				}
+				echo "<tr ".$color.">\n";
+				echo "<td>".$array_desc_desc['name'][$i]."</td>";
+				echo "<td>".$array_desc_desc['type'][$i]."</td>";
+				echo "<td>".$array_desc_desc['comment'][$i]."</td>";
+				echo "</tr>";
+				$i++;
 			}
-			else
-			{
-				$color = "bgcolor=\"".$env['trColor2']."\"";
-			}
-			echo "<tr ".$color.">\n";
-			echo "<td>".$array_desc_desc['name'][$i]."</td>";
-			echo "<td>".$array_desc_desc['type'][$i]."</td>";
-			echo "</tr>";
-			$i++;
+			echo "</table>";
 		}
-		echo "</table>";
 		
 	}
 }
