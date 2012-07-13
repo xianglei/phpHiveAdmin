@@ -44,6 +44,7 @@ else
 		$array_desc_desc = $array_desc_table_1;
 	}
 	
+	var_dump($array_desc_desc);
 	
 	//get table description and explode the desc into a multi-dimensional array
 	//��ȡ��˵�����������ά����$array_desc_desc
@@ -58,8 +59,6 @@ else
 	}
 
 	#####################################
-	
-	var_dump($array_desc_desc);
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
 	{
