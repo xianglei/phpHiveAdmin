@@ -28,7 +28,7 @@ else
 		$etc = new Etc;
 		
 		$client->execute($sql);
-		$array_desc_table = $client->fetchAll();var_dump($array_desc_table);
+		$array_desc_table = $client->fetchAll();
 		$array_desc_table_1 = $etc->GetTableDetail($array_desc_table, "1");
 		
 		#var_dump($array_desc_table);
@@ -67,7 +67,7 @@ else
 		
 		$array_desc_table_2 = $etc->GetTableDetail($array_desc_table, "2");
 		
-		var_dump($array_desc_table);
+		var_dump($array_desc_table_2);
 	}
 }
 ?>
