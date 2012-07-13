@@ -78,7 +78,7 @@ else
 				$color = "bgcolor=\"#99FFFF\"";
 			}
 			echo '<tr '.$color.'>';
-			foreach(@$value as $v)
+			foreach((array)$value as $v)
 			{
 				echo '<td>'.$v.'</td>';
 				$i++;
