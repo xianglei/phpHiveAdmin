@@ -83,7 +83,9 @@ else
 				echo "<a href=\"cloneTable.php?database=".$_GET['database']."&table=".$db_array[$i]."\"><img src=images/b_clone.png>".$lang['cloneTable']."</a>";
 				echo "</td>\n";
 
-				echo "<td>".$lang['tableDetail']."</td>";
+				echo "<td>\n";
+				echo "<a href=\"cloneTable.php?database=".$_GET['database']."&table=".$db_array[$i]."\"><img src=images/b_select.png>".$lang['tableDetail']."</a>";
+				echo "</td>\n";
 
 				echo "<td>\n";
 				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']." ".$db_array[$i]."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
