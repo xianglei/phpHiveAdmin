@@ -143,8 +143,8 @@ else
 			echo '<table border=1 cellspacing=1 cellpadding=3>';
 			echo "<tr bgcolor=#FFFF99>
 					<td>".$lang['dropTable']."</td>
-					<td>".$lang['fieldName']."</td>
-					<td>".$lang['fieldType']."</td>
+					<td>".$lang['partitionName']."</td>
+					<td>".$lang['partitionName']."</td>
 					<td>".$lang['comment']."</td>
 				  </tr>";
 			$i = 0;
