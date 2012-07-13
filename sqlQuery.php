@@ -50,7 +50,7 @@ else
 
 	######################################
 	#add partition column into columns
-	$array_desc_table_4 = @$etc->GetTableDetail($array_desc_table, "4");
+	$array_desc_table_4 = @$etc->GetTableDetail($array_desc_table, "4");var_dump($array_desc_table_4);
 	$i = $i++;
 	while ('' != @$array_desc_table_4[$i])
 	{
