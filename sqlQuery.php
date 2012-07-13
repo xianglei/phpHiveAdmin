@@ -34,35 +34,24 @@ else
 	$client->execute($sql);
 	$array_desc_table = $client->fetchAll();
 	$array_desc_table_1 = $etc->GetTableDetail($array_desc_table, "1");
+	$array_desc_table_4 = @$etc->GetTableDetail($array_desc_table, "4");
+	$array_desc_desc = array_merge($array_desc_table_1,$array_desc_table_4);
 	
 	
 	//get table description and explode the desc into a multi-dimensional array
 	//��ȡ��˵�����������ά����$array_desc_desc
 	$i = 0;
-	while ('' != @$array_desc_table_1[$i])
+	while ('' != @$array_desc_table[$i])
 	{
-		$array_desc_1 = explode('	',$array_desc_table_1[$i]);
-		$array_desc_desc_1['name'][$i] = $array_desc_1[0];
-		$array_desc_desc_1['type'][$i] = $array_desc_1[1];
-		$array_desc_desc_1['comment'][$i] = $array_desc_1[2];
+		$array_desc = explode('	',$array_desc_table[$i]);
+		$array_desc_desc['name'][$i] = $array_desc[0];
+		$array_desc_desc['type'][$i] = $array_desc[1];
+		$array_desc_desc['comment'][$i] = $array_desc[2];
 		$i++;
 	}
 
-	######################################
-	#add partition column into columns
-	$array_desc_table_4 = @$etc->GetTableDetail($array_desc_table, "4");//var_dump($array_desc_table_4);
-	$i = 0;
-	while ('' != @$array_desc_table_4[$i])
-	{
-		$array_desc_4 = explode('	',$array_desc_table_4[$i]);
-		$array_desc_desc_4['name'][$i] = $array_desc_4[0];
-		$array_desc_desc_4['type'][$i] = $array_desc_4[1];
-		$array_desc_desc_4['comment'][$i] = $array_desc_4[2];
-		$i++;
-	}
-	######################################
+	#####################################
 	
-	$array_desc_desc = array_merge($array_desc_table_1,$array_desc_table_4);
 	var_dump($array_desc_desc);
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
