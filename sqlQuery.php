@@ -41,26 +41,28 @@ else
 	$i = 0;
 	while ('' != @$array_desc_table_1[$i])
 	{
-		$array_desc = explode('	',$array_desc_table_1[$i]);
-		$array_desc_desc['name'][$i] = $array_desc[0];
-		$array_desc_desc['type'][$i] = $array_desc[1];
-		$array_desc_desc['comment'][$i] = $array_desc[2];
+		$array_desc_1 = explode('	',$array_desc_table_1[$i]);
+		$array_desc_desc_1['name'][$i] = $array_desc_1[0];
+		$array_desc_desc_1['type'][$i] = $array_desc_1[1];
+		$array_desc_desc_1['comment'][$i] = $array_desc_1[2];
 		$i++;
 	}
 
 	######################################
 	#add partition column into columns
 	$array_desc_table_4 = @$etc->GetTableDetail($array_desc_table, "4");var_dump($array_desc_table_4);
-	$i = $i++;
+	$i = 0;
 	while ('' != @$array_desc_table_4[$i])
 	{
-		$array_desc = explode('	',$array_desc_table_4[$i]);
-		$array_desc_desc['name'][$i] = $array_desc[0];
-		$array_desc_desc['type'][$i] = $array_desc[1];
-		$array_desc_desc['comment'][$i] = $array_desc[2];
+		$array_desc_4 = explode('	',$array_desc_table_4[$i]);
+		$array_desc_desc_4['name'][$i] = $array_desc_4[0];
+		$array_desc_desc_4['type'][$i] = $array_desc_4[1];
+		$array_desc_desc_4['comment'][$i] = $array_desc_4[2];
 		$i++;
 	}
 	######################################
+	
+	$array_desc_desc = array_merge($array_desc_table_1,$array_desc_table_4);
 	var_dump($array_desc_desc);
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
