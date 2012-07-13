@@ -76,9 +76,9 @@ else
 		$i = 0;
 		while ('' != @$array_desc_table_2[$i])
 		{
-			$array_desc = explode("\t",$array_desc_table_2[$i]);
-			$array_desc_desc['name'][$i] = $array_desc[0];
-			$array_desc_desc['type'][$i] = $array_desc[1];
+			$array_desc = explode(" ",$array_desc_table_2[$i]);
+			$array_desc_desc['name'][$i] = trim($array_desc[0]);
+			$array_desc_desc['type'][$i] = trim($array_desc[1]);
 			$i++;
 		}
 		
