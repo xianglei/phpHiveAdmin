@@ -83,7 +83,7 @@ else
 		}
 		
 		echo "<table border=1 cellspacing=1 cellpadding=3>";
-		echo "<tr bgcolor=#FFFF99><td> Column Name </td><td> Column Type </td></tr>";
+		echo "<tr bgcolor=#FFFF99><td> Detailed Name </td><td> Detailed Value </td></tr>";
 		$i = 0;
 		foreach ($array_desc_table_2 as $k => $v)
 		{
@@ -118,7 +118,7 @@ else
 		}
 		
 		echo "<table border=1 cellspacing=1 cellpadding=3>";
-		echo "<tr bgcolor=#FFFF99><td> Column Name </td><td> Column Type </td></tr>";
+		echo "<tr bgcolor=#FFFF99><td> Storage Name </td><td> Storage Type </td></tr>";
 		$i = 0;
 		foreach ($array_desc_table_3 as $k => $v)
 		{
