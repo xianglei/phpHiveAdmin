@@ -32,8 +32,18 @@ else
 		$array_desc_table = $etc->GetTableDetail($array_desc_table, "1");
 		
 		var_dump($array_desc_table);
+		
+		$i = 0;
+		while ('' != @$array_desc_table[$i])
+		{
+			$array_desc = explode('	',$array_desc_table[$i]);
+			$array_desc_desc['name'][$i] = $array_desc[0];
+			$array_desc_desc['type'][$i] = $array_desc[1];
+			$array_desc_desc['comment'][$i] = $array_desc[2];
+			$i++;
+		}
 		echo "<table border=1 cellspacing=1 cellpadding=3>";
-		echo "<tr bgcolor=#FFFF99><td> Column Name </td><td></td></tr>";
+		echo "<tr bgcolor=#FFFF99><td> Column Name </td><td></td><td></td></tr>";
 		$i = 0;
 		foreach ($array_desc_table as $k => $v)
 		{
@@ -46,6 +56,9 @@ else
 				$color = "bgcolor=\"".$env['trColor2']."\"";
 			}
 			echo "<tr ".$color.">\n";
+			echo "<td>".$array_desc_desc['name'][$i]."</td>";
+			echo "<td>".$array_desc_desc['type'][$i]."</td>";
+			echo "<td>".$array_desc_desc['comment'][$i]."</td>";
 			echo "</tr>";
 			$i++;
 		}
