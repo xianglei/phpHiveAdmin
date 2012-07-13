@@ -67,6 +67,8 @@ else
 		}
 		echo "</table>";
 		
+		echo "<br>";
+		
 		#####################################################################################################
 		
 		$array_desc_table_2 = $etc->GetTableDetail($array_desc_table, "2");
@@ -84,6 +86,41 @@ else
 		echo "<tr bgcolor=#FFFF99><td> Column Name </td><td> Column Type </td></tr>";
 		$i = 0;
 		foreach ($array_desc_table_2 as $k => $v)
+		{
+			if(($i % 2) == 0)
+			{
+				$color = "bgcolor=\"".$env['trColor1']."\"";
+			}
+			else
+			{
+				$color = "bgcolor=\"".$env['trColor2']."\"";
+			}
+			echo "<tr ".$color.">\n";
+			echo "<td>".$array_desc_desc['name'][$i]."</td>";
+			echo "<td>".$array_desc_desc['type'][$i]."</td>";
+			echo "</tr>";
+			$i++;
+		}
+		echo "</table>";
+		echo "<br>"; 
+		
+		#####################################################################################################
+		
+		$array_desc_table_3 = $etc->GetTableDetail($array_desc_table, "3");
+		
+		$i = 0;
+		while ('' != @$array_desc_table_3[$i])
+		{
+			$array_desc = explode("	",$array_desc_table_3[$i]);
+			$array_desc_desc['name'][$i] = trim($array_desc[0]);
+			$array_desc_desc['type'][$i] = trim($array_desc[1]);
+			$i++;
+		}
+		
+		echo "<table border=1 cellspacing=1 cellpadding=3>";
+		echo "<tr bgcolor=#FFFF99><td> Column Name </td><td> Column Type </td></tr>";
+		$i = 0;
+		foreach ($array_desc_table_3 as $k => $v)
 		{
 			if(($i % 2) == 0)
 			{
