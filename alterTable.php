@@ -33,7 +33,7 @@ else
 			//get table description and explode the desc into a multi-dimensional array
 			//获取表说明，并放入二维数组$array_desc_desc
 			
-			$array_desc_table_1 = $etc->GetTableDetail($array_desc_table, "1");
+			$array_desc_table_1 = $etc->GetTableDetail($array_desc_table, "1");var_dump($array_desc_table_1);
 			$array_desc_table_4 = @$etc->GetTableDetail($array_desc_table, "4");
 			
 			$selected = " ";
