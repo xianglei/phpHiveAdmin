@@ -64,8 +64,8 @@ class Etc
 				{
 					$offset_end = $k-1;
 				}
-			}echo $offset_start;
-			if($offset_start == 0)
+			}
+			if($offset_start == "")
 			{
 				$arr = array();
 			}
