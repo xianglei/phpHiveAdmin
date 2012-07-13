@@ -60,9 +60,17 @@ class Etc
 				{
 					$offset_start = $k+3;
 				}
+				else
+				{
+					$offset_start = 0;
+				}
 				if(preg_match('/^# Detailed/',$v))
 				{
 					$offset_end = $k-1;
+				}
+				else
+				{
+					$offset_end = 0;
 				}
 			}
 			for($i = $offset_start; $i < $offset_end; $i++)
