@@ -29,7 +29,7 @@ else
 		
 		$client->execute($sql);
 		$array_desc_table = $client->fetchAll();
-		var_dump($array_desc_table);
+		#var_dump($array_desc_table);
 		
 		###############################################################################################################
 		
