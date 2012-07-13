@@ -29,7 +29,7 @@ else
 		{
 			$sql = 'desc formatted '.$_GET['table'];
 			$client->execute($sql);
-			$array_desc_table = $client->fetchAll();
+			$array_desc_table = $client->fetchAll();var_dump($array_desc_table);
 			//get table description and explode the desc into a multi-dimensional array
 			//获取表说明，并放入二维数组$array_desc_desc
 			
