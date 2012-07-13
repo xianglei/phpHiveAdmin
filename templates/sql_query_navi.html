@@ -35,6 +35,23 @@ echo $lang['loadData'];
 </a>
 </td>
 <td>
+<a href="cloneTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
+<img src=images/b_clone.png>
+<?php
+echo $lang['cloneTable'];
+?>
+</a>
+</td>
+
+<td>
+<a href="tableDetail.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
+<img src=images/b_select.png>
+<?php
+echo $lang['tableDetail'];
+?>
+</a>
+</td>
+<td>
 <a href="#" onclick="javascript:realconfirm('<?php echo $lang['dropTableConfirm'];?>','dropTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>');return false;">
 <img src=images/b_drop.png>
 <?php
