@@ -29,6 +29,9 @@ else
 		
 		$client->execute($sql);
 		$array_desc_table = $client->fetchAll();
+		
+		###############################################################################################################
+		
 		$array_desc_table_1 = $etc->GetTableDetail($array_desc_table, "1");
 		
 		#var_dump($array_desc_table);
@@ -64,10 +67,42 @@ else
 		}
 		echo "</table>";
 		
+		#####################################################################################################
 		
 		$array_desc_table_2 = $etc->GetTableDetail($array_desc_table, "2");
 		
 		var_dump($array_desc_table_2);
+		
+		$i = 0;
+		while ('' != @$array_desc_table_2[$i])
+		{
+			$array_desc = explode("\t",$array_desc_table_2[$i]);
+			$array_desc_desc['name'][$i] = $array_desc[0];
+			$array_desc_desc['type'][$i] = $array_desc[1];
+			$i++;
+		}
+		
+		echo "<table border=1 cellspacing=1 cellpadding=3>";
+		echo "<tr bgcolor=#FFFF99><td> Column Name </td><td> Column Type </td></tr>";
+		$i = 0;
+		foreach ($array_desc_table_1 as $k => $v)
+		{
+			if(($i % 2) == 0)
+			{
+				$color = "bgcolor=\"".$env['trColor1']."\"";
+			}
+			else
+			{
+				$color = "bgcolor=\"".$env['trColor2']."\"";
+			}
+			echo "<tr ".$color.">\n";
+			echo "<td>".$array_desc_desc['name'][$i]."</td>";
+			echo "<td>".$array_desc_desc['type'][$i]."</td>";
+			echo "</tr>";
+			$i++;
+		}
+		echo "</table>";
+		
 	}
 }
 ?>
