@@ -166,14 +166,14 @@ else
 					if($k == 'name')
 					{
 						echo "<td>";
-						echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropColumnConfirm']."','dropPartition.php?database=".$_GET['database']."&table=".$_GET['table']."&column=".$v."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
+						echo "<!--<a href=# onclick=\"javascript:realconfirm('".$lang['dropColumnConfirm']."','dropPartition.php?database=".$_GET['database']."&table=".$_GET['table']."&column=".$v."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>-->";
 						echo "</td>";
 					}
 					if($k == 'type')
 					{
 						echo "<td>";
 						//echo $v."<br>";
-						echo "<select name=partition_type[]>";
+						echo "<select name=partition_type[] disabled>";
 						foreach($type as $kk => $vv)
 						{
 							if ($v == $kk)
@@ -192,14 +192,14 @@ else
 					if($k == 'name')
 					{
 						echo "<td>";
-						echo "<input type=text name=partition_name[] value=".$v.">\n";
-						echo "<input type=hidden name=old_partition_name[] value=".$v.">\n";
+						echo "<input type=text name=partition_name[] value=".$v." disabled>\n";
+						echo "<input type=hidden name=old_partition_name[] value=".$v." disabled>\n";
 						echo "</td>";
 					}
 					if($k == 'comment')
 					{
 						echo "<td>";
-						echo "<input type=text name=partition_comment[] value=".$v.">\n";
+						echo "<input type=text name=partition_comment[] value=".$v." disabled>\n";
 						//echo "<input type=text name=old_comment[] value=".$v.">\n";
 						echo "</td>";
 					}
