@@ -126,4 +126,12 @@ $lang['notExternalTable'] = 'Nur MANAGED_TABLE tun können Last';
 $lang['loadDataComment'] = 'Für MANAGED_TABLE Gebrauch, wählen Sie laden von lokalen oder HDFS, und geben Sie Pfad wie / data/data1. (nicht-Eingang HDFS :/ / für HDFS Last)';
 $lang['partitionSet'] = 'Partition set: input as (dtm=\'2012-06\')';
 $lang['partitionLocation'] = 'Location to Store partition: input as /your/partition/location';
+$lang['columnName'] = 'Column Name: ';
+$lang['columnType'] = 'Column Type: ';
+$lang['detailedName'] = 'Detailed Name: ';
+$lang['detailedType'] = 'Detailed Type: ';
+$lang['storageName'] = 'Storage Name: ';
+$lang['storageType'] = 'Storage Type: ';
+$lang['partitionName'] = 'Partition Name: ';
+$lang['partitionType'] = 'Partition Type: ';
 ?>

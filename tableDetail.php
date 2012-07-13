@@ -47,7 +47,7 @@ else
 			$i++;
 		}
 		echo "<table border=1 cellspacing=1 cellpadding=3>";
-		echo "<tr bgcolor=#FFFF99><td> Column Name </td><td> Column Type </td><td> Comment </td></tr>";
+		echo "<tr bgcolor=#FFFF99><td> ".$lang['columnName']." </td><td> ".$lang['columnType']." </td><td> ".$lang['comment']." </td></tr>";
 		$i = 0;
 		foreach ($array_desc_table_1 as $k => $v)
 		{
@@ -84,7 +84,7 @@ else
 		}
 		
 		echo "<table border=1 cellspacing=1 cellpadding=3>";
-		echo "<tr bgcolor=#FFFF99><td> Detailed Name </td><td> Detailed Value </td></tr>";
+		echo "<tr bgcolor=#FFFF99><td> ".$lang['detailedName']." </td><td> ".$lang['detailedName']." </td></tr>";
 		$i = 0;
 		foreach ($array_desc_table_2 as $k => $v)
 		{
@@ -119,7 +119,7 @@ else
 		}
 		
 		echo "<table border=1 cellspacing=1 cellpadding=3>";
-		echo "<tr bgcolor=#FFFF99><td> Storage Name </td><td> Storage Type </td></tr>";
+		echo "<tr bgcolor=#FFFF99><td> ".$lang['storageName']." </td><td> ".$lang['storageName']." </td></tr>";
 		$i = 0;
 		foreach ($array_desc_table_3 as $k => $v)
 		{
@@ -157,7 +157,7 @@ else
 			}
 		
 			echo "<table border=1 cellspacing=1 cellpadding=3>";
-			echo "<tr bgcolor=#FFFF99><td> Partition Name </td><td> Partition Type </td><td> Partition Comment </td></tr>";
+			echo "<tr bgcolor=#FFFF99><td> ".$lang['partitionName']." </td><td> ".$lang['partitionName']." </td><td> ".$lang['comment']." </td></tr>";
 			$i = 0;
 			foreach ($array_desc_table_4 as $k => $v)
 			{
