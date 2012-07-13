@@ -33,20 +33,34 @@ else
 	$sql = 'desc formatted '.$_GET['table'];
 	$client->execute($sql);
 	$array_desc_table = $client->fetchAll();
-	$array_desc_table = $etc->GetTableDetail($array_desc_table, "1");
+	$array_desc_table_1 = $etc->GetTableDetail($array_desc_table, "1");
 	
 	
 	//get table description and explode the desc into a multi-dimensional array
 	//��ȡ��˵�����������ά����$array_desc_desc
 	$i = 0;
-	while ('' != @$array_desc_table[$i])
+	while ('' != @$array_desc_table_1[$i])
 	{
-		$array_desc = explode('	',$array_desc_table[$i]);
+		$array_desc = explode('	',$array_desc_table_1[$i]);
 		$array_desc_desc['name'][$i] = $array_desc[0];
 		$array_desc_desc['type'][$i] = $array_desc[1];
 		$array_desc_desc['comment'][$i] = $array_desc[2];
 		$i++;
 	}
+
+	######################################
+	#add partition column into columns
+	$array_desc_table_4 = @$etc->GetTableDetail($array_desc_table, "4");
+	$i = $i++;
+	while ('' != @$array_desc_table_4[$i])
+	{
+		$array_desc = explode('	',$array_desc_table_4[$i]);
+		$array_desc_desc['name'][$i] = $array_desc[0];
+		$array_desc_desc['type'][$i] = $array_desc[1];
+		$array_desc_desc['comment'][$i] = $array_desc[2];
+		$i++;
+	}
+	######################################
 	//var_dump($array_desc_desc);
 
 	if(!@$_POST['sql'] || '' == @$_POST['sql'])
