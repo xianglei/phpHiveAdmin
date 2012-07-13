@@ -30,7 +30,7 @@ else
 		$client->execute($sql);
 		$array_desc_table = $client->fetchAll();
 		
-		echo "<a href=javascript:history.back()>".$langp['back']."</a><br><br>";
+		echo "<a href=javascript:history.back()>".$lang['back']."</a><br><br>";
 		
 		#var_dump($array_desc_table);
 		
@@ -182,7 +182,7 @@ else
 			echo "</table>";
 		}
 		echo "<br><br>";
-		echo "<a href=javascript:history.back()>".$langp['back']."</a><br>";
+		echo "<a href=javascript:history.back()>".$lang['back']."</a><br>";
 		
 	}
 }
