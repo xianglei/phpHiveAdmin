@@ -71,8 +71,6 @@ else
 		
 		$array_desc_table_2 = $etc->GetTableDetail($array_desc_table, "2");
 		
-		var_dump($array_desc_table_2);
-		
 		$i = 0;
 		while ('' != @$array_desc_table_2[$i])
 		{
