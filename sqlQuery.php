@@ -41,9 +41,9 @@ else
 	//get table description and explode the desc into a multi-dimensional array
 	//��ȡ��˵�����������ά����$array_desc_desc
 	$i = 0;
-	while ('' != @$array_desc_table[$i])
+	while ('' != @$array_desc_desc[$i])
 	{
-		$array_desc = explode('	',$array_desc_table[$i]);
+		$array_desc = explode('	',$array_desc_desc[$i]);
 		$array_desc_desc['name'][$i] = $array_desc[0];
 		$array_desc_desc['type'][$i] = $array_desc[1];
 		$array_desc_desc['comment'][$i] = $array_desc[2];
