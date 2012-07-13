@@ -35,7 +35,7 @@ else
 	$array_desc_table = $client->fetchAll();
 	$array_desc_table_1 = $etc->GetTableDetail($array_desc_table, "1");
 	$array_desc_table_4 = @$etc->GetTableDetail($array_desc_table, "4");
-	$array_desc_desc = array_merge($array_desc_table_1,$array_desc_table_4);
+	$array_desc_desc = @array_merge($array_desc_table_1,$array_desc_table_4);
 	
 	
 	//get table description and explode the desc into a multi-dimensional array
