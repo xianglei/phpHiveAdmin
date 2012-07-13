@@ -84,7 +84,7 @@ else
 				echo "</td>\n";
 
 				echo "<td>\n";
-				echo "<a href=\"cloneTable.php?database=".$_GET['database']."&table=".$db_array[$i]."\"><img src=images/b_select.png>".$lang['tableDetail']."</a>";
+				echo "<a href=\"tableDetail.php?database=".$_GET['database']."&table=".$db_array[$i]."\"><img src=images/b_select.png>".$lang['tableDetail']."</a>";
 				echo "</td>\n";
 
 				echo "<td>\n";
