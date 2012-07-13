@@ -59,23 +59,27 @@ class Etc
 				if(preg_match('/^# Partition/',$v))
 				{
 					$offset_start = $k+3;
+					if(preg_match('/^# Detailed/',$v))
+					{
+						$offset_end = $k-1;
+					}
 				}
 				else
 				{
 					$offset_start = 0;
-				}
-				if(preg_match('/^# Detailed/',$v))
-				{
-					$offset_end = $k-1;
-				}
-				else
-				{
 					$offset_end = 0;
 				}
 			}
-			for($i = $offset_start; $i < $offset_end; $i++)
+			if($offset_start != 0 && $offset_end != 0)
 			{
-				$arr[$i] = trim($pArray[$i]);
+				for($i = $offset_start; $i < $offset_end; $i++)
+				{
+					$arr[$i] = trim($pArray[$i]);
+				}
+			}
+			else
+			{
+				$arr = "";
 			}
 		}
 		else
