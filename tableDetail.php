@@ -27,6 +27,29 @@ else
 		$sql = "desc formatted ".$_GET['table'];
 		$etc = new Etc;
 		
+		$client->execute($sql);
+		$array_desc_table = $client->fetchAll();
+		$array_desc_table = $etc->GetTableDetail($array_desc_table, "1");
+		
+		var_dump($array_desc_table);
+		echo "<table border=1 cellspacing=1 cellpadding=3>";
+		echo "<tr bgcolor=#FFFF99><td> Column Name </td><td></td></tr>";
+		$i = 0;
+		foreach ($array_desc_table as $k => $v)
+		{
+			if(($i % 2) == 0)
+			{
+				$color = "bgcolor=\"".$env['trColor1']."\"";
+			}
+			else
+			{
+				$color = "bgcolor=\"".$env['trColor2']."\"";
+			}
+			echo "<tr ".$color.">\n";
+			echo "</tr>";
+			$i++;
+		}
+		echo "</table>";
 	}
 }
 ?>
