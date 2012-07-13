@@ -45,7 +45,7 @@ else
 		echo "<table border=1 cellspacing=1 cellpadding=3>";
 		echo "<tr bgcolor=#FFFF99><td> Column Name </td><td> Column Type </td><td> Comment </td></tr>";
 		$i = 0;
-		foreach ($array_desc_table as $k => $v)
+		foreach ($array_desc_table_1 as $k => $v)
 		{
 			if(($i % 2) == 0)
 			{
