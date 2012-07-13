@@ -60,15 +60,11 @@ class Etc
 				{
 					$offset_start = $k+3;
 				}
-				else
-				{
-					$offset_start = 0;
-				}
 				if(preg_match('/^# Detailed/',$v))
 				{
 					$offset_end = $k-1;
 				}
-			}
+			}echo $offset_start;echo $offset_end;
 			if($offset_start == 0)
 			{
 				$arr = array();
