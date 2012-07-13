@@ -30,10 +30,10 @@ else
 	$client->execute($sql);
 	//$client->fetchOne();
 	
-	$sql = 'desc '.$_GET['table'];
+	$sql = 'desc formatted '.$_GET['table'];
 	$client->execute($sql);
 	$array_desc_table = $client->fetchAll();
-	$arrar_desc_table = $etc->GetTableDetail($array_desc_table, "1");
+	$array_desc_table = $etc->GetTableDetail($array_desc_table, "1");
 	
 	
 	//get table description and explode the desc into a multi-dimensional array
