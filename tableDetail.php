@@ -31,7 +31,7 @@ else
 		$array_desc_table = $client->fetchAll();
 		$array_desc_table = $etc->GetTableDetail($array_desc_table, "1");
 		
-		var_dump($array_desc_table);
+		#var_dump($array_desc_table);
 		
 		$i = 0;
 		while ('' != @$array_desc_table[$i])
@@ -63,6 +63,11 @@ else
 			$i++;
 		}
 		echo "</table>";
+		
+		
+		$array_desc_table = $etc->GetTableDetail($array_desc_table, "2");
+		
+		var_dump($array_desc_table);
 	}
 }
 ?>
