@@ -14,10 +14,10 @@ if("" == $query || "" == $time)
 }
 else
 {
-	$LANG = $env['setenv'].' LANG='.$env['lang_set'].'; ';
-	$HADOOP_HOME = $env['setenv'].' HADOOP_HOME='.$env['hadoop_home'].'; ';
-	$HIVE_HOME = $env['setenv'].' HIVE_HOME='.$env['hive_home'].'; ';
-	$JAVA_HOME = $env['setenv'].' JAVA_HOME='.$env['java_home'].'; ';
+	$LANG = 'export LANG='.$env['lang_set'].'; ';
+	$HADOOP_HOME = 'export HADOOP_HOME='.$env['hadoop_home'].'; ';
+	$HIVE_HOME = 'export HIVE_HOME='.$env['hive_home'].'; ';
+	$JAVA_HOME = 'export JAVA_HOME='.$env['java_home'].'; ';
 	
 	$UDF = ($env['udf'] != "") ? $env['udf'] : "";
 	
@@ -57,7 +57,10 @@ else
 	{
 		mkdir($env['output_path'],777);
 		
-		$sql = trim(urldecode($query,$key));
+		$sql = trim(rawurldecode($query,$key));
+		
+		$sql = str_replace("\000","%",$sql);//decode for like "%"
+		
 		$sql = str_replace("\"","'",$sql);
 		$sql = '"'.str_replace('`',"",$sql).'"';
 		
@@ -68,10 +71,10 @@ else
 		
 		if(!file_exists($env['output_path'].'/hive_res.'.$time.'.out') || filesize($env['output_path'].'/hive_res.'.$time.'.out') == 0)
 		{
-			$LANG = $env['setenv'].' LANG='.$env['lang_set'].'; ';
-			$HADOOP_HOME = $env['setenv'].' HADOOP_HOME='.$env['hadoop_home'].'; ';
-			$HIVE_HOME = $env['setenv'].' HIVE_HOME='.$env['hive_home'].'; ';
-			$JAVA_HOME = $env['setenv'].'JAVA_HOME='.$env['java_home'].'; ';
+			$LANG = 'export LANG='.$env['lang_set'].'; ';
+			$HADOOP_HOME = 'export HADOOP_HOME='.$env['hadoop_home'].'; ';
+			$HIVE_HOME = 'export HIVE_HOME='.$env['hive_home'].'; ';
+			$JAVA_HOME = 'export JAVA_HOME='.$env['java_home'].'; ';
 
 			$exec = $LANG . $HADOOP_HOME . $HIVE_HOME . $JAVA_HOME. $env['hive_home'].'/bin/hive '.$UDF.' -e '.$sql.' > '.$env['output_path'].'/hive_res.'.$time.'.out';
 			

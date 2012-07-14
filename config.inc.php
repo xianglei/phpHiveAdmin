@@ -116,8 +116,6 @@ $env['java_home'] = '/usr/java/jdk1.6.0_21';# jdk root path
 $env['lang_set'] = 'zh_CN.UTF-8';#system language set
 $env['udf'] = '';#user defined function load command. it should be a jar, if not have an udf , set it to ""
 #$env['lang_set'] = 'en_US.UTF-8';
-$env['setenv'] = 'export';
-#may set to export and setenv
 $env['seperator'] = "\t";#\t
 #set columns seperator of your data
 #设置数据的分隔符
