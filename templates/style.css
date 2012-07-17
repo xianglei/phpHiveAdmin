@@ -103,7 +103,7 @@
 <script type="text/javascript">
 			var hiveudfs = [];
 			function initHiveudfsTextarea() {
-				$.ajax("hiveudfs.txt", {
+				$.ajax("js/hiveudfs.txt", {
 					success : function(data, textStatus, jqXHR) {
 						hiveudfs = data.replace(/\r/g, "").split("\n");
 						$("#hiveudf textarea").autocomplete({

@@ -136,6 +136,7 @@ var_samp
 variance
 weekofyear
 when
+where
 xpath
 xpath_boolean
 xpath_double
