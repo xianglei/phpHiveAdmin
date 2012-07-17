@@ -38,7 +38,7 @@ else
 			$array_desc_desc['value'][$j] = trim($array_desc[1]);
 			$j++;
 		}
-		if($array_desc_desc['value'][7] != "MANAGED_TABLE")
+		if($array_desc_desc['value'][7] != "MANAGED_TABLE" || $array_desc_desc['value'][7] != "INDEX_TABLE")
 		{
 			die('<script>alert("'.$lang['notExternalTable'].'");history.back();</script>');
 		}
