@@ -130,87 +130,90 @@ else
 			echo '</table><br>';
 			############################################################################################
 			
-			$i = 0;
-			while ('' != @$array_desc_table_4[$i])
+			if($array_desc_table_4[0] != "")
 			{
-				$array_desc_4 = explode('	',$array_desc_table_4[$i]);
-				$array_desc_desc_4[$i]['name'] = $array_desc_4[0];
-				$array_desc_desc_4[$i]['type'] = $array_desc_4[1];
-				$array_desc_desc_4[$i]['comment'] = $array_desc_4[2];
-				$i++;
-			}
+				$i = 0;
+				while ('' != @$array_desc_table_4[$i])
+				{
+					$array_desc_4 = explode('	',$array_desc_table_4[$i]);
+					$array_desc_desc_4[$i]['name'] = $array_desc_4[0];
+					$array_desc_desc_4[$i]['type'] = $array_desc_4[1];
+					$array_desc_desc_4[$i]['comment'] = $array_desc_4[2];
+					$i++;
+				}
 			
-			echo '<table border=1 cellspacing=1 cellpadding=3>';
-			echo "<tr bgcolor=#FFFF99>
-					<td>".$lang['dropTable']."</td>
-					<td>".$lang['partitionName']."</td>
-					<td>".$lang['partitionName']."</td>
-					<td>".$lang['comment']."</td>
-				  </tr>";
-			$i = 0;
-			foreach ($array_desc_desc_4 as $key => $value)
-			{
-				if(($i % 2) == 0)
+				echo '<table border=1 cellspacing=1 cellpadding=3>';
+				echo "<tr bgcolor=#FFFF99>
+						<td>".$lang['dropTable']."</td>
+						<td>".$lang['partitionName']."</td>
+						<td>".$lang['partitionName']."</td>
+						<td>".$lang['comment']."</td>
+				  	</tr>";
+				$i = 0;
+				foreach ($array_desc_desc_4 as $key => $value)
 				{
-					$color = "bgcolor=\"#FFFF99\"";
-				}
-				else
-				{
-					$color = "bgcolor=\"#99FFFF\"";
-				}
-				echo '<tr '.$color.'>';
-				foreach($value as $k => $v)
-				{
-					//echo '<tr '.$color.'>';
-					//echo '<td>';
-					if($k == 'name')
+					if(($i % 2) == 0)
 					{
-						echo "<td>";
-						echo "<!--<a href=# onclick=\"javascript:realconfirm('".$lang['dropColumnConfirm']."','dropPartition.php?database=".$_GET['database']."&table=".$_GET['table']."&column=".$v."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>-->";
-						echo "</td>";
+						$color = "bgcolor=\"#FFFF99\"";
 					}
-					if($k == 'type')
+					else
 					{
-						echo "<td>";
-						//echo $v."<br>";
-						echo "<select name=partition_type[] disabled>";
-						foreach($type as $kk => $vv)
+						$color = "bgcolor=\"#99FFFF\"";
+					}
+					echo '<tr '.$color.'>';
+					foreach($value as $k => $v)
+					{
+						//echo '<tr '.$color.'>';
+						//echo '<td>';
+						if($k == 'name')
 						{
-							if ($v == $kk)
-							{
-								$selected = "selected";
-							}
-							else
-							{
-								$selected ="";
-							}
-							echo "<option value=".$kk." ".$selected.">".$vv."</option>";
+							echo "<td>";
+							echo "<!--<a href=# onclick=\"javascript:realconfirm('".$lang['dropColumnConfirm']."','dropPartition.php?database=".$_GET['database']."&table=".$_GET['table']."&column=".$v."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>-->";
+							echo "</td>";
 						}
-						echo "</select>";
-						echo "</td>";
+						if($k == 'type')
+						{
+							echo "<td>";
+							//echo $v."<br>";
+							echo "<select name=partition_type[] disabled>";
+							foreach($type as $kk => $vv)
+							{
+								if ($v == $kk)
+								{
+									$selected = "selected";
+								}
+								else
+								{	
+									$selected ="";
+								}
+								echo "<option value=".$kk." ".$selected.">".$vv."</option>";
+							}
+							echo "</select>";
+							echo "</td>";
+						}
+						if($k == 'name')
+						{
+							echo "<td>";
+							echo "<input type=text name=partition_name[] value=".$v." disabled>\n";
+							echo "<input type=hidden name=old_partition_name[] value=".$v." disabled>\n";
+							echo "</td>";
+						}
+						if($k == 'comment')
+						{
+							echo "<td>";
+							echo "<input type=text name=partition_comment[] value=".$v." disabled>\n";
+							//echo "<input type=text name=old_comment[] value=".$v.">\n";
+							echo "</td>";
+						}
+						//echo '</td>';
+						//echo '</tr>';
 					}
-					if($k == 'name')
-					{
-						echo "<td>";
-						echo "<input type=text name=partition_name[] value=".$v." disabled>\n";
-						echo "<input type=hidden name=old_partition_name[] value=".$v." disabled>\n";
-						echo "</td>";
-					}
-					if($k == 'comment')
-					{
-						echo "<td>";
-						echo "<input type=text name=partition_comment[] value=".$v." disabled>\n";
-						//echo "<input type=text name=old_comment[] value=".$v.">\n";
-						echo "</td>";
-					}
-					//echo '</td>';
-					//echo '</tr>';
+					echo '</tr>';
+					$i++;
 				}
-				echo '</tr>';
-				$i++;
-			}
-			echo '</table><br>';
 			
+				echo '</table><br>';
+			}
 			echo '<input type=hidden name=database value='.$_GET['database'].'><input type=hidden name=table value='.$_GET['table'].'>';
 			echo '<input type=submit name=submit value='.$lang['submit'].'>';
 			echo "&nbsp;&nbsp;";
