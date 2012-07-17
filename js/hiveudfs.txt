@@ -71,6 +71,7 @@ json_tuple
 lcase
 length
 like
+limit
 ln
 locate
 log
