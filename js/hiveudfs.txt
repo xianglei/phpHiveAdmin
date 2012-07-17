@@ -17,9 +17,11 @@ bigint
 bin
 binary
 boolean
+by
 case
 ceil
 ceiling
+cluster
 coalesce
 collect_set
 concat
@@ -39,6 +41,7 @@ day
 dayofmonth
 degrees
 distinct
+distribute
 div
 double
 e
@@ -52,6 +55,7 @@ floor
 from_unixtime
 from_utc_timestamp
 get_json_object
+group
 hash
 hex
 histogram_numeric
@@ -86,6 +90,7 @@ negative
 ngrams
 not
 or
+order
 parse_url
 parse_url_tuple
 percentile
@@ -114,6 +119,7 @@ sign
 sin
 size
 smallint
+sort
 space
 split
 sqrt
