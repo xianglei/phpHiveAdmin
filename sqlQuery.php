@@ -12,11 +12,12 @@ if(!$_GET['database'] || '' == $_GET['database'])
 }
 else
 {
-
-	echo $_GET['database'].' --  <a href=dbStructure.php?database='.$_GET['database'].' target="right">'.$lang['back'].'</a><br /><br />';
-
-	include_once 'templates/sql_query_navi.html';
 	include_once 'templates/style.css';
+	
+	echo $_GET['database'].' --  <a href=dbStructure.php?database='.$_GET['database'].' target="right">'.$lang['back'].'</a><br /><br />';
+	
+	include_once 'templates/sql_query_navi.html';
+	
 	echo "<br /><br />";
 	
 	$transport = new TSocket(HOST, PORT);

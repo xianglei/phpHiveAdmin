@@ -15,10 +15,13 @@ atan
 avg
 bigint
 bin
+binary
 boolean
+by
 case
 ceil
 ceiling
+cluster
 coalesce
 collect_set
 concat
@@ -37,6 +40,8 @@ datediff
 day
 dayofmonth
 degrees
+distinct
+distribute
 div
 double
 e
@@ -48,7 +53,9 @@ find_in_set
 float
 floor
 from_unixtime
+from_utc_timestamp
 get_json_object
+group
 hash
 hex
 histogram_numeric
@@ -64,6 +71,7 @@ json_tuple
 lcase
 length
 like
+limit
 ln
 locate
 log
@@ -83,6 +91,7 @@ negative
 ngrams
 not
 or
+order
 parse_url
 parse_url_tuple
 percentile
@@ -105,11 +114,13 @@ round
 rpad
 rtrim
 second
+semi
 sentences
 sign
 sin
 size
 smallint
+sort
 space
 split
 sqrt
