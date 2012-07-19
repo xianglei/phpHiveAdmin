@@ -1,3 +1,39 @@
+0.09 beta1
+1. Remove Schema ThriftSchema QueryPlan from navigation of top frame, because it seems useless for any one
+2. Fix 2 english words, add Deutsch language translation sets(from google translate)
+3. Bug fix: Fix a session bug, may did a php-fpm lock down when doing a result file download, it caused by using download, but the session file had lost first or session lose effectiveness before.
+4. load data can do a table type judgement, only MANAGED_TABLE and INDEX_TABLE can load data, EXTERNAL_TABLE and VIRTUAL_VIEW can not load data,this will prevent a hadoop filesystem locking bug caused by hive data moving. It's a testing function, I do not sure it will working correctly , but I will improve it step by step.
+5. Add table detail information page. The risk same as above
+6. Fix a bug, that may translate a sql into some unknown character, the problem sql should be like '%'. I found this error when I querying "like '%baidu.com'"
+7. Now support Gzip and Bzip2 compressed data when create a table
+8. Add lines terminator on creating tables, support regular express input, default value is \n, the column terminator character default value set to \t
+9. Alter table name has no longer return a fatal error, and can refresh left frame correctly, And add/drop table can refresh left frame also.
+10. Table name can view in javascript confirm action when doing a drop table action
+11. security update: normal user can not use dfs command.
+12. Rewrite table structure reading code in sqlQuery.php, now for testing, if you got some column name display problem, please rollback to 0.08 beta 2
+13. Alter table has divided to data columns and partition columns, partition column will do drop,add,modify in the future, now for testing, if you got display problem, please rollback to 0.08beta2.
+14. Remove $env['setenv'] variable in config.inc.php, because its useless.
+15. Add HQL auto-complete javascript, Thanks to hivefans(Dongjie Shi)
+16. Fix A Chinese lang displaying error on sqlQuery.php
+
+1. 从顶帧导航中移除了Schema, ThriftSchema和QueryPlan的查看，因为看上去对任何人都没用。
+2. 修正两个英文单词的翻译，加入德语翻译
+3. 错误修正：修正一个session错误，可能在下载一个结果集文件时导致php-fpm进程锁死，原因是点击下载之前，session文件丢失或者session失效。
+4.加载数据现在可以判断表的类型，只有内部表和索引表可以进行数据加载，外部表和虚拟视图不能加载数据，以防止hive的一个数据移动导致hadoop文件系统锁死的bug，测试功能，无法确保完全正确，但会不断改进。
+5. 加入表的详细信息查看页。功能同上
+6. 修复了一个错误，导致把sql语句转换成不可识别的字符，这个出现问题的sql应该是使用了like '%'这样的语句，我发现这个错误是在我查询 like '%baidu.com'的时候发生的
+7. 现在开始支持创建外部表时选择Gzip和Bzip2压缩的数据了
+8. 在创建表的时候加入行分隔符,支持正则输入，默认是\n，列分隔符默认设置为\t
+9. 修改表名现在不会再报错了，并且可以正常刷新左边的导航栏，添加删除表也可以正常刷新左边导航了
+10. 删除表的时候，在确认框中提示表名
+11. 安全更新: 普通用户禁止使用dfs命令
+12. 重写了sqlQuery.php的表结构获取的代码，现在还处于测试中，如果在使用中发现问题，请恢复到0.08b2版本。
+13. 修改表将数据字段与分区字段分离，未来会实现对分区字段的增删改，现在还处于测试中，如果在使用中发现问题，请恢复到0.08b2版本。
+14. 移除config.inc.php中的$env['setenv']变量，因为没用
+15. 加入hql函数和语句自动提醒补全。感谢hivefans(史东杰)提交
+16. 修正sqlQuery.php可能出现的中文显示问题。
+
+
 0.08 beta2
 1. Bug fix: A sql with symbol "plus" (+) in an HQL may cause a fatal error.
 2. Remove all default queries with "limit" by using thrift, all queries are using map/reduce,
