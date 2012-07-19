@@ -2,7 +2,7 @@
 
 include_once 'config.inc.php';
 
-if($_SESSION['onlydb'] != "")
+if($_SESSION['role'] != "")
 {
 	if(@$_GET['frame'])
 	{

@@ -54,8 +54,8 @@ if(($user == "") || ($pass == ""))
 else
 {
 
-	$onlydb = $auth->AuthUser($env["privFile"],$user,$pass);
-	if(($onlydb == FALSE) || ($onlydb == ""))
+	$priv = $auth->AuthUser($env["privFile"],$user,$pass);
+	if(($priv == FALSE) || ($priv['privdb'] == ""))
 	{
 		include_once "templates/login.html";
 		die('');
@@ -64,7 +64,8 @@ else
 	{
 		$_SESSION['username'] = $user;
 		$_SESSION['password'] = $pass;
-		$_SESSION['onlydb'] = $onlydb;
+		$_SESSION['onlydb'] = $priv['privdb'];
+		$_SESSION['role'] = $priv['role'];
 	}
 }
 

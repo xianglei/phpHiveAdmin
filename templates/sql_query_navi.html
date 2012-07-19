@@ -15,7 +15,7 @@ echo $lang['getFilelist'];
 </a>
 </td>-->
 <?php
-if($_SESSION['onlydb'] == "all")
+if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 {
 ?>
 <td>

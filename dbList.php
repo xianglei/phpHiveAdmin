@@ -14,7 +14,7 @@ $db_array = $client->fetchAll();
 
 $i = 0;
 echo '<br />';
-if($_SESSION['onlydb'] == "all")
+if($_SESSION['role'] == "superadmin")
 {
 	while('' != @$db_array[$i]) {
 		echo '<a href="javascript:showsd(\'tableList.php?database='.$db_array[$i].'\',\'dbStructure.php?database='.$db_array[$i].'\')" target="left"><img src=images/database.png>'.$db_array[$i].'</a><br />'."\n";

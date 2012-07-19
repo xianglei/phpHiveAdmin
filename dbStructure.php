@@ -41,7 +41,7 @@ else
 		echo "<tr bgcolor=#FFFF99>
 		<td></td>
 		<td>".$lang['tableName']."</td>";
-		if($_SESSION['onlydb'] == "all")
+		if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 		{
 			echo "<td>".$lang['alterTable']."</td>
 			<td>".$lang['loadData']."</td>
@@ -69,7 +69,7 @@ else
 			echo "<td>\n";
 			echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right">'.$db_array[$i].'</a>';
 			echo "</td>\n";
-			if($_SESSION['onlydb'] == "all")
+			if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 			{
 				echo "<td>\n";
 				echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_props.png>".$lang['alterTable']."</a>";
@@ -100,7 +100,7 @@ else
 		echo $lang['select']." / ".$lang['deselect']."<bR><br>\n";
 		echo "<input type=submit name=submit value=".$lang['submit'].">";
 		echo "</form><br><br>";
-		if($_SESSION['onlydb'] == "all")
+		if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 		{
 			include_once "templates/add_table.html";
 		}

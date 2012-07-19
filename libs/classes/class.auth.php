@@ -56,7 +56,7 @@ class Authorize
 			{
 				if(preg_match("/\b".$pUsername."\b/",$v["username"]) && preg_match("/\b".$pPassword."\b/", $v["password"]))
 				{
-					return $v['privdb'];
+					return $v;
 				}
 				else
 				{
@@ -108,7 +108,7 @@ class Authorize
 			preg_match("/\bdfs -\b/i",$pSql)
 			)
 		{
-			if($pPrivilege != "all")
+			if($pPrivilege != "superadmin" || $pPrivilege != "dbadmin")
 			{
 				return FALSE;
 			}

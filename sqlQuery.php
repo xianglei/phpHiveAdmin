@@ -123,7 +123,7 @@ else
 			$sha1 = $etc->FingerPrintMake();
 			
 			#auth if have enough privileges to do hql query
-			$sql = $auth->AuthSql($_SESSION['onlydb'],@$_POST['sql']);
+			$sql = $auth->AuthSql($_SESSION['role'],@$_POST['sql']);
 			if($sql == FALSE)
 			{
 				die("<script>alert('".$lang['permissionDenied']."');history.back()</script>");

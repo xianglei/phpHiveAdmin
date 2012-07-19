@@ -31,7 +31,7 @@ if ($dh = opendir($dir))
 		{
 			if(!is_dir($dir.$file))
 			{
-				if($_SESSION['onlydb'] == 'all')
+				if($_SESSION['role'] == 'superadmin')
 				{
 					$file_array[$i] = $file;
 				}
@@ -95,7 +95,7 @@ if ($dh = opendir($dir))
 			$tmp = substr($tmp[1]."_".$tmp[2],0,-4);
 			if(file_exists($env['output_path']."/hive_res.".$tmp.".csv"))
 			{
-				if($_SESSION['onlydb'] == 'all')
+				if($_SESSION['role'] == 'superadmin')
 				{
 					echo "<td><a href=getResult.php?str=".$file.">$file</a></td>\n";
 				}

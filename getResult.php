@@ -31,7 +31,7 @@ else
 		}
 
 		$filename = $env['output_path']."/hive_res.".$str.".csv";
-		if($_SESSION['onlydb'] != "all")
+		if($_SESSION['role'] != "superadmin")
 		{
 			$logfile = $env['logs_path'].$_SESSION['username']."_".$str.".log";
 		}
