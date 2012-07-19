@@ -21,8 +21,7 @@ $env['logs_path'] = './logs/'; #Path to put your query log files
 
 $env['lang_set'] = 'zh_CN.UTF-8'; #operation system language set
 #$env['lang_set'] = 'en_US.UTF-8'; #if you are using with english uncomment this and comment zhCN
-$env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q'; #command to run your udf functions, it maybe a jar or other initialized script. if no udf, set it to ''
-$env['setenv'] = 'export'; #The command to set your Environment variables, for sh and bash, set it to 'export'. for csh or ksh, set it to 'setenv' 
+$env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q'; #command to run your udf functions, it maybe a jar or other initialized script. if there is no udf, set it to ''
 $env['seperator'] = "\t";#seperator(delimiter) set for hive external table
 
 Open refresh.php
@@ -45,6 +44,7 @@ username=yourname
 password=yourpass
 privdb=all  #the database that this user can see
 mrslots=map slots,reduce slots  #(not used in recent version, but future will be)
+role=superadmin( dbadmin, user ) #superadmin means can read all databases and admin them, dbadmin means can read privdb setted dbs and admin them, user means can only read from privdb setted dbs
 
 if you want to show all db, put "all" on "onlydb" area, else onlydb(s) use comma to seperate.
 
@@ -88,8 +88,6 @@ $env['lang_set'] = 'zh_CN.UTF-8'; #操作系统的语言设置
 
 $env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q'; #调用UDF的命令, 可能为jar文件或初始化脚本. 如果没有udf, 则设置为 ''
 
-$env['setenv'] = 'export'; #系统环境变量的设置命令，针对sh和bash，使用export，针对csh和ksh，使用setenv
-
 $env['seperator'] = "\t"; #hive中外部表数据的分隔符
 
 打开refresh.php
@@ -113,3 +111,4 @@ password=yourpass
 privdb=the database that this user can see
 mrslots=map slots,reduce slots(最近版本不会使用，但是未来会开放)
 onlydb写all为全部访问，写数据库名则访问单独的数据库，库名可写多个，以英文逗号分隔。
+role=superadmin( dbadmin, user ) #superadmin 可读取全部数据库并管理, dbadmin 可读取privdb设置的dbs并管理, user 仅可读取privdb设置的数据库，不能管理
