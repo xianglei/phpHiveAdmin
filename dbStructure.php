@@ -39,7 +39,7 @@ else
 		echo "<form method=post action=dbStructure.php name=tablenames>";
 		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 		echo "<tr bgcolor=#FFFF99>
-		<td><input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"javascript:isSelect('tablenames');\" /></td>
+		<td></td>
 		<td>".$lang['tableName']."</td>";
 		if($_SESSION['onlydb'] == "all")
 		{
@@ -96,7 +96,7 @@ else
 			$i++;
 		}
 		echo "</table>\n";
-		echo "<input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"isSelect('tablenames')\" />";
+		echo "<input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"isSelect(tablenames)\" />";
 		echo $lang['select']." / ".$lang['deselect']."<bR><br>\n";
 		echo "<input type=submit name=submit value=".$lang['submit'].">";
 		echo "</form><br><br>";
