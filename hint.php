@@ -3,14 +3,14 @@ include_once 'config.inc.php';
 
 if(!$_GET['database'])
 {
-	$file = "hiveudfs.txt";
+	$file = "js/hiveudfs.txt";
 	$array = file($file);
 }
 else
 {
 	if(!$_GET['table'])
 	{
-		$file = "hiveudfs.txt";
+		$file = "js/hiveudfs.txt";
 		$array = file($file);
 	}
 	else
@@ -33,13 +33,15 @@ else
 			$i++;
 		}
 		
-		$file = "hiveudfs.txt";
+		$array_table = array($_GET['table']);
+		$file = "js/hiveudfs.txt";
 		$array = file($file);
 		$array = array_merge($array,$array_desc_desc);
+		$array = array_merge($array,$array_table);
 	}
 }
 foreach ($array as $key => $value)
 {
-	echo $value."\n\r";
+	echo $value."\r\n";
 }
 ?>
