@@ -132,8 +132,8 @@ str_to_map
 string
 struct
 substr
-substring
 sum
+substring
 tan
 tinyint
 to_date
