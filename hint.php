@@ -42,6 +42,6 @@ else
 }
 foreach ($array as $key => $value)
 {
-	echo $value."\r\n";
+	echo $value."\n";
 }
 ?>
