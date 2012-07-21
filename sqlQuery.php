@@ -13,7 +13,7 @@ if(!$_GET['database'] || '' == $_GET['database'])
 else
 {
 	include_once 'templates/style.css';
-	
+	include_once 'templates/hint.html';	
 	echo $_GET['database'].' --  <a href=dbStructure.php?database='.$_GET['database'].' target="right">'.$lang['back'].'</a><br /><br />';
 	
 	include_once 'templates/sql_query_navi.html';

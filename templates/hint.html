@@ -1,0 +1,31 @@
+<script src="js/jquery-1.5.js" type="text/javascript"></script>
+<script src="js/auto.js" type="text/javascript"></script>
+<script type="text/javascript">
+	var hiveudfs = [];
+	function initHiveudfsTextarea() {
+		//$.ajax("hint.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>", {
+		$.ajax("js/hiveudfs.txt", {
+			success : function(data, textStatus, jqXHR) {
+				hiveudfs = data.replace(/\r/g, "").split("\n");
+				$("#hiveudf textarea").autocomplete({
+					wordCount : 1,
+					on : {
+						query : function(text, cb) {
+							var words = [];
+							for (var i = 0; i < hiveudfs.length; i++) {
+								if (hiveudfs[i].toLowerCase().indexOf(text.toLowerCase()) == 0)
+									words.push(hiveudfs[i]);
+								if (words.length > 5)
+									break;
+							}
+							cb(words);
+						}
+					}
+				});
+			}
+		});
+	}
+	$(document).ready(function() {
+		initHiveudfsTextarea();
+	});
+</script>
