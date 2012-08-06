@@ -106,9 +106,9 @@ $env['output_path'] = '/data2/tmp/phpHiveAdmin';
 验证部分accesslist.ini设置.
 [0]
 ;userset order above
-username=yourname
-password=yourpass
-privdb=the database that this user can see
+username=用户名
+password=密码
+privdb=该用户可见的数据库
 mrslots=map slots,reduce slots(最近版本不会使用，但是未来会开放)
 onlydb写all为全部访问，写数据库名则访问单独的数据库，库名可写多个，以英文逗号分隔。
 role=superadmin( dbadmin, user ) #superadmin 可读取全部数据库并管理, dbadmin 可读取privdb设置的dbs并管理, user 仅可读取privdb设置的数据库，不能管理

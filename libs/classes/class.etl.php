@@ -62,5 +62,18 @@ class Etl
 			return FALSE;
 		}
 	}
+	
+	public function EtlHelp()
+	{
+		echo "Syntax: ".$_SERVER['argv'][0]. " -option value\n";
+		echo "Options description:\n";
+		echo "  -r      etl settings ini file\n";
+		echo "  -s      Time range start flag\n";
+		echo "  -t      Time range end flag\n";
+		echo "  -h      This Help\n";
+		echo "Example:  \n";
+		echo "  /path/to/phpHiveAdmin/".$_SERVER['argv'][0]." -r example.ini -s 2012-07-06 -e 2012-08-06\n";
+		echo "  /path/to/phpHiveAdmin/".$_SERVER['argv'][0]." -r example.ini\n\n";
+	}
 }
 ?>
