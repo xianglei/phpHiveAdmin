@@ -65,7 +65,7 @@ class Etl
 	
 	public function EtlHelp()
 	{
-		echo "Syntax: ".$_SERVER['argv'][0]. " -option value\n";
+		echo "Syntax: ".$_SERVER['argv'][0]. " -option value -option value...\n";
 		echo "Options description:\n";
 		echo "  -r      etl settings ini file\n";
 		echo "  -s      Time range start flag\n";

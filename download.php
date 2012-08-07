@@ -10,7 +10,7 @@ else
 	$filename = $env['output_path']."/hive_res.".$_GET['str'].".csv";
 	$fname = "hive_res.".$_GET['str'].".csv";
 	if(file_exists($filename))
-	{		
+	{
 		header("Pragma: public");
 		header("Expires: 0");
 		header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
