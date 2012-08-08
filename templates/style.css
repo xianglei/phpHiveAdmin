@@ -168,7 +168,7 @@ function getReult()
 function getQueryPlan()
 {
 	var sql = document.getElementById('sql').value;
-	window.open('getQueryPlan.php?sql='+sql,'newwindow','height=400,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=yes, resizable=no,location=no, status=no');
+	window.open('getQueryPlan.php?sql='+sql,'newwindow','height=400,width=600,top=0,left=0,toolbar=no,menubar=no,scrollbars=yes, resizable=no,location=no, status=no');
 }
 </script>
 </head>

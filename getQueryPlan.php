@@ -13,7 +13,7 @@ echo $hql = "EXPLAIN EXTENDED ".$hql;
 echo "<br>";
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
 $res = $client->execute($hql);
-$array = $client->fetchAll();
+$array = $client->fetchAll();var_dump($array);
 if(count($array[0]) != "")
 {
 	foreach($array as $k => $v)
