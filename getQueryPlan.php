@@ -9,6 +9,10 @@ $client = new ThriftHiveClient($protocol);
 $transport->open();
 
 $hql = $_GET['sql'];
+if(substr($hql,-1) == ";")
+{
+	$hql = substr($hql,0,-1);
+}
 $hql = "EXPLAIN EXTENDED ".$hql;
 echo "<br>";
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
@@ -20,16 +24,15 @@ try
 	{
 		$echo .= str_replace(" ","&nbsp;",$v)."<br />";
 	}
-	if(trim($echo) == "")
-	{
-		$echo = "FAILED: Error in semantic analysis";
-	}
-
 	echo $echo;
 }
 catch (Exception $e)
 {
-	echo "Exception: ".$e->getMessage();
+	$echo = $e->getMessage();
+	$tmp = explode("FAILED",$echo);
+	$echo = $tmp[0]."FAILED: <font color=red>".$tmp[1]."<font>";
+	
+	echo "Exception: ".$echo;
 }
 
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
