@@ -16,7 +16,7 @@ $res = $client->execute($hql);
 $array = $client->fetchAll();
 foreach($array as $k => $v)
 {
-	$echo .= "HQL validation OK <br><br>".str_replace(" ","&nbsp;",$v)."<br />";
+	$echo .= str_replace(" ","&nbsp;",$v)."<br />";
 }
 if($echo == "")
 {
