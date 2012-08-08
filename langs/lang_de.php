@@ -134,4 +134,5 @@ $lang['storageName'] = 'Storage Name: ';
 $lang['storageType'] = 'Storage Type: ';
 $lang['partitionName'] = 'Partition Name: ';
 $lang['partitionType'] = 'Partition Type: ';
+$lang['hqlValidator'] = 'HQL Validator';
 ?>

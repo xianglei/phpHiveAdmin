@@ -4,7 +4,7 @@
 <textarea cols="50" rows="10" name="sql" id="sql">select * from <?php echo $_GET['table'];?> limit 30</textarea>
 </div>
 <br>
-<input type=button name=check value="Check HQL" onclick="getQueryPlan()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=submit name=submit>
+<input type=button name=check value=<?php echo $lang['hqlValidator'];?> onclick="getQueryPlan()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type=submit name=submit>
 <input type=hidden name=database value=<?php echo $_GET['database'];?>>
 </form>
 </body>

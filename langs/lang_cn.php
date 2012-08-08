@@ -134,4 +134,5 @@ $lang['storageName'] = '存储名称: ';
 $lang['storageType'] = '存储类型: ';
 $lang['partitionName'] = '分区名称: ';
 $lang['partitionType'] = '分区类型: ';
+$lang['hqlValidator'] = 'HQL 校验器';
 ?>

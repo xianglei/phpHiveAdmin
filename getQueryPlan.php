@@ -13,10 +13,17 @@ echo $hql = "EXPLAIN EXTENDED ".$hql;
 echo "<br>";
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
 $res = $client->execute($hql);
-$array = $client->fetchAll();var_dump($array);
-foreach($array as $k => $v)
+$array = $client->fetchAll();
+if($array != "")
 {
-	$echo .= str_replace(" ","&nbsp;",$v)."<br />";
+	foreach($array as $k => $v)
+	{
+		$echo .= str_replace(" ","&nbsp;",$v)."<br />";
+	}
+}
+else
+{
+	$echo = "FAILED: Error in semantic analysis";
 }
 echo $echo;
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
