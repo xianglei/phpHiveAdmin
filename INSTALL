@@ -8,13 +8,16 @@ To start Hive Thrift Server:
 Installation:
 1: run git clone git://github.com/xianglei/phpHiveAdmin.git
 
-2: open config.inc.php
+2: run install shell script to set environment and open config.inc.php
+
+chmod +x install.sh
+./install.sh
+enter path for hadoop hive and java 
+
+and then open config.inc.php
 set define('HOST','192.168.1.49'); and define('PORT','10000'); #To your hive thrift server address and port.
 find variables below in config.inc.php, change to your own path，and chmod etl,output_path,logs_path to 777 or 755
 
-$env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0'; #Path to your hadoop installation home
-$env['hive_home'] = '/opt/modules/hive/hive-0.7.1'; #Path to your hive installation home
-$env['java_home'] = '/usr/java/jdk1.6.0_21'; #Path to your java installation home
 $env['etl'] = './etl/'; #Where to put your etl sets
 $env['output_path'] = '/data2/tmp/phpHiveAdmin'; #where to put your map/reduce monitoring file and query result files 
 $env['logs_path'] = './logs/'; #Path to put your query log files
@@ -64,7 +67,10 @@ Nginx 与 php 5.3+
 安装步骤:
 1: 运行 git clone git://github.com/xianglei/phpHiveAdmin.git
 
-2: 打开 config.inc.php
+2: 运行install.sh 并打开 config.inc.php
+chmod+x install.sh
+./install.sh
+填写正确的HADOOP HIVE JAVA的HOME路径
 
 找到 define('HOST','192.168.1.49'); and define('PORT','10000'); 并设置为你自己的hiveserver地址.
 
