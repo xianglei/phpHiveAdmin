@@ -30,7 +30,7 @@ catch (Exception $e)
 {
 	$echo = $e->getMessage();
 	$tmp = explode("FAILED",$echo);
-	$echo = $tmp[0]."FAILED: <font color=red>".$tmp[1]."<font>";
+	$echo = $tmp[0]."FAILED <font color=red>".$tmp[1]."<font>";
 	
 	echo "Exception: ".$echo;
 }
