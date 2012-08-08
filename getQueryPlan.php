@@ -1,6 +1,4 @@
 <?php
-
-
 include_once 'config.inc.php';
 include_once 'templates/style.css';
 
@@ -10,8 +8,13 @@ $client = new ThriftHiveClient($protocol);
 
 $transport->open();
 
-$status = $client->getQueryPlan();
-var_dump($status);
+$hql = $_GET['sql'];
+$hql = "EXPLAIN EXTENDED ".$hql;
+
+echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
+$res = $client->execute($hql);
+echo $res;
+echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
 
 //echo 'Field Schemas: '.$status->fieldSchemas.'<br />';
 //echo 'Properties: '.$status->properties.'<br />';

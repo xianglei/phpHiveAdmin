@@ -1,9 +1,9 @@
-<form method=post>
+<form method=post name=form>
 <div id="hiveudf">
-<textarea cols="50" rows="10" name="sql">select * from <?php echo $_GET['table'];?> limit 30</textarea>
+<textarea cols="50" rows="10" name="sql" id="sql">select * from <?php echo $_GET['table'];?> limit 30</textarea>
 </div>
 <br>
-<input type=submit name=submit>
+<input type=button name=check value=check>&nbsp;&nbsp;<input type=submit name=submit>
 <input type=hidden name=database value=<?php echo $_GET['database'];?>>
 </form>
 </body>
