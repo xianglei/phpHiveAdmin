@@ -12,18 +12,26 @@ $hql = $_GET['sql'];
 $hql = "EXPLAIN EXTENDED ".$hql;
 echo "<br>";
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
-$res = $client->execute($hql);
-$array = $client->fetchAll();
-foreach($array as $k => $v)
+try 
 {
-	$echo .= str_replace(" ","&nbsp;",$v)."<br />";
+	$res = $client->execute($hql);
+	$array = $client->fetchAll();
+	foreach($array as $k => $v)
+	{
+		$echo .= str_replace(" ","&nbsp;",$v)."<br />";
+	}
+	if(trim($echo) == "")
+	{
+		$echo = "FAILED: Error in semantic analysis";
+	}
+
+	echo $echo;
 }
-if(trim($echo) == "")
+catch (Exception $e)
 {
-	$echo = "FAILED: Error in semantic analysis";
+	echo "Exception: ".$e->getMessage();
 }
 
-echo $echo;
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
 
 //echo 'Field Schemas: '.$status->fieldSchemas.'<br />';
