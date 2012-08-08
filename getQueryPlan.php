@@ -16,10 +16,9 @@ $res = $client->execute($hql);
 $array = $client->fetchAll();
 foreach($array as $k => $v)
 {
-	$echo = str_replace(" ","&nbsp;",$v);
-	$echo = str_replace("\n","<br />",$echo);
-	echo $echo;
+	$echo .= str_replace(" ","&nbsp;",$v)."<br />";
 }
+echo $echo;
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
 
 //echo 'Field Schemas: '.$status->fieldSchemas.'<br />';
