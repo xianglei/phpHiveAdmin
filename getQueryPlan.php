@@ -9,8 +9,8 @@ $client = new ThriftHiveClient($protocol);
 $transport->open();
 
 $hql = $_GET['sql'];
-$hql = "EXPLAIN EXTENDED ".$hql;
-
+echo $hql = "EXPLAIN EXTENDED ".$hql;
+echo "<br>";
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
 $res = $client->execute($hql);
 $array = $client->fetchAll();
