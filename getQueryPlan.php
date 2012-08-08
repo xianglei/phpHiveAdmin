@@ -24,6 +24,7 @@ try
 	{
 		$echo .= str_replace(" ","&nbsp;",$v)."<br />";
 	}
+	echo "<font color=red>HQL Syntax OK!!!<br><br></font>";
 	echo $echo;
 }
 catch (Exception $e)

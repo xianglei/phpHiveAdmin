@@ -1,13 +1,8 @@
 <?php
 session_id();
 session_start();
-$GLOBALS['THRIFT_ROOT'] = './libs/';
 
-require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.auth.php';
-require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etc.php';
-require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.etl.php';
-require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.hive.php';
-
+include "static.inc.php";
 #comment below if you didn't wanna use authenticate
 $auth = new Authorize;
 
@@ -72,12 +67,6 @@ else
 #comment up if you didn't wanna use authenticate
 #如果不需要验证，请注释掉以上部分
 
-# load the required files for connecting to Hive
-require_once $GLOBALS['THRIFT_ROOT'] . 'packages/hive_service/ThriftHive.php';
-require_once $GLOBALS['THRIFT_ROOT'] . 'transport/TSocket.php';
-require_once $GLOBALS['THRIFT_ROOT'] . 'protocol/TBinaryProtocol.php';
-require_once $GLOBALS['THRIFT_ROOT'] . 'classes/class.timer.php';
-
 
 #-----------defination of HIVE Server and port-----
 #-----------定义Hive Server连接地址与端口----------
@@ -100,20 +89,13 @@ define('METAUSER', 'hive');
 define('METAPASS', 'hive');
 define('METANAME', 'hive');
 
-#----------------
-#define('METATYPE', 'pgsql');
-#define('METADB','192.168.1.28');
-#define('METAPORT', '5432');
-#define('METAUSER', 'hive');
-#define('METAPASS', 'hive');
-#define('METANAME', 'hive');
 #------------------------------------------------------------------
-$env['hive_jar'] = '/opt/modules/hive/hive-0.7.1/lib/hive-contrib-0.7.1.jar';
+$env['hive_jar'] = '';
 #------------------server env important: you must hive a executable hive-cli on this machine----------------------
 #------------------定义环境变量 重要：你必须在本机有一个可执行的hive命令行程序--------------------
-$env['hadoop_home'] = '/opt/modules/hadoop/hadoop-0.20.203.0';# hadoop root path
-$env['hive_home'] = '/opt/modules/hive/hive-0.7.1';# hive root path
-$env['java_home'] = '/usr/java/jdk1.6.0_21';# jdk root path
+$env['hadoop_home'] = '';# hadoop root path
+$env['hive_home'] = '';# hive root path
+$env['java_home'] = '';# jdk root path
 $env['lang_set'] = 'zh_CN.UTF-8';#system language set
 $env['udf'] = '';#user defined function load command. it should be a jar, if not have an udf , set it to ""
 #$env['lang_set'] = 'en_US.UTF-8';
