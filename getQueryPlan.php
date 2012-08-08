@@ -12,14 +12,19 @@ $hql = $_GET['sql'];
 $hql = "EXPLAIN EXTENDED ".$hql;
 echo "<br>";
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
-$res = $client->execute($hql);var_dump($res);
-$array = $client->fetchAll();
-foreach($array as $k => $v)
+$res = $client->execute($hql);
+if($res)
 {
+	$array = $client->fetchAll();
+	foreach($array as $k => $v)
+	{
 		$echo .= str_replace(" ","&nbsp;",$v)."<br />";
+	}
 }
-$echo = "FAILED: Error in semantic analysis";
-
+else
+{
+	$echo = "FAILED: Error in semantic analysis";
+}
 echo $echo;
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
 
