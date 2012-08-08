@@ -165,11 +165,7 @@ function getReult()
 	document.getElementById('stderr').src='refresh.php?str=<?php echo $sha1;?>'
 }
 
-function getQueryPlan()
-{
-	var sql = document.getElementbyId('sql').value;
-	window.open('getQueryPlan.php?sql='+sql,,'newwindow','height=400,width=400,top=0,left=0,toolbar=no,menubar=no,scrollbars=yes, resizable=no,location=no, status=no');
-}
+
 </script>
 </head>
 <body bgcolor=#EFEFEF>
