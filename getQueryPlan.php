@@ -18,7 +18,7 @@ foreach($array as $k => $v)
 {
 	$echo .= str_replace(" ","&nbsp;",$v)."<br />";
 }
-if($echo == "")
+if(trim($echo) == "")
 {
 	$echo = "FAILED: Error in semantic analysis";
 }
