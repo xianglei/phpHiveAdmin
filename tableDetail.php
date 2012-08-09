@@ -107,7 +107,7 @@ else
 				for($j = 3; $j < count($tmp); $j++)
 				{
 					$str .="/".$tmp[$j];
-				}var_dump($str);
+				}
 				echo "<td><a href=fileBrowser.php?path=".$str.">".$array_desc_desc['type'][$i]."</a></td>";
 			}
 			else
