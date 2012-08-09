@@ -104,12 +104,9 @@ else
 			{
 				echo "<td>".$array_desc_desc['name'][$i]."</td>";
 				$tmp = explode("/",$array_desc_desc['type'][$i]);
-				$a = array_shift($tmp);
-				$b = array_shift($a);
-				$c = array_shift($b);var_dump($c);
-				foreach($c as $v)
+				for($i = 3; $i < count($tmp); $i++)
 				{
-					$str .="/".$v;
+					$str .="/".$tmp[$i];
 				}var_dump($str);
 				echo "<td><a href=fileBrowser.php?path=".$str.">".$array_desc_desc['type'][$i]."</a></td>";
 				break 1;
