@@ -103,11 +103,11 @@ else
 			if($array_desc_desc['name'][$i] == "Location:")
 			{
 				echo "<td>".$array_desc_desc['name'][$i]."</td>";
-				$tmp = explode("/",$array_desc_desc['type'][$i]);var_dump($tmp);
-				$tmp = array_shift($tmp);
-				$tmp = array_shift($tmp);
-				$tmp = array_shift($tmp);
-				foreach($tmp as $v)
+				$tmp = explode("/",$array_desc_desc['type'][$i]);
+				$a = array_shift($tmp);
+				$b = array_shift($a);
+				$c = array_shift($b);var_dump($c);
+				foreach($c as $v)
 				{
 					$str .="/".$v;
 				}var_dump($str);
