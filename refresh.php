@@ -1,6 +1,6 @@
 <meta http-equiv="refresh" content="2">
 <?php
-$env['output_path'] = '/data/tmp/phpHiveAdmin';
+$env['output_path'] = './results';
 
 include "templates/style.css";
 if(!@$_GET['str'])

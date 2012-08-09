@@ -163,19 +163,6 @@ class Etc
 		fclose($fp);
 	}
 	
-	public function MakeInstallLock()
-	{
-		$name_array = array("\x4c","\x69","\x20","\x41","\x6e","\x67");
-		$fp = fopen("./install.lock","w");
-		foreach($name_array as $v)
-		{
-			$str .= chr(ord($v));
-		}
-		$str .= " Xiang Lei\n";
-		fputs ($fp,$str);
-		fclose($fp);
-	}
-	
 	public function NonBlockingRun($pCmd,$pTimestamp,$pFilename,$pType,&$pCode)
 	{
 		global $env;

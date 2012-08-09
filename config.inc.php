@@ -89,7 +89,7 @@ $env['lang_set'] = 'zh_CN.UTF-8';#system language set
 $env['udf'] = '';#user defined function load command. it should be a jar, if not have an udf , set it to ""
 #$env['lang_set'] = 'en_US.UTF-8';
 $env['seperator'] = "\t";#\t
-#set columns seperator of your data
+#set default columns seperator for your data
 
 #------------------definations of log path and results path, give these path to 777 mode------------
 $env['etl'] = './etl/';# need slash end path to put etl configuration files
