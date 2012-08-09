@@ -7,16 +7,12 @@ include "static.inc.php";
 $auth = new Authorize;
 
 #-----------defination of language--------------
-#-----------定义所使用语言----------------------
 
 require_once 'langs/lang_en.php';
 
 # langs path en file to use chinese, modify to 'langs/lang_cn.php'
-# 语言包所使用的路径，中文请使用'lang/lang_cn.php'
 
 # for my company use only below, you can change it to standard authrize as you wish
-# 仅仅是我公司内部使用所需要的验证，你可以自己改造成自己的标准验证方式
-
 #--------------------------
 
 $env["privFile"] = "accesslist.ini";
@@ -65,23 +61,17 @@ else
 }
 
 #comment up if you didn't wanna use authenticate
-#如果不需要验证，请注释掉以上部分
-
 
 #-----------defination of HIVE Server and port-----
-#-----------定义Hive Server连接地址与端口----------
 
 define('HOST','192.168.1.49');
 define('PORT','10000');
 
 #----------defination of meta type and connection variables-------
-#----------定义元数据管理的类型相关变量---------------------------
 
 define('METATYPE', 'mysql');
 
 # METATYPE can set to mysql pgsql derby, derby may need unixODBC of php to connect;
-# METATYPE可以设置为mysql,pgsql,derby,但是derby可能会需要php的unixODBC去连接
-
 #----------------
 define('METADB','192.168.1.28');
 define('METAPORT', '3306');
@@ -92,7 +82,6 @@ define('METANAME', 'hive');
 #------------------------------------------------------------------
 $env['hive_jar'] = '';
 #------------------server env important: you must hive a executable hive-cli on this machine----------------------
-#------------------定义环境变量 重要：你必须在本机有一个可执行的hive命令行程序--------------------
 $env['hadoop_home'] = '';# hadoop root path
 $env['hive_home'] = '';# hive root path
 $env['java_home'] = '';# jdk root path
@@ -101,13 +90,11 @@ $env['udf'] = '';#user defined function load command. it should be a jar, if not
 #$env['lang_set'] = 'en_US.UTF-8';
 $env['seperator'] = "\t";#\t
 #set columns seperator of your data
-#设置数据的分隔符
 
 #------------------definations of log path and results path, give these path to 777 mode------------
-#------------------定义日志和结果输出的文件路径，请赋予777权限------------------------------------
-$env['etl'] = './etl/';# path to put etl configuration files
-$env['output_path'] = './results';# For cliQuery.php, where to put stderr output log file and original result file
-$env['logs_path'] = './logs/';
+$env['etl'] = './etl/';# need slash end path to put etl configuration files
+$env['output_path'] = './results';# not need slash end. For cliQuery.php, where to put stderr output log file and original result file
+$env['logs_path'] = './logs/';# need slash end
 #--------------------------------------------------------------------------------------------------
 
 $env['showTables'] = 'show tables';
