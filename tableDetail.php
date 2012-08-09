@@ -106,13 +106,13 @@ else
 				$tmp = explode("/",$array_desc_desc['type'][$i]);
 				$tmp = array_shift($tmp);
 				$tmp = array_shift($tmp);
-				$tmp = array_shift($tmp);
+				$tmp = array_shift($tmp);var_dump($tmp);
 				foreach($tmp as $v)
 				{
 					$str .="/".$v;
-				}
+				}var_dump($str);
 				echo "<td><a href=fileBrowser.php?path=".$str.">".$array_desc_desc['type'][$i]."</a></td>";
-				continue;
+				break 1;
 			}
 			echo "<td>".$array_desc_desc['name'][$i]."</td>";
 			echo "<td>".$array_desc_desc['type'][$i]."</td>";
