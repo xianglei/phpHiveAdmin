@@ -16,6 +16,7 @@ if(substr($hql,-1) == ";")
 $hql = "EXPLAIN EXTENDED ".$hql;
 echo "<br>";
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
+echo "<hr>";
 try 
 {
 	$res = $client->execute($hql);
@@ -35,7 +36,7 @@ catch (Exception $e)
 	
 	echo "Exception: ".$echo;
 }
-
+echo "<hr>";
 echo "<center><input type=button value=\"Close Window\" onclick='window.close()'></center>";
 
 //echo 'Field Schemas: '.$status->fieldSchemas.'<br />';

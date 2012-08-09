@@ -31,7 +31,7 @@ else
 	 	}
 	 	else
 	 	{
-	 		$sql = 'CREATE EXTERNAL TABLE '.$_POST['newtablename'].' LIKE '.$_POST['table'];
+	 		$sql = 'CREATE EXTERNAL IF NOT EXISTS TABLE '.$_POST['newtablename'].' LIKE '.$_POST['table'];
 			echo $sql;
 			$client->execute($sql);
 			echo "<script>alert('".$lang['createTableSuccess']."');showsd('tableList.php?database=".$_GET['database']."','dbStructure.php?database=".$_GET['database']."');</script>";
