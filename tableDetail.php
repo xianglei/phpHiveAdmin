@@ -110,8 +110,11 @@ else
 				}var_dump($str);
 				echo "<td><a href=fileBrowser.php?path=".$str.">".$array_desc_desc['type'][$i]."</a></td>";
 			}
-			echo "<td>".$array_desc_desc['name'][$i]."</td>";
-			echo "<td>".$array_desc_desc['type'][$i]."</td>";
+			else
+			{
+				echo "<td>".$array_desc_desc['name'][$i]."</td>";
+				echo "<td>".$array_desc_desc['type'][$i]."</td>";
+			}
 			echo "</tr>";
 			$i++;
 		}
