@@ -23,17 +23,34 @@ else
 	}
 	else
 	{
-		if(is_array($_POST['table_name']))
+		if(!$_POST['confirm'])
 		{
+			echo "<form method=post>";
 			foreach($_POST['table_name'] as $k => $v):
-				$sql = "drop table ".$v;
-				$client->execute($sql);
+				echo "drop table ".$v."<br />\n";
+				echo "<input type=hidden name=table_name[] value=".$v." />\n";
 			endforeach;
-			echo "<script>alert('".$lang['dropTableSuccess']."');showsd('tableList.php?database=".$_POST['database']."','dbStructure.php?database=".$_POST['database']."');</script>";
+			echo "<input type=hidden name=database value=".$_POST['database']." />\n";
+			echo "<input type=hidden name=confirm value=1 />\n";
+			echo "<input type=submit name=submit value=".$lang['submit']." />";
+			echo "&nbsp;&nbsp;";
+			echo "<input type=button value=".$lang['cancel']." onclick=\"javascript:this.location='dbStructure.php?database=".$_POST['database']."';\">";
+			echo "</form>";
 		}
 		else
 		{
-			die('Not valid table names');
+			if(is_array($_POST['table_name']))
+			{
+				foreach($_POST['table_name'] as $k => $v):
+					$sql = "drop table ".$v;
+					$client->execute($sql);
+				endforeach;
+				echo "<script>alert('".$lang['dropTableSuccess']."');showsd('tableList.php?database=".$_POST['database']."','dbStructure.php?database=".$_POST['database']."');</script>";
+			}
+			else
+			{
+				die('Not valid table names');
+			}
 		}
 	}
 	$transport->close();
