@@ -29,7 +29,7 @@ else
 				$sql = "drop table ".$v;
 				$client->execute($sql);
 			endforeach;
-			echo "<script>alert('".$lang['dropTableSuccess']."');showsd('tableList.php?database=".$_GET['database']."','dbStructure.php?database=".$_GET['database']."');</script>";
+			echo "<script>alert('".$lang['dropTableSuccess']."');showsd('tableList.php?database=".$_POST['database']."','dbStructure.php?database=".$_POST['database']."');</script>";
 		}
 		else
 		{
