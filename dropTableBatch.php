@@ -34,7 +34,7 @@ else
 			echo "<input type=hidden name=confirm value=1 />\n";
 			echo "<input type=submit name=submit value=".$lang['submit']." />";
 			echo "&nbsp;&nbsp;";
-			echo "<input type=button value=".$lang['cancel']." onclick=\"javascript:this.location='dbStructure.php?database=".$_POST['database']."';\">";
+			echo "<input type=button value=".$lang['cancel']." onclick=\"window.location='dbStructure.php?database=".$_POST['database']."';\">";
 			echo "</form>";
 		}
 		else
