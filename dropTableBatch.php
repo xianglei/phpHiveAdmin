@@ -31,7 +31,7 @@ else
 				echo "<input type=hidden name=table_name[] value=".$v." />\n";
 			endforeach;
 			echo "<input type=hidden name=database value=".$_POST['database']." />\n";
-			echo "<input type=hidden name=confirm value=1 />\n";
+			echo "<input type=hidden name=confirm value=1 /><br>\n";
 			echo "<input type=submit name=submit value=".$lang['submit']." />";
 			echo "&nbsp;&nbsp;";
 			echo "<input type=button value=".$lang['cancel']." onclick=\"window.location='dbStructure.php?database=".$_POST['database']."';\">";
