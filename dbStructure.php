@@ -36,7 +36,7 @@ else
 		echo "</td></tr></table><br><br>";
 		
 		$i = 0;
-		echo "<form method=post action=dropTableBatch.php>";
+		echo "<form method=post action=dropTableBatch.php  name=tablenames>";
 		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 		echo "<tr bgcolor=#FFFF99>
 		<td></td>
