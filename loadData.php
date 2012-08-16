@@ -36,9 +36,14 @@ else
 			$array_desc = explode(':',$v);
 			$array_desc_desc['key'][$j] = trim($array_desc[0]);
 			$array_desc_desc['value'][$j] = trim($array_desc[1]);
+			if($array_desc_desc['value'][$j] =='MANAGED_TABLE' || $array_desc_desc['value'][$j] == "INDEX_TABLE")
+			{
+				$tmp['key'] = $array_desc_desc['key'][$j];
+				$tmp['value'] = $array_desc_desc['value'][$j];
+			}
 			$j++;
 		}
-		if($array_desc_desc['value'][7] != "MANAGED_TABLE" || $array_desc_desc['value'][7] != "INDEX_TABLE")
+		if($tmp['value'] != "MANAGED_TABLE" || $tmp['value'] != "INDEX_TABLE")
 		{
 			die('<script>alert("'.$lang['notExternalTable'].'");history.back();</script>');
 		}
