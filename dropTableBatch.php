@@ -28,7 +28,7 @@ else
 			foreach($_POST['table_name'] as $k => $v):
 				$sql = "drop table ".$v;
 				$client->execute($sql);
-			endforeach
+			endforeach;
 			echo "<script>alert('".$lang['dropTableSuccess']."');showsd('tableList.php?database=".$_GET['database']."','dbStructure.php?database=".$_GET['database']."');</script>";
 		}
 		else
