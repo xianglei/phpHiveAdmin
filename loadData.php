@@ -42,7 +42,7 @@ else
 				$tmp['value'] = $array_desc_desc['value'][$j];
 			}
 			$j++;
-		}
+		}var_dump($tmp);
 		if($tmp['value'] != "MANAGED_TABLE" || $tmp['value'] != "INDEX_TABLE")
 		{
 			die('<script>alert("'.$lang['notExternalTable'].'");history.back();</script>');
