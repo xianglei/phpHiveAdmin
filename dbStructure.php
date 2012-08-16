@@ -36,7 +36,7 @@ else
 		echo "</td></tr></table><br><br>";
 		
 		$i = 0;
-		echo "<form method=post action=dbStructure.php name=tablenames>";
+		echo "<form method=post action=dropTableBatch.php>";
 		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
 		echo "<tr bgcolor=#FFFF99>
 		<td></td>
@@ -98,7 +98,8 @@ else
 		echo "</table>\n";
 		echo "<input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"isSelect(tablenames)\" />";
 		echo $lang['select']." / ".$lang['deselect']."<bR><br>\n";
-		echo "<input type=submit name=submit value=".$lang['submit'].">";
+		echo "<input type=hidden name=database value=".$_GET['database'].">";
+		echo "<input type=submit name=submit value=".$lang['dropTable'].">";
 		echo "</form><br><br>";
 		if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 		{
