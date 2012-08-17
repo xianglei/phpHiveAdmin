@@ -12,24 +12,17 @@ Installation:
 
 chmod +x install.sh
 ./install.sh
-enter path for hadoop hive and java 
+enter path of hadoop, hive and java
 
 and then open config.inc.php
-set define('HOST','192.168.1.49'); and define('PORT','10000'); #To your hive thrift server address and port.
+find and set define('HOST','127.0.0.1'); and define('PORT','10000'); #To your hive thrift server address and port.
+find and set define('METADB','127.0.0.1'); and define('METAPORT', '3306'); #To your hive mysql metastore ip and port
 find variables below in config.inc.php, change to your own path，and chmod etl,output_path,logs_path to 777 or 755
-
-$env['etl'] = './etl/'; #Where to put your etl sets
-$env['output_path'] = '/data2/tmp/phpHiveAdmin'; #where to put your map/reduce monitoring file and query result files 
-$env['logs_path'] = './logs/'; #Path to put your query log files
 
 $env['lang_set'] = 'zh_CN.UTF-8'; #operation system language set
 #$env['lang_set'] = 'en_US.UTF-8'; #if you are using with english uncomment this and comment zhCN
-$env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q'; #command to run your udf functions, it maybe a jar or other initialized script. if there is no udf, set it to ''
+$env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q'; #command to run your udf functions, it maybe a jar or other initialized script. if there is no udf, leave it empty .
 $env['seperator'] = "\t";#seperator(delimiter) set for hive external table
-
-Open refresh.php
-Modify
-$env['output_path'] = '/data2/tmp/phpHiveAdmin'; # To your own set , same as this array in config.inc.php
 
 Then?
 No then, surfing in the data.
@@ -72,7 +65,8 @@ chmod+x install.sh
 ./install.sh
 填写正确的HADOOP HIVE JAVA的HOME路径
 
-找到 define('HOST','192.168.1.49'); and define('PORT','10000'); 并设置为你自己的hiveserver地址.
+找到 define('HOST','192.168.1.49'); and define('PORT','10000'); 并设置为你自己的hive thrift server地址.
+找到 define('METADB','127.0.0.1'); and define('METAPORT', '3306'); #设置为你的hive元数据mysql地址和端口
 
 在config.inc.php中找到以下变量，并修改为你自己的路径，请赋予etl,output_path,logs_path 777权限或755
 
@@ -82,24 +76,14 @@ $env['hive_home'] = '/opt/modules/hive/hive-0.7.1'; #hive安装的目录
 
 $env['java_home'] = '/usr/java/jdk1.6.0_21'; #java安装目录
 
-$env['etl'] = './etl/'; #放置elt配置的路径
-
-$env['output_path'] = '/data2/tmp/phpHiveAdmin'; #放置map/reduce实时监控输出和结果集文件的路径
-
-$env['logs_path'] = './logs/'; #放置查询日志的路径
-
 $env['lang_set'] = 'zh_CN.UTF-8'; #操作系统的语言设置
 
 #$env['lang_set'] = 'en_US.UTF-8'; #如使用英文，则取消前面的注释，并注释掉中文设置
 
-$env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q'; #调用UDF的命令, 可能为jar文件或初始化脚本. 如果没有udf, 则设置为 ''
+$env['udf'] = ' -i '.$env['hive_home'].'/BfUDF/hive_init.q'; #调用UDF的命令, 可能为jar文件或初始化脚本. 如果没有udf, 则设置为空
 
 $env['seperator'] = "\t"; #hive中外部表数据的分隔符
 
-打开refresh.php
-修改
-$env['output_path'] = '/data2/tmp/phpHiveAdmin';
-为你自己的路径，与config.inc.php设置相同
 
 然后?
 就没有然后了，在数据里冲浪吧.

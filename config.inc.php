@@ -64,7 +64,7 @@ else
 
 #-----------defination of HIVE Server and port-----
 
-define('HOST','192.168.1.49');
+define('HOST','127.0.0.1');
 define('PORT','10000');
 
 #----------defination of meta type and connection variables-------
@@ -73,11 +73,14 @@ define('METATYPE', 'mysql');
 
 # METATYPE can set to mysql pgsql derby, derby may need unixODBC of php to connect;
 #----------------
-define('METADB','192.168.1.28');
+define('METADB','127.0.0.1');
 define('METAPORT', '3306');
 define('METAUSER', 'hive');
 define('METAPASS', 'hive');
 define('METANAME', 'hive');
+
+define('METASTORE_HOST',"127.0.0.1");
+define('METASTORE_PORT',"9083");
 
 #------------------------------------------------------------------
 $env['hive_jar'] = '';
