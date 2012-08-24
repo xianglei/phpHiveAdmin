@@ -98,7 +98,7 @@ else
 		echo "</table>\n";
 		echo "<input type=hidden name=database value=".$_GET['database'].">";
 		echo "<input name=\"allSelect\" type=\"checkbox\" id=\"allSelect\" value=\"\" onClick=\"isSelect(tablenames)\" />";
-		echo $lang['select']." / ".$lang['deselect']."&nbsp;&nbsp;<input type=submit name=submit value=".$lang['dropTable']."><bR>\n";
+		echo $lang['select']." / ".$lang['deselect']."&nbsp;&nbsp;<input type=submit name=submit value=".$lang['dropTable']." class=\"btn btn-danger btn-small\"><bR>\n";
 		echo "</form><br><br>";
 		if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 		{
