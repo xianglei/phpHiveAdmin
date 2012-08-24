@@ -10,6 +10,38 @@
     <!-- Le styles -->
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <style type="text/css">    
+	ul.auto-list {
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	border: 1px solid green;
+	background-color: #A3DF99;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	}
+	ul.auto-list > li:hover, ul.auto-list > li[data-selected=true] {
+	background-color: #236574;
+	}
+	ul.auto-list > li {
+	border: 1px solid gray;
+	cursor: default;
+	padding: 2px;
+	font-size: 12px
+	}
+	{
+	font-weight: bold;
+	}
+	#ta {
+	width: 300px;
+	height: 100px;
+	font-size: 11px;
+	font-family: "Helvetica Neue", Arial, sans-serif;
+	white-space: pre;
+	}
+	</style>
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
