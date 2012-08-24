@@ -191,7 +191,7 @@ else
 			echo "<br><br>";
 			echo "SQL: ".$sql;
 			echo "<br><br>";
-			echo "<iframe id=stderr width=600 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
+			echo "<iframe id=stderr width=700 height=400 align=left src=refresh.php?str=".$sha1."></iframe><br><br>";
 		//}
 		/*else
 		{

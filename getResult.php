@@ -51,7 +51,7 @@ else
 		{
 			if(filesize($filename) != 0)
 			{
-				echo "<input type=button name=download value=\"".$lang['downloadResultFile']."\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
+				echo "<input type=button class="btn" name=download value=\"".$lang['downloadResultFile']."\" onclick=\"window.open('download.php?str=".$str."');\"><br><br>";
 
 				$etc = new Etc;
 
