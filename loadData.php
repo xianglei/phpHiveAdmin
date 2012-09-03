@@ -19,6 +19,9 @@ else
 
 	$client->execute('use '.$_GET['database']);
 	
+	echo '<div class="container">';
+	echo '<div class="span10">';
+	
 	if(!@$_GET['table'])
 	{
 		die($lang['dieTableChoose']);
@@ -49,7 +52,7 @@ else
 		}
 		else
 		{
-			echo "<a href=dbStructure.php?database=".$_GET['database'].">".$lang['back']."</a><br><br>";
+			echo "<a href=dbStructure.php?database=".$_GET['database']."><i class=icon-backward></i>".$lang['back']."</a><br><br>";
 			if(!@$_POST['path'])
 			{
 				include_once "templates/load_data.html";
@@ -97,4 +100,6 @@ else
 		}
 		$transport->close();
 	}
+	echo '</div>';
+	echo '</div>';
 }
