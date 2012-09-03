@@ -33,7 +33,7 @@ else
 		$i++;
 	}
 	echo "<tfoot><tr>";
-	echo '<td><a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a></td>';
+	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a>';
 	echo "</tr></tfoot>";
 	echo "</table>";
 	$transport->close();
