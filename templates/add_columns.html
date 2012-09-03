@@ -1,7 +1,7 @@
 <form method=post action=addColumns.php>
-<table border=1 cellspacing=1 cellpadding=3>
+<table class="table table-bordered">
 <tr>
-<td><?php echo $lang['columnNumbers'];?></td><td><input type=text name=fieldnums></td><td><input type=submit value="<?php echo $lang['addColumns'];?>"></td>
+<td><?php echo $lang['columnNumbers'];?></td><td><input type=text name=fieldnums></td><td><input type=submit class="btn" value="<?php echo $lang['addColumns'];?>"></td>
 </tr>
 </table>
 <input type=hidden name=table value="<?php echo $_GET['table'];?>">

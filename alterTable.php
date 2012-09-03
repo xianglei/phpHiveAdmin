@@ -236,8 +236,8 @@ else
 				echo "<input type=hidden name=table value=".$_POST['table'].">";
 				echo "<input type=hidden name=database value=".$_POST['database'].">";
 				echo $lang['sure']."<br>";
-				echo "<input type=submit name=submit value=".$lang['submit'].">";
-				echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"window.location='index.php?frame=right'\">";
+				echo "<input class=\"btn btn-danger\" type=submit name=submit value=".$lang['submit'].">";
+				echo "<input class=\"btn btn-success\" type=button name=cancel value=".$lang['cancel']." onclick=\"window.location='index.php?frame=right'\">";
 				echo "</form>";
 			}
 			else
