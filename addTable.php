@@ -15,7 +15,7 @@ else
 	$transport->open();
 
 	$client->execute('use '.$_POST['database']);
-	echo "<a href=dbStructure.php?database=".$_POST['database'].">".$lang['back']."</a><br><br>";
+	echo "<br /><a href=dbStructure.php?database=".$_POST['database']."><i class=icon.backward></i>".$lang['back']."</a><br><br>";
 	
 	if("" == $_POST['newtablename'] || "" == $_POST['fieldnums'])
 	{
@@ -26,8 +26,8 @@ else
 		if(!@$_POST['field_name'] || !@$_POST['field_type'])
 		{
 			echo "<form name=newTable method=post>";
-			echo "<table border=1 cellspacing=1 cellpadding=3>";
-			echo "<tr bgcolor=\"#FFFF99\">
+			echo "<table class=\"table table-bordered table-striped\">";
+			echo "<tr class=\"info\">
 					  <td>".$lang['fieldName']."</td>
 					  <td>".$lang['fieldType']."</td>
 					  <td>".$lang['comment']."</td>
@@ -41,15 +41,7 @@ else
 			{
 				for ($i = 0; $i < $_POST['fieldnums']; $i++)
 				{
-					if(($i % 2) == 0)
-					{
-						$color = $env['trColor1'];
-					}
-					else
-					{
-						$color = $env['trColor2'];
-					}
-					echo "<tr bgcolor=".$color.">\n";
+					echo "<tr>\n";
 					//-------------
 					echo "<td>\n";
 					echo "<input type=text name=field_name[]>\n";
@@ -88,23 +80,15 @@ else
 				{
 					if($_POST['partitions'] != 0)
 					{
-						echo "<table border=1 cellspacing=1 cellpadding=3>";
-						echo "<tr bgcolor=\"#FFFF99\">
+						echo "<table class=\"table table-bordered table-striped\">";
+						echo "<tr class=\"info\">
 						  	<td>".$lang['partitionName']."</td>
 						  	<td>".$lang['partitionType']."</td>
 						  	<td>".$lang['partitionComment']."</td>
 					  		</tr>";
 						for ($i = 0; $i < $_POST['partitions']; $i++)
 						{
-							if(($i % 2) == 0)
-							{
-								$color = $env['trColor1'];
-							}
-							else
-							{
-								$color = $env['trColor2'];
-							}
-							echo "<tr bgcolor=".$color.">\n";
+							echo "<tr>\n";
 							//-------------
 							echo "<td>\n";
 							echo "<input type=text name=partition_name[]>\n";
@@ -140,7 +124,7 @@ else
 			#
 			if(@$_POST['external'] == 1)
 			{
-				echo "<table border=1 cellspacing=1 cellpadding=3>";
+				echo "<table class=\"table table-bordered table-striped\">";
 				//echo "<tr><td>".$lang['Partition']."</td><td></td></tr>";
 				echo "<tr><td>".$lang['externalPath']."</td><td><input type=text name=external value=\"hdfs://\"></td></tr>";
 				echo "<tr><td>".$lang['columnTerminator']."</td><td><input type=text name=columnTerminator value=\"\\t\"></td></tr>";
