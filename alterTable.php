@@ -18,7 +18,6 @@ else
 	//$client->execute('add jar '.$env['hive_jar']);
 	$client->execute('use '.$_GET['database']);
 	echo '<div class="container">';
-	echo '<div class="span10">';
 
 	if(!@$_GET['table'])
 	{
@@ -137,8 +136,8 @@ else
 					$i++;
 				}
 			
-				echo '<table border=1 cellspacing=1 cellpadding=3>';
-				echo "<tr bgcolor=#FFFF99>
+				echo '<table class="table table-bordered table-condensed">';
+				echo "<tr class=info>
 						<td>".$lang['dropTable']."</td>
 						<td>".$lang['partitionName']."</td>
 						<td>".$lang['partitionName']."</td>
@@ -147,15 +146,7 @@ else
 				$i = 0;
 				foreach ($array_desc_desc_4 as $key => $value)
 				{
-					if(($i % 2) == 0)
-					{
-						$color = "bgcolor=\"#FFFF99\"";
-					}
-					else
-					{
-						$color = "bgcolor=\"#99FFFF\"";
-					}
-					echo '<tr '.$color.'>';
+					echo '<tr>';
 					foreach($value as $k => $v)
 					{
 						//echo '<tr '.$color.'>';
@@ -210,9 +201,9 @@ else
 				echo '</table><br>';
 			}
 			echo '<input type=hidden name=database value='.$_GET['database'].'><input type=hidden name=table value='.$_GET['table'].'>';
-			echo '<input type=submit name=submit value='.$lang['submit'].'>';
+			echo '<input class="btn btn-danger" type=submit name=submit value='.$lang['submit'].'>';
 			echo "&nbsp;&nbsp;";
-			echo "<input type=button value=".$lang['cancel']." onclick=\"javascript:history.back();\">";
+			echo "<input type=button class=\"btn btn-success\" value=".$lang['cancel']." onclick=\"javascript:history.back();\">";
 			echo "&nbsp;&nbsp;";
 			echo "</form>";
 			echo "<br><br>";
@@ -259,7 +250,6 @@ else
 			}
 		}
 	}
-	echo '</div>';
 	echo '</div>';
 	$transport->close();
 }
