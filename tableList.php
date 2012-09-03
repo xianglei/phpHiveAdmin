@@ -20,6 +20,7 @@ else
 	$db_array = array_reverse($db_array);
 
 	$i = 0;
+	echo '<br/>';
 	echo "<table class=\"table table-border table-hover\">";
 	echo "<thead><tr>";
 	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a>';
