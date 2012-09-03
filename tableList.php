@@ -21,7 +21,7 @@ else
 
 	$i = 0;
 	echo '<br/>';
-	echo "<table class=\"table table-bordered table-hover\">";
+	echo "<table class=\"table table-hover\">";
 	echo "<thead><tr>";
 	echo '<td><a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a></td>';
 	echo "</tr></thead>";

@@ -14,7 +14,7 @@ $db_array = $client->fetchAll();
 
 $i = 0;
 echo '<br />';
-echo '<table class="table table-bordered table-hover">';
+echo '<table class="table table-hover">';
 if($_SESSION['role'] == "superadmin")
 {
 	while('' != @$db_array[$i]) {
