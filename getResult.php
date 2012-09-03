@@ -62,7 +62,7 @@ else
 				$array = $etc->GetResult($filename);
 				$array = explode("\n",substr($array,0,-1));//stop at last return
 				$i = 0;
-				echo "<table class=\"table table-striped table-hover table-bordered\">\n";
+				echo "<table class=\"table table-striped table-hover table-bordered table-condensed\">\n";
 				echo "<tr class=\"info\">";
 				foreach($array_column as $ka => $va)
 				{

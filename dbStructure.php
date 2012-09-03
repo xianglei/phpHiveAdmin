@@ -27,7 +27,7 @@ else
 	
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{
-		echo "<table class=\"table table-bordered\"><tr class=\"error\"><td>";
+		echo "<table class=\"table table-bordered table-condensed\"><tr class=\"error\"><td>";
 		if(count($db_array) != 0)
 		{
 			echo "<i class=icon-remove></i>".$lang['dropDatabase'];
@@ -40,7 +40,7 @@ else
 		
 		$i = 0;
 		echo "<form method=post action=dropTableBatch.php  name=tablenames>";
-		echo "<table class=\"table table-bordered table-striped table-hover\">\n";
+		echo "<table class=\"table table-bordered table-striped table-hover table-condensed\">\n";
 		echo "<thead><tr class=\"info\">
 		<td></td>
 		<td>".$lang['tableName']."</td>";
