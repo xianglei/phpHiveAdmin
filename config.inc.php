@@ -101,7 +101,4 @@ $env['logs_path'] = './logs/';# need slash end
 #--------------------------------------------------------------------------------------------------
 
 $env['showTables'] = 'show tables';
-$env['bodyColor'] = '#EFEFEF';
-$env['trColor1'] = '#AFAFAF';
-$env['trColor2'] = '#DFDFDF';
 

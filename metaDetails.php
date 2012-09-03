@@ -11,6 +11,8 @@ if(!@$_GET['detail'])
 }
 else
 {
+	echo '<div class="container">';
+	echo '<div class="span10">';
 	switch (@$_GET['detail']) {
 		case 'dbs':
 			$sql = "select * from DBS";
@@ -46,20 +48,12 @@ else
     $records_per_page
 	);
 	
-	echo "<a href=metaSummury.php>".$lang['back']."</a><br><br>";
-	echo "<table border=1 cellspacing=1 cellpadding=3>";
+	echo "<a href=metaSummury.php><i class=icon-backward></i> ".$lang['back']."</a><br><br>";
+	echo "<table class=\"table table-bordered table-striped table-hover\">";
 	$i = 0;
 	foreach (@$arr as $k => $v)
 	{
-		if(($i % 2) == 0)
-		{
-			$color = "bgcolor=\"".$env['trColor1']."\"";
-		}
-		else
-		{
-			$color = "bgcolor=\"".$env['trColor2']."\"";
-		}
-		echo "<tr ".$color.">\n";
+		echo "<tr>\n";
 		foreach ($v as $kk => $vv)
 		{
 			echo "<td>";
@@ -72,6 +66,8 @@ else
 	echo "</table>";
 	$pagination->render();
 	echo "<br>";
-	echo "<a href=metaSummury.php>".$lang['back']."</a><br>";
+	echo "<a href=metaSummury.php><i class=icon-backward></i> ".$lang['back']."</a><br>";
+	echo "</div>";
+	echo "</div>";
 }
 ?>
