@@ -23,12 +23,12 @@
 	list-style: none;
 	}
 	ul.auto-list > li:hover, ul.auto-list > li[data-selected=true] {
-	background-color: #3BD4F6;
+	background-color: #01AAD0;
 	}
 	ul.auto-list > li {
 	border: 1px solid #FFFFFF;
 	cursor: default;
-	padding: 1px;
+	padding: 3px;
 	font-size: 14px
 	}
 	{
