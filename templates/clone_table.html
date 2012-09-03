@@ -1,9 +1,9 @@
 <form method=post>
-<table border=1 cellspacing=1 cellpadding=3>
-<tr bgcolor="#FFFF99">
+<table class="table table-bordered">
+<tr class=info>
 <td><?php echo $lang['tableName'];?></td>
 <td><input type=text name=newtablename></td>
-<td><input type=submit name=submit value="<?php echo $lang['submit'];?>"></td>
+<td><input class="btn" type=submit name=submit value="<?php echo $lang['submit'];?>"></td>
 </tr>
 </table>
 <input type=hidden name=database value="<?php echo $_GET['database'];?>">
