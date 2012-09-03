@@ -15,6 +15,10 @@ else
 	$transport->open();
 
 	$client->execute('use '.$_POST['database']);
+	
+	echo '<div class="container">';
+	echo '<div class="span10">';
+	
 	echo "<br /><a href=dbStructure.php?database=".$_POST['database']."><i class=icon.backward></i>".$lang['back']."</a><br><br>";
 	
 	if("" == $_POST['newtablename'] || "" == $_POST['fieldnums'])
@@ -145,13 +149,13 @@ else
 			}
 			else
 			{
-				echo "<table  border=1 cellspacing=1 cellpadding=3><tr><td>".$lang['asRcfile']."</td><td><input type=text name=as></td></tr>";
+				echo "<table class=\"table table-bordered table-striped\"><tr><td>".$lang['asRcfile']."</td><td><input type=text name=as></td></tr>";
 				echo "<tr><td>".$lang['columnTerminator']."</td><td><input type=text name=columnTerminator value=\"\\t\"></td></tr>";
 				echo "<tr><td>".$lang['lineTerminator']."</td><td><input type=text name=lineTerminator value=\"\\n\"></td></tr>";
 			}
 			echo "</table><br><br>";
-			echo "<input type=submit name=submit value=".$lang['submit'].">";
-			echo "<input type=button name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
+			echo "<input class=\"btn btn-primary\" type=submit name=submit value=".$lang['submit'].">";
+			echo "<input type=button class=\"btn btn-success\" name=cancel value=".$lang['cancel']." onclick=\"javascript:window.location='dbStructure.php?database=".$_POST['database']."'\">";
 			echo "</form>";
 		}
 		else
@@ -245,6 +249,8 @@ else
 			echo "<script>alert('".$lang['createTableSuccess']."');showsd('tableList.php?database=".$_POST['database']."','dbStructure.php?database=".$_POST['database']."');</script>";
 		}
 	}
+	echo "</div>";
+	echo "</div>";
 	$transport->close();
 	
 }
