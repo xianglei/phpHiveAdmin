@@ -5,8 +5,8 @@
 </div>
 <br>
 
-<input type=button class="btn btn-primary" name=check value="<?php echo $lang['hqlValidator'];?>" onclick="getQueryPlan()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<input type=submit name=submit class="btn">
+<button type=button class="btn btn-primary" name=check value="" onclick="getQueryPlan()"><i class=icon-ok></i><?php echo $lang['hqlValidator'];?></button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type=submit name=submit class="btn"><i class="icon-refresh"></i></input>
 <input type=hidden name=database value=<?php echo $_GET['database'];?>>
 
 </form>
