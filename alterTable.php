@@ -27,7 +27,7 @@ else
 	else
 	{
 		
-		echo "<a href=dbStructure.php?database=".$_GET['database']."><i class=icon-backward> ".$lang['back']."</a><br><br>";
+		echo "<a href=dbStructure.php?database=".$_GET['database']."><i class=icon-backward></i> ".$lang['back']."</a><br><br>";
 		if(!@$_POST['submit'])
 		{
 			$sql = 'desc formatted '.$_GET['table'];
