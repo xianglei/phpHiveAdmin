@@ -62,7 +62,7 @@ else
 			echo "</td>\n";
 		
 			echo "<td>\n";
-			echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right">'.$db_array[$i].'</a>';
+			echo '<i class="icon-th-list"></i><a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right">'.$db_array[$i].'</a>';
 			echo "</td>\n";
 			if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 			{
