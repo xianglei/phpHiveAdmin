@@ -45,13 +45,13 @@ echo $lang['cloneTable'];
 
 <td>
 <a href="tableDetail.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
-<i class=icon-zoom-in>
+<i class=icon-zoom-in></i>
 <?php
 echo $lang['tableDetail'];
 ?>
 </a>
 </td>
-<td>
+<td class="error">
 <a href="#" onclick="javascript:realconfirm('<?php echo $lang['dropTableConfirm'];?>','dropTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>');return false;">
 <i class=icon-remove></i>
 <?php
