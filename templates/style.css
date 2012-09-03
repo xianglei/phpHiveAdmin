@@ -18,8 +18,8 @@
 	left: 0px;
 	border: 1px solid white;
 	background-color: #FFFFFF;
-	padding: 0;
-	margin: 0;
+	padding: 2;
+	margin: 2;
 	list-style: none;
 	}
 	ul.auto-list > li:hover, ul.auto-list > li[data-selected=true] {
