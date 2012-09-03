@@ -42,4 +42,3 @@ else
 	echo '</div>';
 	echo '</div>';
 }
-}
