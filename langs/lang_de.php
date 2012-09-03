@@ -1,4 +1,5 @@
 <?php
+$lang['title'] = 'phpHiveAdmin';
 $lang['SQL'] = 'SQL';
 $lang['ClusterStatus'] = 'Cluster-Status';
 $lang['Schema'] = 'Schema';
