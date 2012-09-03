@@ -8,6 +8,8 @@ if(!@$_GET['database'])
 }
 else
 {
+	echo '<div class="container">';
+	echo '<div class="span10">';
 	
 	if(!@$_GET['table'])
 	{
@@ -37,4 +39,7 @@ else
 			echo "<script>alert('".$lang['createTableSuccess']."');showsd('tableList.php?database=".$_GET['database']."','dbStructure.php?database=".$_GET['database']."');</script>";
 	 	}
 	}
+	echo '</div>';
+	echo '</div>';
+}
 }
