@@ -43,6 +43,6 @@ else
 foreach ($array as $key => $value)
 {
 	$str = '"'.$value.'",';
-	echo substr($str,0,-1);
 }
+echo substr($str,0,-1);
 ?>
