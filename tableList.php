@@ -20,14 +20,21 @@ else
 	$db_array = array_reverse($db_array);
 
 	$i = 0;
-	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><<< '.$lang['back'].'</a><br /><br />';
+	echo "<table class=\"table table-border table-hover\">";
+	echo "<thead><tr>";
+	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a>';
+	echo "</tr></thead>";
 	while('' != @$db_array[$i])
 	{
-		echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right"><img src=images/b_sbrowse.png>'.$db_array[$i].'</a><br />';
+		echo "<tbody><tr><td>";
+		echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right"><i class="icon-th-list"></i>'.$db_array[$i].'</a><br />';
+		echo "</td></tr></tbody>";
 		$i++;
 	}
-	echo "<br>\n";
-	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><<< '.$lang['back'].'</a>';
+	echo "<table class=\"table table-border table-hover\">";
+	echo "<thead><tr>";
+	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a>';
+	echo "</tr></thead>";
 	$transport->close();
 }
 ?>
