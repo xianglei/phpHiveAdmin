@@ -15,7 +15,9 @@ else
 	include_once 'templates/style.css';
 	
 	echo '<div class="container">';
-	//echo '<div class="span10">';
+	echo '<div class="span1">';
+	echo '</div>';
+	echo '<div class="span10">';
 	
 	echo $_GET['database'].' <i class=icon-backward></i>  <a href=dbStructure.php?database='.$_GET['database'].' target="right">'.$lang['back'].'</a><br /><br />';
 	
