@@ -143,21 +143,31 @@ function getQueryPlan()
 </head>
 <body bgcolor=#EFEFEF>
 
-<body bgcolor="#EFEFEF">
-
-<div class="btn-group">
+<div class="navbar navbar-inverse navbar-fixed-top">
+	<div class="navbar-inner">
+		<div class="container">
+			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <div class="nav-collapse collapse">
+          	<ul class="nav">
+              <li class="">
 <a class="btn btn-primary" href="dbList.php" target="left">
 <?php echo $lang['SQL'];?>
 </a>
--
+				</li>
+				<li class="">
 <a class="btn" href="execEtl.php" target="right">
 <?php echo $lang['ETL'];?>
 </a>
--
+				</li>
+				<li class="">
 <a class="btn" href="getClusterStatus.php" target="right">
 <?php echo $lang['ClusterStatus'];?>
 </a>
--
+				</li>
 <!--<a href="getSchema.php" target="right">
 <?php echo $lang['Schema'];?>
 </a>
@@ -170,23 +180,32 @@ function getQueryPlan()
 <?php echo $lang['QueryPlan'];?>
 </a>
 --->
+<li class="">
 <a class="btn" href="fileBrowser.php" target="right">
 <?php echo $lang['fileBrowser'];?>
 </a>
--
+</li>
+<li class="">
 <a class="btn" href="metaSummury.php" target="right">
 <?php echo $lang['metaSummury'];?>
 </a>
--
+</li>
+<li class="">
 <a class="btn" href="history.php" target="right">
 	<?php echo $lang['history'];?>
 </a>
--
+</li>
+<li class="">
 <a class="btn" href="logOut.php" target="_parent">
 	<?php echo $lang['logOut'];?>
 </a>
-&nbsp;&nbsp;&nbsp;&nbsp;
+</li>
+<li class="">
 phpHiveAdmin
+</li>
+</div>
+</div>
+</div>
 </div>
 </body>
 </html>
