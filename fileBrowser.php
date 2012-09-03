@@ -34,7 +34,7 @@ echo '<div class="span10">';
 echo "<br>";
 echo "<a href=fileBrowser.php?dir=/><i class=icon-eject></i>".$lang['backToRoot']."</a><br><br>";
 echo "<a href=javascript:history.back()><i class=icon-backward></i>".$lang['back']."</a><br><br>";
-echo "<table border=1 cellspacing=1 cellpadding=3 width=70%>";
+echo "<table class=\"table table-bordered table-striped table-hover\">";
 echo "<tr class=success>";
 echo "<td>".$lang['fileProperty']."</td>";
 echo "<td>".$lang['fileUser']."</td>";
