@@ -27,16 +27,15 @@ else
 	
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{
-		echo "<table class=\"table table-bordered table-condensed\"><tr class=\"error\"><td>";
 		if(count($db_array) != 0)
 		{
-			echo "<i class=icon-remove></i>".$lang['dropDatabase'];
+			echo "<button type=button class=\"btn disabled\"><i class=icon-remove></i>".$lang['dropDatabase']."</button>";
 		}
 		else
 		{
-			echo "<i class=icon-remove></i><a href=# onclick=\"javascript:realconfirm('".$lang['dropDbConfirm']."','dropDatabase.php?database=".$_GET['database']."');return false;\"><img src=images/b_deltbl.png>".$lang['dropDatabase']."</a>";
+			echo "<a class=\"btn btn-danger\" href=# onclick=\"javascript:realconfirm('".$lang['dropDbConfirm']."','dropDatabase.php?database=".$_GET['database']."');return false;\"><i class=icon-remove></i>".$lang['dropDatabase']."</a>";
 		}
-		echo "</td></tr></table><br><br>";
+		echo "<br><br>";
 		
 		$i = 0;
 		echo "<form method=post action=dropTableBatch.php  name=tablenames>";

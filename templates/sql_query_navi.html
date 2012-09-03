@@ -1,13 +1,10 @@
 <br />
-<table class="table table-bordered table-condensed">
-<tr class="error"><td>
-<a href="sqlQuery.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
+<div class="btn-group">
+<a class="btn btn-primary" href="sqlQuery.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
 <i class="icon-zoom-in"></i>
 <?php
 echo $lang['sqlQuery'];
 ?>
-</a>
-</td>
 <!--<td>
 <a href="getFilelist.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
 <?php
@@ -19,49 +16,37 @@ echo $lang['getFilelist'];
 if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 {
 ?>
-<td>
-<a href="alterTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
+<a class="btn btn-warning" href="alterTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
 <i class=icon-pencil></i>
 <?php
 echo $lang['alterTable'];
 ?>
 </a>
-</td>
-<td>
-<a href="loadData.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
+<a class="btn" href="loadData.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
 <i class=icon-chevron-right></i>
 <?php
 echo $lang['loadData'];
 ?>
 </a>
-</td>
-<td>
-<a href="cloneTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
+<a class="btn" href="cloneTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
 <i class=icon-random></i>
 <?php
 echo $lang['cloneTable'];
 ?>
 </a>
-</td>
-
-<td>
-<a href="tableDetail.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
+<a class="btn" href="tableDetail.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
 <i class=icon-zoom-in></i>
 <?php
 echo $lang['tableDetail'];
 ?>
 </a>
-</td>
-<td class="error">
-<a href="#" onclick="javascript:realconfirm('<?php echo $lang['dropTableConfirm'];?>','dropTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>');return false;">
+<a class="btn btn-danger" href="#" onclick="javascript:realconfirm('<?php echo $lang['dropTableConfirm'];?>','dropTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>');return false;">
 <i class=icon-remove></i>
 <?php
 echo $lang['dropTable'];
 ?>
 </a>
-</td>
 <?php
 }
 ?>
-</tr>
-</table>
+</div>
