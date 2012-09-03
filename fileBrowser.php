@@ -73,7 +73,6 @@ foreach( $list_arr as $k => $v)
 	$i++;
 }
 echo "</table>";
-echo "<br>";
 echo '<div class="btn-group">';
 echo "<a class=\"btn btn-info\" href=fileBrowser.php?dir=/><i class=icon-eject></i>".$lang['backToRoot']."</a>";
 echo "<a class=\"btn btn-info\" href=javascript:history.back()><i class=icon-backward></i>".$lang['back']."</a>";
