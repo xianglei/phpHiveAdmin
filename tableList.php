@@ -32,10 +32,10 @@ else
 		echo "</td></tr></tbody>";
 		$i++;
 	}
-	echo "<table class=\"table table-border table-hover\">";
 	echo "<thead><tr>";
 	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a>';
 	echo "</tr></thead>";
+	echo "</table>";
 	$transport->close();
 }
 ?>
