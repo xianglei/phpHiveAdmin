@@ -23,7 +23,7 @@ else
 	$db_array = array_reverse($db_array);
 
 	echo '<div class="container">';
-	echo '<div class="span6">';
+	echo '<div class="span10">';
 	
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{
