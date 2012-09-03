@@ -69,9 +69,9 @@ else
 		$sql = "select * from ".$_GET['table']." limit 2";
 		$client->execute($sql);
 		$array = $client->fetchAll();
-		echo '<table class="table table-bordered">';
+		echo '<table class="table table-bordered table-striped">';
 		$i = 0;
-		echo "<thead>";
+		//echo "<thead>";
 		foreach ($array_desc_desc_col as $value)
 		{
 			echo '<tr class="info">';
@@ -82,13 +82,13 @@ else
 			}
 			echo '</tr>';
 		}
-		echo "</thead>";
+		//echo "</thead>";
 		#construct limited data
 		$i = 0;
 		echo "<tbody>";
 		while ('' != @$array[$i])
 		{
-			echo "<tr ".$color.">\n";
+			echo "<tr>\n";
 			$arr = explode('	',$array[$i]);
 			foreach ($arr as $key => $value)
 			{
