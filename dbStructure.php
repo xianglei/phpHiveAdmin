@@ -39,7 +39,7 @@ else
 		
 		$i = 0;
 		echo "<form method=post action=dropTableBatch.php  name=tablenames>";
-		echo "<table class=\"table table-bordered table-hover table-striped\">\n";
+		echo "<table class=\"table table-bordered table-striped\">\n";
 		echo "<thead><tr class=info>
 		<td></td>
 		<td>".$lang['tableName']."</td>";
