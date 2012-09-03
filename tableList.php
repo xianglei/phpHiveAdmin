@@ -32,9 +32,9 @@ else
 		echo "</td></tr></tbody>";
 		$i++;
 	}
-	echo "<thead><tr>";
-	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a>';
-	echo "</tr></thead>";
+	echo "<tfoot><tr>";
+	echo '<td><a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a></td>';
+	echo "</tr></tfoot>";
 	echo "</table>";
 	$transport->close();
 }
