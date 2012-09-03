@@ -76,7 +76,10 @@ else
 		//echo "<thead>";
 		foreach ($array_desc_desc_col as $value)
 		{
-			echo '<tr class="success">';
+			if($i == 0)
+				echo '<tr class="info">';
+			else
+				echo '<tr class="success">';
 			foreach((array)$value as $v)
 			{
 				echo '<td>'.$v.'</td>';
