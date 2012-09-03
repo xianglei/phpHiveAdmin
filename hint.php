@@ -42,7 +42,7 @@ else
 }
 foreach ($array as $key => $value)
 {
-	$str .= '"'.trim($value).'",';
+	$str .= trim($value)."\n";
 }
 echo substr($str,0,-1);
 ?>
