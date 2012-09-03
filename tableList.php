@@ -27,7 +27,7 @@ else
 	while('' != @$db_array[$i])
 	{
 		echo "<tbody><tr><td>";
-		echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right"><i class="icon-th-list"></i>'.$db_array[$i].'</a><br />';
+		echo '<a href=sqlQuery.php?table='.$db_array[$i].'&database='.$_GET['database'].' target="right"><i class="icon-th-list"></i>'.$db_array[$i].'</a>';
 		echo "</td></tr></tbody>";
 		$i++;
 	}
