@@ -69,19 +69,12 @@ else
 		$sql = "select * from ".$_GET['table']." limit 2";
 		$client->execute($sql);
 		$array = $client->fetchAll();
-		echo '<table border=1 cellspacing=1 cellpadding=3>';
+		echo '<table class="table table-bordered table-striped">';
 		$i = 0;
+		echo "<thead>";
 		foreach ($array_desc_desc_col as $value)
 		{
-			if(0 == $i)
-			{
-				$color = "bgcolor=\"#FFFF99\"";
-			}
-			else
-			{
-				$color = "bgcolor=\"#99FFFF\"";
-			}
-			echo '<tr '.$color.'>';
+			echo '<tr class=info>';
 			foreach((array)$value as $v)
 			{
 				echo '<td>'.$v.'</td>';
@@ -89,18 +82,12 @@ else
 			}
 			echo '</tr>';
 		}
+		echo "</thead>";
 		#construct limited data
 		$i = 0;
+		echo "<tbody>";
 		while ('' != @$array[$i])
 		{
-			if(($i % 2) == 0)
-			{
-				$color = "bgcolor=\"".$env['trColor1']."\"";
-			}
-			else
-			{
-				$color = "bgcolor=\"".$env['trColor2']."\"";
-			}
 			echo "<tr ".$color.">\n";
 			$arr = explode('	',$array[$i]);
 			foreach ($arr as $key => $value)
@@ -113,6 +100,7 @@ else
 			echo "</tr>\n";
 			$i++;
 		}
+		echo "</tbody>";
 		echo '</table><br>';
 		include_once 'templates/sql_query.html';
 	}
