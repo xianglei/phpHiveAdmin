@@ -13,7 +13,11 @@ if(!$_GET['database'] || '' == $_GET['database'])
 else
 {
 	include_once 'templates/style.css';
-	echo $_GET['database'].' --  <a href=dbStructure.php?database='.$_GET['database'].' target="right">'.$lang['back'].'</a><br /><br />';
+	
+	echo '<div class="container">';
+	echo '<div class="span10">';
+	
+	echo $_GET['database'].' <i class=icon-backward></i>  <a href=dbStructure.php?database='.$_GET['database'].' target="right">'.$lang['back'].'</a><br /><br />';
 	
 	include_once 'templates/sql_query_navi.html';
 	
@@ -271,6 +275,8 @@ else
 			unset($timer);
 		}*/
 	}
+	echo "</div>";
+	echo "</div>";
 	$transport->close();
 }
 ?>
