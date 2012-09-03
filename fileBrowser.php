@@ -32,8 +32,10 @@ echo '<div class="container">';
 echo '<div class="span10">';
 
 echo "<br>";
-echo "<a href=fileBrowser.php?dir=/><i class=icon-eject></i>".$lang['backToRoot']."</a><br><br>";
-echo "<a href=javascript:history.back()><i class=icon-backward></i>".$lang['back']."</a><br><br>";
+echo '<div class="btn-group">';
+echo "<a class=\"btn btn-info\" href=fileBrowser.php?dir=/><i class=icon-eject></i>".$lang['backToRoot']."</a>";
+echo "<a class=\"btn btn-info\" href=javascript:history.back()><i class=icon-backward></i>".$lang['back']."</a>";
+echo "</div>";
 echo "<table class=\"table table-bordered table-striped table-hover\">";
 echo "<tr class=success>";
 echo "<td>".$lang['fileProperty']."</td>";
@@ -72,8 +74,10 @@ foreach( $list_arr as $k => $v)
 }
 echo "</table>";
 echo "<br>";
-echo "<a href=javascript:history.back()><i class=icon-backward></i>".$lang['back']."</a><br><br>";
-echo "<a href=fileBrowser.php?dir=/><i class=icon-eject></i>".$lang['backToRoot']."</a><br><br>";
+echo '<div class="btn-group">';
+echo "<a class=\"btn btn-info\" href=fileBrowser.php?dir=/><i class=icon-eject></i>".$lang['backToRoot']."</a>";
+echo "<a class=\"btn btn-info\" href=javascript:history.back()><i class=icon-backward></i>".$lang['back']."</a>";
+echo "</div>";
 echo "</div></div>";
 unlink($filename);
 
