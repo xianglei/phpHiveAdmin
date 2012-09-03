@@ -16,7 +16,7 @@
 	position: absolute;
 	top: 0px;
 	left: 0px;
-	border: 1px solid white;
+	border: 2px solid white;
 	background-color: #DBDBDB;
 	padding: 2;
 	margin: 2;
@@ -26,7 +26,7 @@
 	background-color: #01AAD0;
 	}
 	ul.auto-list > li {
-	border: 2px solid #AAAAAA;
+	border: 2px solid #444444;
 	cursor: default;
 	padding: 3px;
 	font-size: 14px
