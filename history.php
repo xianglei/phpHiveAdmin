@@ -68,7 +68,7 @@ if ($dh = opendir($dir))
     $records_per_page
 	);
 	
-	echo "<table class=\"table table-bordered table-hover table-striped table-condensed\">";
+	echo "<table class=\"table table-bordered table-hover table-striped\">";
 	echo "<tr class=\"info\">";
 	echo "<td>".$lang['filename']."</td><td>".$lang['fileContent']."</td><td>".$lang['filetype']."</td><td>".$lang['filesize']."</td>";
 	echo "</tr>";
