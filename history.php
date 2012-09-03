@@ -68,6 +68,7 @@ if ($dh = opendir($dir))
     $records_per_page
 	);
 	
+	echo "<div class=span10>";
 	echo "<table class=\"table table-bordered table-hover table-striped\">";
 	echo "<tr class=\"info\">";
 	echo "<td>".$lang['filename']."</td><td>".$lang['fileContent']."</td><td>".$lang['filetype']."</td><td>".$lang['filesize']."</td>";
@@ -116,6 +117,7 @@ if ($dh = opendir($dir))
 		echo "</tr>";
 	}
 	echo "</table>";
+	echo "</div>";
 	$pagination->render();
 }
 ?>
