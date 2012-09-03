@@ -23,6 +23,7 @@ else
 	$db_array = array_reverse($db_array);
 
 	echo '<div class="container">';
+	echo '<div class="span6">';
 	
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{
@@ -83,7 +84,7 @@ else
 				echo "</td>\n";
 
 				echo "<td>\n";
-				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']." ".$db_array[$i]."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><i class=icon-remove>".$lang['dropTable']."</a>";
+				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']." ".$db_array[$i]."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><i class=icon-remove></i>".$lang['dropTable']."</a>";
 				echo "</td>\n";
 			}
 			
@@ -108,6 +109,7 @@ else
 	{
 		var_dump($_POST["table_name"]);
 	}
+	echo "</div>";
 	echo "</div>";
 	$transport->close();
 }
