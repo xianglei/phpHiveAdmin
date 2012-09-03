@@ -74,7 +74,7 @@ else
 		echo "<thead>";
 		foreach ($array_desc_desc_col as $value)
 		{
-			echo '<tr class=info>';
+			echo '<tr class="info">';
 			foreach((array)$value as $v)
 			{
 				echo '<td>'.$v.'</td>';
