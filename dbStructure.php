@@ -67,23 +67,23 @@ else
 			if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 			{
 				echo "<td>\n";
-				echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_props.png>".$lang['alterTable']."</a>";
+				echo "<a href=alterTable.php?database=".$_GET['database']."&table=".$db_array[$i]."><i class=icon-pencil></i> ".$lang['alterTable']."</a>";
 				echo "</td>\n";
 			
 				echo "<td>\n";
-				echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><img src=images/b_import.png>".$lang['loadData']."</a>";
+				echo "<a href=loadData.php?database=".$_GET['database']."&table=".$db_array[$i]."><i class=icon-chevron-right></i> ".$lang['loadData']."</a>";
 				echo "</td>\n";
 				
 				echo "<td>\n";
-				echo "<a href=\"cloneTable.php?database=".$_GET['database']."&table=".$db_array[$i]."\"><img src=images/b_clone.png>".$lang['cloneTable']."</a>";
+				echo "<a href=\"cloneTable.php?database=".$_GET['database']."&table=".$db_array[$i]."\"><i class=icon-random></i> ".$lang['cloneTable']."</a>";
 				echo "</td>\n";
 
 				echo "<td>\n";
-				echo "<a href=\"tableDetail.php?database=".$_GET['database']."&table=".$db_array[$i]."\"><img src=images/b_select.png>".$lang['tableDetail']."</a>";
+				echo "<a href=\"tableDetail.php?database=".$_GET['database']."&table=".$db_array[$i]."\"><i class=icon-zoom-in></i> ".$lang['tableDetail']."</a>";
 				echo "</td>\n";
 
 				echo "<td>\n";
-				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']." ".$db_array[$i]."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
+				echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropTableConfirm']." ".$db_array[$i]."','dropTable.php?database=".$_GET['database']."&table=".$db_array[$i]."');return false;\"><i class=icon-remove>".$lang['dropTable']."</a>";
 				echo "</td>\n";
 			}
 			
