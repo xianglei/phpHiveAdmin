@@ -15,6 +15,8 @@ else
 
 if ($dh = opendir($dir))
 {
+	echo '<div class="container">';
+	echo '<div class="span10">';
 	echo "<a href=history.php?dir=".$env['logs_path']."><i class=\"icon-backward\"></i> Back to Root</a><br><br>";
 
 	include_once "templates/search_history.html";
@@ -68,7 +70,6 @@ if ($dh = opendir($dir))
     $records_per_page
 	);
 	
-	echo "<div class=span10>";
 	echo "<table class=\"table table-bordered table-hover table-striped\">";
 	echo "<tr class=\"info\">";
 	echo "<td>".$lang['filename']."</td><td>".$lang['fileContent']."</td><td>".$lang['filetype']."</td><td>".$lang['filesize']."</td>";
@@ -117,7 +118,7 @@ if ($dh = opendir($dir))
 		echo "</tr>";
 	}
 	echo "</table>";
-	echo "</div>";
 	$pagination->render();
+	echo "</div></div>";
 }
 ?>
