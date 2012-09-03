@@ -35,7 +35,7 @@ echo "<br>";
 echo '<div class="btn-group">';
 echo "<a class=\"btn btn-info\" href=fileBrowser.php?dir=/><i class=icon-eject></i>".$lang['backToRoot']."</a>";
 echo "<a class=\"btn btn-info\" href=javascript:history.back()><i class=icon-backward></i>".$lang['back']."</a>";
-echo "</div>";
+echo "</div><br>";
 echo "<table class=\"table table-bordered table-striped table-hover\">";
 echo "<tr class=success>";
 echo "<td>".$lang['fileProperty']."</td>";
