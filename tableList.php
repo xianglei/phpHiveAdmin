@@ -23,7 +23,7 @@ else
 	echo '<br/>';
 	echo "<table class=\"table table-border table-hover\">";
 	echo "<thead><tr>";
-	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a>';
+	echo '<td><a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a></td>';
 	echo "</tr></thead>";
 	while('' != @$db_array[$i])
 	{
@@ -33,7 +33,7 @@ else
 		$i++;
 	}
 	echo "<tfoot><tr>";
-	echo '<a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a>';
+	echo '<td><a href="javascript:showsd(\'dbList.php\',\'index.php?frame=right\')" target=left><i class="icon-backward"></i> '.$lang['back'].'</a></td>';
 	echo "</tr></tfoot>";
 	echo "</table>";
 	$transport->close();
