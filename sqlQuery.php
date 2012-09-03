@@ -69,7 +69,7 @@ else
 		$sql = "select * from ".$_GET['table']." limit 2";
 		$client->execute($sql);
 		$array = $client->fetchAll();
-		echo '<table class="table table-bordered table-striped">';
+		echo '<table class="table table-bordered">';
 		$i = 0;
 		echo "<thead>";
 		foreach ($array_desc_desc_col as $value)
