@@ -17,6 +17,8 @@ else
 
 	//$client->execute('add jar '.$env['hive_jar']);
 	$client->execute('use '.$_GET['database']);
+	echo '<div class="container">';
+	echo '<div class="span10">';
 
 	if(!@$_GET['table'])
 	{
@@ -24,7 +26,8 @@ else
 	}
 	else
 	{
-		echo "<a href=dbStructure.php?database=".$_GET['database'].">".$lang['back']."</a><br><br>";
+		
+		echo "<a href=dbStructure.php?database=".$_GET['database']."><i class=icon-backward> ".$lang['back']."</a><br><br>";
 		if(!@$_POST['submit'])
 		{
 			$sql = 'desc formatted '.$_GET['table'];
@@ -53,13 +56,13 @@ else
 			}
 			echo $lang['alterTableWarning'];
 			echo "<form method=post>";
-			echo "<table border=1 cellspacing=1 cellpadding=3>";
-			echo "<tr bgcolor=#FF0000>";
+			echo "<table class=\"table table-bordered table-condensed\">";
+			echo "<tr class=error>";
 			echo "<td>".$lang['renameTable']."</td><td><input type=text name=new_table_name value=".$_GET['table']."></td>";
 			echo "</tr>";
 			echo "</table><br><br>";
-			echo '<table border=1 cellspacing=1 cellpadding=3>';
-			echo "<tr bgcolor=#FFFF99>
+			echo '<table class="table table-bordered table-condensed table-striped">';
+			echo "<tr class=info>
 					<td>".$lang['dropTable']."</td>
 					<td>".$lang['fieldName']."</td>
 					<td>".$lang['fieldType']."</td>
@@ -68,15 +71,7 @@ else
 			$i = 0;
 			foreach ($array_desc_desc_1 as $key => $value)
 			{
-				if(($i % 2) == 0)
-				{
-					$color = "bgcolor=\"#FFFF99\"";
-				}
-				else
-				{
-					$color = "bgcolor=\"#99FFFF\"";
-				}
-				echo '<tr '.$color.'>';
+				echo '<tr>';
 				foreach($value as $k => $v)
 				{
 					//echo '<tr '.$color.'>';
@@ -84,7 +79,7 @@ else
 					if($k == 'name')
 					{
 						echo "<td>";
-						echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropColumnConfirm']."','dropColumn.php?database=".$_GET['database']."&table=".$_GET['table']."&column=".$v."');return false;\"><img src=images/b_drop.png>".$lang['dropTable']."</a>";
+						echo "<a class=\"btn btn-danger\" href=# onclick=\"javascript:realconfirm('".$lang['dropColumnConfirm']."','dropColumn.php?database=".$_GET['database']."&table=".$_GET['table']."&column=".$v."');return false;\"><i class=icon-remove></i>".$lang['dropTable']."</a>";
 						echo "</td>";
 					}
 					if($k == 'type')
@@ -264,7 +259,8 @@ else
 			}
 		}
 	}
-	
+	echo '</div>';
+	echo '</div>';
 	$transport->close();
 }
 ?>
