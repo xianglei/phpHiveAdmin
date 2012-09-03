@@ -22,23 +22,25 @@ else
 	$db_array = $client->fetchAll();
 	$db_array = array_reverse($db_array);
 
+	echo '<div class="container">';
+	
 	if(!@$_POST["table_name"] || "" == $_POST["table_name"])
 	{
-		echo "<table border=1 cellspacing=1 cellpadding=3><tr bgcolor=#FFFF99><td>";
+		echo "<table class=\"table table-bordered\"><tr class=\"error\"><td>";
 		if(count($db_array) != 0)
 		{
-			echo "<img src=images/b_deltbl.png>".$lang['dropDatabase'];
+			echo "<i class=icon-remove></i>".$lang['dropDatabase'];
 		}
 		else
 		{
-			echo "<a href=# onclick=\"javascript:realconfirm('".$lang['dropDbConfirm']."','dropDatabase.php?database=".$_GET['database']."');return false;\"><img src=images/b_deltbl.png>".$lang['dropDatabase']."</a>";
+			echo "<i class=icon-remove></i><a href=# onclick=\"javascript:realconfirm('".$lang['dropDbConfirm']."','dropDatabase.php?database=".$_GET['database']."');return false;\"><img src=images/b_deltbl.png>".$lang['dropDatabase']."</a>";
 		}
 		echo "</td></tr></table><br><br>";
 		
 		$i = 0;
 		echo "<form method=post action=dropTableBatch.php  name=tablenames>";
-		echo "<table border=1 cellspacing=1 cellpadding=3>\n";
-		echo "<tr bgcolor=#FFFF99>
+		echo "<table class=\"table table-bordered table-hover table-striped\">\n";
+		echo "<thead><tr class=info>
 		<td></td>
 		<td>".$lang['tableName']."</td>";
 		if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
@@ -49,18 +51,10 @@ else
 			<td>".$lang['tableDetail']."</td>
 			<td>".$lang['dropTable']."</td>";
 		}
-		echo "</tr>";
+		echo "</tr><thead>";
 		while ('' != @$db_array[$i])
 		{
-			if(($i % 2) == 0)
-			{
-				$color = $env['trColor1'];
-			}
-			else
-			{
-				$color = $env['trColor2'];
-			}
-			echo "<tr bgcolor=".$color.">\n";
+			echo "<tbody><tr>\n";
 
 			echo "<td>\n";
 			echo "<input type=checkbox name=table_name[] value=".$db_array[$i].">";
@@ -92,7 +86,7 @@ else
 				echo "</td>\n";
 			}
 			
-			echo "</tr>\n";
+			echo "</tr></tbody>\n";
 			$i++;
 		}
 		echo "</table><br>\n";
@@ -112,6 +106,7 @@ else
 	{
 		var_dump($_POST["table_name"]);
 	}
+	echo "</div>";
 	$transport->close();
 }
 ?>
