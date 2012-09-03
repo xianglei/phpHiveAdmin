@@ -15,7 +15,7 @@ else
 	include_once 'templates/style.css';
 	
 	echo '<div class="container">';
-	echo '<div class="span10">';
+	//echo '<div class="span10">';
 	
 	echo $_GET['database'].' <i class=icon-backward></i>  <a href=dbStructure.php?database='.$_GET['database'].' target="right">'.$lang['back'].'</a><br /><br />';
 	
@@ -74,7 +74,7 @@ else
 		//echo "<thead>";
 		foreach ($array_desc_desc_col as $value)
 		{
-			echo '<tr class="info">';
+			echo '<tr class="success">';
 			foreach((array)$value as $v)
 			{
 				echo '<td>'.$v.'</td>';
@@ -263,7 +263,7 @@ else
 			unset($timer);
 		}*/
 	}
-	echo "</div>";
+	//echo "</div>";
 	echo "</div>";
 	$transport->close();
 }
