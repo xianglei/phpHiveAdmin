@@ -39,7 +39,7 @@ else
 		
 		$i = 0;
 		echo "<form method=post action=dropTableBatch.php  name=tablenames>";
-		echo "<table class=\"table table-bordered table-striped\">\n";
+		echo "<table class=\"table table-bordered table-striped table-hover\">\n";
 		echo "<thead><tr class=info>
 		<td></td>
 		<td>".$lang['tableName']."</td>";
@@ -52,9 +52,10 @@ else
 			<td>".$lang['dropTable']."</td>";
 		}
 		echo "</tr><thead>";
+		echo "<tbody>";
 		while ('' != @$db_array[$i])
 		{
-			echo "<tbody><tr>\n";
+			echo "<tr>\n";
 
 			echo "<td>\n";
 			echo "<input type=checkbox name=table_name[] value=".$db_array[$i].">";
@@ -86,9 +87,10 @@ else
 				echo "</td>\n";
 			}
 			
-			echo "</tr></tbody>\n";
+			echo "</tr>\n";
 			$i++;
 		}
+		echo "</tbody>";
 		echo "</table><br>\n";
 		if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 		{
