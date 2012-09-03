@@ -28,11 +28,14 @@ $filename = $env['output_path'].'/dfs_browse.'.$time.'.out';
 $etc->NonBlockingRun($exec,$time,$filename,1,$code);
 
 $list_arr = file($filename);
+echo '<div class="container">';
+echo '<div class="span10">';
+
 echo "<br>";
-echo "<a href=fileBrowser.php?dir=/>".$lang['backToRoot']."</a><br><br>";
-echo "<a href=javascript:history.back()>".$lang['back']."</a><br><br>";
+echo "<a href=fileBrowser.php?dir=/><i class=icon-eject></i>".$lang['backToRoot']."</a><br><br>";
+echo "<a href=javascript:history.back()><i class=icon-backward></i>".$lang['back']."</a><br><br>";
 echo "<table border=1 cellspacing=1 cellpadding=3 width=70%>";
-echo "<tr bgcolor=\"#FFFF99\">";
+echo "<tr class=success>";
 echo "<td>".$lang['fileProperty']."</td>";
 echo "<td>".$lang['fileUser']."</td>";
 echo "<td>".$lang['fileGroup']."</td>";
@@ -69,8 +72,9 @@ foreach( $list_arr as $k => $v)
 }
 echo "</table>";
 echo "<br>";
-echo "<a href=javascript:history.back()>".$lang['back']."</a><br><br>";
-echo "<a href=fileBrowser.php?dir=/>".$lang['backToRoot']."</a><br><br>";
+echo "<a href=javascript:history.back()><i class=icon-backward></i>".$lang['back']."</a><br><br>";
+echo "<a href=fileBrowser.php?dir=/><i class=icon-eject></i>".$lang['backToRoot']."</a><br><br>";
+echo "</div></div>";
 unlink($filename);
 
 ?>
