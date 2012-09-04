@@ -73,7 +73,7 @@ else
 		$array = $client->fetchAll();
 		echo '<table class="table table-bordered table-striped table-condensed">';
 		$i = 0;
-		echo "<thead>";
+		//echo "<thead>";
 		foreach ($array_desc_desc_col as $value)
 		{
 			if($i == 0)
@@ -87,10 +87,10 @@ else
 			}
 			echo '</tr>';
 		}
-		echo "</thead>";
+		//echo "</thead>";
 		#construct limited data
 		$i = 0;
-		echo "<tbody>";
+		//echo "<tbody>";
 		while ('' != @$array[$i])
 		{
 			echo "<tr>\n";
@@ -105,7 +105,7 @@ else
 			echo "</tr>\n";
 			$i++;
 		}
-		echo "</tbody>";
+		//echo "</tbody>";
 		echo '</table><br>';
 		include_once 'templates/sql_query.html';
 	}
