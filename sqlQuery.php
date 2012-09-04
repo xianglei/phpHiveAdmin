@@ -73,7 +73,7 @@ else
 		$array = $client->fetchAll();
 		echo '<table class="table table-bordered table-striped table-condensed">';
 		$i = 0;
-		//echo "<thead>";
+		echo "<thead>";
 		foreach ($array_desc_desc_col as $value)
 		{
 			if($i == 0)
@@ -87,7 +87,7 @@ else
 			}
 			echo '</tr>';
 		}
-		//echo "</thead>";
+		echo "</thead>";
 		#construct limited data
 		$i = 0;
 		echo "<tbody>";
