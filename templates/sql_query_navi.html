@@ -16,12 +16,6 @@ echo $lang['getFilelist'];
 if($_SESSION['role'] == "superadmin" || $_SESSION['role'] == "dbadmin")
 {
 ?>
-<a class="btn btn-warning" href="alterTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
-<i class=icon-pencil></i>
-<?php
-echo $lang['alterTable'];
-?>
-</a>
 <a class="btn" href="loadData.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
 <i class=icon-chevron-right></i>
 <?php
@@ -38,6 +32,12 @@ echo $lang['cloneTable'];
 <i class=icon-zoom-in></i>
 <?php
 echo $lang['tableDetail'];
+?>
+</a>
+<a class="btn btn-warning" href="alterTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>">
+<i class=icon-pencil></i>
+<?php
+echo $lang['alterTable'];
 ?>
 </a>
 <a class="btn btn-danger" href="#" onclick="javascript:realconfirm('<?php echo $lang['dropTableConfirm'];?>','dropTable.php?database=<?php echo $_GET['database'];?>&table=<?php echo $_GET['table'];?>');return false;">
