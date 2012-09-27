@@ -1,3 +1,14 @@
+0.09 beta3
+1. Change UI, using bootstrap(twitter) open source framework
+2. Security Update: Normal user can not see batch drop table button
+3. Remove all icons from phpMyAdmin, replaced with bootstrap icon
+4. Try to fix Double quotes use in HQL, it's always use by regular express
+
+1. 界面大幅改换，使用bootstrap(twitter)开源框架
+2. 安全更新:普通用户不能看到批量删除表按钮
+3. 去掉了原先属于phpMyAdmin的全部图标
+4. 尝试修正双引号在HQL中的使用，通常在使用正则中用到的。
+
 0.09 beta1
 1. Remove Schema ThriftSchema QueryPlan from navigation of top frame, because it seems useless for any one
 2. Fix 2 english words, add Deutsch language translation sets(from google translate)
