@@ -29,7 +29,7 @@ else
 		
 		#$sql = str_replace('"','\"',$sql);
 		#$sql = '"'.str_replace('`',"",$sql).'"';
-		$sql = str_replace('`',"",$sql);
+		#$sql = str_replace('`',"",$sql);
 		
 		#log sql action
 		$basedir = dirname(__FILE__)."/";
@@ -66,7 +66,7 @@ else
 		
 		#$sql = str_replace('"','\"',$sql);
 		#$sql = '"'.str_replace('`',"",$sql).'"';
-		$sql = str_replace('`',"",$sql);
+		#$sql = str_replace('`',"",$sql);
 		
 		#log sql action
 		$basedir = dirname(__FILE__)."/";
