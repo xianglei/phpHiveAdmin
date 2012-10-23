@@ -32,7 +32,7 @@ else
 		$sql = str_replace('`',"",$sql);
 		
 		#log sql action
-		$basedir = dirname(__FILE__);
+		$basedir = dirname(__FILE__)."/";
 		$logfile = $basedir.$env['logs_path'].$_SESSION['username']."_".$time.".log";
 		$etc->LogAction($logfile,"w",$sql."\n");
 		#
@@ -69,7 +69,7 @@ else
 		$sql = str_replace('`',"",$sql);
 		
 		#log sql action
-		$basedir = dirname(__FILE__);
+		$basedir = dirname(__FILE__)."/";
 		
 		#log sql action
 		$logfile = $basedir.$env['logs_path'].$_SESSION['username']."_".$time.".log";
