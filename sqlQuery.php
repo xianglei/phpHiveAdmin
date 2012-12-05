@@ -191,13 +191,17 @@ else
 			echo "<div id=\"stderr\" width=700 height=400 align=left></div>";
 			echo "
 			<script>
+			function RunSql()
+			{
+				$.get(\"cliQuery.php?time=".$sha1."&query=".rawurlencode($sql)."\");
+			}
 			function GetResults()
 			{
-				$.get(\"cliQuery.php?time=".$sha1."&query=".rawurlencode($sql)."\")
 				$(\"#stderr\").load(\"refresh.php?str=".$sha1."\");
 			}
+			RunSql();
 			GetResults();
-			setInterval(GetResults, 2000);
+			setInterval(GetResults, 2000)
 			</script>
 			";
 			#echo "<iframe id=stderr width=700 height=400 align=left src=refresh.php?str=".$sha1." border=0></iframe><br><br>";
