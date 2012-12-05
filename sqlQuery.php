@@ -285,7 +285,7 @@ else
 			unset($timer);
 		}*/
 	}
-*/
+
 	//echo "</div>";
 	//echo "</div>";
 	$transport->close();
