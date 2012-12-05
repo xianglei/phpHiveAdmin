@@ -51,7 +51,7 @@
 
 	  <script src="js/bootstrap.js"></script>
 	  <script src="js/bootstrap..min.js"></script>
-	  <script src="js/jquery.js"></script>
+	  <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/bootstrap-transition.js"></script>
     <script src="js/bootstrap-alert.js"></script>
     <script src="js/bootstrap-modal.js"></script>
@@ -97,7 +97,7 @@ function realconfirm(text1,url)
 	}
 }
 
-function getAjax(){
+/*function getAjax(){
 	var ajax;
 	try{
 		ajax=new ActiveXObject('Msxml2.XMLHTTP');
@@ -109,7 +109,7 @@ function getAjax(){
 		}
 	}
 	return ajax;
-}
+}*/
 
 function trim(s) {return s.replace(/(^[ |　]*)|([ |　]*$)/g, "");}
 function $a(s) {return document.getElementsByName(s);}
@@ -117,7 +117,7 @@ function $a(s) {return document.getElementsByName(s);}
 /**
  * ajax调用函数
  */
-function ajaxRequest(url, callback){
+/*function ajaxRequest(url, callback){
 	var x=getAjax();
 	x.onreadystatechange=function(){
 		if(x.readyState != 4)
@@ -132,7 +132,7 @@ function ajaxRequest(url, callback){
 function getReult()
 {
 	document.getElementById('stderr').src='refresh.php?str=<?php echo $sha1;?>'
-}
+}*/
 
 function getQueryPlan()
 {
