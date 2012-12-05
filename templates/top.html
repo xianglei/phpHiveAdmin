@@ -97,7 +97,7 @@ function realconfirm(text1,url)
 	}
 }
 
-/*function getAjax(){
+function getAjax(){
 	var ajax;
 	try{
 		ajax=new ActiveXObject('Msxml2.XMLHTTP');
@@ -109,7 +109,7 @@ function realconfirm(text1,url)
 		}
 	}
 	return ajax;
-}*/
+}
 
 function trim(s) {return s.replace(/(^[ |　]*)|([ |　]*$)/g, "");}
 function $a(s) {return document.getElementsByName(s);}
@@ -117,7 +117,7 @@ function $a(s) {return document.getElementsByName(s);}
 /**
  * ajax调用函数
  */
-/*function ajaxRequest(url, callback){
+function ajaxRequest(url, callback){
 	var x=getAjax();
 	x.onreadystatechange=function(){
 		if(x.readyState != 4)
@@ -132,7 +132,7 @@ function $a(s) {return document.getElementsByName(s);}
 function getReult()
 {
 	document.getElementById('stderr').src='refresh.php?str=<?php echo $sha1;?>'
-}*/
+}
 
 function getQueryPlan()
 {

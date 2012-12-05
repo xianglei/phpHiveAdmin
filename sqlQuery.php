@@ -109,8 +109,7 @@ else
 		echo '</table><br>';
 		include_once 'templates/sql_query.html';
 	}
-
-	else//trashed codes
+	else
 	{
 		/*if(preg_match("/( {0,}select +\* +from)/i",@$_POST['sql']) && !preg_match("/limit/i", @$_POST['sql']) && !preg_match("/where/i", @$_POST['sql']))# if select * from with no limit died.
 		{
@@ -172,40 +171,24 @@ else
 			#$path = $env['http_url']."?time=".$sha1."&query=".urlencode($sql,$key);
 			$cookie = sha1($mtime);
 
-			#echo "
-			#<script>
-			#function getReult()
-			#{
-			#	document.getElementById('stderr').src='refresh.php?str=".$sha1."';
-			#}
-			#</script>
-			#";
+			echo "
+			<script>
+			function getReult()
+			{
+				document.getElementById('stderr').src='refresh.php?str=".$sha1."';
+			}
+			</script>
+			";
 			
 			$sql = str_replace("%", "\000", $sql);//encode for like %
 			
-			#echo "<body onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".rawurlencode($sql)."' , GetResults)\">";
+			echo "<body onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".rawurlencode($sql)."' , getReult)\">";
 			echo "<input class=\"btn btn-success\" type=button value=\"".$lang['getResult']."\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
 			echo "<br><br>".$lang['fingerprintOfMapReduce']." ".$sha1;
 			echo "<br><br>";
 			echo "SQL: ".$sql;
 			echo "<br><br>";
-			echo "<div id=\"stderr\" width=700 height=400 align=left></div>";
-			echo "
-			<script>
-			function RunSql()
-			{
-				$.get(\"cliQuery.php?time=".$sha1."&query=".rawurlencode($sql)."\");
-			}
-			function GetResults()
-			{
-				$(\"#stderr\").load(\"refresh.php?str=".$sha1."\");
-			}
-			RunSql();
-			GetResults();
-			setInterval(GetResults, 2000)
-			</script>
-			";
-			#echo "<iframe id=stderr width=700 height=400 align=left src=refresh.php?str=".$sha1." border=0></iframe><br><br>";
+			echo "<iframe id=stderr width=700 height=400 align=left src=refresh.php?str=".$sha1." border=0></iframe><br><br>";
 		//}
 		/*else
 		{
@@ -285,7 +268,6 @@ else
 			unset($timer);
 		}*/
 	}
-
 	//echo "</div>";
 	//echo "</div>";
 	$transport->close();
