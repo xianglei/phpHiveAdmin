@@ -8,8 +8,8 @@ $etc = new Etc;
 $auth = new Authorize;
 
 $sha1 = $etc->FingerPrintMake();
-			
-$sql = $auth->AuthSql($_SESSION['role'],@$_POST['sql']);
+
+#$sql = $auth->AuthSql($_SESSION['role'],@$_POST['sql']);
 if($sql == FALSE)
 {
 	die("<script>alert('".$lang['permissionDenied']."');history.back()</script>");
