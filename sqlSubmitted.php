@@ -14,6 +14,8 @@ $sha1 = $etc->FingerPrintMake();
 #{
 #	die("<script>alert('".$lang['permissionDenied']."');history.back()</script>");
 #}
+
+$sql = @$_POST['sql'];
 			
 $slots = "";
 if(substr($sql,-1) != ";")
