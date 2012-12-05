@@ -109,7 +109,8 @@ else
 		echo '</table><br>';
 		include_once 'templates/sql_query.html';
 	}
-	else
+
+	else//trashed codes
 	{
 		/*if(preg_match("/( {0,}select +\* +from)/i",@$_POST['sql']) && !preg_match("/limit/i", @$_POST['sql']) && !preg_match("/where/i", @$_POST['sql']))# if select * from with no limit died.
 		{
@@ -284,6 +285,7 @@ else
 			unset($timer);
 		}*/
 	}
+*/
 	//echo "</div>";
 	//echo "</div>";
 	$transport->close();
