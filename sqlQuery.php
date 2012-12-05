@@ -186,8 +186,8 @@ else
 			{
 				$(\"#stderr\").load(\"refresh.php?str=".$sha1."\");
 			}
-			request_time();
-			setInterval(request_time, 2000);
+			GetResults();
+			setInterval(GetResults, 2000);
 			</script>
 			";
 			
