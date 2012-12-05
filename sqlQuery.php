@@ -171,24 +171,36 @@ else
 			#$path = $env['http_url']."?time=".$sha1."&query=".urlencode($sql,$key);
 			$cookie = sha1($mtime);
 
+			#echo "
+			#<script>
+			#function getReult()
+			#{
+			#	document.getElementById('stderr').src='refresh.php?str=".$sha1."';
+			#}
+			#</script>
+			#";
+			
 			echo "
 			<script>
-			function getReult()
+			function GetResults()
 			{
-				document.getElementById('stderr').src='refresh.php?str=".$sha1."';
+				$(\"#stderr\").load(\"refresh.php?str=".$sha1."\");
 			}
+			request_time();
+			setInterval(request_time, 2000);
 			</script>
 			";
 			
 			$sql = str_replace("%", "\000", $sql);//encode for like %
 			
-			echo "<body onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".rawurlencode($sql)."' , getReult)\">";
+			#echo "<body onload=\"ajaxRequest('cliQuery.php?time=".$sha1."&query=".rawurlencode($sql)."' , getReult)\">";
 			echo "<input class=\"btn btn-success\" type=button value=\"".$lang['getResult']."\" onclick=\"window.open('getResult.php?str=".$sha1."')\">";
 			echo "<br><br>".$lang['fingerprintOfMapReduce']." ".$sha1;
 			echo "<br><br>";
 			echo "SQL: ".$sql;
 			echo "<br><br>";
-			echo "<iframe id=stderr width=700 height=400 align=left src=refresh.php?str=".$sha1." border=0></iframe><br><br>";
+			echo "<div id=\"stderr\" width=700 height=400 align=left></div>";
+			#echo "<iframe id=stderr width=700 height=400 align=left src=refresh.php?str=".$sha1." border=0></iframe><br><br>";
 		//}
 		/*else
 		{
