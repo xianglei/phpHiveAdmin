@@ -1,104 +1,59 @@
 <?php
-session_id();
-session_start();
 
-include "static.inc.php";
-#comment below if you didn't wanna use authenticate
-$auth = new Authorize;
+$configure = array();
 
-#-----------defination of language--------------
+/*
+The path in system that where phpHiveAdmin put, please do not change it.
 
-require_once 'langs/lang_en.php';
+phpHiveAdmin所在文件系统路径，自动获取，请不要修改。
+*/
+$configure['root_path'] = __DIR__;
 
-# langs path en file to use chinese, modify to 'langs/lang_cn.php'
+/*
+Setting up hiveserver thrift host and port,
+and metastore thrift host and port, if needed.
+Please see `hive --service -help` for more help
 
-# for my company use only below, you can change it to standard authrize as you wish
-#--------------------------
+设置hiveserver的thrift主机IP和端口
+如果需要的话，设置metastore访问的主机和端口
+请查看 `hive --service -help`获取thrift帮助和metastore帮助
+*/
+$configure['hive_thrift_host'] = '127.0.0.1';
+$configure['hive_thrift_port'] = '10000';
 
-$env["privFile"] = "accesslist.ini";
+/*
+Setting up languages you need in phpHiveAdmin user interface,
+now support chinese or english
 
-if($_GET['username'] && $_GET['password'])
-{
-	$user = $_GET['username'];
-	$pass = $_GET['password'];
-}
-else
-{
-	if($_POST['username'] && $_POST['password'])
-	{
-		$user = $_POST['username'];
-		$pass = $_POST['password'];
-	}
-	else
-	{
-		$user = $_SESSION['username'];
-		$pass = $_SESSION['password'];
-	}
-}
+设置phpHiveAdmin用户界面所使用的语言
+目前支持中文(chinese)和英文(english)
+*/
+$configure['language'] = 'chinese';
+
+/*
+Setting up the system environment that used by phpHiveAdmin
+
+设置phpHiveAdmin所使用的系统环境变量
+*/
+$configure['hadoop_home'] = '/opt/modules/hadoop/hadoop-1.0.3';
+$configure['java_home'] = '/usr/java/default';
+$configure['hive_home'] = '/opt/modules/hive/hive-0.9.0';
+
+$configure['lang_set'] = 'zh_CN.UTF-8' ;
+//Or en_US.UTF-8, if you are in english countries.
+//如果你处在英语国家，请使用en_US.UTF-8
+
+$configure['output_seperator'] = "\t"; 
+// The result data columns seperating character.
+// 用来分隔结果集数据列的分隔符.
+
+/*
+Setting up phpHiveAdmin output path,
+please use linux commandline console to chmod these path below to 777
+
+设置phpHiveAdmin的输出路径
+请使用Linux命令行终端来将下列路径chmod为777
+*/
 
 
-if(($user == "") || ($pass == ""))
-{
-	include_once "templates/login.html";
-	die('');
-}
-else
-{
-
-	$priv = $auth->AuthUser($env["privFile"],$user,$pass);
-	if(($priv == FALSE) || ($priv['privdb'] == ""))
-	{
-		include_once "templates/login.html";
-		die('');
-	}
-	else
-	{
-		$_SESSION['username'] = $user;
-		$_SESSION['password'] = $pass;
-		$_SESSION['onlydb'] = $priv['privdb'];
-		$_SESSION['role'] = $priv['role'];
-	}
-}
-
-#comment up if you didn't wanna use authenticate
-
-#-----------defination of HIVE Server and port-----
-
-define('HOST','127.0.0.1');
-define('PORT','10000');
-
-#----------defination of meta type and connection variables-------
-
-define('METATYPE', 'mysql');
-
-# METATYPE can set to mysql pgsql derby, derby may need unixODBC of php to connect;
-#----------------
-define('METADB','127.0.0.1');
-define('METAPORT', '3306');
-define('METAUSER', 'hive');
-define('METAPASS', 'hive');
-define('METANAME', 'hive');
-
-define('METASTORE_HOST',"127.0.0.1");
-define('METASTORE_PORT',"9083");
-
-#------------------------------------------------------------------
-$env['hive_jar'] = '';
-#------------------server env important: you must hive a executable hive-cli on this machine----------------------
-$env['hadoop_home'] = '';# hadoop root path
-$env['hive_home'] = '';# hive root path
-$env['java_home'] = '';# jdk root path
-$env['lang_set'] = 'zh_CN.UTF-8';#system language set
-$env['udf'] = '';#user defined function load command. it should be a jar, if not have an udf , set it to ""
-#$env['lang_set'] = 'en_US.UTF-8';
-$env['seperator'] = "\t";#\t
-#set default columns seperator for your data
-
-#------------------definations of log path and results path, give these path to 777 mode------------
-$env['etl'] = './etl/';# need slash end path to put etl configuration files
-$env['output_path'] = './results';# not need slash end. For cliQuery.php, where to put stderr output log file and original result file
-$env['logs_path'] = './logs/';# need slash end
-#--------------------------------------------------------------------------------------------------
-
-$env['showTables'] = 'show tables';
-
+?>

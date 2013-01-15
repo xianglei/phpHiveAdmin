@@ -1,3 +1,18 @@
+0.10.1 BlackWingLair
+1. Re-write world by using MVC framework (CodeIgniter)
+2. User and history administration added
+3. Improve security
+4. Delete some useless link
+5. Improve user interface, more security and pretty, less click
+
+1. 用MVC(CodeIgniter)重写了所有东西
+2. 加入用户管理和历史管理
+3. 增强了安全性
+4. 删除了一些无用的链接
+5. 增强了用户界面，更多的安全性和美化，更少的点击。
+
+-----------------------------------------------------------------------
+
 0.09 beta3
 1. Change UI, using bootstrap(twitter) open source framework
 2. Security Update: Normal user can not see batch drop table button

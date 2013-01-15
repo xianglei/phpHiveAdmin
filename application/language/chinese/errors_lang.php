@@ -1,0 +1,24 @@
+<?php
+$lang['error_create_database'] = '创建数据库失败';
+$lang['error_create_schema'] = '创建Schema失败';
+$lang['error_create_table'] = "创建表失败！";
+$lang['error_alter_table'] = "修改表失败！";
+$lang['error_drop_table'] = "删除表失败！";
+$lang['error_drop_database'] = "删除库失败!";
+$lang['error_drop_schema'] = '删除Schema失败';
+$lang['error_load_data'] = "加载数据失败";
+$lang['error_choose_database'] = '请选择一个数据库';
+$lang['error_choose_schema'] = '请选择一个Schema';
+$lang['error_choose_table'] = '请选择一个数据表';
+$lang['error_no_file_chosen'] = '没有选择任何文件';
+$lang['error_no_such_file'] = '文件不存在';
+$lang['error_invalid_entry'] = '非法入口';
+$lang['error_invalid_file_name'] = '非法的文件名';
+$lang['error_unknown'] = "无法识别的错误";
+$lang['error_no_result_fetched'] = "没有找到任何结果";
+$lang['error_not_ready_yet'] = "查询还未结束, 请等待...";
+$lang['error_parse_ini'] = 'ini文件解析错误';
+$lang['error_invalid_column_numbers'] = '字段请输入数字';
+$lang['error_invalid_partition_numbers'] = '分区请输入数字';
+$lang['error_permission_denied'] = '你不具备足够的执行权限';
+$lang['error_not_external_table'] = '只有MANAGED_TABLE可以执行load';

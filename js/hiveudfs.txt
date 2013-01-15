@@ -17,6 +17,7 @@ bigint
 bin
 binary
 boolean
+bucket
 by
 case
 ceil
