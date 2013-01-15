@@ -40,12 +40,19 @@ class Hive_model extends CI_Model
 			}
 			else
 			{
-				for($i = 0; $i < count($db_array); $i++)
+				if( (count($onlydb) > 0) && $onlydb[0] != "" )
 				{
-					if(in_array($db_array[$i], $onlydb))
+					for($i = 0; $i < count($db_array); $i++)
 					{
-						$arr[$i] = $db_array[$i];
+							if(in_array($db_array[$i], $onlydb))
+							{
+								$arr[$i] = $db_array[$i];
+							}
 					}
+				}
+				else
+				{
+					$arr = $db_array;
 				}
 				$this->load->model('utilities_model', 'utils');
 				$db_array = $this->utils->array_reindex($arr);
