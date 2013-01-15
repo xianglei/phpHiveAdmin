@@ -142,67 +142,56 @@ function getQueryPlan()
 </script>
 </head>
 <body bgcolor=#EFEFEF>
-
+<!--Nav bar area-->
 <div class="navbar navbar-inverse navbar-fixed-top">
 	<div class="navbar-inner">
 		<div class="container">
 			<button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <div class="nav-collapse collapse">
-          	<ul class="nav">
-              <li class="">
-<a class="active" href="dbList.php" target="left">
-<?php echo $lang['SQL'];?>
-</a>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<div class="nav-collapse collapse">
+				<ul class="nav">
+				<li class="">
+					<a class="active" href="dbList.php" target="left">
+						<?php echo $lang['SQL'];?>
+					</a>
 				</li>
 				<li class="">
-<a href="execEtl.php" target="right">
-<?php echo $lang['ETL'];?>
-</a>
+					<a href="execEtl.php" target="right">
+						<?php echo $lang['ETL'];?>
+					</a>
 				</li>
 				<li class="">
-<a href="getClusterStatus.php" target="right">
-<?php echo $lang['ClusterStatus'];?>
-</a>
+					<a href="getClusterStatus.php" target="right">
+						<?php echo $lang['ClusterStatus'];?>
+					</a>
 				</li>
-<!--<a href="getSchema.php" target="right">
-<?php echo $lang['Schema'];?>
-</a>
--
-<a href="getThriftSchema.php" target="right">
-<?php echo $lang['ThriftSchema'];?>
-</a>
--
-<a href="getQueryPlan.php" target="right">
-<?php echo $lang['QueryPlan'];?>
-</a>
---->
-<li class="">
-<a href="fileBrowser.php" target="right">
-<?php echo $lang['fileBrowser'];?>
-</a>
-</li>
-<li class="">
-<a href="metaSummury.php" target="right">
-<?php echo $lang['metaSummury'];?>
-</a>
-</li>
-<li class="">
-<a href="history.php" target="right">
-	<?php echo $lang['history'];?>
-</a>
-</li>
-<li class="">
-<a href="logOut.php" target="_parent">
-	<?php echo $lang['logOut'];?>
-</a>
-</li>
-</ul>
+				<li class="">
+					<a href="fileBrowser.php" target="right">
+						<?php echo $lang['fileBrowser'];?>
+					</a>
+				</li>
+				<li class="">
+					<a href="metaSummury.php" target="right">
+						<?php echo $lang['metaSummury'];?>
+					</a>
+				</li>
+				<li class="">
+					<a href="history.php" target="right">
+						<?php echo $lang['history'];?>
+					</a>
+				</li>
+				<li class="">
+					<a href="logOut.php" target="_parent">
+						<?php echo $lang['logOut'];?>
+					</a>
+				</li>
+				</ul>
+			</div>
+		</div>
+	</div>
 </div>
-</div>
-</div>
-</div>
+<!--Nav bar area end-->
 </body>
 </html>

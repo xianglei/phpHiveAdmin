@@ -51,7 +51,7 @@ else
 			<td>".$lang['tableDetail']."</td>
 			<td>".$lang['dropTable']."</td>";
 		}
-		echo "</tr><thead>";
+		echo "</tr></thead>";
 		echo "<tbody>";
 		while ('' != @$db_array[$i])
 		{
