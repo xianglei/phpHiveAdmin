@@ -711,8 +711,8 @@ class Hive_model extends CI_Model
 		try
 		{
 			$this->transport->open();
-			//$this->hive->execute('USE '.$db_name);
-			//$this->hive->execute($sql);
+			$this->hive->execute('USE '.$db_name);
+			$this->hive->execute($sql);
 			$this->transport->close();
 			return $sql;
 		}

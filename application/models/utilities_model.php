@@ -183,12 +183,12 @@ class Utilities_model extends CI_Model
 		{
 			$csv = 'hive_res.' . $finger_print . '.csv';
 			$csv_with_path = $this->config->item('result_path') . $csv;
-			$this->output->set_header("Pragma: public");
-			$this->output->set_header("Expires: 0");
-			$this->output->set_header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
-			$this->output->set_header("Content-Type: application/force-download");
-			$this->output->set_header('Content-Length: ' . filesize($csv_with_path));
-			$this->output->set_header("Content-Disposition: attachment; filename=".$csv);
+			header("Pragma: public");
+			header("Expires: 0");
+			header("Cache-Control: must-revalidate, post-check=0, pre-check=0");
+			header("Content-Type: application/force-download");
+			header('Content-Length: ' . filesize($csv_with_path));
+			header("Content-Disposition: attachment; filename=".$csv);
 			$fp = fopen($csv_with_path, "r");
 			while(!feof($fp))
 			{
