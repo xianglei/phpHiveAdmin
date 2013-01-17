@@ -5,3 +5,4 @@
 4. 打开config.inc.php，修改hive_thrift_host为hiveserver地址，hive_thrift_port为hiveserver端口
 修改hadoop_home, hive_home, java_home为实际安装路径。
 5. 打开浏览器，访问http://your_ip。(不支持IE6)
+6. 默认用户admin，密码123456
