@@ -126,7 +126,7 @@
 */
 
 //----------------------------
-var map=0;
+/*var map=0;
 var reduce=0;
 
 $(function () {
@@ -235,7 +235,7 @@ $(function () {
 		});
 	});
 	
-});
+});*/
 </script>
 <!--<div id="mapred_slot_realtime" style="width: 600px; height: 300px; "></div>-->
 <div id="mapred_slots_lines" style="width: 600px; height: 200px; "></div>
