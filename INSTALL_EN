@@ -5,3 +5,4 @@ Install phpHiveAdmin on cleanly CentOS linux system
 4. Open config.inc.php，change hive_thrift_host and hive_thrift_port
 Change hadoop_home, hive_home, java_home to their installed path
 5. Open browser and visit http://your_ip. (Not support IE6)
+6. Default admin user: admin, password 123456
