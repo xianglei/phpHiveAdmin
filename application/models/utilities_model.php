@@ -206,7 +206,7 @@ class Utilities_model extends CI_Model
 	{
 		$csv = 'hive_res.'. $finger_print .'.csv';
 		$csv_with_path = $this->config->item('result_path') . $csv;
-		if(file_exists($csv))
+		if(file_exists($csv_with_path))
 		{
 			$this->load->helper('number');
 			$file_size = byte_format(filesize($csv_with_path));
