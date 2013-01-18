@@ -1,7 +1,8 @@
 #!/bin/sh
 yum install -y php53 php53-cli php53-devel php53-common httpd httpd-devel php53-mbstring php53-mysql php53-pdo php53-process mysql mysql-devel mysql-server wget lrzsz dos2unix pexpect libxml2 libxml2-devel
 service mysqld start
-mysql -hlocalhost -uroot easyhadoop < easyhadoop.sql
+mysql -e "create database if not exists easyhadoop;"
+mysql -hlocalhost -uroot easyhadoop < phpHiveAdmin.sql
 mkdir -p /var/www/html/phpHiveAdmin
 cp -R * /var/www/html/phpHiveAdmin/
 mkdir -p /var/www/html/phpHiveAdmin/logs
