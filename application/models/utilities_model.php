@@ -202,6 +202,22 @@ class Utilities_model extends CI_Model
 		}
 	}
 	
+	public function get_csv_filesize($finger_print)
+	{
+		$csv = 'hive_res.'. $finger_print .'.csv';
+		$csv_with_path = $this->config->item('result_path') . $csv;
+		if(file_exists($csv))
+		{
+			$this->load->helper('number');
+			$file_size = byte_format(filesize($csv_with_path));
+			return $file_size;
+		}
+		else
+		{
+			return "File not found";
+		}
+	}
+	
 	public function split_sql_cols($finger_print)
 	{
 		$this->load->helper('file');

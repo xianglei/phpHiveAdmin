@@ -256,6 +256,14 @@ class Manage extends CI_Controller
 		$this->load->view('footer');
 	}
 	
+	public function GetResultSize()
+	{
+		$finger_print = $this->uri->segment(3,0);
+		$this->load->model('utilities_model', 'utils');
+		$filesize = $this->utils->get_csv_filesize($finger_print);
+		echo $filesize;
+	}
+	
 	public function DownloadResult()
 	{
 		$finger_print = $this->uri->segment(3,0);
