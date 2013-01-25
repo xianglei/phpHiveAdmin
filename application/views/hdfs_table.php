@@ -29,7 +29,7 @@
 		</tbody>
 	</table>
 <div class="btn-group">
-<a class="btn btn-info" href="fileBrowser.php?dir=/"><i class="icon-eject"></i><?php echo $common_back_to_root;?></a>
+<a class="btn btn-info" href="<?php echo $this->config->base_url();?>index.php/hdfs/index/"><i class="icon-eject"></i><?php echo $common_back_to_root;?></a>
 <a class="btn btn-info" href="javascript:history.back()"><i class="icon-backward"></i><?php echo $common_back;?></a>
 </div>
 <br>
