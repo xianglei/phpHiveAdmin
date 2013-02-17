@@ -1,0 +1,8 @@
+在全新的CentOS Linux操作系统上安装
+1. 下载phpHiveAdmin 0.10.1 BlackWingLair代码并解压缩
+2. 运行 "chmod +x install_centos(x).sh" ( 根据你的操作系统选择相应的脚本，目前支持CentOS 5 和 6 )
+3. 运行 "./install_centos(x).sh"
+4. 打开config.inc.php，修改hive_thrift_host为hiveserver地址，hive_thrift_port为hiveserver端口
+修改hadoop_home, hive_home, java_home为实际安装路径。
+5. 打开浏览器，访问http://your_ip。(不支持IE6)
+6. 默认用户admin，密码123456

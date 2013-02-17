@@ -1,0 +1,383 @@
+0.10.1 BlackWingLair
+1. Re-write world by using MVC framework (CodeIgniter)
+2. User and history administration added
+3. Improve security
+4. Delete some useless link
+5. Improve user interface, more security and pretty, less click
+
+1. 用MVC(CodeIgniter)重写了所有东西
+2. 加入用户管理和历史管理
+3. 增强了安全性
+4. 删除了一些无用的链接
+5. 增强了用户界面，更多的安全性和美化，更少的点击。
+
+-----------------------------------------------------------------------
+
+0.09 beta3
+1. Change UI, using bootstrap(twitter) open source framework
+2. Security Update: Normal user can not see batch drop table button
+3. Remove all icons from phpMyAdmin, replaced with bootstrap icon
+4. Try to fix Double quotes use in HQL, it's always use by regular express
+
+1. 界面大幅改换，使用bootstrap(twitter)开源框架
+2. 安全更新:普通用户不能看到批量删除表按钮
+3. 去掉了原先属于phpMyAdmin的全部图标
+4. 尝试修正双引号在HQL中的使用，通常在使用正则中用到的。
+
+0.09 beta1
+1. Remove Schema ThriftSchema QueryPlan from navigation of top frame, because it seems useless for any one
+2. Fix 2 english words, add Deutsch language translation sets(from google translate)
+3. Bug fix: Fix a session bug, may did a php-fpm lock down when doing a result file download, it caused by using download, but the session file had lost first or session lose effectiveness before.
+4. load data can do a table type judgement, only MANAGED_TABLE and INDEX_TABLE can load data, EXTERNAL_TABLE and VIRTUAL_VIEW can not load data,this will prevent a hadoop filesystem locking bug caused by hive data moving. It's a testing function, I do not sure it will working correctly , but I will improve it step by step.
+5. Add table detail information page. The risk same as above
+6. Fix a bug, that may translate a sql into some unknown character, the problem sql should be like '%'. I found this error when I querying "like '%baidu.com'"
+7. Now support Gzip and Bzip2 compressed data when create a table
+8. Add lines terminator on creating tables, support regular express input, default value is \n, the column terminator character default value set to \t
+9. Alter table name has no longer return a fatal error, and can refresh left frame correctly, And add/drop table can refresh left frame also.
+10. Table name can view in javascript confirm action when doing a drop table action
+11. security update: normal user can not use dfs command.
+12. Rewrite table structure reading code in sqlQuery.php, now for testing, if you got some column name display problem, please rollback to 0.08 beta 2
+13. Alter table has divided to data columns and partition columns, partition column will do drop,add,modify in the future, now for testing, if you got display problem, please rollback to 0.08beta2.
+14. Remove $env['setenv'] variable in config.inc.php, because its useless.
+15. Add HQL auto-complete javascript, Thanks to hivefans(Dongjie Shi)
+16. Fix A Chinese lang displaying error on sqlQuery.php
+
+1. 从顶帧导航中移除了Schema, ThriftSchema和QueryPlan的查看，因为看上去对任何人都没用。
+2. 修正两个英文单词的翻译，加入德语翻译
+3. 错误修正：修正一个session错误，可能在下载一个结果集文件时导致php-fpm进程锁死，原因是点击下载之前，session文件丢失或者session失效。
+4.加载数据现在可以判断表的类型，只有内部表和索引表可以进行数据加载，外部表和虚拟视图不能加载数据，以防止hive的一个数据移动导致hadoop文件系统锁死的bug，测试功能，无法确保完全正确，但会不断改进。
+5. 加入表的详细信息查看页。功能同上
+6. 修复了一个错误，导致把sql语句转换成不可识别的字符，这个出现问题的sql应该是使用了like '%'这样的语句，我发现这个错误是在我查询 like '%baidu.com'的时候发生的
+7. 现在开始支持创建外部表时选择Gzip和Bzip2压缩的数据了
+8. 在创建表的时候加入行分隔符,支持正则输入，默认是\n，列分隔符默认设置为\t
+9. 修改表名现在不会再报错了，并且可以正常刷新左边的导航栏，添加删除表也可以正常刷新左边导航了
+10. 删除表的时候，在确认框中提示表名
+11. 安全更新: 普通用户禁止使用dfs命令
+12. 重写了sqlQuery.php的表结构获取的代码，现在还处于测试中，如果在使用中发现问题，请恢复到0.08b2版本。
+13. 修改表将数据字段与分区字段分离，未来会实现对分区字段的增删改，现在还处于测试中，如果在使用中发现问题，请恢复到0.08b2版本。
+14. 移除config.inc.php中的$env['setenv']变量，因为没用
+15. 加入hql函数和语句自动提醒补全。感谢hivefans(史东杰)提交
+16. 修正sqlQuery.php可能出现的中文显示问题。
+
+
+0.08 beta2
+1. Bug fix: A sql with symbol "plus" (+) in an HQL may cause a fatal error.
+2. Remove all default queries with "limit" by using thrift, all queries are using map/reduce,
+   but add 2 lines preview on sql query inputing page
+3. Simple HQL query Assembler is on developing.
+4. Limited user can not use "set" statment, it means you may not use "set"
+   to create a column name. But maybe hive can not use a keyword to create something.
+5. Regular express delimiter can be used with any symbol when create a new 
+   external table. So it's useful when create a new external table and load data 
+   from "insert overwirte directory" statment by using "\x01" to seprerate the data.
+6. Add delimiter regular express inputing for internal table creation
+7. Bug fix: add fclose to getResult.php
+8. Now you can see query column names on top of result view page.But it may cause a unfriendly display 
+   by using hive functions, such as get_json_object and so on.
+9. Security update: User login change to standard login form. The authentication action
+   changed to precision regular express match, you can change it to POST method
+10. Bug fix: Fix the wrong filename redirect when you click download result button
+11. NonBlockingRun and NonBlockingRun2 functions arranged to one function
+12. Add user define function config array $env['udf'], see INSTALL file for help.
+13. Bug fix: When modify a etl configuration file, the javascript on frontend did not execute.
+    (by hivefans)
+14. Modify INSTALL document, remove useless instructions and better details.
+
+1. 错误修复：包含加号(+)的HQL可能会导致HQL致命错误。
+2. 移除所有使用thrift的默认limit查询，现在所有查询都使用map/reduce.但在查询输入页面加入了2条数据预览
+3. 简单 HQL 查询拼装器正在进行开发.
+4. 受限用户不能使用set语句，同样，你不能使用set来创建字段，不过也许hive本身就不允许用关键字创建
+   什么东西
+5. 可以使用任意正则的符号来作为创建一个新表的分隔符，这在创建新外部表并且从insert overwrite directory  
+   语句加载数据用"\x01"来分割数据时非常有用
+6. 创建内部表加入正则分隔符输入
+7. 错误修复：在getReult页面加入fclose
+8. 获取查询结果页可以现在显示你所查询的字段名。但在使用hive函数时会产生错误，比如get_json_object这样的
+9. 安全更新:用户登录验证改为标准的登录框方式，目前采用GET，可自行修改为POST，验证改为正则精确匹配用户  
+   名密码
+10. 错误修复：修正当你点击下载结果集按钮时指向的错误的文件名。
+11. NonBlockingRun和NonBlockingRun2 函数整合为一个函数
+12. 加入用户自定义函数的命令配置项$env['udf'],查看INSTALL文件获取帮助
+13. 错误修复：修改etl配置文件后，js脚本没执行的bug (hivefans 提交)
+14. 修改INSTALL文档，移除意义不大的设置，更多细节说明
+
+#---------------------------------------------------------------------------------------------------------------------
+
+0.08 beta1 (important security an other update)
+1. Security update: limited user can not doing "create" "drop" "alter" "insert" "load" query with writing an hql.
+2. now the query result file export to standard csv seperated by comma, 
+   you can directly dowload and load it into Microsoft excel or other
+   database like mysql.
+3. Fix a warning by empty log file list
+4. Change Authfile from a text to an ini file, and add arguments of 
+   map/reduce slots limit for limited user. For example "mrslot=2,1" 
+   means 2 maps and 1 reduce, but, may map control not effects. 0,0 
+   means not limited.
+5. Add a simple user guide file, named USER_GUIDE in phpHiveAdmin root path.
+6. Prepare to add auto installation script for first install on next release.
+7. Fix a bug that may cause php process lockdown when doing a big file download.
+8. Fix choose lzo but still use text store as when add a table
+9. Add a new global setting variable named $env['seperator'] in config.inc.php
+   which can set seperator(delimiter) for hive external table
+   source data columns seperates, It will effects function ExportCSV 
+   in libs/classes/class.etc.php.
+10. A standalone HDFS file browser now works, no fuse-dfs or other needed. And
+    remove useless getFilelist.php file.
+
+(重要的安全与其他更新)
+1. 安全更新: 受限用户将不能从hql语句中执行 create drop alter insert load语句
+2. 现在查询结果能直接导出成标准英文逗号分隔的csv文件，你可以直接下载，并可以在微软Excel或其他数据库如mysql直接加载。
+3. 修正日志文件列表为空时的警告错误。
+4. 将验证文件从纯文本改成了ini文件。并且加入了对受限用户的map/reduce槽位控制参数，例如 "mrslots=2,1"意味着2个map和1个reduce，但是map参数可能不发挥作用. 0,0意味着不受限。
+5. 加入简单的用户指南文件，放在phpHiveAdmin的根目录，叫做USER_GUIDE
+6. 准备下一版加入初次安装的自动安装脚本
+7. 修正一个处理大文件下载时可能会导致php进程锁死的错误
+8. 创建表时选择lzo会保存成TEXT已经修正
+9. 在config.inc.php中加入一个新的全局定义变量$env['seperator']，用于设置hive外部表的源数据分隔符格式，在libs/classes/class.etc.php中的ExportCSV函数中发挥作用。
+10. hdfs文件系统浏览现在可以独立的正常工作，不需要fuse-dfs或其他的支持。并且移除了无用的getFilelist.php文件。
+
+#---------------------------------------------------------------------------------------------------------------------
+
+0.07 beta1
+1. While consider for a long long time, I decide that do not use mysql to support phpHiveAdmin now, sorry
+2. Add pagination and filename quicksort order by date desc in history and metaDetail page(Zebra Pagination(LGPL) class support)
+3. For compatibility reason, remove short_tag written in php templates
+4. Fix a javascript bug when doing a drop database action.
+5. Remove useless ./tmp directory
+6. Modify log filename and result filename to date-time format for quick sort
+7. 'Only user' only see their own history files, but except 'all' privilege user.
+8. Fix a bug that a query with chinese utf8 string in it may cause none or zero result, I hope this is the last time I worked with character encoding.
+9. support BASH , SH and CSH settings for query now, recommand to use 'export'(BASH) for default php-fpm user shell in config.inc.php.
+
+1. 经过长时间的考虑，我还是决定暂时不用mysql来支持phpHiveAdmin了，抱歉
+2. 在历史页面和meta数据报告页面增加分页并对文件系统返回的文件名做反向的快速排序。(Zebra Pagination(LGPL)分页类支持)
+3. 基于兼容性的原因，去掉了模板页中的php省略写法
+4. 修正一个删除数据库的javascript错误
+5. 移除无用的./tmp文件夹
+6. 因快速排序需要，将日志文件名和结果集文件名改成了日期-时间格式
+7. 受限用户只能看到受限的历史记录了，所有权为all则不受此限制
+8. 修正一个由于中文utf8编码带来的可能导致查询结果为空或0的问题，我希望这是我最后一次在字符编码上较劲。
+9. 支持BASH, SH, CSH 查询环境变量设置, 强烈建议在config.inc.php中使用'export'(BASH)作为php-fpm的缺省用户的默认shell
+
+#---------------------------------------------------------------------------------------------------------------------
+
+0.06 beta4
+0. define project name to: Molten Core
+1. Add History list and result to phpHiveAdmin
+2. Fix a hyperlink error when cloning a table
+3. Auto remove ` in sql query string when doing a query
+4. Add chinese installation description to INSTALL
+5. More clearly description in config.inc.php, and chinese.
+6. localized to README
+7. page visualization look better now (I'm not good at frontend, sorry for that)
+8. "select * " with where will make a map/reduce query, no more limit error.
+9. Fix doing a sql in command mode bug
+10. Fix possiblly error caesed by complicated query and character encoding(like chinese UTF8 encoding)
+11. Add confirm to drop db.
+12. Stop all development based on filesystem, tune to mysql-based management on next beta release.
+
+
+0. 定义项目名称为：熔火之心
+1. 加入历史查询列表，并可以从历史列表里获取往日查询结果
+2. 修正一个复制表的超链接错误
+3. 自动移除在SQL查询的时候，SQL语句中可能出现的 ` 符号
+4. 在INSTALL文件中增加中文说明
+5. config.inc.php中的说明注释变得更加详细清楚，并加入中文说明
+6. README文件加入中文说明
+7. 页面看上去更好看一点了( 我实在不擅长前端开发,抱歉了各位 )
+8. "select *" 配合where时将执行map/reduce操作，而不会再报一个limit错误
+9. 修正一个命令行查询sql的错误
+10. 修正一些复杂查询和字符编码(例如汉字)，可能会带来的执行错误
+11. 删除数据库增加确认
+12. 停止一切基于文件系统的开发，从下个版本开始，将调整为基于mysql管理phpHiveAdmin相关数据。
+
+#---------------------------------------------------------------------------------------------------------------------
+
+03-28-2012
+0.06 beta3
+1. Can add and drop column(s) with a table by using alterTable
+2. Remove some useless $env variables
+3. add back link to metaDetail.php
+4. put some html to templates/
+5. Add AS select_statment when create an internal table(hive 0.5.0 up).
+6. can use RCFile selection when create a table (hive 0.6.0 up).
+7. Now can clone a new table from an exist table.
+8. Fix a create internal table bug caused by table comment
+9. Add most pages back link to dbStructure.php
+
+0.06 beta3
+1. 使用修改表，可以添加和删除单个字段
+2. 移除一些无用的$env变量
+3. 在metaDetail.php添加返回连接
+4. 将部分html剥离放入 templates文件夹
+5. 加入在创建一个内部表的时候添加 AS select条件创建方式(hive 0.5.0以上版本)
+6. 创建表时，可以选择RCFile文件输入(hive 0.6.0以上版本)
+7. 现在可以从一个已经存在的表结构复制出新表
+8. 修复一个创建内部表时表注释引发的bug
+9. 增加其他页面到dbStructure.php的返回连接
+
+#---------------------------------------------------------------------------------------------------------------------
+
+03-23-2012
+0.06 beta2
+1. Can add and drop SCHEMA now, add create database query with "if not exists" and drop database query with "if exists".
+2. Now can create partitions when create a new table, and can detect if input is valid when do create table action.
+3. Add "Meta data summury" on top frame, now can show metastore data (mysql only, but pgsql and derby soon).
+4. Arrange some code into OOP mode.
+5. Re-write execETL to prevent the big data out-of-memory crash of php.
+6. Some logical detection improved.
+7. Language improved.
+8. External Internal when did a create table action change to "select" method, default is "External" if not select.
+9. lzop checkbox replaced with a select method, can set to TEXT, LZOP, Sequece File. Gzip and bzip2 are on the way.
+10. MAP,ARRAY,STRUCTURE data types are planning set into PHA.
+11. new Class action set to each page which used it only by itself, to save memory use.
+
+0.06 beta2
+1. 可以添加删除SCHEMA, 创建和删除数据库的时候增加判断if not exists 和 if exists
+2. 现在可以在创建表的同时创建partition字段，并且会校验选项输入是否合法。
+3. 在顶部导航加入元数据汇总连接，可以查看元数据汇报(目前仅支持mysql，pgsql和derby正在开发)
+4. 将部分代码整理为OOP方式.
+5. 将execETL部分重写，以防止php的大数据导致内存溢出
+6. 增强了一些逻辑的判断
+7. 改进了语言部分
+8. 创建表时所选择内部外部表，改成select方式，并且默认是创建外部表。
+9. lzop的checkbox被替换成了select方式，现在可以选择TEXT, LZOP, 序列化文件，正在筹划编写GZIP和BZIP2
+10 MAP,ARRAY,STRUCTURE数据类型计划会放入phpHiveAdmin
+11. php创建对象的动作被单独放入每个页面创建并销毁，用来节省内存。
+
+#---------------------------------------------------------------------------------------------------------------------
+
+03-15-2012
+0.06 beta1
+1. Fix php header error caused by UTF-8 BOM on all pages. I hate this byte.
+2. Add username,password and onlydb authorize function, can show only db for only user now. But I did't make this as a standard authrication, but you can change it as you wish by setup config.inc.php , simply add a new line on accesslist(not encrypt yet, but soon it will be).
+3.Start arrange codes into OOP mode.
+
+0.06 beta1
+1. 修复UTF-8 BOM字节导致的php header输出错误
+2. 加入用户名，密码，和onlydb验证函数，能够为低权限用户限制数据库的查看,但是我没有将其做成标准的验证，你可以自己稍微修改一下。
+3. 开始用OOP方式整理代码。
+
+#---------------------------------------------------------------------------------------------------------------------
+
+03-09-2012
+0.05 beta2
+Milestone!!!
+1. Re-write all sql Query page, complicated query can watch map/reduce progress from a realtime refresh frame now!!!
+(It's very hard to using non-blocking mode to get stderr output and async refresh in php :( )
+2. Change the result getting method, big result now can download from server, to prevent a php out of memory crash.
+3. Simple query with 'limit' is still using thrift interface to get data.
+4. To use download result function, please make sure phpHiveAdmin/tmp is under the correct permissions.
+
+0.05 beta2
+里程碑
+1. 重写了所有的hql查询页面，复杂查询可以直接从一个自刷新的frame监控map/reduce进度!!!
+(用异步和非阻塞的方式获取系统的stderr十分的困难，但是办到了)
+2.改变结果集获取方式，大结果集现在可以直接从服务器下载，防止出现php内存溢出
+3. 带limit的简单查询仍然使用thrift接口进行查询
+4. 使用下载结果集功能。请确保phpHiveAdmin/tmp目录被设置了正确的权限
+
+#---------------------------------------------------------------------------------------------------------------------
+
+﻿02-24-2012
+0.05 beta1
+1. a simple ETL function had been added, setting up an ini file can
+ do HIVE --> mysql ETL job. It's experimental!!!
+
+0.05 beta1
+1. 增加了一个简单的ETL功能， 可以通过简单的设置一个ini文件，来进行hive到mysql的ETL，不过这是实验性质的，后果自负。
+
+#---------------------------------------------------------------------------------------------------------------------
+
+02-17-2012
+0.04 beta1
+1. now can create extenal table and specify an HDFS path to load pure 
+ text or lzo compressed data into the new table with addTable.php 
+format : hdfs:///data/datawash/log/ 
+2. can load data from local file and hdfs by using 'Load' label on 
+ sqlQuery page
+3. add drop database to dbStructure
+4. ETL to mysql by setting an ini_file -- still plannning :(  
+
+0.04 beta1
+1. 现在可以创建外部表，并制定HDFS来加载纯文本或者lzo压缩的数据。
+2. 可以在sqlQuery页面从本地文件或HDFS加载数据
+3. 在dbStructure增加删除数据库连接
+4. 用设置ini文件设置ETL到mysql的方式---还在计划中
+
+#---------------------------------------------------------------------------------------------------------------------
+
+02-16-2012
+0.03
+1. add drop database
+2. alter table can modify comment
+3. an exist table can add columns
+4. a lot of link errors
+
+0.03
+1. 增加删除数据库
+2. 修改表结构可以修改表注释
+3. 一个存在的表可以添加列
+4. 修复很多连接错误
+
+#---------------------------------------------------------------------------------------------------------------------
+
+02-15-2012
+0.02 beta1
+
+1. Add create table.
+2. Add alter table name (must be rooted php, or it will throw a fatal
+ error, but table name can be still changed).
+3. Add drop table link to drop an exist table 
+4. Reconstruct alter table page, it looks better now. 
+5. add some icons from phpMyAdmin which made UI better.
+ 
+0.02 beta1
+1. 增加创建表
+2. 增加修改表名(必须用root破解的php，否则会报出一个致命错误，但是表名仍然会被修改)
+3. 增加删除表的连接
+4. 重构了修改表结构页面，看起来更舒服了
+5. 从phpMyAdmin里面扒来了一些小图片让界面看上去更好一点
+
+#---------------------------------------------------------------------------------------------------------------------
+
+02-13-2012
+0.01 beta3
+
+add File Browser which can browse hdfs filesystem , important notice: 
+Need libhdfs,fuse-dfs and you should mount hdfs to local filesystem.
+
+0.01 beta3
+增加文件浏览器，可以浏览hdfs系统，重要：
+需要libhdfs, fuse-dfs，并且你需要把hdfs mount为本地系统
+
+#---------------------------------------------------------------------------------------------------------------------
+
+02-13-2012
+0.01 beta2
+
+30 results limit may cause query bug, so remove it, added alter table
+ properties to phpHiveAdmin can change field name and field
+ property(string int ...) Download
+ 
+0.01 beta2
+30条结果的强制限制会引发错误，所以移除掉，增加修改表，并可以修改字段名和字段属性
+
+#---------------------------------------------------------------------------------------------------------------------
+
+02-07-2012
+0.01 beta1
+
+To prevent big result data making a browser crash, I strongly suggest
+ you wrote a 'limit' in your sql query string, if you didn't, it will
+ add 30 results limit by default.
+
+modify some bug and now can be doing sql query. Add export csv data
+ link to phphiveadmin, but I suggest you'd better do a sql query first
+ before you did an export action. 
+ 
+0.01 beta1
+为防止大结果集导致的浏览器故障，我强烈建议在hsql查询中加入limit，如果没有，将会强制增加30条结果限制
+修改了一些bug，并可做hql查询。 增加导出csv连接, 但是我强烈建议你在导出结果前做一个sql查询的校验。
+
+#---------------------------------------------------------------------------------------------------------------------
