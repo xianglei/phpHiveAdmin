@@ -8,7 +8,7 @@ class History extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'index.php/user/login/');
+			redirect($this->config->base_url() . 'user/login/');
 		}
 	}
 	
@@ -37,7 +37,7 @@ class History extends CI_Controller
 		
 		$this->load->model('history_model', 'history');
 		$this->load->library('pagination');
-		$config['base_url'] = $this->config->base_url() . 'index.php/history/index/';
+		$config['base_url'] = $this->config->base_url() . 'history/index/';
 		$config['total_rows'] = $this->history->count_history($this->session->userdata('role'));
 		$config['per_page'] = 30;
 		$offset = $this->uri->segment(3,0);
@@ -76,7 +76,7 @@ class History extends CI_Controller
 		$this->load->model('history_model', 'history');
 		$this->history->batch_drop_history($history_ids);
 		$this->load->helper('url');
-		redirect($this->config->base_url(). 'index.php/history/index/', "0", "refresh");
+		redirect($this->config->base_url(). 'history/index/', "0", "refresh");
 	}
 }
 

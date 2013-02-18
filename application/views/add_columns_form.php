@@ -1,6 +1,6 @@
 <div class="span10">
 
-<form method="post" action="<?php echo $this->config->base_url();?>index.php/table/addcolumnsaction/">
+<form method="post" action="<?php echo $this->config->base_url();?>table/addcolumnsaction/">
 	<!--columns area-->
 	<table class="table table-bordered table-striped">
 		<tr class="info">

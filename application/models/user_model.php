@@ -30,7 +30,7 @@ class User_model extends CI_Model
 			{
 				$login = FALSE;
 				$this->load->helper('url');
-				redirect($this->config->base_url().'index.php/user/login/');
+				redirect($this->config->base_url().'user/login/');
 			}
 		}
 	}

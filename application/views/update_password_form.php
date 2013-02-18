@@ -1,6 +1,6 @@
 <div class="span10">
 
-	<form action="<?php echo $this->config->base_url();?>index.php/user/changepasswordaction/" method="post">
+	<form action="<?php echo $this->config->base_url();?>user/changepasswordaction/" method="post">
 		<table class="table table-bordered table-striped table-hover">
 			<tr>
 				<td><?php echo $common_password;?></td>

@@ -10,6 +10,6 @@
 	</div>
 	<div class="modal-footer">
 		<button class="btn" data-dismiss="modal"><?php echo $common_close;?></button>
-		<a class="btn btn-danger" href="<?php echo $this->config->base_url() . "index.php/table/droptable/" . $var_db_name . "/" . $table_name;?>"><?php echo $common_submit;?></a>
+		<a class="btn btn-danger" href="<?php echo $this->config->base_url() . "table/droptable/" . $var_db_name . "/" . $table_name;?>"><?php echo $common_submit;?></a>
 	</div>
 </div>

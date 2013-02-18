@@ -1,5 +1,5 @@
 <div class="span10">
-	<form method="post" action="<?php echo $this->config->base_url();?>index.php/table/loaddataaction/">
+	<form method="post" action="<?php echo $this->config->base_url();?>table/loaddataaction/">
 	<?php echo $common_load_data_comment;?><br>
 		<table class="table table-bordered">
 			

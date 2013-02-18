@@ -10,6 +10,6 @@
 	</div>
 	<div class="modal-footer">
 		<button class="btn" data-dismiss="modal"><?php echo $common_close;?></button>
-		<a class="btn btn-danger" href="<?php echo $this->config->base_url() . "index.php/hive/dropdatabase/" . $var_db_name;?>"><?php echo $common_submit;?></a>
+		<a class="btn btn-danger" href="<?php echo $this->config->base_url() . "hive/dropdatabase/" . $var_db_name;?>"><?php echo $common_submit;?></a>
 	</div>
 </div>

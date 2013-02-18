@@ -27,7 +27,7 @@
 	}
 	
 	</script>
-	<form method="post" action="<?php echo $this->config->base_url();?>index.php/history/batchdrophistory/">
+	<form method="post" action="<?php echo $this->config->base_url();?>history/batchdrophistory/">
 	<table class="table table-bordered table-striped table-hover">
 		<thead>
 			<tr class="success">
@@ -51,7 +51,7 @@
 				$filename['log_with_path'] = $this->config->item('log_path') . $item->username . "_" . $item->fingerprint . ".log";
 				$filename['log'] = $item->username . "_" . $item->fingerprint . ".log";
 				?>
-				<td><a href="<?php echo $this->config->base_url();?>index.php/manage/getresult/<?php echo $item->fingerprint;?>" target="_blank"><?php echo $filename['log'];?></td>
+				<td><a href="<?php echo $this->config->base_url();?>manage/getresult/<?php echo $item->fingerprint;?>" target="_blank"><?php echo $filename['log'];?></td>
 				<?php
 				$this->load->helper('file');
 				try

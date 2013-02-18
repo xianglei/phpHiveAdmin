@@ -4,7 +4,7 @@ function GetQueryPlan()
 {
 	var hsql = document.getElementById('sql').value;
 	
-	$.post('<?php echo $this->config->base_url();?>index.php/manage/getqueryplan/' , {sql:hsql}, function(html){
+	$.post('<?php echo $this->config->base_url();?>manage/getqueryplan/' , {sql:hsql}, function(html){
 		html = html;
 		$('#query_plan').empty();
 		$('#query_plan').html(hsql + '<br /><br />' + html);

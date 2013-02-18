@@ -57,5 +57,5 @@
 	</table>
 	</div>
 	
-	<a href="<?php echo $this->config->base_url();?>index.php/table/index/<?php echo $var_db_name;?>" class="btn btn-primary"><?php echo $common_back;?></a>
+	<a href="<?php echo $this->config->base_url();?>table/index/<?php echo $var_db_name;?>" class="btn btn-primary"><?php echo $common_back;?></a>
 </div>

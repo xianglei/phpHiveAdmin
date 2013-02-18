@@ -12,7 +12,7 @@ class User extends CI_Controller
 		if($this->session->userdata('role') == 'user')
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'index.php/user/changepassword/');
+			redirect($this->config->base_url() . 'user/changepassword/');
 		}
 		#Generate Header
 		$this->lang->load('commons');
@@ -123,7 +123,7 @@ class User extends CI_Controller
 			echo "Password not matched";
 		}
 		$this->load->helper('url');
-		redirect($this->config->base_url() . 'index.php/user/index/', '1', "refresh");
+		redirect($this->config->base_url() . 'user/index/', '1', "refresh");
 	}
 	
 	public function DropUserAction()
@@ -133,7 +133,7 @@ class User extends CI_Controller
 		
 		$this->user->drop_user($user_id);
 		$this->load->helper('url');
-		redirect($this->config->base_url() . 'index.php/user/index/', '0', "refresh");
+		redirect($this->config->base_url() . 'user/index/', '0', "refresh");
 	}
 	
 	public function UpdateUserAction()
@@ -159,7 +159,7 @@ class User extends CI_Controller
 			echo "Password not matched";
 		}
 		$this->load->helper('url');
-		redirect($this->config->base_url() . 'index.php/user/index/', '1', "refresh");
+		redirect($this->config->base_url() . 'user/index/', '1', "refresh");
 	}
 	
 	public function LogOut()
@@ -240,7 +240,7 @@ class User extends CI_Controller
 			echo "Password not matched";
 		}
 		$this->load->helper('url');
-		redirect($this->config->base_url() . 'index.php/user/index/', '1', "refresh");
+		redirect($this->config->base_url() . 'user/index/', '1', "refresh");
 	}
 }
 

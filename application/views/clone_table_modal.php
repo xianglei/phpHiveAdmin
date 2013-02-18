@@ -1,5 +1,5 @@
 <div id="clone_table_<?php echo $table_name?>" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<form method="post" action="<?php echo $this->config->base_url() . "index.php/table/clonetable/";?>">
+	<form method="post" action="<?php echo $this->config->base_url() . "table/clonetable/";?>">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 		<h3 id="myModalLabel"><?php echo $common_clone_table;?></h3>
