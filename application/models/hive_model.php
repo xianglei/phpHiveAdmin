@@ -4,6 +4,7 @@ class Hive_model extends CI_Model
 {
 	public $hive_host;
 	public $hive_port;
+	public $socket;
 	public $transport;
 	public $protocol;
 	public $hive;
@@ -19,7 +20,10 @@ class Hive_model extends CI_Model
 		
 		$this->hive_host = $this->config->item('hive_host');
 		$this->hive_port = $this->config->item('hive_port');
-		$this->transport = new TSocket($this->hive_host, $this->hive_port);
+		$this->socket = new TSocket($this->hive_host, $this->hive_port);
+		$this->socket->setSendTimeout(30000);
+		$this->socket->setRecvTimeout(30000);
+		$this->transport = new TBufferedTransport($this->socket);
 		$this->protocol = new TBinaryProtocol($this->transport);
 		$this->hive = new ThriftHiveClient($this->protocol);
 	}
