@@ -8,6 +8,8 @@ class User_model extends CI_Model
 
 	public function login_action($username, $password)
 	{
+		$username = htmlspecialchars($username);
+		$password = htmlspecialchars($password);
 		if(!empty($username) && !empty($password))
 		{
 			$sql="select * from ehm_pha_user where username='".$username."' and password='".md5($password)."'";
@@ -51,6 +53,8 @@ class User_model extends CI_Model
 	
 	public function update_user($id, $username, $password, $onlydb, $role, $reduce="0", $description)
 	{
+		$username = htmlspecialchars($username);
+		$password = htmlspecialchars($password);
 		if($password != "")
 		{
 			$sql = "update ehm_pha_user set username = '" . $username . "', password = '" . md5($password) . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
