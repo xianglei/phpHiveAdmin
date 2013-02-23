@@ -12,7 +12,7 @@ class User_model extends CI_Model
 		$password = htmlspecialchars($password);
 		if(!empty($username) && !empty($password))
 		{
-			$sql="select * from ehm_pha_user where username='".$username."' and password='".md5($password)."'";
+			$sql="select * from ehm_pha_user where username='".mysql_real_escape_string($username)."' and password='".md5($password)."'";
 			$query = $this->db->query($sql);
 			if ($query->num_rows() > 0)
 			{
