@@ -4,15 +4,28 @@ class User_model extends CI_Model
 	public function __construct()
 	{ 
 		parent::__construct();
-	} 
+	}
+	
+	public function check_login($value)
+	{
+		if(get_magic_quotes_gpc())
+		{
+			$value = stripslashes($value);
+		}
+		if(!is_numeric($value))
+		{
+			$value = "'" . mysql_real_escape_string($value) . "'";
+		}
+		return $value;
+	}
 
 	public function login_action($username, $password)
 	{
-		$username = htmlspecialchars($username);
-		$password = htmlspecialchars($password);
+		$username = self::check_login(htmlspecialchars($username));
+		$password = self::check_login(htmlspecialchars($password));
 		if(!empty($username) && !empty($password))
 		{
-			$sql="select * from ehm_pha_user where username='".$username."' and password='".md5($password)."'";
+			$sql="select * from ehm_pha_user where username=".$username." and password='".md5($password)."'";
 			$query = $this->db->query($sql);
 			if ($query->num_rows() > 0)
 			{

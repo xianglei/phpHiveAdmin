@@ -1,3 +1,12 @@
+0.10.2 BlackWingLair
+xss filter set to true, and username password add htmlspecialchar to prevent sql injection and xss attack
+fix TSocket.php while loop exception while connection failed
+add result file size counter
+remove useless js and realtime mr slots status(but still keep codes)
+fix force download
+user can view all database without onlydb string.(but user can not use admin functions)
+
+
 0.10.1 BlackWingLair
 1. Re-write world by using MVC framework (CodeIgniter)
 2. User and history administration added

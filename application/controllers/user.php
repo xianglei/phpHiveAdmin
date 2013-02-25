@@ -9,6 +9,11 @@ class User extends CI_Controller
 	
 	public function Index()
 	{
+		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
+		{
+			$this->load->helper('url');
+			redirect($this->config->base_url() . 'user/login/');
+		}
 		if($this->session->userdata('role') == 'user')
 		{
 			$this->load->helper('url');
