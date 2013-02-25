@@ -62,7 +62,8 @@ class User extends CI_Controller
 		$data['common_update_user'] = $this->lang->line('common_update_user');
 		$data['common_drop_user'] = $this->lang->line('common_drop_user');
 		$data['common_delete'] = $this->lang->line('common_delete');
-		$data['user_list'] = $this->user->get_user_list();
+		$login = $this->session->userdata('login');
+		$data['user_list'] = $this->user->get_user_list($login);
 		
 		$this->load->view('user_list', $data);
 		$this->load->view('create_user_modal', $data);
@@ -109,6 +110,11 @@ class User extends CI_Controller
 	
 	public function CreateUserAction()
 	{
+		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
+		{
+			$this->load->helper('url');
+			redirect($this->config->base_url() . 'user/login/');
+		}
 		$this->load->model('user_model', 'user');
 		$username = $this->input->post('username');
 		$password = $this->input->post('password');
@@ -117,10 +123,11 @@ class User extends CI_Controller
 		$role = $this->input->post('role');
 		$reduce = $this->input->post('reduce');
 		$description = $this->input->post('description');
+		$admin_role = $this->session->userdata('role');
 		
 		if($password == $repassword)
 		{
-			$this->user->create_user($username, $password, $onlydb, $role, $reduce=0, $description);
+			$this->user->create_user($username, $password, $onlydb, $role, $reduce=0, $description, $admin_role);
 			echo "Successed";
 		}
 		else
@@ -133,16 +140,26 @@ class User extends CI_Controller
 	
 	public function DropUserAction()
 	{
+		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
+		{
+			$this->load->helper('url');
+			redirect($this->config->base_url() . 'user/login/');
+		}
 		$this->load->model('user_model', 'user');
 		$user_id = $this->input->post('user_id');
 		
-		$this->user->drop_user($user_id);
+		$this->user->drop_user($user_id, $this->session->userdata('role'));
 		$this->load->helper('url');
 		redirect($this->config->base_url() . 'user/index/', '0', "refresh");
 	}
 	
 	public function UpdateUserAction()
 	{
+		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
+		{
+			$this->load->helper('url');
+			redirect($this->config->base_url() . 'user/login/');
+		}
 		$this->load->model('user_model', 'user');
 		$user_id = $this->input->post('user_id');
 		
@@ -153,6 +170,7 @@ class User extends CI_Controller
 		$role = $this->input->post('role');
 		$reduce = $this->input->post('reduce');
 		$description = $this->input->post('description');
+		$admin_role = $this->session->userdata('role');
 		
 		if($password == $repassword)
 		{
@@ -169,6 +187,11 @@ class User extends CI_Controller
 	
 	public function LogOut()
 	{
+		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
+		{
+			$this->load->helper('url');
+			redirect($this->config->base_url() . 'user/login/');
+		}
 		$this->load->model('user_model', 'user');
 		$this->user->log_out();
 		$this->load->helper('url');
@@ -177,6 +200,11 @@ class User extends CI_Controller
 	
 	public function ChangePassword()
 	{
+		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
+		{
+			$this->load->helper('url');
+			redirect($this->config->base_url() . 'user/login/');
+		}
 		#Generate Header
 		$this->lang->load('commons');
 		$this->lang->load('errors');
@@ -216,7 +244,7 @@ class User extends CI_Controller
 		$data['common_add_user'] = $this->lang->line('common_add_user');
 		$this->load->view('user_nav_bar', $data);
 		$this->load->model('user_model', 'user');
-		$result = $this->user->get_user($this->session->userdata('id'));
+		$result = $this->user->get_user($this->session->userdata('id'), $this->session->userdata('login'));
 		$data['result'] = $result;
 		
 		$this->load->view('update_password_form', $data);
@@ -231,14 +259,40 @@ class User extends CI_Controller
 	
 	public function ChangePasswordAction()
 	{
+		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
+		{
+			$this->load->helper('url');
+			redirect($this->config->base_url() . 'user/login/');
+		}
 		$this->load->model('user_model', 'user');
 		$user_id = $this->input->post('user_id');
 		$password = $this->input->post('password');
 		$repassword = $this->input->post('repassword');
+		$self_id = $this->session->userdata('id');
+		$role = $this->session->userdata('role');
 		if($password == $repassword)
 		{
-			$this->user->update_password($user_id, $password);
-			echo "Successed";
+			if($role == "user")
+			{
+				if($self_id == $user_id)
+				{
+					$this->user->update_password($user_id, $password);
+					echo "Successed";
+				}
+				else
+				{
+					echo "Not yourself";
+				}
+			}
+			elseif($role == "admin")
+			{
+				$this->user->update_password($user_id, $password);
+				echo "Successed";
+			}
+			else
+			{
+				echo "Unknown role";
+			}
 		}
 		else
 		{

@@ -50,13 +50,20 @@ class User_model extends CI_Model
 		}
 	}
 	
-	public function create_user($username, $password, $onlydb, $role = "user", $reduce = '2', $description)
+	public function create_user($username, $password, $onlydb, $role = "user", $reduce = '2', $description, $admin_role)
 	{
 		#role must be user | admin
-		$sql = "insert ehm_pha_user set username = '" . $username . "', password = '" . md5($password) . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "'";
-		if($this->db->simple_query($sql))
+		if($admin_role == "admin")
 		{
-			return '{"status":"success"}';
+			$sql = "insert ehm_pha_user set username = '" . $username . "', password = '" . md5($password) . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "'";
+			if($this->db->simple_query($sql))
+			{
+				return '{"status":"success"}';
+			}
+			else
+			{
+				return '{"status":"fail"}';
+			}
 		}
 		else
 		{
@@ -64,21 +71,28 @@ class User_model extends CI_Model
 		}
 	}
 	
-	public function update_user($id, $username, $password, $onlydb, $role, $reduce="0", $description)
+	public function update_user($id, $username, $password, $onlydb, $role, $reduce="0", $description, $admin_role)
 	{
-		$username = htmlspecialchars($username);
-		$password = htmlspecialchars($password);
-		if($password != "")
+		$username = self::check_login(htmlspecialchars($username));
+		$password = self::check_login(htmlspecialchars($password));
+		if($admin_role == "admin")
 		{
-			$sql = "update ehm_pha_user set username = '" . $username . "', password = '" . md5($password) . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
-		}
-		else
-		{
-			$sql = "update ehm_pha_user set username = '" . $username . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
-		}
-		if($this->db->simple_query($sql))
-		{
-			return '{"status":"success"}';
+			if($password != "")
+			{
+				$sql = "update ehm_pha_user set username = '" . $username . "', password = '" . md5($password) . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
+			}
+			else
+			{
+				$sql = "update ehm_pha_user set username = '" . $username . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
+			}
+			if($this->db->simple_query($sql))
+			{
+				return '{"status":"success"}';
+			}
+			else
+			{
+				return '{"status":"fail"}';
+			}
 		}
 		else
 		{
@@ -86,38 +100,45 @@ class User_model extends CI_Model
 		}
 	}
 	
-	public function drop_user($id)
+	public function drop_user($id, $admin_role)
 	{
-		$sql = "select user.username as username,job.fingerprint as fingerprint from ehm_pha_user user, ehm_pha_history_job job where user.id = '". $id ."' and user.username = job.username";
-		$query = $this->db->query($sql);
-		$result = @$query->result();
-		$this->load->model('utilities_model', 'utils');
-		$username = @$result[0]->username;
-		foreach(@$result as $row)
+		if($admin_role == "admin")
 		{
-			$username = $row->username;
-			$finger_print = $row->fingerprint;
-			$filename = $this->utils->make_filename($finger_print);
-			$log = $username .  "_" . $finger_print . ".log";
-			$log_with_path = $this->config->item('log_path') . $log;
-			try
+			$sql = "select user.username as username,job.fingerprint as fingerprint from ehm_pha_user user, ehm_pha_history_job job where user.id = '". $id ."' and user.username = job.username";
+			$query = $this->db->query($sql);
+			$result = @$query->result();
+			$this->load->model('utilities_model', 'utils');
+			$username = @$result[0]->username;
+			foreach(@$result as $row)
 			{
-				@unlink($log_with_path);
-				@unlink($filename['csv_with_path']);
-				@unlink($filename['run_with_path']);
+				$username = $row->username;
+				$finger_print = $row->fingerprint;
+				$filename = $this->utils->make_filename($finger_print);
+				$log = $username .  "_" . $finger_print . ".log";
+				$log_with_path = $this->config->item('log_path') . $log;
+				try
+				{
+					@unlink($log_with_path);
+					@unlink($filename['csv_with_path']);
+					@unlink($filename['run_with_path']);
+				}
+				catch (Exception $e)
+				{
+					echo 'Caught exception: '.  $e->getMessage(). "\n";
+				}
 			}
-			catch (Exception $e)
-			{
-				echo 'Caught exception: '.  $e->getMessage(). "\n";
-			}
-		}
 		
-		$sql = "delete from ehm_pha_user where id = '" . $id . "'";
-		$this->db->simple_query($sql);
-		$sql = "delete from ehm_pha_history_job where username = '".$username."'";
-		if($this->db->simple_query($sql))
-		{
-			return '{"status":"success"}';
+			$sql = "delete from ehm_pha_user where id = '" . $id . "'";
+			$this->db->simple_query($sql);
+			$sql = "delete from ehm_pha_history_job where username = '".$username."'";
+			if($this->db->simple_query($sql))
+			{
+				return '{"status":"success"}';
+			}
+			else
+			{
+				return '{"status":"fail"}';
+			}
 		}
 		else
 		{
@@ -130,20 +151,34 @@ class User_model extends CI_Model
 		$this->session->sess_destroy();
 	}
 	
-	public function get_user($id)
+	public function get_user($id, $login)
 	{
-		$sql = "select * from ehm_pha_user where id = '" . $id . "'";
-		$query = $this->db->query($sql);
-		$result = $query->result();
-		return $result[0];//object
+		if($login == TRUE)
+		{
+			$sql = "select * from ehm_pha_user where id = '" . $id . "'";
+			$query = $this->db->query($sql);
+			$result = $query->result();
+			return $result[0];//object
+		}
+		else
+		{
+			return "Not logged in";
+		}
 	}
 	
-	public function get_user_list()
+	public function get_user_list($login)
 	{
-		$sql = "select * from ehm_pha_user where username != 'admin'";
-		$query = $this->db->query($sql);
-		$result = $query->result();
-		return $result;// object array need foreach to fetch it
+		if($login == TRUE)
+		{
+			$sql = "select * from ehm_pha_user where username != 'admin' order by username";
+			$query = $this->db->query($sql);
+			$result = $query->result();
+			return $result;// object array need foreach to fetch it
+		}
+		else
+		{
+			return "Not logged in";
+		}
 	}
 	
 	public function update_password($user_id, $password)
