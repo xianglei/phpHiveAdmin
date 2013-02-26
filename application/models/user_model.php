@@ -22,10 +22,10 @@ class User_model extends CI_Model
 	public function login_action($username, $password)
 	{
 		$username = self::check_login(htmlspecialchars($username));
-		$password = self::check_login(htmlspecialchars($password));
+		$password = htmlspecialchars($password);
 		if(!empty($username) && !empty($password))
 		{
-			$sql="select * from ehm_pha_user where username=".$username." and password=".md5($password);
+			$sql="select * from ehm_pha_user where username=".$username." and password='".md5($password)."'";
 			$query = $this->db->query($sql);
 			if ($query->num_rows() > 0)
 			{
@@ -74,12 +74,12 @@ class User_model extends CI_Model
 	public function update_user($id, $username, $password, $onlydb, $role, $reduce="0", $description, $admin_role)
 	{
 		$username = self::check_login(htmlspecialchars($username));
-		$password = self::check_login(htmlspecialchars($password));
+		$password = htmlspecialchars($password);
 		if($admin_role == "admin")
 		{
 			if($password != "")
 			{
-				$sql = "update ehm_pha_user set username = " . $username . ", password = " . md5($password) . ", onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
+				$sql = "update ehm_pha_user set username = " . $username . ", password = '" . md5($password) . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
 			}
 			else
 			{
