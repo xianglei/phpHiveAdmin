@@ -25,7 +25,7 @@ class User_model extends CI_Model
 		$password = self::check_login(htmlspecialchars($password));
 		if(!empty($username) && !empty($password))
 		{
-			$sql="select * from ehm_pha_user where username=".$username." and password='".md5($password)."'";
+			$sql="select * from ehm_pha_user where username=".$username." and password=".md5($password);
 			$query = $this->db->query($sql);
 			if ($query->num_rows() > 0)
 			{
@@ -79,7 +79,7 @@ class User_model extends CI_Model
 		{
 			if($password != "")
 			{
-				$sql = "update ehm_pha_user set username = '" . $username . "', password = '" . md5($password) . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
+				$sql = "update ehm_pha_user set username = " . $username . ", password = " . md5($password) . ", onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
 			}
 			else
 			{
