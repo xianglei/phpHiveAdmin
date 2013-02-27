@@ -14,7 +14,7 @@ class User_model extends CI_Model
 		}
 		if(!is_numeric($value))
 		{
-			$value = "'" . mysql_real_escape_string($value) . "'";
+			$value = mysql_real_escape_string($value);
 		}
 		return $value;
 	}
@@ -22,10 +22,10 @@ class User_model extends CI_Model
 	public function login_action($username, $password)
 	{
 		$username = self::check_login(htmlspecialchars($username));
-		$password = htmlspecialchars($password);
+		$password = self::check_login(htmlspecialchars($password));
 		if(!empty($username) && !empty($password))
 		{
-			$sql="select * from ehm_pha_user where username=".$username." and password='".md5($password)."'";
+			$sql="select * from ehm_pha_user where username='".$username."' and password='".md5($password)."'";
 			$query = $this->db->query($sql);
 			if ($query->num_rows() > 0)
 			{
@@ -53,6 +53,8 @@ class User_model extends CI_Model
 	public function create_user($username, $password, $onlydb, $role = "user", $reduce = '2', $description, $admin_role)
 	{
 		#role must be user | admin
+		$username = self::check_login(htmlspecialchars($username));
+		$password = self::check_login(htmlspecialchars($password));
 		if($admin_role == "admin")
 		{
 			$sql = "insert ehm_pha_user set username = '" . $username . "', password = '" . md5($password) . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "'";
@@ -74,12 +76,12 @@ class User_model extends CI_Model
 	public function update_user($id, $username, $password, $onlydb, $role, $reduce="0", $description, $admin_role)
 	{
 		$username = self::check_login(htmlspecialchars($username));
-		$password = htmlspecialchars($password);
+		$password = self::check_login(htmlspecialchars($password));
 		if($admin_role == "admin")
 		{
 			if($password != "")
 			{
-				$sql = "update ehm_pha_user set username = " . $username . ", password = '" . md5($password) . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
+				$sql = "update ehm_pha_user set username = '" . $username . "', password = '" . md5($password) . "', onlydb = '" . $onlydb . "', role = '" . $role . "', reduce = '" . $reduce . "', description = '" . $description . "' where id = '" . $id . "'";
 			}
 			else
 			{
@@ -183,6 +185,7 @@ class User_model extends CI_Model
 	
 	public function update_password($user_id, $password)
 	{
+		$password = self::check_login(htmlspecialchars($password));
 		if($password != "")
 		{
 			$sql = "update ehm_pha_user set password = '" . md5($password) . "' where id = '". $user_id ."'";
