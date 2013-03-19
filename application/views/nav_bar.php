@@ -24,6 +24,11 @@
 						<?php echo $common_hdfs_browser;?>
 					</a>
 				</li>
+				<li <?php if($this->router->class == "templates"){ echo "class=\"active\"";}?>>
+					<a href="<?php echo $this->config->base_url();?>templates/index/">
+						<?php echo $common_templates;?>
+					</a>
+				</li>
 				<li <?php if($this->router->class == "user"){ echo "class=\"active\"";}?>>
 					<a href="<?php echo $this->config->base_url();?>user/index/">
 						<?php echo $common_user_admin;;?>

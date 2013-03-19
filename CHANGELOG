@@ -1,10 +1,21 @@
-0.10.2 BlackWingLair
-xss filter set to true, and username password add htmlspecialchar to prevent sql injection and xss attack
-fix TSocket.php while loop exception while connection failed
-add result file size counter
-remove useless js and realtime mr slots status(but still keep codes)
-fix force download
-user can view all database without onlydb string.(but user can not use admin functions)
+0.11.1 BlackWingLair
+1. xss filter set to true, and username password add htmlspecialchar to prevent sql injection and xss attack(360safe bug report, by bincker and Zaohu)
+2. fix TSocket.php loop exception when connection failed(Jike.com bug report, by Hepeng)
+3. add result file size counter
+4. remove realtime mr slots status(but still keep codes)(causing lots of hive logs)
+5. fix force download
+6. normal user can view all database without onlydb string.(but user can not use admin functions)
+7. Add HiveQL template, user can save their own useful HiveQL.
+8. Add Chinese operation handbook(commit by wyyhzc@yahoo.com.cn)
+
+1. 增加XSS filter, 使用htmlspecialchar和mysql_escape_string用来防止sql注入和xss攻击(360safe bug report, by bincker and 枣核)
+2. 修正TSocket.php，以避免hivethrift端口错误引发的死循环(即刻搜索bug report, by 何鹏)
+3. 增加结果文件的大小计数器。
+4. 删除了实时map reduce状态监控(但仍然保留了代码)(会产生大量的Hive logs)
+5. 修正了结果集下载显示文件内容的问题
+6. 普通用户在不设置onlydb的情况下，可以访问所有的数据库（但是不能做admin的相关管理操作）
+7. 增加HiveQL模板功能，用户可以自己保存常用的HiveQL
+8. 增加中文操作手册(wyyhzc@yahoo.com.cn提交)
 
 
 0.10.1 BlackWingLair

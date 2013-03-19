@@ -30,6 +30,7 @@ class Manage extends CI_Controller
 		$data['common_history'] = $this->lang->line('common_history');
 		$data['common_log_out'] = $this->lang->line('common_log_out');
 		$data['common_user_admin'] = $this->lang->line('common_user_admin');
+		$data['common_templates'] = $this->lang->line('common_templates');
 		$this->load->view('nav_bar',$data);
 
 		#Generate div container
@@ -108,6 +109,7 @@ class Manage extends CI_Controller
 		$data['common_history'] = $this->lang->line('common_history');
 		$data['common_log_out'] = $this->lang->line('common_log_out');
 		$data['common_user_admin'] = $this->lang->line('common_user_admin');
+		$data['common_templates'] = $this->lang->line('common_templates');
 		$this->load->view('nav_bar',$data);
 
 		$this->load->view('div_fluid');
@@ -238,6 +240,7 @@ class Manage extends CI_Controller
 		$data['common_history'] = $this->lang->line('common_history');
 		$data['common_log_out'] = $this->lang->line('common_log_out');
 		$data['common_user_admin'] = $this->lang->line('common_user_admin');
+		$data['common_templates'] = $this->lang->line('common_templates');
 		$this->load->view('nav_bar',$data);
 
 		#Generate div container
