@@ -2,7 +2,7 @@
 	<pre class="alert alert-error">
 <?php echo $common_add_table;?>: <?php echo $var_db_name?> . <?php echo $table_name;?>
 	</pre>
-	<form method="post" action="<?php echo $this->config->base_url();?>table/createtableaction">
+	<form method="post" action="<?php echo $this->config->base_url();?>index.php/table/createtableaction">
 	<!--columns area-->
 	<div>
 	<table class="table table-bordered table-striped">
@@ -96,7 +96,7 @@
 	<input type="hidden" name="tbl_comment" value="<?php echo $table_comment;?>" />
 	<div>
 		<input type="submit" name="submit" value="<?php echo $common_submit;?>" class="btn btn-primary"/>
-		<a href="<?php echo $this->config->base_url()?>table/index/<?php echo $var_db_name;?>" class="btn btn-inverse"><?php echo $common_cancel?></a>
+		<a href="<?php echo $this->config->base_url()?>index.php/table/index/<?php echo $var_db_name;?>" class="btn btn-inverse"><?php echo $common_cancel?></a>
 	</div>
 	</form>
 </div>

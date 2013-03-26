@@ -15,32 +15,32 @@
 					</a>
 				</li>
 				<!--<li <?php if($this->router->class == "etl"){ echo "class=\"active\"";}?>>
-					<a href="<?php echo $this->config->base_url();?>etl/index/">
+					<a href="<?php echo $this->config->base_url();?>index.php/etl/index/">
 						<?php echo $common_etl;?>
 					</a>
 				</li>-->
 				<li <?php if($this->router->class == "hdfs"){ echo "class=\"active\"";}?>>
-					<a href="<?php echo $this->config->base_url();?>hdfs/index/">
+					<a href="<?php echo $this->config->base_url();?>index.php/hdfs/index/">
 						<?php echo $common_hdfs_browser;?>
 					</a>
 				</li>
 				<li <?php if($this->router->class == "templates"){ echo "class=\"active\"";}?>>
-					<a href="<?php echo $this->config->base_url();?>templates/index/">
+					<a href="<?php echo $this->config->base_url();?>index.php/templates/index/">
 						<?php echo $common_templates;?>
 					</a>
 				</li>
 				<li <?php if($this->router->class == "user"){ echo "class=\"active\"";}?>>
-					<a href="<?php echo $this->config->base_url();?>user/index/">
+					<a href="<?php echo $this->config->base_url();?>index.php/user/index/">
 						<?php echo $common_user_admin;;?>
 					</a>
 				</li>
 				<li <?php if($this->router->class == "history"){ echo "class=\"active\"";}?>>
-					<a href="<?php echo $this->config->base_url();?>history/index/">
+					<a href="<?php echo $this->config->base_url();?>index.php/history/index/">
 						<?php echo $common_history;?>
 					</a>
 				</li>
 				<li>
-					<a href="<?php echo $this->config->base_url();?>user/logout/">
+					<a href="<?php echo $this->config->base_url();?>index.php/user/logout/">
 						<?php echo $common_log_out;?>
 					</a>
 				</li>

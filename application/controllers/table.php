@@ -8,7 +8,7 @@ class Table extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/login/');
+			redirect($this->config->base_url() . 'index.php/user/login/');
 		}
 	}
 	
@@ -184,7 +184,7 @@ class Table extends CI_Controller
 								$location);
 								
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "table/index/".$db_name, "2", "refresh");
+		redirect($this->config->base_url() . "index.php/table/index/".$db_name, "2", "refresh");
 	}
 	
 	public function DropTable($db_name, $tbl_name)
@@ -193,7 +193,7 @@ class Table extends CI_Controller
 		echo "Drop: " . $db_name . " . " . $tbl_name;
 		echo $this->hive->drop_table($db_name, $tbl_name);
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "table/index/".$db_name, "2", "refresh");
+		redirect($this->config->base_url() . "index.php/table/index/".$db_name, "2", "refresh");
 	}
 	
 	public function TableDetailInfo($db_name, $tbl_name)
@@ -274,7 +274,7 @@ class Table extends CI_Controller
 		
 		echo $this->hive->clone_table($db_name, $new_tbl_name, $tbl_name, $external);
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "table/index/".$db_name, "2", "refresh");
+		redirect($this->config->base_url() . "index.php/table/index/".$db_name, "2", "refresh");
 	}
 	
 	public function BatchDropTable()
@@ -370,7 +370,7 @@ class Table extends CI_Controller
 		$sql = $this->hive->rename_table($db_name, $old_table_name, $new_table_name);
 		echo $sql;
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "table/index/".$db_name, "2", "refresh");
+		redirect($this->config->base_url() . "index.php/table/index/".$db_name, "2", "refresh");
 	}
 	
 	public function ChangeExternalAction()
@@ -384,7 +384,7 @@ class Table extends CI_Controller
 		echo $sql;
 		
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "table/index/".$db_name, "2", "refresh");
+		redirect($this->config->base_url() . "index.php/table/index/".$db_name, "2", "refresh");
 	}
 	
 	public function AlterColumnsAction()
@@ -404,7 +404,7 @@ class Table extends CI_Controller
 			echo $sql. "<br />";
 		}
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "table/index/".$db_name, "2", "refresh");
+		redirect($this->config->base_url() . "index.php/table/index/".$db_name, "2", "refresh");
 	}
 	
 	public function DropColumnsAction($db_name, $tbl_name, $cols_name)
@@ -414,7 +414,7 @@ class Table extends CI_Controller
 		$sql = $this->hive->drop_columns($db_name, $tbl_name, $cols_name);
 		echo $sql;
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "table/index/".$db_name, "2", "refresh");
+		redirect($this->config->base_url() . "index.php/table/index/".$db_name, "2", "refresh");
 	}
 	
 	public function AddColumns()
@@ -486,7 +486,7 @@ class Table extends CI_Controller
 		$sql = $this->hive->add_columns($db_name, $tbl_name, $cols_name, $cols_type, $cols_comment);
 		echo $sql;
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "table/index/".$db_name, "2", "refresh");
+		redirect($this->config->base_url() . "index.php/table/index/".$db_name, "2", "refresh");
 	}
 	
 	public function LoadData($db_name, $tbl_name)
@@ -531,7 +531,7 @@ class Table extends CI_Controller
 			$this->lang->load('errors');
 			$data['error'] = $this->lang->line('error_not_external_table');
 			$data['db_name'] = $db_name;
-			$data['back_url'] = $this->config->base_url(). "table/index/" . $db_name;
+			$data['back_url'] = $this->config->base_url(). "index.php/table/index/" . $db_name;
 			$data['common_back'] = $this->lang->line('common_back');
 			$this->load->view('errors',$data);
 		}

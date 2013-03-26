@@ -4,7 +4,7 @@
 	<tr>
 		<td>
 			<i class="icon-zoom-in"></i>
-			<a href="<?php echo $this->config->base_url();?>manage/query/<?php echo $var_db_name;?>/<?php echo $item;?>">
+			<a href="<?php echo $this->config->base_url();?>index.php/manage/query/<?php echo $var_db_name;?>/<?php echo $item;?>">
 				<?php echo $item;?>
 			</a>
 		</td>

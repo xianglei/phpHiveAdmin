@@ -9,7 +9,7 @@ class Templates extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/login/');
+			redirect($this->config->base_url() . 'index.php/user/login/');
 		}
 	}
 	
@@ -83,7 +83,7 @@ class Templates extends CI_Controller
 		}
 		
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "templates/index/", "2", "refresh");
+		redirect($this->config->base_url() . "index.php/templates/index/", "2", "refresh");
 	}
 	
 	public function DropTemplateAction()
@@ -103,7 +103,7 @@ class Templates extends CI_Controller
 		}
 		
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "templates/index/", "2", "refresh");
+		redirect($this->config->base_url() . "index.php/templates/index/", "2", "refresh");
 	}
 	
 	public function GetTemplate($t_id)
@@ -129,7 +129,7 @@ class Templates extends CI_Controller
 			echo "Failed";
 		}
 		$this->load->helper('url');
-		redirect($this->config->base_url() . "templates/index/", "2", "refresh");
+		redirect($this->config->base_url() . "index.php/templates/index/", "2", "refresh");
 	}
 }
 

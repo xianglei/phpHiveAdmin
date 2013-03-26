@@ -1,4 +1,4 @@
-For old user:
+For current user:
 unzip all files to overwrite old phpHiveAdmin
 import patch-001.sql into mysql with this command:
 "mysql -hyour_host -umysql_user -pmysql_passwd easyhadoop < patch-001.sql"

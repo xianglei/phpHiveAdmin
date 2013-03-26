@@ -1,10 +1,10 @@
 <div class="span10">
 <script>
-$.get('<?php echo $this->config->base_url()?>manage/getresultsize/<?php echo $this->uri->segment(3,0);?>',{},function(html){
+$.get('<?php echo $this->config->base_url()?>index.php/manage/getresultsize/<?php echo $this->uri->segment(3,0);?>',{},function(html){
 	$('#filesize').val(html);
 });
 </script>
-<a class="btn btn-success" href="<?php echo $this->config->base_url()?>manage/downloadresult/<?php echo $this->uri->segment(3,0);?>" target="_blank"><?php echo $common_download_result;?></a><br />
+<a class="btn btn-success" href="<?php echo $this->config->base_url()?>index.php/manage/downloadresult/<?php echo $this->uri->segment(3,0);?>" target="_blank"><?php echo $common_download_result;?></a><br />
 <input type="text" id="filesize" value="" disabled />
 
 <br><br>

@@ -1,4 +1,4 @@
-0.11.1 BlackWingLair
+0.11.1 BlackWingLair 03/19/20013
 1. xss filter set to true, and username password add htmlspecialchar to prevent sql injection and xss attack(360safe bug report, by bincker and Zaohu)
 2. fix TSocket.php loop exception when connection failed(Jike.com bug report, by Hepeng)
 3. add result file size counter

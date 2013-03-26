@@ -18,7 +18,7 @@
 	<!-- end: CSS -->
 	
 	<!-- start: JavaScript-->
-	<script src="<?php echo $this->config->base_url();?>js/jquery-1.8.3.min.js"></script>
+	<script src="<?php echo $this->config->base_url();?>js/jquery-1.9.1.min.js"></script>
 	<script src="<?php echo $this->config->base_url();?>js/highcharts.js"></script>
 	<script src="<?php echo $this->config->base_url();?>js/highcharts-more.js"></script>
 

@@ -89,14 +89,14 @@
 				</td>
 			<?php endif;?>
 				<td>
-				<i class="icon-th-list"></i><a href="<?php echo $this->config->base_url();?>manage/query/<?php echo $var_db_name;?>/<?php echo $item;?>"><?php echo $item;?></a>
+				<i class="icon-th-list"></i><a href="<?php echo $this->config->base_url();?>index.php/manage/query/<?php echo $var_db_name;?>/<?php echo $item;?>"><?php echo $item;?></a>
 				</td>
 			<?php if($this->session->userdata('role') == "admin"):?>
 				<td>
-				<i class="icon-pencil"></i><a href="<?php echo $this->config->base_url();?>table/altertable/<?php echo $var_db_name;?>/<?php echo $item;?>"><?php echo $common_alter_table;?></a>
+				<i class="icon-pencil"></i><a href="<?php echo $this->config->base_url();?>index.php/table/altertable/<?php echo $var_db_name;?>/<?php echo $item;?>"><?php echo $common_alter_table;?></a>
 				</td>
 				<td>
-				<i class="icon-chevron-right"></i><a href="<?php echo $this->config->base_url();?>table/loaddata/<?php echo $var_db_name;?>/<?php echo $item;?>"><?php echo $common_load_data;?></a>
+				<i class="icon-chevron-right"></i><a href="<?php echo $this->config->base_url();?>index.php/table/loaddata/<?php echo $var_db_name;?>/<?php echo $item;?>"><?php echo $common_load_data;?></a>
 				</td>
 				<td>
 				<i class="icon-random"></i><a href="#clone_table_<?php echo $item;?>" data-toggle="modal"><?php echo $common_clone_table;?></a>
@@ -108,7 +108,7 @@
 				
 				</td>
 				<td>
-				<i class="icon-zoom-in"></i><a href="<?php echo $this->config->base_url();?>table/tabledetailinfo/<?php echo $var_db_name;?>/<?php echo $item;?>"><?php echo $common_table_detail;?></a>
+				<i class="icon-zoom-in"></i><a href="<?php echo $this->config->base_url();?>index.php/table/tabledetailinfo/<?php echo $var_db_name;?>/<?php echo $item;?>"><?php echo $common_table_detail;?></a>
 				</td>
 				<td>
 				<i class="icon-remove"></i><a href="#drop_table_<?php echo $item;?>" data-toggle="modal"><?php echo $common_drop_table;?></a>

@@ -12,12 +12,12 @@ class User extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/login/');
+			redirect($this->config->base_url() . 'index.php/user/login/');
 		}
 		if($this->session->userdata('role') == 'user')
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/changepassword/');
+			redirect($this->config->base_url() . 'index.php/user/changepassword/');
 		}
 		#Generate Header
 		$this->lang->load('commons');
@@ -114,7 +114,7 @@ class User extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/login/');
+			redirect($this->config->base_url() . 'index.php/user/login/');
 		}
 		$this->load->model('user_model', 'user');
 		$username = $this->input->post('username');
@@ -136,7 +136,7 @@ class User extends CI_Controller
 			echo "Password not matched";
 		}
 		$this->load->helper('url');
-		redirect($this->config->base_url() . 'user/index/', '1', "refresh");
+		redirect($this->config->base_url() . 'index.php/user/index/', '1', "refresh");
 	}
 	
 	public function DropUserAction()
@@ -144,14 +144,14 @@ class User extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/login/');
+			redirect($this->config->base_url() . 'index.php/user/login/');
 		}
 		$this->load->model('user_model', 'user');
 		$user_id = $this->input->post('user_id');
 		
 		$this->user->drop_user($user_id, $this->session->userdata('role'));
 		$this->load->helper('url');
-		redirect($this->config->base_url() . 'user/index/', '0', "refresh");
+		redirect($this->config->base_url() . 'index.php/user/index/', '0', "refresh");
 	}
 	
 	public function UpdateUserAction()
@@ -159,7 +159,7 @@ class User extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/login/');
+			redirect($this->config->base_url() . 'index.php/user/login/');
 		}
 		$this->load->model('user_model', 'user');
 		$user_id = $this->input->post('user_id');
@@ -183,7 +183,7 @@ class User extends CI_Controller
 			echo "Password not matched";
 		}
 		$this->load->helper('url');
-		redirect($this->config->base_url() . 'user/index/', '1', "refresh");
+		redirect($this->config->base_url() . 'index.php/user/index/', '1', "refresh");
 	}
 	
 	public function LogOut()
@@ -191,7 +191,7 @@ class User extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/login/');
+			redirect($this->config->base_url() . 'index.php/user/login/');
 		}
 		$this->load->model('user_model', 'user');
 		$this->user->log_out();
@@ -204,7 +204,7 @@ class User extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/login/');
+			redirect($this->config->base_url() . 'index.php/user/login/');
 		}
 		#Generate Header
 		$this->lang->load('commons');
@@ -264,7 +264,7 @@ class User extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/login/');
+			redirect($this->config->base_url() . 'index.php/user/login/');
 		}
 		$this->load->model('user_model', 'user');
 		$user_id = $this->input->post('user_id');
@@ -301,7 +301,7 @@ class User extends CI_Controller
 			echo "Password not matched";
 		}
 		$this->load->helper('url');
-		redirect($this->config->base_url() . 'user/index/', '1', "refresh");
+		redirect($this->config->base_url() . 'index.php/user/index/', '1', "refresh");
 	}
 }
 

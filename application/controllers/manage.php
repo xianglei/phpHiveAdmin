@@ -9,7 +9,7 @@ class Manage extends CI_Controller
 		if(!$this->session->userdata('login') || $this->session->userdata('login') == FALSE)
 		{
 			$this->load->helper('url');
-			redirect($this->config->base_url() . 'user/login/');
+			redirect($this->config->base_url() . 'index.php/user/login/');
 		}
 	}
 

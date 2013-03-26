@@ -13,7 +13,7 @@ function BatchTableDropView()
 	}
 	var html = 'Drop: ' + checked.substring(0, (checked.length-1)).replace(/;/g, '<br />') + '!!??';
 	//alert(json);
-	/*$.post('<?php echo $this->config->base_url();?>table/batchdroptable/<?php echo $var_db_name;?>/',{tables:checked.substring(0, (checked.length-1)) },function (html){
+	/*$.post('<?php echo $this->config->base_url();?>index.php/table/batchdroptable/<?php echo $var_db_name;?>/',{tables:checked.substring(0, (checked.length-1)) },function (html){
 		html = html;
 	});*/
 	
@@ -32,7 +32,7 @@ function ConfirmDropTables()
 		}
 	}
 	var html = checked.substring(0, (checked.length-1));
-	$.post('<?php echo $this->config->base_url();?>table/batchdroptable/<?php echo $var_db_name;?>/', {tables:html}, function (html){
+	$.post('<?php echo $this->config->base_url();?>index.php/table/batchdroptable/<?php echo $var_db_name;?>/', {tables:html}, function (html){
 		html = html;
 		$('#table_list').empty();
 		$('#table_list').html(html);

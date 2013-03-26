@@ -110,7 +110,7 @@
 			var leftVal;
 			var rightVal;
 
-			$.getJSON('<?php echo $this->config->base_url();?>manage/getclusterstatus/', function(data){
+			$.getJSON('<?php echo $this->config->base_url();?>index.php/manage/getclusterstatus/', function(data){
 				leftVal =  data.mapTasks;
 				rightVal = data.reduceTasks;
 				
@@ -158,7 +158,7 @@ $(function () {
 								
 							maps.addPoint([x1, y1], true, true);
 							reduces.addPoint([x2, y2], true, true);
-							$.getJSON("<?php echo $this->config->base_url();?>manage/getclusterstatus/", function(data){
+							$.getJSON("<?php echo $this->config->base_url();?>index.php/manage/getclusterstatus/", function(data){
 								map=data.mapTasks;
 								reduce = data.reduceTasks;
 							});

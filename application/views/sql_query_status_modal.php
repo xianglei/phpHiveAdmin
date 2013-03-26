@@ -4,7 +4,7 @@ function SqlQuery()
 {
 	$('#query_submit').addClass('disabled');
 	$('#query_submit').attr('href','javascript:void(0)');
-	$.post('<?php echo $this->config->base_url();?>manage/sqlquery/' , {sql:$('#sql').val(), finger_print:$('#finger_print').val(),db_name:$('#db_name').val() }, function(html){
+	$.post('<?php echo $this->config->base_url();?>index.php/manage/sqlquery/' , {sql:$('#sql').val(), finger_print:$('#finger_print').val(),db_name:$('#db_name').val() }, function(html){
 		html = html;
 		$('#sql_query_status').html(html);
 	});
@@ -12,7 +12,7 @@ function SqlQuery()
 
 function QueryStatus()
 {
-	$.getJSON('<?php echo $this->config->base_url();?>manage/getquerystatus/' + $('#finger_print').val(), function(json){
+	$.getJSON('<?php echo $this->config->base_url();?>index.php/manage/getquerystatus/' + $('#finger_print').val(), function(json){
 		json = json;
 		map_per = json.map_percent;
 		reduce_per = json.reduce_percent;
@@ -39,7 +39,7 @@ function RefreshStatus(ctrl)
 function GetResult()
 {
 	var finger_print = $('#finger_print').val();
-	var href = '<?php echo $this->config->base_url();?>manage/getresult/' + finger_print;
+	var href = '<?php echo $this->config->base_url();?>index.php/manage/getresult/' + finger_print;
 	window.location = href;
 }
 

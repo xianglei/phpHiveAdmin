@@ -10,7 +10,7 @@ mkdir -p /var/www/html/phpHiveAdmin/etl
 mkdir -p /var/www/html/phpHiveAdmin/results
 chmod 777 /var/www/html/phpHiveAdmin/logs /var/www/html/phpHiveAdmin/etl /var/www/html/phpHiveAdmin/results
 cd /var/www/html/phpHiveAdmin
-
+service httpd start
 echo "/*************************************************************/"
 echo "Install basic environment complete, setup config.inc.php for access."
 echo "/*************************************************************/"

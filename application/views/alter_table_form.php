@@ -2,7 +2,7 @@
 
 	<a href="javascript:history.back()" class="btn btn-inverse"><i class="icon-backward icon-white"></i> <?php echo $common_back;?></a>
 	<br><br>
-	<form method="post" action="<?php echo $this->config->base_url();?>table/renametableaction/">
+	<form method="post" action="<?php echo $this->config->base_url();?>index.php/table/renametableaction/">
 	<table class="table table-bordered">
 		<tr class="warning">
 			<td><?php echo $common_rename_table;?></td>
@@ -16,7 +16,7 @@
 	
 	<br>
 	
-	<form method="post" action="<?php echo $this->config->base_url();?>table/changeexternalaction/">
+	<form method="post" action="<?php echo $this->config->base_url();?>index.php/table/changeexternalaction/">
 	<table  class="table table-bordered">
 		<tr>
 			<td><?php echo $common_table_type;?></td>
@@ -37,7 +37,7 @@
 	
 	<br>
 	
-	<form method="post" action="<?php echo $this->config->base_url();?>table/altercolumnsaction/">
+	<form method="post" action="<?php echo $this->config->base_url();?>index.php/table/altercolumnsaction/">
 	<table  class="table table-bordered">
 		<tr>
 			<td><?php echo $common_column_name;?></td>
@@ -60,7 +60,7 @@
 			</td>
 			<td><input type="text" name="cols_comment[]" value="<?php echo $cols_comment[$i];?>" /></td>
 			
-			<td><a href="<?php echo $this->config->base_url();?>table/dropcolumnsaction/<?php echo $var_db_name;?>/<?php echo $table_name;?>/<?php echo $cols_name[$i];?>" class="btn btn-danger"><?php echo $common_delete;?></a></td>
+			<td><a href="<?php echo $this->config->base_url();?>index.php/table/dropcolumnsaction/<?php echo $var_db_name;?>/<?php echo $table_name;?>/<?php echo $cols_name[$i];?>" class="btn btn-danger"><?php echo $common_delete;?></a></td>
 		</tr>
 		<?php endfor;?>
 	</table>
@@ -71,7 +71,7 @@
 	
 	<br>
 	
-	<form method="post" action="<?php echo $this->config->base_url();?>table/addcolumns/">
+	<form method="post" action="<?php echo $this->config->base_url();?>index.php/table/addcolumns/">
 	<table class="table table-bordered">
 		<tr class="warning">
 			<td><?php echo $common_add_columns;?></td>
