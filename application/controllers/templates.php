@@ -64,7 +64,20 @@ class Templates extends CI_Controller
 		#Generate Footer
 		$this->load->view('footer');
 	}
-	
+	public function CountAdd()
+	{
+			$id = $this->input->post('id');
+			$user_id = $this->session->userdata('id');
+			$this->load->model('templates_model', 'templates');
+			if($id>=0)
+			{
+				$this->templates->add_count($user_id,$id);
+				exit("$user_id : $id");
+			}
+			exit(1);
+			
+			
+	}
 	public function CreateTemplatesAction()
 	{
 		$role = $this->session->userdata('role');

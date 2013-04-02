@@ -10,7 +10,7 @@
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 				<li <?php if($this->router->class == "manage" || $this->router->class == "table"){ echo "class=\"active\"";}?>>
-					<a class="active" href="<?php echo $this->config->base_url();?>">
+					<a class="active" href="<?php echo $this->config->base_url();?>index.php">
 						<?php echo $common_hql_query;?>
 					</a>
 				</li>

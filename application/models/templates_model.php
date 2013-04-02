@@ -60,12 +60,27 @@ class Templates_model extends CI_Model
 			return FALSE;
 		}
 	}
-	
+	public function add_count($user_id,$id)
+	{
+		
+		$sql = "update ehm_pha_templates set  q_hit =q_hit +1 where id = '".$id."'  and user_id = '". $user_id ."'";
+		
+		if($this->db->simple_query($sql))
+		{
+			return TRUE;
+		}
+		else
+		{
+			return FALSE;
+		}
+			
+				
+	}
 	public function list_templates($user_id)//, $limit = '20', $offset = '0')
 	{
 		if($this->session->userdata('role') == "admin")
 		{
-			if ($query = $this->db->query("select a.*,b.username from ehm_pha_templates a, ehm_pha_user b where a.user_id = b.id order by a.id desc")):
+			if ($query = $this->db->query("select a.*,b.username from ehm_pha_templates a, ehm_pha_user b where a.user_id = b.id order by a.q_hit desc")):
 				return $query->result(); // Return value is an objected matrix
 			else:
 				return FALSE;
@@ -73,7 +88,7 @@ class Templates_model extends CI_Model
 		}
 		elseif($this->session->userdata('role') == 'user')
 		{
-			if ($query = $this->db->query("select * from ehm_pha_templates where user_id = ".$user_id." order by id desc")):// limit ".$offset.", ". $limit)):
+			if ($query = $this->db->query("select * from ehm_pha_templates where user_id = ".$user_id." order by q_hit desc")):// limit ".$offset.", ". $limit)):
 				return $query->result(); // Return value is an objected matrix
 			else:
 				return FALSE;

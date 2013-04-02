@@ -141,12 +141,19 @@ class Manage extends CI_Controller
 		$data['common_submit'] = $this->lang->line('common_submit');
 		$data['common_close'] = $this->lang->line('common_close');
 		$data['common_cli_done'] = $this->lang->line('common_cli_done');
+		#load query template 
+		
+		$this->load->model('templates_model', 'templates');
+		$data['templates_list'] = $this->templates->list_templates($this->session->userdata('id'));		
+				
 		$this->load->view('sql_query',$data);
 		$this->load->view('get_query_plan_modal', $data);
 		$this->load->view('sql_query_status_modal', $data);
 
 		$this->load->view('div_end');
 		$this->load->view('div_end');
+		
+		
 		
 		#Generate Footer
 		$this->load->view('footer');

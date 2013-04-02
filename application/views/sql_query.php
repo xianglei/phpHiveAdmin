@@ -121,8 +121,10 @@ SQL查询-->
 	
 	function MakeFingerPrint()
 	{
+
 		if($('#finger_print').val() == '')
 		{
+			
 			$.get('<?php echo $this->config->base_url();?>index.php/manage/getfingerprint/', {}, function(html){
 				html = html;
 				$('#finger_print').val(html);
@@ -131,16 +133,51 @@ SQL查询-->
 		}
 		else
 		{
+			if($('#template_id').val()!='-1')
+			{
+				
+				$.post('<?php echo $this->config->base_url();?>index.php/templates/countadd/', {id:$('#template_id').val()}, function(html){
+				html = html;
+				});
+			}
+		
 			$('#finger_print').addClass('disabled');
 			return false;
 		}
 	}
-
+	function GetTemplate()
+	{
+		var selectStr=$('#template_list').find('option:selected').val();
+		if(selectStr.indexOf('!!==!!')<0)
+		{
+			     $('#sql').val(selectStr);
+				 $('#template_id').val("-1");
+		}
+		else
+		{
+				$('#sql').val(selectStr.split('!!==!!')[1]);
+				$('#template_id').val(selectStr.split('!!==!!')[0]);
+			
+					    
+				
+				
+				
+		}
+	
+	}
 	</script>
 		<div id="hiveudf">
 			<textarea cols="300" rows="9" name="sql" id="sql">select * from <?php echo $var_db_name;?>.<?php echo $table_name;?> limit 30</textarea>
+			<p>
+		<select id="template_list" class="span3" onChange="GetTemplate();">
+			<?php foreach ($templates_list as $v):?>
+					<option value="select * from <?php echo $var_db_name;?>.<?php echo $table_name;?> limit 30" selected>click to select</option>
+					<option value="<?php echo $v->id;?>!!==!!<?php echo $v->t_content;?>"><?php echo $v->t_name;?></option>
+			<?php endforeach;?> 
+			</select>		<input type="hidden" id="template_id" value="-1" />	
+			  </p>
 		</div>
-
+		
 		<div class="btn-group">
 			<a href="#get_query_plan" data-toggle="modal" class="btn btn-primary" onclick="GetQueryPlan()"><i class=icon-ok></i> <?php echo $common_hql_validator;?></a>
 			<button class="btn dropdown-toggle btn-primary" data-toggle="dropdown">
