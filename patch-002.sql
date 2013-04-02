@@ -1,0 +1,1 @@
+alter table ehm_pha_templates add q_hit int(10) NOT NULL;
