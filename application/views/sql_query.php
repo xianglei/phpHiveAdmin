@@ -170,8 +170,10 @@ SQL查询-->
 			<textarea cols="300" rows="9" name="sql" id="sql">select * from <?php echo $var_db_name;?>.<?php echo $table_name;?> limit 30</textarea>
 			<p>
 		<select id="template_list" class="span3" onChange="GetTemplate();">
+		<option value="select * from <?php echo $var_db_name;?>.<?php echo $table_name;?> limit 30" selected>click to select</option>
+			<?php if(sizeof($templates_list)>0) ?>
 			<?php foreach ($templates_list as $v):?>
-					<option value="select * from <?php echo $var_db_name;?>.<?php echo $table_name;?> limit 30" selected>click to select</option>
+					
 					<option value="<?php echo $v->id;?>!!==!!<?php echo $v->t_content;?>"><?php echo $v->t_name;?></option>
 			<?php endforeach;?> 
 			</select>		<input type="hidden" id="template_id" value="-1" />	
