@@ -3,6 +3,8 @@ yum install -y php php-cli php-devel php-common httpd httpd-devel php-mbstring p
 service mysqld start
 mysql -e "create database if not exists easyhadoop;"
 mysql -hlocalhost -uroot easyhadoop < phpHiveAdmin.sql
+mysql -hlocalhost -uroot easyhadoop < patch-001.sql
+mysql -hlocalhost -uroot easyhadoop < patch-002.sql
 mkdir -p /var/www/html/phpHiveAdmin
 cp -R * /var/www/html/phpHiveAdmin/
 mkdir -p /var/www/html/phpHiveAdmin/logs
