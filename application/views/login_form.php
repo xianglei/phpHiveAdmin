@@ -1,5 +1,5 @@
 <div class="container">
-	<h2>phpHiveAdmin 0.10.1 - BlackWingLair</h2>
+	<h2>phpHiveAdmin 0.11.1 - BlackWingLair</h2>
 	<form class="form-horizontal" method="post" action="<?php echo $this->config->base_url();?>index.php/user/loginaction/">
 		<div class="control-group">
 			<label class="control-label"><?php echo $common_username;?></label>
