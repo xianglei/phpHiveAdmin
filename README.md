@@ -13,6 +13,14 @@ Hive 0.7.1
 php 5.3.8
 apache 2.2.x
 
+![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screeshot/create_database.jpg)
+![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screeshot/create_table_1.jpg)
+![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screeshot/create_table_2.jpg)
+![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screeshot/query_plan.jpg)
+![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screeshot/auto_complete.jpg)
+![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screeshot/browse_hdfs.jpg)
+![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screeshot/results.jpg)
+
 Test passed with environment below:
 centos 5.x - 6.x
 ubuntu 11.x - 12.x
