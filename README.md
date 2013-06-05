@@ -17,6 +17,7 @@ apache 2.2.x
 ![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screenshots/create_table_1.jpg)
 ![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screenshots/create_table_2.jpg)
 ![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screenshots/query_plan.jpg)
+![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screenshots/doing_query.jpg)
 ![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screenshots/auto_complete.jpg)
 ![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screenshots/browse_hdfs.jpg)
 ![ScreenShot](https://raw.github.com/xianglei/phpHiveAdmin/master/screenshots/results.jpg)
