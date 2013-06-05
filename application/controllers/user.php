@@ -106,7 +106,7 @@ class User extends CI_Controller
 		$password = $this->input->post('password');
 		$this->user->login_action($username, $password);
 		$this->load->helper('url');
-		redirect($this->config->base_url());
+		redirect($this->config->base_url(). 'index.php');
 	}
 	
 	public function CreateUserAction()
