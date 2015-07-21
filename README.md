@@ -1,3 +1,6 @@
+The php version has been deprecated, A new python version would be coming soon
+
+
 phpHiveAdmin
 ============
 
